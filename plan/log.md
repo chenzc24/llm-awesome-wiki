@@ -225,7 +225,8 @@
   `rg` confirmed document/PPT corpus defaults, `wiki/chapters/`, and optional
   research-profile language; `git submodule status` confirmed `llm_wiki`
   remained pinned.
-- Commit: ready for `Make document corpus the default workspace profile`.
+- Commit: completed and pushed to `origin/main` as `10a4d0a Make document
+  corpus the default workspace profile`.
 
 ## 2026-06-03 - Align distillation rounds with overview-first flow
 
