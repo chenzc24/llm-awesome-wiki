@@ -63,7 +63,15 @@ committed, and eventually turned into executable engineering artifacts.
 
    LLM Wiki partially solves the agent knowledge base problem: agents can find
    and maintain structured context. It does not fully design the next path:
-   knowledge to executable code. This project must explore that path directly.
+   knowledge to an executable codebase or capability library. In this project,
+   "execution" specifically includes the future path from distilled knowledge
+   to `skill + tool` artifacts: agent skills, local tools, scripts, tests,
+   templates, and code that can be run and validated.
+
+   This is the next-stage mainline after the workflow foundation. It is large
+   enough to require its own staged design and should not be implemented in one
+   pass. The current repository only names the direction and creates the
+   maintenance environment needed to pursue it safely.
 
 ## Target Shape
 
@@ -74,7 +82,7 @@ raw source
 -> distilled wiki
 -> structured claims, concepts, decisions, and methods
 -> executable specs
--> scripts, tests, experiments, templates, or code
+-> skill + tool codebase, scripts, tests, experiments, templates, or app code
 -> validation
 -> feedback into the wiki
 ```

@@ -27,6 +27,11 @@ application. It includes:
 These capabilities are valuable references for structure, terminology, and
 future tool ideas.
 
+Important boundary: `llm_wiki` gives agents access to a maintained knowledge
+base, but it does not design the full path from that knowledge base to an
+executable codebase. Its agent-skill integration is an access layer, not a
+knowledge-to-code pipeline.
+
 ## What This Repository Does Differently
 
 This repository is not trying to become the `llm_wiki` desktop app. The main
@@ -38,6 +43,8 @@ differences are:
 - Distillation is organized around explicit plans, logs, and compare gates.
 - The intended output includes executable artifacts, not only browsable wiki
   pages.
+- The next-stage mainline is a knowledge-to-code path that can produce and
+  maintain `skill + tool` artifacts.
 - Agent behavior is controlled by `AGENTS.md` and repo-local process files.
 
 ## Reference Usage Rules
@@ -58,6 +65,8 @@ differences are:
 - graph-derived knowledge gaps
 - image captioning as text-indexable source context
 - local API patterns for agent access
+- the idea of an agent skill as an access pattern, while redesigning it here as
+  part of a broader executable `skill + tool` codebase
 
 ## Ideas Not To Inherit As Requirements
 
@@ -65,3 +74,5 @@ differences are:
 - desktop app state as the authoritative workflow state
 - graph visualization as a required quality gate
 - model-only semantic lint as the final acceptance mechanism
+- treating agent access to a wiki as equivalent to a full knowledge-to-code
+  execution pipeline

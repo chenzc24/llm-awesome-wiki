@@ -2,7 +2,11 @@
 
 This roadmap turns the core philosophy into staged work. The first version only
 creates the documentation and directory skeleton. Later versions can add
-scripts, tests, and VSCode integration.
+scripts, tests, VSCode integration, and the knowledge-to-code mainline.
+
+The knowledge-to-code path means moving from a maintained knowledge base to an
+executable codebase or capability library, especially `skill + tool` artifacts.
+It is intentionally not designed or implemented all at once in this bootstrap.
 
 ## Phase 1: Bootstrap The Workflow
 
@@ -97,25 +101,54 @@ Expected outputs:
 - markdown task conventions
 - local script entrypoints
 
-## Phase 6: Knowledge To Executable
+## Phase 6: Knowledge-To-Code Mainline Design
 
-Goal: turn distilled knowledge into implementation artifacts.
+Goal: design the next-stage mainline from distilled knowledge to an executable
+`skill + tool` codebase.
+
+Planned work:
+
+- define what "executable" means for this repository
+- separate skills, tools, tests, templates, and examples as distinct artifact
+  classes
+- decide how wiki claims, concepts, decisions, and methods become executable
+  specs
+- define which operations must be deterministic tools instead of model
+  judgment
+- create a staged design document before any large implementation
+
+Expected outputs:
+
+- knowledge-to-code design brief
+- proposed `skills/` and `tools/` structure
+- artifact boundary rules
+- first execution target selection
+
+## Phase 7: Skill + Tool Foundation
+
+Goal: build the first minimal executable capability layer without trying to
+finish the entire knowledge-to-code path.
 
 Planned work:
 
 - define executable spec templates
-- map wiki claims and decisions into tests or scripts
-- create templates for prototypes and experiments
+- create initial skill templates for agent behavior
+- create initial tool templates for deterministic checks
+- map wiki claims and decisions into tests or scripts in one narrow scenario
+- create templates for prototypes and experiments only after the first
+  skill/tool path is validated
 - add validation feedback loops from code back into wiki
 
 Expected outputs:
 
 - spec templates
+- skill templates
+- tool templates
 - test plan templates
 - experiment protocol templates
 - generated-code review rules
 
-## Phase 7: Long-Term Maintenance
+## Phase 8: Long-Term Maintenance
 
 Goal: keep the workflow healthy as sources and outputs grow.
 
