@@ -116,4 +116,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   submodule status` confirmed `MinerU` is pinned at `ef4aa39`; `.gitmodules`
   config inspection confirmed the fork URL; `git diff --check` passed with only
   Windows line-ending warnings.
-- Commit: pending.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `59b3c9e
+  Add MinerU reference submodule`.

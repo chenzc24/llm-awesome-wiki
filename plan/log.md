@@ -377,4 +377,5 @@
   confirmed `MinerU` points to `https://github.com/chenzc24/MinerU.git`; `git
   diff --check` passed with only Windows line-ending warnings; `git status
   --short --branch` showed only the intended submodule and maintenance files.
-- Commit: pending `Add MinerU reference submodule` on `co-work/czc_personB`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `59b3c9e
+  Add MinerU reference submodule`.
