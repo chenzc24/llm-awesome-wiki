@@ -27,6 +27,18 @@
   `knowledge-to-code` language across the mainline docs.
 - Commit: ready for `Clarify knowledge-to-code execution mainline`.
 
+## 2026-06-03 - Add plan cleanup rule
+
+- Target: add an Agent rule requiring periodic cleanup of completed `plan/`
+  entries so the planning directory stays useful.
+- Changed areas: updated `AGENTS.md`; added the target plan under
+  `plan/2026-06-03-add-plan-cleanup-rule/`.
+- Validation: `git diff --check` passed; targeted `rg` confirmed plan hygiene,
+  completed-plan summarization, archive/removal, and in-progress protection
+  language in `AGENTS.md`; `git submodule status` confirmed `llm_wiki` remained
+  unchanged.
+- Commit: ready for `Add plan cleanup rule`.
+
 ## 2026-06-03 - Split construction and downstream execution layers
 
 - Target: separate the knowledge-construction executable layer from the later

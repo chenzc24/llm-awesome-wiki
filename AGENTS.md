@@ -29,6 +29,17 @@ After making modifications:
 3. Run the validation listed in the target plan.
 4. At minimum, run `git diff --check` and `git status --short --branch`.
 
+Plan hygiene:
+
+1. Periodically clean completed target plans so `plan/` stays useful.
+2. At the end of a day or completed stage, summarize finished
+   `plan/<date-goal-slug>/plan.md` entries into `plan/log.md` or a future
+   archive file.
+3. After the summary preserves the goal, outcome, validation, and commit hash,
+   remove or archive the detailed completed plan folders.
+4. Never delete an in-progress, failed, or unresolved plan. Keep it visible
+   until the work is finished or explicitly abandoned.
+
 When the target is verified:
 
 1. Stage only the intended files.
