@@ -26,3 +26,17 @@
   `next-stage mainline`, `skill + tool`, `executable codebase`, and
   `knowledge-to-code` language across the mainline docs.
 - Commit: ready for `Clarify knowledge-to-code execution mainline`.
+
+## 2026-06-03 - Split construction and downstream execution layers
+
+- Target: separate the knowledge-construction executable layer from the later
+  downstream knowledge-to-code mainline.
+- Changed areas: updated `docs/core-philosophy.md`,
+  `docs/knowledge-to-executable.md`, `docs/execution-roadmap.md`,
+  `docs/llm_wiki-reference.md`, and `tools/README.md`; added the target plan
+  under `plan/2026-06-03-split-execution-layers/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed `construction executable layer`,
+  `knowledge-base construction`, `downstream knowledge-to-code`, and
+  `skill + tool` language across docs and tools guidance.
+- Commit: ready for `Split construction and downstream execution layers`.

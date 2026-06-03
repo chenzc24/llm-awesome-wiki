@@ -2,11 +2,13 @@
 
 This roadmap turns the core philosophy into staged work. The first version only
 creates the documentation and directory skeleton. Later versions can add
-scripts, tests, VSCode integration, and the knowledge-to-code mainline.
+scripts, tests, VSCode integration, and downstream knowledge-to-code work.
 
-The knowledge-to-code path means moving from a maintained knowledge base to an
-executable codebase or capability library, especially `skill + tool` artifacts.
-It is intentionally not designed or implemented all at once in this bootstrap.
+There are two execution layers. The construction executable layer belongs inside
+the knowledge-base construction stage: source inventory, lint, search, compare
+gates, claim audit, and maintenance reports. The downstream knowledge-to-code
+layer comes later: a stable knowledge base can produce or maintain `skill +
+tool` artifacts. These two layers should not be collapsed into one task.
 
 ## Phase 1: Bootstrap The Workflow
 
@@ -83,16 +85,21 @@ Acceptance:
 
 - no round is considered complete only because the model says it is complete
 - unresolved judgment is moved into review or todo records
+- compare reports are treated as part of the knowledge-construction executable
+  layer, not as downstream skill/tool generation
 
-## Phase 5: VSCode-Native Workflow
+## Phase 5: VSCode-Native Workflow And Construction Tools
 
-Goal: make the repository pleasant to maintain without Obsidian.
+Goal: make the repository pleasant to maintain without Obsidian and add the
+first executable tools required by knowledge-base construction.
 
 Planned work:
 
 - recommend VSCode extensions for markdown, YAML, search, and tasks
 - define workspace settings that do not create lock-in
 - provide CLI-friendly search and lint scripts
+- provide source inventory, compare, and claim-audit script templates
+- make construction tools produce reports instead of silently rewriting the wiki
 - keep all authoritative state in files
 
 Expected outputs:
@@ -100,21 +107,23 @@ Expected outputs:
 - `.vscode/` recommendations if needed
 - markdown task conventions
 - local script entrypoints
+- source inventory report template
+- compare gate report template
+- claim audit report template
 
-## Phase 6: Knowledge-To-Code Mainline Design
+## Phase 6: Downstream Knowledge-To-Code Mainline Design
 
-Goal: design the next-stage mainline from distilled knowledge to an executable
-`skill + tool` codebase.
+Goal: design the later mainline from a stable distilled knowledge base to a
+downstream executable `skill + tool` codebase.
 
 Planned work:
 
-- define what "executable" means for this repository
+- define what downstream "executable" means beyond construction tooling
 - separate skills, tools, tests, templates, and examples as distinct artifact
   classes
 - decide how wiki claims, concepts, decisions, and methods become executable
   specs
-- define which operations must be deterministic tools instead of model
-  judgment
+- distinguish construction-maintenance tools from domain skill/tool artifacts
 - create a staged design document before any large implementation
 
 Expected outputs:
@@ -124,7 +133,7 @@ Expected outputs:
 - artifact boundary rules
 - first execution target selection
 
-## Phase 7: Skill + Tool Foundation
+## Phase 7: Downstream Skill + Tool Foundation
 
 Goal: build the first minimal executable capability layer without trying to
 finish the entire knowledge-to-code path.

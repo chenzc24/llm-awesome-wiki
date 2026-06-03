@@ -59,19 +59,24 @@ committed, and eventually turned into executable engineering artifacts.
    broken links, frontmatter validity, unresolved contradictions, and explicit
    human review items.
 
-7. Knowledge should lead to execution.
+7. Knowledge should support two execution layers.
 
    LLM Wiki partially solves the agent knowledge base problem: agents can find
    and maintain structured context. It does not fully design the next path:
-   knowledge to an executable codebase or capability library. In this project,
-   "execution" specifically includes the future path from distilled knowledge
-   to `skill + tool` artifacts: agent skills, local tools, scripts, tests,
-   templates, and code that can be run and validated.
+   knowledge to executable work. This project separates that path into two
+   layers.
 
-   This is the next-stage mainline after the workflow foundation. It is large
-   enough to require its own staged design and should not be implemented in one
-   pass. The current repository only names the direction and creates the
-   maintenance environment needed to pursue it safely.
+   The first layer is the knowledge-construction executable layer: local tools
+   for source inventory, lint, search, compare gates, claim audit, review
+   queues, and maintenance logs. This layer belongs inside the knowledge-base
+   construction stage. It makes distillation safer and less dependent on model
+   self-evaluation.
+
+   The second layer is the downstream knowledge-to-code layer: after the wiki
+   is stable enough, distilled knowledge may drive `skill + tool` artifacts,
+   agent skills, local tools, scripts, tests, templates, and code that can be
+   run and validated. This is a later mainline and should not be implemented in
+   one pass.
 
 ## Target Shape
 
@@ -80,9 +85,10 @@ The repository should eventually support this pipeline:
 ```text
 raw source
 -> distilled wiki
+-> construction tools for lint, compare, coverage, and maintenance
 -> structured claims, concepts, decisions, and methods
 -> executable specs
--> skill + tool codebase, scripts, tests, experiments, templates, or app code
+-> downstream skill + tool codebase, scripts, tests, templates, or app code
 -> validation
 -> feedback into the wiki
 ```

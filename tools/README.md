@@ -1,8 +1,12 @@
 # Tools
 
-This directory is reserved for future repo-local tooling. The first version of
-the workflow only documents tool direction; it does not implement runnable
-scripts yet.
+This directory is reserved for future repo-local tooling. The first tool layer
+belongs to knowledge-base construction: maintenance, lint, search, compare
+gates, source inventory, and claim audit. These are construction tools, not the
+later downstream domain `skill + tool` codebase.
+
+The first version of the workflow only documents tool direction; it does not
+implement runnable scripts yet.
 
 ## Planned Tool Families
 

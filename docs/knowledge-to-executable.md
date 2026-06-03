@@ -1,33 +1,59 @@
 # Knowledge To Executable
 
 LLM Wiki helps agents maintain knowledge. This project extends that idea toward
-execution: distilled knowledge should eventually become an executable codebase
-or capability library, especially `skill + tool` artifacts that agents can use.
+execution in two layers. The first layer is part of knowledge-base construction:
+maintenance, lint, search, compare gates, source inventory, and claim audit. The
+second layer is downstream: a stable distilled wiki may later drive an
+executable codebase or capability library, especially `skill + tool` artifacts
+that agents can use.
 
 This document is a direction-setting document, not a finished design. The
-knowledge-to-code path is the next-stage mainline after workflow bootstrap and
-must be explored in small phases. Do not attempt to implement the entire path in
-one pass.
+construction executable layer should be designed before the downstream
+knowledge-to-code path. Do not attempt to implement both layers in one pass.
 
 ## Pipeline
 
 ```text
 raw source
 -> distilled wiki
+-> construction executable layer
 -> structured knowledge units
 -> executable specs
--> skill + tool codebase
+-> downstream skill + tool codebase
 -> implementation artifacts
 -> validation
 -> feedback into the wiki
 ```
 
-## Meaning Of "Executable"
+## Two Execution Layers
 
-In this project, "executable" does not only mean application code. It means a
-validated capability layer that can be run by a human, a CLI, or an agent.
+In this project, "executable" does not only mean application code. It means
+validated operations that can be run by a human, a CLI, or an agent. There are
+two layers with different jobs.
 
-Primary executable targets:
+## Layer A: Knowledge-Construction Executable Layer
+
+This layer belongs to the knowledge-base construction stage. Its purpose is to
+make distillation, maintenance, and comparison more reliable.
+
+Primary targets:
+
+- source inventory: path, hash, type, processing status, and ownership
+- wiki lint: frontmatter, broken links, orphan pages, stale index entries
+- compare gates: source coverage, claim coverage, omissions, contradictions
+- claim audit: map important claims to source references
+- search helpers: CLI-friendly search over raw and distilled content
+- todo/review sync: turn lint and compare outputs into actionable tasks
+
+This layer should be built before the downstream skill/tool mainline. It is the
+quality infrastructure for the knowledge base itself.
+
+## Layer B: Downstream Knowledge-To-Code Layer
+
+This layer starts after the wiki has enough stability and traceability. Its
+purpose is to turn distilled knowledge into executable capabilities.
+
+Primary targets:
 
 - agent skills: instructions, triggers, examples, and usage constraints
 - tools: scripts, CLIs, MCP servers, API wrappers, validators, and generators
@@ -36,7 +62,8 @@ Primary executable targets:
 - prototypes or app code: implementation artifacts derived from wiki decisions
 
 The future goal is a repository where distilled knowledge can drive a
-maintained `skills/` and `tools/` codebase rather than stopping at markdown.
+maintained downstream `skills/` and `tools/` codebase rather than stopping at
+markdown.
 
 ## Layer 1: Raw Source
 
@@ -97,11 +124,11 @@ Candidate outputs:
 - experiment protocols
 - migration plans
 
-## Layer 5: Skill And Tool Codebase
+## Layer 5: Downstream Skill And Tool Codebase
 
-The first major execution target should be a `skill + tool` codebase. Skills
-capture agent behavior and domain procedures; tools provide deterministic
-operations that should not be left to model judgment.
+The downstream execution target is a `skill + tool` codebase. Skills capture
+agent behavior and domain procedures; tools provide deterministic operations
+that should not be left to model judgment.
 
 Candidate future structure:
 
@@ -113,7 +140,8 @@ Candidate future structure:
 - `examples/`: small reference projects showing the workflow end to end
 
 This layer should be designed after the distillation workflow is stable enough
-to provide reliable inputs.
+to provide reliable inputs, and after the construction executable layer is in
+place.
 
 ## Layer 6: Implementation Artifacts
 
@@ -144,17 +172,23 @@ Validation signals:
 - human review resolves ambiguous judgment
 - Git commits mark stable checkpoints
 
-## Staged Mainline
+## Staged Work
 
-The knowledge-to-code path should become its own staged workstream:
+The construction executable layer should come first:
 
-1. Define what counts as an executable output for this workflow.
-2. Design the minimal `skill + tool` repository structure.
-3. Build deterministic tools for source inventory, lint, compare, and claim
+1. Define the source inventory, lint, compare, and claim-audit reports.
+2. Build deterministic tools for source inventory, lint, compare, and claim
    audit.
-4. Add skill templates that tell agents when and how to call those tools.
-5. Connect compare and validation results back into wiki maintenance.
-6. Only then explore generated application code or larger automation.
+3. Connect compare and validation results back into wiki maintenance.
+4. Add agent rules that require these tools during distillation rounds.
+
+Only after that should the downstream knowledge-to-code mainline begin:
+
+1. Define what counts as a downstream executable output.
+2. Design the minimal `skill + tool` repository structure.
+3. Add skill templates that tell agents when and how to call domain tools.
+4. Map stable wiki decisions and methods into one narrow executable scenario.
+5. Only then explore generated application code or larger automation.
 
 ## First Principles
 

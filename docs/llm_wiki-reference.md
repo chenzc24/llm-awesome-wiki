@@ -28,9 +28,10 @@ These capabilities are valuable references for structure, terminology, and
 future tool ideas.
 
 Important boundary: `llm_wiki` gives agents access to a maintained knowledge
-base, but it does not design the full path from that knowledge base to an
-executable codebase. Its agent-skill integration is an access layer, not a
-knowledge-to-code pipeline.
+base, but it does not separate the two execution layers this repository needs:
+construction tools for maintaining/comparing the wiki, and downstream
+knowledge-to-code work that can later produce a `skill + tool` codebase. Its
+agent-skill integration is an access layer, not either complete layer.
 
 ## What This Repository Does Differently
 
@@ -41,10 +42,10 @@ differences are:
 - Obsidian is optional compatibility, not a dependency.
 - The root workflow is designed as a portable repo template.
 - Distillation is organized around explicit plans, logs, and compare gates.
-- The intended output includes executable artifacts, not only browsable wiki
-  pages.
-- The next-stage mainline is a knowledge-to-code path that can produce and
-  maintain `skill + tool` artifacts.
+- The construction stage includes executable maintenance and compare tools, not
+  only browsable wiki pages.
+- The later downstream mainline is a knowledge-to-code path that can produce and
+  maintain domain `skill + tool` artifacts.
 - Agent behavior is controlled by `AGENTS.md` and repo-local process files.
 
 ## Reference Usage Rules
@@ -66,7 +67,7 @@ differences are:
 - image captioning as text-indexable source context
 - local API patterns for agent access
 - the idea of an agent skill as an access pattern, while redesigning it here as
-  part of a broader executable `skill + tool` codebase
+  part of a broader downstream `skill + tool` codebase
 
 ## Ideas Not To Inherit As Requirements
 
@@ -76,3 +77,5 @@ differences are:
 - model-only semantic lint as the final acceptance mechanism
 - treating agent access to a wiki as equivalent to a full knowledge-to-code
   execution pipeline
+- treating maintenance/compare tools as the same layer as downstream domain
+  skill/tool generation
