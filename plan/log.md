@@ -244,6 +244,28 @@
 - Commit: completed and pushed to `origin/main` as `10a4d0a Make document
   corpus the default workspace profile`.
 
+## 2026-06-03 - Add workspace kernel golden path templates
+
+- Target: make Phase 1.3 usable for a first manual document/PPT distillation
+  round by adding first-use guidance and workspace templates for planning,
+  source inventory, source packets, wiki pages, and validation notes.
+- Changed areas: updated `README.md`,
+  `templates/workspace-kernel/README.md`, and
+  `tools/validate-kernel/validate-kernel.ps1`; added the Phase 1.3 phase plan,
+  first-round plan template, source inventory and packet templates, overview,
+  source-page, chapter-page, and validation-note templates; added the target
+  plan under
+  `plan/users/chenzc24/2026-06-03-phase-1-3-workspace-kernel-golden-path/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 1.3, golden path, source inventory, source packet, first-round, and
+  `compare gate not enabled` language; `git submodule status` confirmed
+  `llm_wiki` remained pinned; `git status --short --branch` showed the intended
+  Phase 1.3 files plus unrelated untracked user work under `docs/collaboration/`
+  and `plan/users/chenzc24/2026-06-03-document-two-person-worksplit/`, which
+  were left untouched.
+- Commit: pending `Add workspace kernel golden path templates`.
+
 ## 2026-06-03 - Align distillation rounds with overview-first flow
 
 - Target: update the distillation round rule so new work starts with broad
@@ -272,3 +294,16 @@
   co-worker, coordinator, ownership, shared integration, multi-agent, or branch
   policy workflow rules.
 - Commit: ready for `Simplify workspace maintenance for single maintainer`.
+
+## 2026-06-03 - Document two-person pre-skill/tools worksplit
+
+- Target: add a newcomer-friendly collaboration guide that explains the
+  two-person owner split before downstream skill/tool development.
+- Changed areas: added `docs/collaboration/README.md` and
+  `docs/collaboration/two-person-pre-skill-tools-worksplit.md`; added the
+  target plan under
+  `plan/users/chenzc24/2026-06-03-document-two-person-worksplit/`; updated
+  `plan/users/chenzc24/log.md`.
+- Validation: pending targeted `rg`, `git diff --check`, and
+  `git status --short --branch`.
+- Commit: pending.

@@ -37,3 +37,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   under `plan/users/chenzc24/`, and planning docs distinguish human user
   namespaces from executor agents.
 - Commit: ready in the parent repository task.
+
+## 2026-06-03 - Add workspace kernel golden path templates
+
+- Target: add Phase 1.3 first-round workspace templates so a copied kernel can
+  complete a manual document/PPT distillation round without new automation.
+- Changed areas: `README.md`, `docs/phase-plans/`,
+  `templates/workspace-kernel/`, `tools/validate-kernel/`, `plan/log.md`, and
+  `plan/users/chenzc24/2026-06-03-phase-1-3-workspace-kernel-golden-path/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  the golden-path terms and compare-deferred language; `git submodule status`
+  confirmed `llm_wiki` remained pinned.
+- Commit: pending.
+
+## 2026-06-03 - Document two-person pre-skill/tools worksplit
+
+- Target: explain the two-person pre-skill/tools work split in a
+  newcomer-friendly way with background, ownership lines, daily sync, branches,
+  file boundaries, and milestones.
+- Changed areas: `docs/collaboration/` and
+  `plan/users/chenzc24/2026-06-03-document-two-person-worksplit/`.
+- Validation: pending in the target plan.
+- Commit: pending.

@@ -1,34 +1,65 @@
-# Workspace Kernel Template
+# Workspace Kernel
 
-Copy this directory into a new knowledge workspace repository to start a
-VSCode-native LLM Wiki workflow.
+This directory is a copyable kernel for a new knowledge workspace repository.
+Copy its contents into a new repo, open that repo in VSCode, and run the first
+manual document/PPT distillation round from inside the workspace.
 
-After copying, the new repository owns its own `raw/`, `wiki/`, `reports/`,
-`tools/`, `contracts/`, `purpose.md`, `schema.md`, and `AGENTS.md`. Daily work
-should happen inside that workspace repository, not inside the system repo.
+The default profile is a document/PPT corpus workflow. Preserve source
+structure, keep chapter order readable, and make source coverage auditable.
+Research-wiki pages such as concepts, entities, comparisons, queries, and broad
+synthesis are optional extensions.
 
-## First Steps In A New Workspace
+## First Ten Minutes
 
-1. Edit `purpose.md`.
-2. Edit `schema.md` for the domain.
-3. Create a target plan under `plan/`.
-4. Place source files under `raw/sources/`.
-5. Create source inventory and source packets under `raw/derived/`.
-6. Distill source packets into `wiki/`.
-7. Write compare, lint, coverage, or review reports under `reports/`.
-8. Update `wiki/log.md` and `plan/log.md`.
-9. Commit every accepted round.
+1. Read `AGENTS.md`.
+2. Edit `purpose.md` so the workspace has a concrete corpus goal.
+3. Edit `schema.md` only enough to name expected source, chapter, and report
+   conventions.
+4. Copy `plan/first-round-plan.template.md` into
+   `plan/<date-first-round-slug>/plan.md`.
+5. Put original files under `raw/sources/`.
+6. Copy `raw/source-inventory.template.md` into a round-specific inventory
+   file under `raw/derived/` or `reports/inventory/`.
+7. Copy `raw/source-packet.template.md` into
+   `raw/derived/<source-id>/source.md` for each processed source.
+8. Use the wiki templates to create `wiki/overview.md`, source pages, and
+   chapter pages.
+9. Copy `reports/first-round-validation-note.template.md` into `reports/` and
+   record what was checked.
+10. Update `wiki/index.md`, `wiki/log.md`, and `plan/log.md`, then commit.
 
-## Minimum Round Flow
+## Golden Path
 
 ```text
 configure purpose/schema
--> add raw source
--> identify source
--> create source packet
--> analyze packet against wiki/index.md
--> generate wiki updates
--> run or record lint/compare checks
+-> add raw sources
+-> write source inventory
+-> write source packet
+-> create overview and index skeleton
+-> create source and chapter pages
+-> record validation note
 -> update logs
 -> commit
+```
+
+## First Round Boundaries
+
+- Do not write final wiki pages directly from binary raw files when a source
+  packet is feasible.
+- Do not split a document/PPT corpus into research-style object pages by
+  default.
+- Do not mark compare as passed unless a real compare check exists.
+- Record `compare gate not enabled` when compare is deferred.
+- Do not generate downstream skills, tools, or executable code in the first
+  workspace construction round.
+
+## Where Things Go
+
+```text
+raw/sources/       original source files
+raw/derived/       inventories, source packets, extracted media
+wiki/sources/      source or deck summary pages
+wiki/chapters/     distilled chapter or section pages
+reports/           validation notes, lint, coverage, compare, review
+plan/              target plans and maintenance log
 ```

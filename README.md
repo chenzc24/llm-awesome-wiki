@@ -47,16 +47,18 @@ The repository has completed its bootstrap stage:
 - `tools/` and `templates/` are now the homes for future construction tooling
   and reusable workspace-kernel artifacts.
 
-The current implementation target is **Phase 1.1: Workspace Kernel Closure**.
+The current implementation target is **Phase 1.3: Workspace Kernel Golden
+Path**.
 
 ## Phase 1: Workspace Kernel
 
 Phase 1 establishes a copyable workspace kernel for generated knowledge
-workspaces. The first substrate has been committed and pushed. Phase 1.1 closed
-the loop by aligning workflow rules, templates, contracts, and validation
-entrypoints. The current correction makes the default kernel document-corpus
-first instead of research-wiki first. It is not a raw-resource converter and
-not a wiki-generation engine.
+workspaces. The substrate has been committed and pushed. Phase 1.1 closed the
+loop by aligning workflow rules, templates, contracts, and validation
+entrypoints. Phase 1.2 made the default kernel document-corpus first instead of
+research-wiki first. Phase 1.3 adds the golden path for a first manual
+document/PPT distillation round. It is not a raw-resource converter and not a
+wiki-generation engine.
 
 The system repository is not the place where day-to-day knowledge distillation
 happens. The intended use pattern is:
@@ -82,6 +84,7 @@ Expected Phase 1 deliverables:
 - claim/evidence schema
 - report schema
 - plan and log templates
+- first-round golden-path templates
 - clear validation entrypoints for the workspace kernel
 
 Phase 2 has not started. The next boundary is a closed workspace-kernel
@@ -148,6 +151,10 @@ projects, examples, or fixtures.
   target.
 - `docs/phase-plans/phase-1.1-workspace-kernel-closure.md`: Phase 1.1 closure
   target.
+- `docs/phase-plans/phase-1.2-document-corpus-default.md`: default
+  document/PPT corpus profile correction.
+- `docs/phase-plans/phase-1.3-workspace-kernel-golden-path.md`: first manual
+  workspace round target.
 - `docs/core-philosophy.md`: project principles and two execution layers.
 - `docs/knowledge-to-executable.md`: construction tools vs downstream
   knowledge-to-code.
