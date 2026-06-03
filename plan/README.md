@@ -21,9 +21,17 @@ Each target plan should include:
 
 - goal
 - expected changed files
+- owned files or directories
+- read-only files or directories
+- shared-contract dependencies, if any
 - implementation steps
 - validation steps
 - intended commit message
+
+For multi-agent work, `Owned files` and `Read-only files` are required. A worker
+should not edit files outside the owned set without updating the plan first.
+Only one owner may edit a given `contracts/schemas/*` schema at a time, and
+shared terminology or top-level design changes should be Coordinator-owned.
 
 ## Global Log
 

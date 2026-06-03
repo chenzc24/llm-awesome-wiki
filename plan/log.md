@@ -118,6 +118,19 @@
   subsystem, and PDF/PPTX/DOCX plus LLM responsibility sections are present.
 - Commit: ready for `Reframe top-level design as system architecture`.
 
+## 2026-06-03 - Add multi-agent maintenance rules
+
+- Target: make root and generated-workspace maintenance rules safe for
+  parallel co-worker work before downstream skill/tool development.
+- Changed areas: updated `AGENTS.md`, `rules/maintenance-workflow.md`, and
+  `plan/README.md`; added the target plan under
+  `plan/2026-06-03-add-multi-agent-maintenance-rules/`.
+- Validation: `rg` confirmed ownership, read-only files, Coordinator,
+  `contracts/schemas/*` single-owner rules, minimum validation commands, and
+  `llm_wiki/` read-only language; `git diff --check` passed with only Windows
+  line-ending warnings; `git status --short --branch` reviewed.
+- Commit: ready for `Add multi-agent maintenance rules`.
+
 ## 2026-06-03 - Add workspace kernel phase one substrate
 
 - Target: implement Phase 1 as a copy-first, VSCode-native workspace kernel

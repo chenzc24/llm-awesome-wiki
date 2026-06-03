@@ -20,7 +20,30 @@ Before making modifications:
 1. Create a target-specific plan at `plan/<date-goal-slug>/plan.md`.
 2. The plan must state the goal, expected files, validation steps, and commit
    intent.
-3. Do not begin content or code edits until the plan is written.
+3. In multi-agent or co-worker work, the plan must also declare:
+   - `Owned files`: files or directories this worker may edit.
+   - `Read-only files`: files or directories this worker may inspect but not
+     edit.
+   - expected shared-contract dependencies, if any.
+4. Do not begin content or code edits until the plan is written.
+
+Multi-agent coordination:
+
+1. Every co-worker must create their own target plan before editing tracked
+   files.
+2. Keep file ownership explicit. Do not edit another worker's owned files
+   without a new plan update or Coordinator approval.
+3. Only one owner may edit a given `contracts/schemas/*` schema at a time.
+   Other workers should submit notes, proposals, or review comments instead of
+   changing that schema directly.
+4. Shared terminology, architecture boundaries, and top-level design documents
+   are Coordinator-owned. Non-coordinator workers should propose changes rather
+   than directly editing `docs/top-level-design/**` or other shared vocabulary
+   sources.
+5. Each PR or commit must run at least `git diff --check`,
+   `git status --short --branch`, and any relevant schema or validator command.
+6. Treat `llm_wiki/` as read-only for all co-workers unless the user explicitly
+   asks to update the submodule pointer or work inside that repository.
 
 After making modifications:
 
