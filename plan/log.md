@@ -208,3 +208,18 @@
   status --short --branch` showed only the intended maintenance files before
   commit.
 - Commit: ready for `Record phase one point one final maintenance status`.
+
+## 2026-06-03 - Align distillation rounds with overview-first flow
+
+- Target: update the distillation round rule so new work starts with broad
+  source readthrough, overview creation, skeleton index, and staged
+  distillation planning before detailed rounds.
+- Changed areas: updated `rules/distillation-rounds.md`; added the target plan
+  under
+  `plan/2026-06-03-align-distillation-rounds-with-overview-first-flow/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed overview-first initialization, broad source
+  readthrough, skeleton index, staged distillation plan, and detailed-page
+  boundary language in `rules/distillation-rounds.md`; `git status
+  --short --branch` showed only the intended files before commit.
+- Commit: ready for `Align distillation rounds with overview first flow`.
