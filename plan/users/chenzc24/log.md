@@ -105,3 +105,15 @@ Repository-wide merged or integration-level maintenance history belongs in
   `git diff --check` passed with only Windows line-ending warnings; `git
   submodule status` confirmed `llm_wiki` remained pinned.
 - Commit: ready for `Split collaboration responsibilities by phase`.
+
+## 2026-06-04 - Add MinerU reference submodule
+
+- Target: fork `opendatalab/MinerU` into `chenzc24/MinerU` and add it as a
+  read-only reference submodule for future Person B Phase 2 planning.
+- Changed areas: `.gitmodules`, `MinerU/`, and
+  `plan/users/chenzc24/2026-06-04-add-mineru-reference-submodule/`.
+- Validation: `gh repo view chenzc24/MinerU` confirmed the fork exists; `git
+  submodule status` confirmed `MinerU` is pinned at `ef4aa39`; `.gitmodules`
+  config inspection confirmed the fork URL; `git diff --check` passed with only
+  Windows line-ending warnings.
+- Commit: pending.

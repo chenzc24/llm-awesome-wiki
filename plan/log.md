@@ -362,3 +362,19 @@
   --check` passed with only Windows line-ending warnings; `git submodule
   status` confirmed `llm_wiki` remained pinned.
 - Commit: ready for `Split collaboration responsibilities by phase`.
+
+## 2026-06-04 - Add MinerU reference submodule
+
+- Target: fork `opendatalab/MinerU` into `chenzc24/MinerU` and add the fork as
+  a pinned reference submodule for Person B Phase 2 raw-resource conversion
+  planning.
+- Changed areas: updated `.gitmodules`; added the `MinerU/` submodule at
+  commit `ef4aa39`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-add-mineru-reference-submodule/`.
+- Validation: `gh repo view chenzc24/MinerU` confirmed the fork exists with
+  default branch `master`; `git submodule status` confirmed `MinerU` is pinned
+  at `ef4aa39` and `llm_wiki` remains pinned; `.gitmodules` config inspection
+  confirmed `MinerU` points to `https://github.com/chenzc24/MinerU.git`; `git
+  diff --check` passed with only Windows line-ending warnings; `git status
+  --short --branch` showed only the intended submodule and maintenance files.
+- Commit: pending `Add MinerU reference submodule` on `co-work/czc_personB`.

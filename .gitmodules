@@ -1,3 +1,6 @@
 [submodule "llm_wiki"]
 	path = llm_wiki
 	url = https://github.com/chenzc24/llm_wiki.git
+[submodule "MinerU"]
+	path = MinerU
+	url = https://github.com/chenzc24/MinerU.git
