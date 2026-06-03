@@ -222,4 +222,5 @@
   readthrough, skeleton index, staged distillation plan, and detailed-page
   boundary language in `rules/distillation-rounds.md`; `git status
   --short --branch` showed only the intended files before commit.
-- Commit: ready for `Align distillation rounds with overview first flow`.
+- Commit: completed and pushed to `origin/main` as `ce33edd Align
+  distillation rounds with overview first flow`.
