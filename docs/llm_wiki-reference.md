@@ -25,7 +25,10 @@ application. It includes:
 - Obsidian-compatible markdown output
 
 These capabilities are valuable references for structure, terminology, and
-future tool ideas.
+future tool ideas. They should not be inherited as the default workspace shape
+for this repository. The `llm_wiki` page-type model is best treated as a
+research-wiki profile; the default profile here is document/PPT corpus
+distillation with source and chapter structure preserved.
 
 Important boundary: `llm_wiki` gives agents access to a maintained knowledge
 base, but it does not separate the two execution layers this repository needs:
@@ -79,3 +82,4 @@ differences are:
   execution pipeline
 - treating maintenance/compare tools as the same layer as downstream domain
   skill/tool generation
+- treating research-wiki page types as mandatory for document/PPT corpora

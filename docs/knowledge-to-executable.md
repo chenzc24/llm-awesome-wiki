@@ -15,7 +15,8 @@ knowledge-to-code path. Do not attempt to implement both layers in one pass.
 
 ```text
 raw source
--> distilled wiki
+-> source packet
+-> chapter-oriented distilled wiki
 -> construction executable layer
 -> structured knowledge units
 -> executable specs
@@ -79,9 +80,12 @@ Expected future artifacts:
 
 ## Layer 2: Distilled Wiki
 
-The wiki is the maintained knowledge layer. It should contain source summaries,
-entities, concepts, comparisons, decisions, methods, and synthesis pages. Each
-important claim should remain traceable to raw sources.
+The wiki is the maintained knowledge layer. The default shape is
+document-corpus oriented: source summaries, chapter pages, an overview, and
+reports/review links. For a large PPT corpus, preserving source order and
+chapter structure is more important than eagerly splitting everything into
+entities and concepts. Research-style pages can be enabled later when the
+workspace needs them.
 
 Expected future artifacts:
 
@@ -89,10 +93,10 @@ Expected future artifacts:
 - `wiki/overview.md`
 - `wiki/log.md`
 - `wiki/sources/`
-- `wiki/concepts/`
-- `wiki/entities/`
-- `wiki/comparisons/`
-- `wiki/synthesis/`
+- `wiki/chapters/`
+- optional `wiki/synthesis/`
+- optional research-profile areas such as `wiki/concepts/`,
+  `wiki/entities/`, `wiki/comparisons/`, and `wiki/queries/`
 
 ## Layer 3: Structured Knowledge Units
 

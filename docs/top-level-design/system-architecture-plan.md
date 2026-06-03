@@ -14,13 +14,16 @@ quality gates, and execution path.
 ## Product Thesis
 
 LLM Awesome Wiki is a Git-first knowledge engineering system for agents and
-humans working in VSCode and CLI environments. It should support the full path:
+humans working in VSCode and CLI environments. Its default profile is
+document/PPT corpus distillation: preserve source structure, rebuild readable
+chapter-oriented knowledge, and keep coverage auditable. It should support the
+full path:
 
 ```text
 raw resources
 -> extracted source packets
 -> evidence and claim records
--> maintained wiki pages
+-> maintained source and chapter pages
 -> construction tools and reports
    (inventory, lint, compare, review, claim audit)
 -> stable knowledge release
@@ -31,6 +34,12 @@ raw resources
 
 The system is not only a reading surface. It is an engineering workflow for
 making knowledge traceable, reviewable, and eventually executable.
+
+The research-wiki structure used by `llm_wiki`--entities, concepts, queries,
+comparisons, and synthesis pages--is an optional profile, not the default
+minimum. It is useful when a corpus becomes a long-running research graph, but
+can be too fragmented for large PPT decks that should remain readable by source
+and chapter.
 
 ## Product Form
 
@@ -137,8 +146,9 @@ confidence notes.
 ### Layer 3: Evidence And Knowledge IR
 
 The intermediate representation should be more structured than prose. It should
-capture claims, concepts, entities, methods, decisions, comparisons, evidence
-links, and open review items.
+capture source packets, chapter anchors, claims, methods, decisions, evidence
+links, and open review items. Concepts, entities, and comparisons may be added
+when the workspace selects a research-wiki profile.
 
 Candidate record types:
 
@@ -167,9 +177,10 @@ Expected outputs:
 - `wiki/overview.md`
 - `wiki/log.md`
 - `wiki/sources/*.md`
-- `wiki/concepts/*.md`
-- `wiki/entities/*.md`
-- schema-defined custom page types
+- `wiki/chapters/*.md`
+- optional `wiki/synthesis/*.md`
+- optional research-profile page types such as `concept`, `entity`,
+  `comparison`, and `query`
 
 ### Layer 5: Quality Gates
 
@@ -317,6 +328,8 @@ Validation:
   packets, wiki pages, reports, and logs
 - rules and templates use the same terms for source inventory, source packet,
   compare gate, lint, review, and distillation round
+- the default kernel preserves source/chapter structure before optional
+  research-wiki object extraction
 - Phase 2 remains explicitly not started
 
 ### Phase 2: Raw Resource Conversion Subsystem

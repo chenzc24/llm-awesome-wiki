@@ -66,7 +66,7 @@ The staged plan should break the source set into reviewable work packages.
 
 Each stage should state:
 
-- source packets or source groups in scope
+- source packets, decks, chapters, or source groups in scope
 - expected wiki sections or page types
 - expected compare/lint checks
 - likely review questions
@@ -94,7 +94,7 @@ Each round should leave a short log entry with:
 
 - date
 - target
-- source packets or pages touched
+- source packets, deck notes, chapter pages, or optional research pages touched
 - overview or staged-plan changes
 - reports produced
 - review items created or resolved

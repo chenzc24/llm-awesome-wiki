@@ -209,6 +209,24 @@
   commit.
 - Commit: ready for `Record phase one point one final maintenance status`.
 
+## 2026-06-03 - Make document corpus the default workspace profile
+
+- Target: minimally correct the default workspace profile so large document and
+  PPT corpora preserve source and chapter structure by default, while
+  research-wiki object types remain optional extensions.
+- Changed areas: updated top-level direction docs, core philosophy, execution
+  roadmap, `llm_wiki` reference boundary, wiki index and distillation rules,
+  workspace-kernel schema/index/overview/source templates, and the kernel
+  validator; added the target plan under
+  `plan/2026-06-03-correct-default-document-corpus-profile/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; schema JSON parsed with
+  `ConvertFrom-Json`; root-level active workspace paths were absent; targeted
+  `rg` confirmed document/PPT corpus defaults, `wiki/chapters/`, and optional
+  research-profile language; `git submodule status` confirmed `llm_wiki`
+  remained pinned.
+- Commit: ready for `Make document corpus the default workspace profile`.
+
 ## 2026-06-03 - Align distillation rounds with overview-first flow
 
 - Target: update the distillation round rule so new work starts with broad

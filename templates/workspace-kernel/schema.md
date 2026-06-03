@@ -1,7 +1,7 @@
 # Workspace Schema
 
 This file defines how the workspace is structured and how agents should write
-wiki pages, reports, and source packets.
+source packets, chapter-oriented wiki pages, reports, and review items.
 
 ## Directory Contract
 
@@ -19,12 +19,20 @@ tools/            workspace-local construction tools
 
 | Type | Directory | Purpose |
 | --- | --- | --- |
-| source | `wiki/sources/` | Summary of one source packet or raw source |
-| concept | `wiki/concepts/` | Stable idea, method, pattern, or phenomenon |
-| entity | `wiki/entities/` | Named person, project, organization, dataset, or tool |
-| comparison | `wiki/comparisons/` | Side-by-side analysis |
-| synthesis | `wiki/synthesis/` | Cross-source conclusions |
-| query | `wiki/queries/` | Open question or investigation thread |
+| source | `wiki/sources/` | Summary of one source packet, deck, or raw source |
+| chapter | `wiki/chapters/` | Human-readable distilled chapter or section |
+| overview | `wiki/overview.md` | Current whole-corpus overview |
+| synthesis | optional | Cross-source conclusions when needed |
+
+Optional research-profile page types:
+
+- `concept`
+- `entity`
+- `comparison`
+- `query`
+
+Do not create optional research pages by default. Use them only when they
+improve long-term reuse, review, or downstream execution.
 
 ## Frontmatter
 
@@ -32,7 +40,7 @@ Every wiki page should include:
 
 ```yaml
 ---
-type: concept
+type: chapter
 title: Human Readable Title
 sources: []
 related: []

@@ -33,14 +33,15 @@ Acceptance:
 
 ## Phase 2: Initialization Protocol
 
-Goal: define how a new knowledge distillation project starts.
+Goal: define how a new document/PPT corpus distillation project starts.
 
 Planned work:
 
 - define a standard project skeleton
 - create a raw source inventory format
 - require an initial broad read of raw material
-- generate an initial overview and skeleton index before deep distillation
+- generate an initial overview and chapter-oriented skeleton index before deep
+  distillation
 - define the first Git checkpoint after initialization
 
 Expected outputs:
@@ -49,10 +50,12 @@ Expected outputs:
 - source inventory template
 - `wiki/overview.md` template
 - `wiki/index.md` template
+- `wiki/chapters/` template
 
 ## Phase 3: Round-Based Distillation
 
-Goal: prevent one-shot knowledge base generation.
+Goal: prevent one-shot knowledge base generation while preserving source and
+chapter structure.
 
 Planned work:
 

@@ -3,10 +3,10 @@
 This page summarizes the current state of the knowledge base. Keep it concise
 and update it after major distillation rounds.
 
-## Current Synthesis
+## Corpus Map
 
-## Important Sources
+## Important Sources Or Decks
 
-## Open Questions
+## Chapter Structure
 
-## Known Gaps
+## Known Gaps And Review Items

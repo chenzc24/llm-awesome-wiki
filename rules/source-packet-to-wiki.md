@@ -8,7 +8,8 @@ evidence records.
 
 1. Analysis stage:
    - read the source packet and existing `wiki/index.md`
-   - identify concepts, entities, claims, contradictions, and open questions
+   - identify source structure, chapters, claims, contradictions, and open
+     review points
    - decide which existing pages need updates and which new pages are needed
    - create review items for human judgment
    - produce an analysis note or report before generation begins
@@ -27,7 +28,7 @@ final wiki pages without a source packet and an analysis pass.
 The analysis stage should record:
 
 - source packets read
-- candidate concepts, entities, comparisons, and synthesis updates
+- candidate source/deck notes, chapter updates, and optional synthesis updates
 - claims worth preserving as claim records
 - evidence anchors that support important claims
 - contradictions or uncertain interpretations
@@ -76,5 +77,5 @@ broken links, contradictions, omissions, and review queue status.
   contains sourced knowledge
 - index and log are updated in the same round
 - unresolved semantic judgment appears in review output
-- generation does not introduce duplicate pages for existing concepts
+- generation does not fragment one source chapter into unnecessary object pages
 - a compare or lint report records whether the round may advance

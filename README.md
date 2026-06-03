@@ -4,8 +4,11 @@ LLM Awesome Wiki is a Git-first knowledge engineering system for humans and
 agents working in VSCode and CLI environments.
 
 The project is not an Obsidian vault and is not a wrapper around the
-`llm_wiki` desktop app. It is a repo-native workflow for turning raw resources
-into auditable knowledge, then eventually into validated engineering artifacts.
+`llm_wiki` desktop app. Its default profile is a document/PPT corpus workflow:
+preserve source structure, distill into chapter-oriented knowledge, and keep
+coverage auditable. Research-wiki object types such as concepts, entities,
+queries, comparisons, and synthesis pages are optional extensions, not the
+default minimum structure.
 
 ## Thesis
 
@@ -15,7 +18,7 @@ The system should support this path:
 raw resources
 -> extracted source packets
 -> evidence and claim records
--> maintained wiki pages
+-> maintained source and chapter pages
 -> construction tools and reports
    (inventory, lint, compare, review, claim audit)
 -> stable knowledge release
@@ -49,10 +52,11 @@ The current implementation target is **Phase 1.1: Workspace Kernel Closure**.
 ## Phase 1: Workspace Kernel
 
 Phase 1 establishes a copyable workspace kernel for generated knowledge
-workspaces. The first substrate has been committed and pushed. Phase 1.1 is now
-closing the loop by aligning workflow rules, templates, contracts, and
-validation entrypoints. It is not a raw-resource converter and not a
-wiki-generation engine.
+workspaces. The first substrate has been committed and pushed. Phase 1.1 closed
+the loop by aligning workflow rules, templates, contracts, and validation
+entrypoints. The current correction makes the default kernel document-corpus
+first instead of research-wiki first. It is not a raw-resource converter and
+not a wiki-generation engine.
 
 The system repository is not the place where day-to-day knowledge distillation
 happens. The intended use pattern is:
@@ -125,7 +129,7 @@ A generated knowledge workspace may contain:
 ```text
 raw/sources/               # immutable source files
 raw/derived/               # source packets and extracted media
-wiki/                      # maintained distilled knowledge
+wiki/                      # maintained source, chapter, and optional synthesis pages
 reports/                   # compare, coverage, lint, review outputs
 contracts/                 # copied or referenced schema/config contracts
 tests/                     # validation for construction tools and artifacts

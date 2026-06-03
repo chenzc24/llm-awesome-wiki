@@ -9,28 +9,16 @@ page changes.
 
 ## Sources
 
-- Add one entry for each `wiki/sources/` page.
+- Add one entry for each source, deck, or source-packet summary page.
 
-## Concepts
+## Chapters
 
-- Add one entry for each concept page.
+- Add one entry for each distilled chapter or section page.
 
-## Entities
+## Reports And Review
 
-- Add one entry for each entity page.
+- Link active compare, lint, coverage, and review reports here.
 
-## Comparisons
+## Optional Synthesis
 
-- Add one entry for each comparison page.
-
-## Synthesis
-
-- Add one entry for each synthesis page.
-
-## Open Questions
-
-- Add one entry for each unresolved query page.
-
-## Review Queue
-
-- Link active review reports or pages here.
+- Add synthesis pages only when the corpus needs cross-source conclusions.

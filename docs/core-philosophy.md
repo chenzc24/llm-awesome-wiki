@@ -6,9 +6,12 @@ should not merely be retrieved on demand; they should be distilled into a
 persistent, structured, maintained knowledge base. The difference is the target
 environment and the end state.
 
-The goal here is not to build a better Obsidian vault. The goal is to build a
-repo-native workflow where knowledge can be read, audited, transformed, tested,
-committed, and eventually turned into executable engineering artifacts.
+The goal here is not to build a better Obsidian vault. The default goal is also
+not to force every corpus into a research-style graph of entities, concepts,
+queries, comparisons, and synthesis pages. The default goal is to build a
+repo-native document/PPT corpus workflow where source structure is preserved,
+chapters are readable, coverage is auditable, and knowledge can eventually be
+turned into executable engineering artifacts.
 
 ## Core Judgments
 
@@ -16,9 +19,11 @@ committed, and eventually turned into executable engineering artifacts.
 
    The referenced `llm_wiki` project has a strong structure: raw sources,
    wiki pages, index, log, overview, schema, purpose, lint, review, search, and
-   graph analysis. The missing layer for this project is workflow discipline:
-   initialization, round-based distillation, comparison gates, maintenance logs,
-   and the path from knowledge to executable output.
+   graph analysis. Its default object model is useful for long-running
+   research wikis, but can be too fragmented for large PPT or document corpora.
+   The missing layer for this project is workflow discipline: initialization,
+   chapter-preserving distillation, comparison gates, maintenance logs, and the
+   path from knowledge to executable output.
 
 2. VSCode and Git should be first-class.
 
@@ -84,9 +89,10 @@ The repository should eventually support this pipeline:
 
 ```text
 raw source
--> distilled wiki
+-> source packet
+-> chapter-oriented distilled wiki
 -> construction tools for lint, compare, coverage, and maintenance
--> structured claims, concepts, decisions, and methods
+-> structured claims, decisions, methods, and optional research objects
 -> executable specs
 -> downstream skill + tool codebase, scripts, tests, templates, or app code
 -> validation
@@ -106,3 +112,6 @@ knowledge and executable artifacts.
 - Prefer VSCode and CLI ergonomics over Obsidian-specific affordances.
 - Prefer reusable templates and scripts over one-off chat instructions.
 - Prefer source traceability over polished summaries with unclear provenance.
+- Prefer source and chapter structure as the default reading surface; promote
+  concepts, entities, comparisons, queries, and synthesis to optional profiles
+  when the corpus actually needs them.
