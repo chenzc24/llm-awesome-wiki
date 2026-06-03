@@ -1,7 +1,11 @@
 # Maintenance Workflow
 
-Generated workspaces should remain easy to inspect, diff, and hand off between
-humans and agents.
+Generated workspaces should remain easy for one maintainer and their agents to
+inspect, diff, validate, and resume.
+
+Phase 1 workspaces assume one maintainer working with agents. Broader
+collaboration models are intentionally out of scope until this workflow is
+stable.
 
 ## Before Work
 
@@ -11,32 +15,9 @@ humans and agents.
 - Identify whether the target is raw conversion, wiki distillation, compare,
   lint, review, or downstream execution.
 
-Workspace plans should live under namespaced plan paths unless the workspace
-chooses a different path in `schema.md`.
-
-Individual co-worker work:
-
-```text
-plan/users/<user>/<date-goal-slug>/plan.md
-```
-
-Shared integration work:
-
-```text
-plan/shared/integration/<date-goal-slug>/plan.md
-```
-
-For multi-agent or co-worker work, each plan must also declare:
-
-- `Owned files`: files or directories the worker is allowed to modify.
-- `Read-only files`: files or directories the worker may inspect but must not
-  modify.
-- shared contracts or schemas the task depends on.
-- the Coordinator or integration owner for shared terminology decisions.
-
-Each co-worker should also keep a personal log at
-`plan/users/<user>/log.md`. The global `plan/log.md` is for merged or
-integration-level history.
+Workspace plans should live under `plan/<date-goal-slug>/plan.md` unless the
+workspace chooses a different path in `schema.md`. The workspace maintenance log
+should live at `plan/log.md`.
 
 ## During Work
 
@@ -45,13 +26,6 @@ integration-level history.
 - Record uncertain semantic judgments as review items.
 - Prefer deterministic tooling for paths, hashes, parsing, and validation.
 - Keep generated reports in the configured report directory.
-- Do not edit another worker's owned files without updating the plan and
-  getting Coordinator approval.
-- Do not change shared terminology or top-level design boundaries unless the
-  task is Coordinator-owned. Submit a proposal instead.
-- Do not change phase-level plans under `docs/phase-plans/**` unless the task
-  is Coordinator-owned or explicitly owns the specific phase-plan file.
-- Only one owner may edit a given `contracts/schemas/*` schema at a time.
 - Treat pinned reference repositories, including `llm_wiki/` when present, as
   read-only unless the user explicitly requests a pointer update or direct
   work inside that repository.
@@ -62,30 +36,13 @@ integration-level history.
 - Run available validation commands.
 - Review the diff.
 - Commit only intended files.
-- Push according to the workspace's branch policy.
+- Push to the workspace's configured remote and branch.
 - At minimum, run `git diff --check` and `git status --short --branch`.
 - Also run any relevant schema, validator, lint, or compare command for the
   files touched by the task.
 
 The workspace log should record target, changed areas, validation, unresolved
 review items, commit hash, and push status when available.
-
-Personal logs should record individual task outcomes. The global log should
-record integration outcomes.
-
-## Multi-Agent Coordination
-
-Use file ownership to keep parallel work safe:
-
-- Contracts owner: owns the specific schema files named in their plan.
-- Workflow owner: owns the rule, template, or tool-surface files named in their
-  plan.
-- Coordinator: owns shared terminology, phase boundaries, and integration
-  decisions.
-
-When two tasks need the same file, stop and split the work by sequence or by
-smaller ownership scopes before editing. Prefer proposals in plan notes or
-review comments over opportunistic edits to shared files.
 
 ## Long-Term Hygiene
 

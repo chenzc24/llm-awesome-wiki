@@ -224,3 +224,16 @@
   --short --branch` showed only the intended files before commit.
 - Commit: completed and pushed to `origin/main` as `ce33edd Align
   distillation rounds with overview first flow`.
+
+## 2026-06-03 - Simplify workspace maintenance for single maintainer
+
+- Target: remove co-worker, coordinator, ownership, and shared integration
+  workflow rules from generated workspace maintenance guidance.
+- Changed areas: updated `rules/maintenance-workflow.md`; added the target
+  plan under
+  `plan/2026-06-03-simplify-workspace-maintenance-single-maintainer/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed `rules/maintenance-workflow.md` no longer contains
+  co-worker, coordinator, ownership, shared integration, multi-agent, or branch
+  policy workflow rules.
+- Commit: ready for `Simplify workspace maintenance for single maintainer`.
