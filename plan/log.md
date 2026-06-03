@@ -68,6 +68,17 @@
   `downstream executable`, `domain skills`, and `domain tools` language.
 - Commit: ready for `Refine architecture execution layer boundaries`.
 
+## 2026-06-03 - Add developer README
+
+- Target: add a root developer-facing README for onboarding contributors into
+  the VSCode/Git/agent-native LLM Awesome Wiki project.
+- Changed areas: added `README.md`; added the target plan under
+  `plan/2026-06-03-add-developer-readme/`.
+- Validation: `git diff --check` passed; targeted `rg` confirmed `Phase 1`,
+  `Repository Kernel`, `llm_wiki`, `construction tools`, `downstream`,
+  `AGENTS.md`, and `plan/log.md` language in the README.
+- Commit: ready for `Add developer README`.
+
 ## 2026-06-03 - Add top-level phased distillation design
 
 - Target: add a designer-maintained top-level design area under `docs/` and
