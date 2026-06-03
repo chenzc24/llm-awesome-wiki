@@ -11,7 +11,7 @@ maintenance burden.
 
 - `AGENTS.md`
 - `plan/log.md`
-- `plan/2026-06-03-add-plan-cleanup-rule/plan.md`
+- `plan/users/chenzc24/2026-06-03-add-plan-cleanup-rule/plan.md`
 
 ## Implementation Steps
 

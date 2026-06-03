@@ -31,7 +31,7 @@ under `docs/phase-plans/`.
 - `plan/users/**`
 - `plan/shared/**`
 - `plan/log.md`
-- `plan/2026-06-03-add-user-plan-namespaces/plan.md`
+- `plan/users/chenzc24/2026-06-03-add-user-plan-namespaces/plan.md`
 
 ## Read-Only Files
 

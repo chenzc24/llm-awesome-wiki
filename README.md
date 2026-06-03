@@ -163,7 +163,9 @@ Before modifying the repository:
 
 1. Run `git status --short --branch`.
 2. Confirm the root repository is clean.
-3. Create a target-specific plan under `plan/<date-goal-slug>/plan.md`.
+3. Create a target-specific plan under
+   `plan/users/<user>/<date-goal-slug>/plan.md`, or under
+   `plan/shared/integration/<date-goal-slug>/plan.md` for shared integration.
 4. Modify only the files named by the target plan.
 
 After modifying:

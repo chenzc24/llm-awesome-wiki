@@ -20,6 +20,10 @@ Example:
 plan/users/chenzc24/2026-06-03-source-packet-contract/plan.md
 ```
 
+`<user>` means the human or co-worker owner, not the executor agent. Agent names
+such as `codex` should not be used as user namespaces. If an agent performs work
+for `chenzc24`, the plan belongs under `plan/users/chenzc24/`.
+
 Shared integration work:
 
 ```text
@@ -32,9 +36,9 @@ Example:
 plan/shared/integration/2026-06-03-merge-contracts/plan.md
 ```
 
-Historical plans directly under `plan/<date-goal-slug>/` remain valid records
-from before the multi-person namespace convention. New work should use the
-namespaced paths.
+Historical plans from before the multi-person namespace convention have been
+classified under `plan/users/chenzc24/`. New work should use the namespaced
+paths.
 
 Each target plan should include:
 

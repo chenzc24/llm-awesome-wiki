@@ -21,7 +21,7 @@
 - Changed areas: updated `docs/core-philosophy.md`,
   `docs/knowledge-to-executable.md`, `docs/execution-roadmap.md`, and
   `docs/llm_wiki-reference.md`; added the target plan under
-  `plan/2026-06-03-clarify-knowledge-to-code/`.
+  `plan/users/chenzc24/2026-06-03-clarify-knowledge-to-code/`.
 - Validation: `git diff --check` passed; targeted `rg` confirmed
   `next-stage mainline`, `skill + tool`, `executable codebase`, and
   `knowledge-to-code` language across the mainline docs.
@@ -32,7 +32,7 @@
 - Target: add an Agent rule requiring periodic cleanup of completed `plan/`
   entries so the planning directory stays useful.
 - Changed areas: updated `AGENTS.md`; added the target plan under
-  `plan/2026-06-03-add-plan-cleanup-rule/`.
+  `plan/users/chenzc24/2026-06-03-add-plan-cleanup-rule/`.
 - Validation: `git diff --check` passed; targeted `rg` confirmed plan hygiene,
   completed-plan summarization, archive/removal, and in-progress protection
   language in `AGENTS.md`; `git submodule status` confirmed `llm_wiki` remained
@@ -46,7 +46,7 @@
 - Changed areas: updated `docs/core-philosophy.md`,
   `docs/knowledge-to-executable.md`, `docs/execution-roadmap.md`,
   `docs/llm_wiki-reference.md`, and `tools/README.md`; added the target plan
-  under `plan/2026-06-03-split-execution-layers/`.
+  under `plan/users/chenzc24/2026-06-03-split-execution-layers/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed `construction executable layer`,
   `knowledge-base construction`, `downstream knowledge-to-code`, and
@@ -62,7 +62,7 @@
 - Changed areas: updated the product thesis pipeline, directory comments,
   Layer 5/6/7 boundaries, Phase 0/5/6/7 wording, the LLM responsibility matrix,
   and derived execution targets; added the target plan under
-  `plan/2026-06-03-refine-system-architecture-execution-layers/`.
+  `plan/users/chenzc24/2026-06-03-refine-system-architecture-execution-layers/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed `construction tools`, `stable knowledge release`,
   `downstream executable`, `domain skills`, and `domain tools` language.
@@ -73,7 +73,7 @@
 - Target: add a root developer-facing README for onboarding contributors into
   the VSCode/Git/agent-native LLM Awesome Wiki project.
 - Changed areas: added `README.md`; added the target plan under
-  `plan/2026-06-03-add-developer-readme/`.
+  `plan/users/chenzc24/2026-06-03-add-developer-readme/`.
 - Validation: `git diff --check` passed; targeted `rg` confirmed `Phase 1`,
   `Repository Kernel`, `llm_wiki`, `construction tools`, `downstream`,
   `AGENTS.md`, and `plan/log.md` language in the README.
@@ -85,7 +85,7 @@
   an instantiated knowledge workspace.
 - Changed areas: updated `README.md` and
   `docs/top-level-design/system-architecture-plan.md`; added the target plan
-  under `plan/2026-06-03-separate-system-repo-and-generated-workspace/`.
+  under `plan/users/chenzc24/2026-06-03-separate-system-repo-and-generated-workspace/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed `system repository`, `generated workspace`,
   root-level `raw/`, `wiki/`, `reports/`, and `schemas/` boundary language.
@@ -97,7 +97,7 @@
   define staged raw resource to Markdown/Wiki distillation work.
 - Changed areas: added `docs/top-level-design/README.md`,
   `docs/top-level-design/phased-distillation-design.md`, and the target plan
-  under `plan/2026-06-03-top-level-design-plan/`.
+  under `plan/users/chenzc24/2026-06-03-top-level-design-plan/`.
 - Validation: `git diff --check` passed; targeted `rg` confirmed
   `raw_resource`, source packet, PDF/PPTX/DOCX handling, LLM responsibility
   boundaries, and `llm_wiki` reference points in the new design docs.
@@ -111,7 +111,7 @@
 - Changed areas: updated `docs/top-level-design/README.md`, replaced
   `docs/top-level-design/phased-distillation-design.md` with
   `docs/top-level-design/system-architecture-plan.md`, and added the target
-  plan under `plan/2026-06-03-reframe-top-level-system-design/`.
+  plan under `plan/users/chenzc24/2026-06-03-reframe-top-level-system-design/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed no Chinese text remains in the top-level design area,
   `llm_wiki` is framed as a reference boundary, raw-resource conversion is a
@@ -124,7 +124,7 @@
   parallel co-worker work before downstream skill/tool development.
 - Changed areas: updated `AGENTS.md`, `rules/maintenance-workflow.md`, and
   `plan/README.md`; added the target plan under
-  `plan/2026-06-03-add-multi-agent-maintenance-rules/`.
+  `plan/users/chenzc24/2026-06-03-add-multi-agent-maintenance-rules/`.
 - Validation: `rg` confirmed ownership, read-only files, Coordinator,
   `contracts/schemas/*` single-owner rules, minimum validation commands, and
   `llm_wiki/` read-only language; `git diff --check` passed with only Windows
@@ -140,13 +140,29 @@
   `rules/maintenance-workflow.md`, and `rules/README.md`; added
   `plan/users/`, `plan/users/chenzc24/`, `plan/shared/`,
   `plan/shared/integration/`, `docs/phase-plans/README.md`, and the target
-  plan under `plan/2026-06-03-add-user-plan-namespaces/`.
+  plan under `plan/users/chenzc24/2026-06-03-add-user-plan-namespaces/`.
 - Validation: targeted `rg` confirmed `plan/users/<user>`,
   `plan/users/chenzc24/log.md`, `plan/shared/integration`,
   `docs/phase-plans`, Coordinator ownership, and global log language;
   `git diff --check` passed with only Windows line-ending warnings; `git
   status --short --branch` reviewed.
 - Commit: ready for `Add user plan namespaces`.
+
+## 2026-06-03 - Migrate historical plans to chenzc24
+
+- Target: move existing historical target plans into `plan/users/chenzc24/`,
+  remove the misleading `plan/users/codex/` namespace, and clarify that
+  executor agents are not user namespaces.
+- Changed areas: moved root-level historical plan folders and the former
+  `plan/users/codex/2026-06-03-record-document-corpus-default-final-status/`
+  plan into `plan/users/chenzc24/`; updated `AGENTS.md`, `plan/README.md`,
+  `plan/users/README.md`, `plan/users/chenzc24/log.md`, and `plan/log.md`.
+- Validation: confirmed no root-level `plan/2026-06-03-*` target plan
+  directories remain and `plan/users/codex` does not exist; targeted `rg`
+  confirmed executor-agent namespace language and migrated `chenzc24` plan
+  paths; `git diff --check` passed with only Windows line-ending warnings; `git
+  status --short --branch` reviewed.
+- Commit: ready for `Migrate historical plans to chenzc24`.
 
 ## 2026-06-03 - Add workspace kernel phase one substrate
 
@@ -158,7 +174,7 @@
   under `rules/`, contracts under `contracts/schemas/`, the copyable workspace
   kernel under `templates/workspace-kernel/`, tool skeletons under `tools/`,
   test guidance under `tests/`, and the target plan under
-  `plan/2026-06-03-phase-1-workspace-kernel/`.
+  `plan/users/chenzc24/2026-06-03-phase-1-workspace-kernel/`.
 - Validation: `tools/validate-kernel/validate-kernel.ps1` passed; JSON schemas
   parsed with `ConvertFrom-Json`; root-level active workspace paths
   `raw/`, `wiki/`, `reports/`, and `schema.md` were absent; `git diff --check`
@@ -172,7 +188,7 @@
 - Target: correct the Phase 1 maintenance record so it reflects the actual
   committed and pushed state.
 - Changed areas: updated `plan/log.md`; added the target plan under
-  `plan/2026-06-03-record-phase-1-final-status/`.
+  `plan/users/chenzc24/2026-06-03-record-phase-1-final-status/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed the Phase 1 entry references commit `9366118`; `git
   status --short --branch` showed only the intended maintenance files before
@@ -188,7 +204,7 @@
   schema guidance under `contracts/schemas/`, workspace templates under
   `templates/workspace-kernel/`, validation under `tools/validate-kernel/`,
   test guidance under `tests/`, and added the target plan under
-  `plan/2026-06-03-phase-1-1-workspace-kernel-closure/`.
+  `plan/users/chenzc24/2026-06-03-phase-1-1-workspace-kernel-closure/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; schema JSON parsed with
   `ConvertFrom-Json`; root-level active workspace paths were absent; targeted
@@ -202,7 +218,7 @@
 - Target: correct the Phase 1.1 maintenance record so it reflects the actual
   committed and pushed state.
 - Changed areas: updated `plan/log.md`; added the target plan under
-  `plan/2026-06-03-record-phase-1-1-final-status/`.
+  `plan/users/chenzc24/2026-06-03-record-phase-1-1-final-status/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed the Phase 1.1 entry references commit `7376979`; `git
   status --short --branch` showed only the intended maintenance files before
@@ -218,7 +234,7 @@
   roadmap, `llm_wiki` reference boundary, wiki index and distillation rules,
   workspace-kernel schema/index/overview/source templates, and the kernel
   validator; added the target plan under
-  `plan/2026-06-03-correct-default-document-corpus-profile/`.
+  `plan/users/chenzc24/2026-06-03-correct-default-document-corpus-profile/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; schema JSON parsed with
   `ConvertFrom-Json`; root-level active workspace paths were absent; targeted
@@ -235,7 +251,7 @@
   distillation planning before detailed rounds.
 - Changed areas: updated `rules/distillation-rounds.md`; added the target plan
   under
-  `plan/2026-06-03-align-distillation-rounds-with-overview-first-flow/`.
+  `plan/users/chenzc24/2026-06-03-align-distillation-rounds-with-overview-first-flow/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed overview-first initialization, broad source
   readthrough, skeleton index, staged distillation plan, and detailed-page
@@ -250,7 +266,7 @@
   workflow rules from generated workspace maintenance guidance.
 - Changed areas: updated `rules/maintenance-workflow.md`; added the target
   plan under
-  `plan/2026-06-03-simplify-workspace-maintenance-single-maintainer/`.
+  `plan/users/chenzc24/2026-06-03-simplify-workspace-maintenance-single-maintainer/`.
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   targeted `rg` confirmed `rules/maintenance-workflow.md` no longer contains
   co-worker, coordinator, ownership, shared integration, multi-agent, or branch

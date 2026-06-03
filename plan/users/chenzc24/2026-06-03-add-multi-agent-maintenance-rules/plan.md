@@ -22,7 +22,7 @@ reference submodule unless explicitly requested otherwise.
 - `rules/maintenance-workflow.md`
 - `plan/README.md`
 - `plan/log.md`
-- `plan/2026-06-03-add-multi-agent-maintenance-rules/plan.md`
+- `plan/users/chenzc24/2026-06-03-add-multi-agent-maintenance-rules/plan.md`
 
 ## Read-Only Files
 

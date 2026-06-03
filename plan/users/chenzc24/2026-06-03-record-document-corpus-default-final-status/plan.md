@@ -8,14 +8,14 @@ reflects the actual committed and pushed state.
 ## Expected Files
 
 - `plan/log.md`
-- `plan/users/codex/log.md`
-- `plan/users/codex/2026-06-03-record-document-corpus-default-final-status/plan.md`
+- `plan/users/chenzc24/log.md`
+- `plan/users/chenzc24/2026-06-03-record-document-corpus-default-final-status/plan.md`
 
 ## Owned Files
 
 - `plan/log.md`
-- `plan/users/codex/log.md`
-- `plan/users/codex/2026-06-03-record-document-corpus-default-final-status/plan.md`
+- `plan/users/chenzc24/log.md`
+- `plan/users/chenzc24/2026-06-03-record-document-corpus-default-final-status/plan.md`
 
 ## Read-only Files
 

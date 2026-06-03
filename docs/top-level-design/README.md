@@ -11,7 +11,8 @@ execution plans.
 - Maintain this directory only when system-level architecture, phase boundaries,
   directory contracts, or quality gates change.
 - Derive ordinary execution work from these documents into
-  `plan/<date-goal-slug>/plan.md`.
+  `plan/users/<user>/<date-goal-slug>/plan.md` for individual work, or
+  `plan/shared/integration/<date-goal-slug>/plan.md` for shared integration.
 - Do not place one-off task details in this directory.
 - Every derived execution plan should name the relevant system phase, expected
   files, validation steps, and commit intent.

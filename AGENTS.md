@@ -22,8 +22,12 @@ Before making modifications:
      `plan/users/<user>/<date-goal-slug>/plan.md`.
    - Shared integration work goes under
      `plan/shared/integration/<date-goal-slug>/plan.md`.
-   - Existing historical plans directly under `plan/<date-goal-slug>/` remain
-     valid records, but new multi-person work should use the namespaced paths.
+   - Historical root-level target plans have been classified under
+     `plan/users/chenzc24/`; new work should use the namespaced paths.
+   - User namespaces represent human/co-worker ownership, such as
+     `plan/users/chenzc24/`. Executor agent names such as `codex` are not user
+     namespaces. If an agent works on behalf of a human owner, use that human
+     owner's namespace.
 2. The plan must state the goal, expected files, validation steps, and commit
    intent.
 3. In multi-agent or co-worker work, the plan must also declare:
@@ -37,6 +41,8 @@ Multi-agent coordination:
 
 1. Every co-worker must create their own target plan before editing tracked
    files.
+   Executor agents act inside the human owner's namespace rather than creating
+   their own user directory.
 2. Keep file ownership explicit. Do not edit another worker's owned files
    without a new plan update or Coordinator approval.
 3. Only one owner may edit a given `contracts/schemas/*` schema at a time.

@@ -649,7 +649,8 @@ Too broad:
 - convert all raw resources and generate all wiki pages
 - implement knowledge-to-code before coverage gates exist
 
-Every derived `plan/<date-goal-slug>/plan.md` should name:
+Every derived plan under `plan/users/<user>/<date-goal-slug>/plan.md` or
+`plan/shared/integration/<date-goal-slug>/plan.md` should name:
 
 - selected phase
 - subsystem boundary
