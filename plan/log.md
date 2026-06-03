@@ -79,6 +79,18 @@
   `AGENTS.md`, and `plan/log.md` language in the README.
 - Commit: ready for `Add developer README`.
 
+## 2026-06-03 - Separate system repo from generated workspace
+
+- Target: clarify that this repository is the producer/system repository, not
+  an instantiated knowledge workspace.
+- Changed areas: updated `README.md` and
+  `docs/top-level-design/system-architecture-plan.md`; added the target plan
+  under `plan/2026-06-03-separate-system-repo-and-generated-workspace/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed `system repository`, `generated workspace`,
+  root-level `raw/`, `wiki/`, `reports/`, and `schemas/` boundary language.
+- Commit: ready for `Separate system repo from generated workspace`.
+
 ## 2026-06-03 - Add top-level phased distillation design
 
 - Target: add a designer-maintained top-level design area under `docs/` and

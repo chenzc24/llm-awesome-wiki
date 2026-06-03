@@ -48,9 +48,10 @@ The next major planning target is **Phase 1: Repository Kernel**.
 
 ## Phase 1: Repository Kernel
 
-Phase 1 should establish the file and schema substrate for the system. It is the
-system structure stage, not a raw-resource converter and not a wiki-generation
-engine.
+Phase 1 should establish the reusable kernel for generated knowledge
+workspaces. It is the system structure stage: directory contracts, schema
+contracts, templates, and validation entrypoints. It is not a raw-resource
+converter and not a wiki-generation engine.
 
 Expected Phase 1 deliverables:
 
@@ -64,6 +65,8 @@ Expected Phase 1 deliverables:
 
 Phase 1 should not:
 
+- turn this repository into an active knowledge workspace
+- create live root-level `raw/`, `wiki/`, or `reports/` instance content
 - convert PDFs, PPTX files, DOCX files, or other raw resources
 - generate final wiki pages
 - implement compare gate tooling
@@ -72,7 +75,11 @@ Phase 1 should not:
 
 ## Repository Layout
 
-Current and planned top-level areas:
+This repository is the **system repository**. It should contain the architecture,
+templates, construction tools, tests, and reusable contracts used to create or
+maintain other knowledge workspaces.
+
+Current system repository areas:
 
 ```text
 AGENTS.md                  # required rules for agents working in this repo
@@ -84,17 +91,29 @@ tools/                     # future construction tools
 templates/                 # future reusable workflow templates
 ```
 
-Planned system directories from the architecture:
+Potential future system repository areas:
+
+```text
+schemas/                   # reusable schema contracts, not instance data
+tests/                     # tests for construction tools and templates
+examples/                  # small fixture workspaces, never active project data
+```
+
+A generated knowledge workspace may contain:
 
 ```text
 raw/sources/               # immutable source files
 raw/derived/               # source packets and extracted media
 wiki/                      # maintained distilled knowledge
 reports/                   # compare, coverage, lint, review outputs
-schemas/                   # source, claim, page, and report schemas
+schemas/                   # copied or referenced schema/config contracts
 tests/                     # validation for construction tools and artifacts
 skills/                    # reserved for downstream domain skills
 ```
+
+Do not treat the generated workspace layout as directories that must exist at
+the root of this system repository. They should appear only in generated
+projects, examples, or fixtures.
 
 ## Key Documents
 

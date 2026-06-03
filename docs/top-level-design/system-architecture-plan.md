@@ -47,19 +47,33 @@ making knowledge traceable, reviewable, and eventually executable.
 
 ### Layer 1: Repository Kernel
 
-The repository is the system substrate. It owns file layout, schemas, plans,
-logs, reports, templates, and deterministic tooling.
+The root repository is the system substrate. It owns architecture documents,
+template contracts, reusable schemas, construction tools, tests, and
+deterministic tooling. It should not itself become an active knowledge
+workspace.
 
 Expected responsibilities:
 
 - enforce Git-first workflow discipline
-- define canonical directories and schemas
-- keep raw resources immutable
-- keep derived artifacts reviewable and diffable
+- define canonical workspace directories and schemas as reusable contracts
+- keep generated raw resources immutable once a workspace is instantiated
+- keep generated derived artifacts reviewable and diffable
 - expose CLI-friendly validation commands
 - make every major state transition visible in files
 
-Candidate directories:
+System repository directories:
+
+```text
+docs/                     # architecture, phase plans, and project guidance
+plan/                     # target plans and maintenance log
+tools/                    # construction tool source and entrypoints
+templates/                # reusable workspace, page, report, and spec templates
+schemas/                  # reusable schema contracts, if authored as files
+tests/                    # validation for tools, templates, and schemas
+examples/                 # small generated-workspace fixtures only
+```
+
+Generated workspace directory contract:
 
 ```text
 raw/sources/              # immutable source files
@@ -72,6 +86,10 @@ templates/                # reusable plans, pages, reports, specs
 skills/                   # reserved for downstream domain skills
 tests/                    # validation for construction tools and downstream artifacts
 ```
+
+The generated workspace contract is what the system should scaffold for users.
+Those directories should not be created at the root of this system repository
+except inside `examples/` or test fixtures.
 
 ### Layer 2: Raw Resource Conversion
 
@@ -230,7 +248,8 @@ Validation:
 
 ### Phase 1: Repository Kernel
 
-Goal: create the file and schema substrate needed for the system.
+Goal: create the reusable file, schema, and template substrate needed for
+generated knowledge workspaces.
 
 Deliverables:
 
@@ -246,6 +265,8 @@ Validation:
 - schemas are stored in files
 - templates are diffable
 - a new agent can identify where each artifact belongs
+- root repository docs distinguish system repository files from generated
+  workspace files
 
 ### Phase 2: Raw Resource Conversion Subsystem
 
