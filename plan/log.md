@@ -324,3 +324,26 @@
   diff --check` passed with only Windows line-ending warnings; `git status
   --short --branch` reviewed.
 - Commit: ready for `Relax dirty worktree policy for parallel work`.
+
+## 2026-06-03 - Add ignored ADCtoolbox ch1 dry run workspace
+
+- Target: add explicit ignore settings for local workspace dry runs and test
+  the Phase 1.3 golden path on `ch1.pdf`.
+- Changed areas: added `.gitignore`; added the target plan under
+  `plan/users/chenzc24/2026-06-03-adctoolbox-ch1-pdf-dry-run/`; created an
+  ignored local workspace under `workspace/local/adctoolbox-ch1-dry-run/`.
+- Dry-run result: copied `ch1.pdf`, extracted PDF metadata and text with
+  `pdfinfo` and `pdftotext`, rendered pages 3-8 with `pdftoppm`, created source
+  inventory, source packet, overview, source page, chapter page, validation
+  note, and workspace logs. The round status is `needs-review` because compare
+  is not enabled and page 7 still needs stricter chart extraction for precise
+  quantitative use.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  ignored workspace metadata JSON parsed with `ConvertFrom-Json`; targeted
+  `rg` confirmed source inventory, source packet, source anchors, and
+  `compare gate not enabled`; `git check-ignore -v` confirmed the copied PDF,
+  rendered page image, and wiki output are ignored by `.gitignore`; `git
+  submodule status` confirmed `llm_wiki` remained pinned; `git status --short
+  --branch --untracked-files=all` showed only the intended tracked maintenance
+  files.
+- Commit: pending `Add ignored workspace dry run area`.

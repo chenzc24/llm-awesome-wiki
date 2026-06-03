@@ -77,3 +77,17 @@ Repository-wide merged or integration-level maintenance history belongs in
   diff --check` passed with only Windows line-ending warnings; `git status
   --short --branch` reviewed.
 - Commit: ready for `Relax dirty worktree policy for parallel work`.
+
+## 2026-06-03 - ADCtoolbox ch1 PDF dry run
+
+- Target: create an ignored local workspace and try the Phase 1.3 golden path
+  on `ch1.pdf`.
+- Changed areas: `.gitignore`,
+  `plan/users/chenzc24/2026-06-03-adctoolbox-ch1-pdf-dry-run/`, and ignored
+  local files under `workspace/local/adctoolbox-ch1-dry-run/`.
+- Validation: copied PDF and wiki output were ignored by `.gitignore`;
+  metadata JSON parsed; targeted `rg` confirmed source anchors and
+  compare-deferred language; dry-run workspace produced source inventory,
+  source packet, wiki pages, rendered visual review images, and validation
+  note.
+- Commit: pending in the parent repository task.
