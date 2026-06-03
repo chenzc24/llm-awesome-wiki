@@ -11,6 +11,7 @@ raw/derived/      source packets and extracted media
 wiki/             maintained distilled knowledge
 reports/          lint, compare, coverage, and review outputs
 contracts/        copied or referenced machine contracts
+plan/             target plans and maintenance log
 tools/            workspace-local construction tools
 ```
 
@@ -54,5 +55,26 @@ Use one link style consistently. The default is wikilink syntax:
 
 - `wiki/index.md` is the content navigation entry.
 - `wiki/log.md` is the chronological maintenance log.
+- `plan/log.md` is the workspace maintenance log for targets, validation, and
+  commits.
 - `reports/` contains compare, lint, coverage, and review outputs.
 - A distillation round should not advance without a recorded validation result.
+
+## Source Packet Minimum
+
+Each packet under `raw/derived/<source-id>/` should include:
+
+- `source.md`
+- `metadata.json` or `metadata.yml`
+- stable anchors
+- extraction gaps when present
+- generated fields clearly marked
+
+## Round Status
+
+A round may end as:
+
+- `pass`: accepted and ready to advance
+- `needs-review`: valid enough to keep, but blocked by human judgment
+- `fail`: missing required files, broken links, unsupported claims, or invalid
+  source coverage

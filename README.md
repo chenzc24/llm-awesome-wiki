@@ -44,14 +44,15 @@ The repository has completed its bootstrap stage:
 - `tools/` and `templates/` are now the homes for future construction tooling
   and reusable workspace-kernel artifacts.
 
-The current implementation target is **Phase 1: Workspace Kernel**.
+The current implementation target is **Phase 1.1: Workspace Kernel Closure**.
 
 ## Phase 1: Workspace Kernel
 
 Phase 1 establishes a copyable workspace kernel for generated knowledge
-workspaces. It is the system structure stage: workflow rules, directory
-contracts, machine-readable contracts, templates, and validation entrypoints.
-It is not a raw-resource converter and not a wiki-generation engine.
+workspaces. The first substrate has been committed and pushed. Phase 1.1 is now
+closing the loop by aligning workflow rules, templates, contracts, and
+validation entrypoints. It is not a raw-resource converter and not a
+wiki-generation engine.
 
 The system repository is not the place where day-to-day knowledge distillation
 happens. The intended use pattern is:
@@ -70,12 +71,17 @@ background service, or external tool wrapper.
 Expected Phase 1 deliverables:
 
 - canonical directory map
+- workspace-kernel template
+- workflow rules outside `docs/`
 - source inventory schema
 - source packet schema
 - claim/evidence schema
 - report schema
 - plan and log templates
-- clear validation entrypoints for the repository kernel
+- clear validation entrypoints for the workspace kernel
+
+Phase 2 has not started. The next boundary is a closed workspace-kernel
+workflow, not raw-resource conversion.
 
 Phase 1 should not:
 
@@ -136,6 +142,8 @@ projects, examples, or fixtures.
 - `docs/top-level-design/system-architecture-plan.md`: top-level system plan.
 - `docs/phase-plans/phase-1-workspace-kernel.md`: Phase 1 implementation
   target.
+- `docs/phase-plans/phase-1.1-workspace-kernel-closure.md`: Phase 1.1 closure
+  target.
 - `docs/core-philosophy.md`: project principles and two execution layers.
 - `docs/knowledge-to-executable.md`: construction tools vs downstream
   knowledge-to-code.
@@ -188,10 +196,9 @@ Start here:
 
 Good early contributions are narrow Phase 1 tasks, such as:
 
-- defining the source inventory schema
-- defining the source packet schema
-- defining the report schema
+- tightening workspace rules and acceptance criteria
 - improving workspace kernel templates
+- aligning schema contracts with the rules
 - improving workspace-kernel validation
 - documenting stable knowledge release criteria
 

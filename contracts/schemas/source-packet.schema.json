@@ -14,6 +14,13 @@
     "raw_sha256": {
       "type": "string"
     },
+    "source_title": {
+      "type": "string"
+    },
+    "added_at": {
+      "type": "string",
+      "format": "date"
+    },
     "source_kind": {
       "type": "string"
     },
@@ -34,6 +41,12 @@
         "enum": ["text", "image", "table", "audio", "video", "code", "data", "other"]
       }
     },
+    "generated_fields": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "anchors": {
       "type": "array",
       "items": {
@@ -51,12 +64,24 @@
           },
           "text": {
             "type": "string"
+          },
+          "modality": {
+            "type": "string"
+          },
+          "generated": {
+            "type": "boolean"
           }
         },
         "additionalProperties": true
       }
     },
     "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_item_ids": {
       "type": "array",
       "items": {
         "type": "string"

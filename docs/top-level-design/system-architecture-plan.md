@@ -298,6 +298,27 @@ Validation:
 - root repository docs distinguish system repository files from generated
   workspace files
 
+### Phase 1.1: Workspace Kernel Closure
+
+Goal: make the Phase 1 substrate internally consistent before Phase 2 begins.
+This is a closure pass over rules, templates, contracts, and validation.
+
+Deliverables:
+
+- first-round workflow contract
+- workspace-local plan, raw, wiki, report, and log templates
+- clarified pass, fail, and needs-review report language
+- minimum schema alignment with the rules
+- expanded kernel validator
+
+Validation:
+
+- a copied workspace kernel has obvious places for plans, raw inputs, derived
+  packets, wiki pages, reports, and logs
+- rules and templates use the same terms for source inventory, source packet,
+  compare gate, lint, review, and distillation round
+- Phase 2 remains explicitly not started
+
 ### Phase 2: Raw Resource Conversion Subsystem
 
 Goal: convert raw resources into source packets without losing provenance.

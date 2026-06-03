@@ -28,6 +28,12 @@
         "type": "string"
       }
     },
+    "next_action": {
+      "type": "string"
+    },
+    "owner": {
+      "type": "string"
+    },
     "source_ids": {
       "type": "array",
       "items": {

@@ -24,6 +24,10 @@ Use a stable Markdown list shape:
 The workspace may use standard Markdown links instead of wikilinks, but it must
 choose one convention in `schema.md` and apply it consistently.
 
+Each entry should identify only one primary page. If multiple pages are related,
+link them from the page body or its `related` frontmatter rather than packing
+multiple primary targets into one index line.
+
 ## Minimum Sections
 
 - Overview
@@ -45,3 +49,25 @@ navigation route from source pages to synthesis pages.
 - index links are not broken
 - source summary pages are grouped separately from concept or synthesis pages
 - stale entries are removed when pages are deleted
+
+## Special Pages
+
+The following pages are special and may be handled separately from normal
+content-page indexing:
+
+- `wiki/index.md`
+- `wiki/log.md`
+- `wiki/overview.md`
+
+`overview.md` should still be discoverable from the index. `index.md` and
+`log.md` do not need normal content entries.
+
+## Pass Conditions
+
+The index passes the minimum contract when:
+
+- every content page has one index entry
+- every index entry resolves to an existing page
+- section names match the workspace schema
+- source, concept, entity, comparison, query, and synthesis pages are not mixed
+  into the wrong section without a recorded reason

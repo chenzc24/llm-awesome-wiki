@@ -30,6 +30,14 @@
           "sha256": {
             "type": "string"
           },
+          "added_at": {
+            "type": "string",
+            "format": "date"
+          },
+          "changed_at": {
+            "type": "string",
+            "format": "date"
+          },
           "source_kind": {
             "type": "string"
           },
@@ -39,6 +47,12 @@
           },
           "packet_path": {
             "type": "string"
+          },
+          "review_item_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
           },
           "notes": {
             "type": "array",

@@ -5,9 +5,9 @@ to knowledge-base construction: maintenance, lint, search, compare gates,
 source inventory, and claim audit. These are construction tools, not the later
 downstream domain `skill + tool` codebase.
 
-Phase 1 only provides skeletons and one workspace-kernel validator. It does
-not implement the full raw conversion, wiki lint, compare, or claim audit
-toolchain.
+Phase 1 and Phase 1.1 provide skeletons and one workspace-kernel validator.
+They do not implement the full raw conversion, wiki lint, compare, or claim
+audit toolchain.
 
 ## Planned Tool Families
 

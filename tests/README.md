@@ -17,6 +17,19 @@ or LLM output when needed, and expected files or reports.
 - claim audit scenarios
 - review queue scenarios
 
+## Scenario Shape
+
+Each scenario should be small enough to inspect by hand and should define:
+
+- `name`: stable scenario name
+- `description`: behavior under test
+- `initial_workspace`: files that exist before the action
+- `input`: source file, source packet, wiki page, report, or command input
+- `simulated_output`: optional agent or LLM output
+- `expected`: files, reports, review items, or validation failures
+
+Scenarios should assert repository artifacts, not the quality of a chat answer.
+
 ## Principles
 
 - Prefer deterministic assertions over model self-evaluation.

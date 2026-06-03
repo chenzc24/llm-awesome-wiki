@@ -8,24 +8,28 @@ workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
 1. Run `git status --short --branch`.
 2. Confirm unrelated changes are not mixed into the current target.
 3. Read `purpose.md`, `schema.md`, and `wiki/index.md` when they exist.
-4. Create or update a target plan before editing tracked files.
+4. Create or update `plan/<date-goal-slug>/plan.md` before editing tracked
+   files.
 
 ## During Work
 
 1. Treat `raw/sources/` as immutable source material.
 2. Convert raw files into source packets under `raw/derived/` before wiki
    distillation when a structured packet is feasible.
-3. Keep wiki claims traceable to source packets or source identities.
-4. Put uncertain semantic judgment into review items or reports.
-5. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
+3. Keep source identities, hashes, anchors, and extraction gaps visible.
+4. Keep wiki claims traceable to source packets or source identities.
+5. Put uncertain semantic judgment into review items or reports.
+6. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
 
 ## After Work
 
 1. Run available validation commands.
 2. Write reports under `reports/`.
-3. Review the diff.
-4. Commit only intended files.
-5. Push according to the workspace branch policy.
+3. Update `plan/log.md` with target, changed areas, validation, and commit
+   status.
+4. Review the diff.
+5. Commit only intended files.
+6. Push according to the workspace branch policy.
 
 ## Non-Goals
 

@@ -18,6 +18,22 @@ the bridge between heterogeneous raw files and later claim/evidence records.
   dataset
 - extraction method and version when a tool is used
 
+## Source Identity
+
+Each source must have a stable `source_id` before packet writing begins.
+
+Minimum identity fields:
+
+- `source_id`: stable workspace identifier, preferably path-like and lowercase
+- `raw_path`: path under `raw/sources/`
+- `raw_sha256`: file hash when the source is local and hashable
+- `source_kind`: file or material kind
+- `added_at`: date the source entered the workspace
+- `status`: `new`, `processed`, `changed`, `ignored`, or `failed`
+
+If the hash cannot be computed, record why in metadata and mark the packet as
+`manual-review` or `partial`.
+
 ## Required Outputs
 
 Each processed source should produce a derived packet under
@@ -27,6 +43,31 @@ Each processed source should produce a derived packet under
 - `metadata.json` or `metadata.yml`: source identity, hash, extraction status,
   tool version, modalities, and known gaps
 - optional `media/`: extracted images, tables, charts, or attachments
+
+## Packet Metadata
+
+`metadata.json` or `metadata.yml` must include:
+
+- source identity fields
+- extraction tool and version, or `manual` if produced by an agent
+- extraction status: `complete`, `partial`, `failed`, or `manual-review`
+- modalities present in the source
+- generated fields, such as OCR text or image captions
+- extraction gaps and failure notes
+
+## Anchor Contract
+
+`source.md` must preserve anchors that later claims can cite.
+
+Minimum anchor fields:
+
+- `anchor_id`
+- human-readable label
+- location, such as page, slide, section, timestamp, row, or filename
+- extracted text or media reference when available
+
+Anchors should be stable across re-runs when the underlying source has not
+changed.
 
 ## Agent Rules
 
@@ -44,3 +85,11 @@ Each processed source should produce a derived packet under
 The next stage may use only source packets and their metadata as the direct
 input for wiki construction. If a later round needs the raw file again, it must
 record why in the workspace log or compare report.
+
+## Acceptance Criteria
+
+- every processed source has a source identity
+- every packet has metadata and at least one anchor unless extraction failed
+- extraction gaps are explicit
+- generated captions, OCR, and inferences are distinguishable from source text
+- failed or partial packets create review items or report entries

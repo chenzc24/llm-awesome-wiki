@@ -148,3 +148,20 @@
   status --short --branch` showed only the intended maintenance files before
   commit.
 - Commit: ready for `Record phase one final maintenance status`.
+
+## 2026-06-03 - Close workspace kernel phase one loop
+
+- Target: close Phase 1.1 by aligning workspace-kernel rules, templates,
+  contracts, and validator expectations before starting Phase 2.
+- Changed areas: updated `README.md`,
+  `docs/top-level-design/system-architecture-plan.md`, rules under `rules/`,
+  schema guidance under `contracts/schemas/`, workspace templates under
+  `templates/workspace-kernel/`, validation under `tools/validate-kernel/`,
+  test guidance under `tests/`, and added the target plan under
+  `plan/2026-06-03-phase-1-1-workspace-kernel-closure/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; schema JSON parsed with
+  `ConvertFrom-Json`; root-level active workspace paths were absent; targeted
+  `rg` confirmed Phase 1.1 and Phase 2-not-started language; `git submodule
+  status` confirmed `llm_wiki` remained pinned.
+- Commit: ready for `Close workspace kernel phase one loop`.
