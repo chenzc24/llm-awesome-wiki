@@ -40,3 +40,15 @@
   `knowledge-base construction`, `downstream knowledge-to-code`, and
   `skill + tool` language across docs and tools guidance.
 - Commit: ready for `Split construction and downstream execution layers`.
+
+## 2026-06-03 - Add top-level phased distillation design
+
+- Target: add a designer-maintained top-level design area under `docs/` and
+  define staged raw resource to Markdown/Wiki distillation work.
+- Changed areas: added `docs/top-level-design/README.md`,
+  `docs/top-level-design/phased-distillation-design.md`, and the target plan
+  under `plan/2026-06-03-top-level-design-plan/`.
+- Validation: `git diff --check` passed; targeted `rg` confirmed
+  `raw_resource`, source packet, PDF/PPTX/DOCX handling, LLM responsibility
+  boundaries, and `llm_wiki` reference points in the new design docs.
+- Commit: ready for `Add top-level phased distillation design`.
