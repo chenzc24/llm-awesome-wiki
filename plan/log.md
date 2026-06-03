@@ -53,6 +53,21 @@
   `skill + tool` language across docs and tools guidance.
 - Commit: ready for `Split construction and downstream execution layers`.
 
+## 2026-06-03 - Refine system architecture execution layer boundaries
+
+- Target: align `docs/top-level-design/system-architecture-plan.md` with the
+  two-layer execution model: construction tools/reports inside knowledge-base
+  construction, downstream domain `skill + tool` artifacts only after a stable
+  knowledge release.
+- Changed areas: updated the product thesis pipeline, directory comments,
+  Layer 5/6/7 boundaries, Phase 0/5/6/7 wording, the LLM responsibility matrix,
+  and derived execution targets; added the target plan under
+  `plan/2026-06-03-refine-system-architecture-execution-layers/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed `construction tools`, `stable knowledge release`,
+  `downstream executable`, `domain skills`, and `domain tools` language.
+- Commit: ready for `Refine architecture execution layer boundaries`.
+
 ## 2026-06-03 - Add top-level phased distillation design
 
 - Target: add a designer-maintained top-level design area under `docs/` and

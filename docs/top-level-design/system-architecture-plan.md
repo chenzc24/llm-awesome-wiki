@@ -4,7 +4,8 @@ This document is the top-level design plan for building the new LLM Awesome
 Wiki system. It is not a plan to operate `llm_wiki`, and it is not merely a
 knowledge-base generation recipe. The goal is to design a repo-native system
 that turns raw material into auditable knowledge, then into executable
-specifications, tools, skills, tests, and maintained engineering artifacts.
+construction checks, and later into downstream specifications, skills, tools,
+tests, and maintained engineering artifacts.
 
 `llm_wiki/` is a pinned reference submodule. It can inform implementation
 patterns, but the root repository defines a new system with its own architecture,
@@ -20,9 +21,11 @@ raw resources
 -> extracted source packets
 -> evidence and claim records
 -> maintained wiki pages
--> compare and review gates
--> executable specs
--> skills, tools, tests, templates, and code artifacts
+-> construction tools and reports
+   (inventory, lint, compare, review, claim audit)
+-> stable knowledge release
+-> downstream executable specs
+-> domain skills, domain tools, tests, templates, and code artifacts
 -> validation feedback into the knowledge base
 ```
 
@@ -66,8 +69,8 @@ reports/                  # compare, coverage, lint, review outputs
 schemas/                  # source, claim, page, and report schemas
 tools/                    # deterministic construction tools
 templates/                # reusable plans, pages, reports, specs
-skills/                   # future agent skills derived from stable knowledge
-tests/                    # validation for tools and generated artifacts
+skills/                   # reserved for downstream domain skills
+tests/                    # validation for construction tools and downstream artifacts
 ```
 
 ### Layer 2: Raw Resource Conversion
@@ -127,6 +130,8 @@ Expected outputs:
 ### Layer 5: Quality Gates
 
 Quality gates turn subjective distillation into checkable workflow state.
+They are part of the knowledge-construction executable layer, not downstream
+skill or tool generation.
 
 Required gate families:
 
@@ -143,6 +148,9 @@ Required gate families:
 ### Layer 6: Construction Tooling
 
 Construction tools support the knowledge-building system itself.
+This layer belongs to knowledge-base construction and maintenance. Its outputs
+are reports, validations, and low-risk mechanical fixes, not domain skills or
+downstream code artifacts.
 
 Candidate tools:
 
@@ -163,13 +171,15 @@ review.
 ### Layer 7: Knowledge-To-Executable Pipeline
 
 After the knowledge base is stable enough, the system should generate or
-maintain executable artifacts.
+maintain downstream executable artifacts. This layer starts after construction
+tools, compare gates, source coverage, and claim coverage have produced a
+stable knowledge release.
 
 Candidate outputs:
 
 - executable specs
-- agent skills
-- CLI tools
+- domain agent skills
+- domain CLI tools
 - validators
 - generators
 - tests
@@ -178,7 +188,8 @@ Candidate outputs:
 - small application prototypes
 
 This is a later mainline. It depends on stable source coverage, claim coverage,
-and review discipline.
+and review discipline. It should not absorb construction tools such as source
+inventory, wiki lint, compare gates, or claim audit; those belong to Layer 6.
 
 ### Layer 8: Developer And Agent Experience
 
@@ -214,7 +225,8 @@ Validation:
 
 - design docs are English-only
 - `llm_wiki` is framed as reference material
-- system phases include downstream executable artifacts, not only wiki pages
+- system phases include construction tooling before downstream executable
+  artifacts, not only wiki pages
 
 ### Phase 1: Repository Kernel
 
@@ -391,6 +403,7 @@ Validation:
 ### Phase 5: Compare Gates And Review Workflow
 
 Goal: ensure that every round produces checkable quality signals.
+This phase is still part of knowledge-base construction.
 
 Deliverables:
 
@@ -410,6 +423,8 @@ Validation:
 ### Phase 6: Construction Tools
 
 Goal: implement deterministic tooling for the repository workflow.
+These tools operationalize source conversion, maintenance, and compare gates;
+they are not the downstream domain `skill + tool` codebase.
 
 Deliverables:
 
@@ -429,12 +444,14 @@ Validation:
 ### Phase 7: Downstream Executable Artifacts
 
 Goal: turn stable knowledge into executable engineering outputs.
+This phase begins only after the construction tooling and compare gates can
+produce a stable knowledge release.
 
 Deliverables:
 
 - executable spec templates
-- skill templates
-- tool templates
+- downstream skill templates
+- downstream domain tool templates
 - tests derived from requirements or decisions
 - experiment protocols
 - feedback rules from execution results back into wiki pages
@@ -494,7 +511,7 @@ Conversion rules:
 | Claim extraction | source packet required | primary assistant | ambiguous claims |
 | Wiki drafting | evidence/claim context required | primary assistant | important claims |
 | Compare gate | yes | assist with semantic gap discovery | unresolved issues |
-| Downstream code generation | spec required | implementation assistant | failing validation |
+| Downstream skill/tool or code generation | stable spec required | implementation assistant | failing validation |
 
 ## `llm_wiki` Reference Boundary
 
@@ -538,6 +555,7 @@ Good execution targets:
 - implement PDF source packet conversion for one fixture class
 - add a claim coverage report template
 - build the first compare gate command
+- define the stable knowledge release criteria
 - define executable spec templates
 
 Too broad:
