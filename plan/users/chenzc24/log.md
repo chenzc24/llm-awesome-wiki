@@ -131,5 +131,23 @@ Repository-wide merged or integration-level maintenance history belongs in
   targeted `rg` confirmed the Phase 2 planning terms; `git submodule status`
   confirmed both reference submodules stayed pinned; `git status
   --short --branch` showed only the intended Phase 2 planning files.
-- Commit: planned for `co-work/czc_personB` as `Plan phase two raw resource
-  conversion`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `30a6449
+  Plan phase two raw resource conversion`.
+
+## 2026-06-04 - Define source intake inventory workflow
+
+- Target: make Phase 2.1 actionable by defining source intake, inventory row
+  fields, source ID rules, hash states, status transitions, unsupported-source
+  handling, and source-inventory tool behavior.
+- Changed areas: `docs/phase-plans/phase-2.1-source-intake-inventory.md`,
+  `rules/raw-to-source-packet.md`,
+  `templates/workspace-kernel/raw/source-inventory.template.md`,
+  `tools/source-inventory/README.md`, `plan/log.md`, and
+  `plan/users/chenzc24/2026-06-04-phase-2-1-source-intake-inventory/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 2.1 and source-inventory workflow language; `git submodule status`
+  confirmed both reference submodules stayed pinned; `git status
+  --short --branch` showed only the intended Phase 2.1 files.
+- Commit: planned for `co-work/czc_personB` as `Define source intake inventory
+  workflow`.

@@ -393,5 +393,24 @@
   generated-field, and Person A handoff language; `git submodule status`
   confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
   --short --branch` showed only the intended Phase 2 planning files.
-- Commit: planned for `co-work/czc_personB` as `Plan phase two raw resource
-  conversion`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `30a6449
+  Plan phase two raw resource conversion`.
+
+## 2026-06-04 - Define source intake inventory workflow
+
+- Target: advance Phase 2.1 by defining the source intake and inventory
+  workflow before source-packet writing begins.
+- Changed areas: added
+  `docs/phase-plans/phase-2.1-source-intake-inventory.md`; updated
+  `rules/raw-to-source-packet.md`,
+  `templates/workspace-kernel/raw/source-inventory.template.md`, and
+  `tools/source-inventory/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-1-source-intake-inventory/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 2.1, source-intake, source-inventory, source ID, status, hash, review
+  handoff, and unsupported-source language; `git submodule status` confirmed
+  `MinerU/` and `llm_wiki/` remained pinned; `git status --short --branch`
+  showed only the intended Phase 2.1 files.
+- Commit: planned for `co-work/czc_personB` as `Define source intake inventory
+  workflow`.
