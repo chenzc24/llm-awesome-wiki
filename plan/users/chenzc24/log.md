@@ -92,3 +92,16 @@ Repository-wide merged or integration-level maintenance history belongs in
   note.
 - Commit: completed and pushed to `origin/main` as `d32621d Add ignored
   workspace dry run area`.
+
+## 2026-06-03 - Split collaboration responsibilities by phase
+
+- Target: create detailed collaboration guidance that splits Person A's
+  contracts/validation work and Person B's workflow/tool-surface work by
+  system phase.
+- Changed areas: `docs/collaboration/`,
+  `plan/users/chenzc24/2026-06-03-split-collaboration-by-phase/`, and
+  maintenance logs.
+- Validation: targeted `rg` confirmed the requested phase and ownership terms;
+  `git diff --check` passed with only Windows line-ending warnings; `git
+  submodule status` confirmed `llm_wiki` remained pinned.
+- Commit: ready for `Split collaboration responsibilities by phase`.

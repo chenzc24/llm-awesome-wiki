@@ -36,6 +36,11 @@ If two people both try to "build the system" broadly, they will edit the same
 files and create conflicts. The safer split is to create two long-term owner
 lines.
 
+For detailed phase-by-phase assignments, use:
+
+- `person-a-contracts-validation-by-phase.md` for the coworker / Person A
+- `person-b-workflow-surface-by-phase.md` for `chenzc24` / Person B
+
 ## The Two Owner Lines
 
 ### Person A: Contracts + Validation Owner

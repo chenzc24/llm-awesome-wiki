@@ -10,3 +10,7 @@ Current guides:
 
 - `two-person-pre-skill-tools-worksplit.md`: newcomer-friendly two-person split
   for all major work before downstream skill/tool development.
+- `person-a-contracts-validation-by-phase.md`: phase-by-phase assignment for
+  the coworker acting as Contracts + Validation Owner.
+- `person-b-workflow-surface-by-phase.md`: phase-by-phase assignment for
+  `chenzc24` as Workflow + Tool Surface Owner.

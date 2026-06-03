@@ -348,3 +348,17 @@
   files.
 - Commit: completed and pushed to `origin/main` as `d32621d Add ignored
   workspace dry run area`.
+
+## 2026-06-03 - Split collaboration responsibilities by phase
+
+- Target: split the two-person pre-skill/tool collaboration guidance into
+  phase-by-phase assignments for Person A and Person B.
+- Changed areas: added detailed Person A and Person B phase guides under
+  `docs/collaboration/`, updated the collaboration README and two-person
+  overview, and added the target plan under
+  `plan/users/chenzc24/2026-06-03-split-collaboration-by-phase/`.
+- Validation: targeted `rg` confirmed Phase 0, Phase 1/1.1, Person A, Person B,
+  `chenzc24`, rough first draft, and pre-skill/tool language; `git diff
+  --check` passed with only Windows line-ending warnings; `git submodule
+  status` confirmed `llm_wiki` remained pinned.
+- Commit: ready for `Split collaboration responsibilities by phase`.
