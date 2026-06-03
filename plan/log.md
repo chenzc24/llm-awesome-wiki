@@ -379,3 +379,19 @@
   --short --branch` showed only the intended submodule and maintenance files.
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `59b3c9e
   Add MinerU reference submodule`.
+
+## 2026-06-04 - Plan phase two raw resource conversion
+
+- Target: plan Person B Phase 2 as the raw-resource-to-source-packet workflow
+  layer, using `MinerU/` as a read-only parsing reference without making it a
+  required runtime dependency.
+- Changed areas: added `docs/phase-plans/phase-2-raw-resource-conversion.md`
+  and the target plan under
+  `plan/users/chenzc24/2026-06-04-plan-phase-2-raw-resource-conversion/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed Phase 2, MinerU, source-packet, CPU-first,
+  generated-field, and Person A handoff language; `git submodule status`
+  confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
+  --short --branch` showed only the intended Phase 2 planning files.
+- Commit: planned for `co-work/czc_personB` as `Plan phase two raw resource
+  conversion`.

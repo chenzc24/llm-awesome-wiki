@@ -118,3 +118,18 @@ Repository-wide merged or integration-level maintenance history belongs in
   Windows line-ending warnings.
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `59b3c9e
   Add MinerU reference submodule`.
+
+## 2026-06-04 - Plan Phase 2 raw resource conversion
+
+- Target: turn MinerU reference observations into a Person B-owned Phase 2 plan
+  for raw resource intake, inventory, source packets, modality profiles,
+  generated fields, and future tool-surface specs.
+- Changed areas: `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `plan/log.md`, and
+  `plan/users/chenzc24/2026-06-04-plan-phase-2-raw-resource-conversion/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed the Phase 2 planning terms; `git submodule status`
+  confirmed both reference submodules stayed pinned; `git status
+  --short --branch` showed only the intended Phase 2 planning files.
+- Commit: planned for `co-work/czc_personB` as `Plan phase two raw resource
+  conversion`.
