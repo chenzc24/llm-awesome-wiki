@@ -1,0 +1,42 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://llm-awesome-wiki.local/contracts/claim-record.schema.json",
+  "title": "Claim Record",
+  "type": "object",
+  "required": ["claim_id", "claim", "status", "evidence_ids"],
+  "properties": {
+    "claim_id": {
+      "type": "string"
+    },
+    "claim": {
+      "type": "string"
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "supported", "contested", "unsupported", "stale", "needs-review"]
+    },
+    "evidence_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "wiki_pages": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_item_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "updated": {
+      "type": "string",
+      "format": "date"
+    }
+  },
+  "additionalProperties": true
+}

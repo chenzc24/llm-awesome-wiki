@@ -117,3 +117,21 @@
   `llm_wiki` is framed as a reference boundary, raw-resource conversion is a
   subsystem, and PDF/PPTX/DOCX plus LLM responsibility sections are present.
 - Commit: ready for `Reframe top-level design as system architecture`.
+
+## 2026-06-03 - Add workspace kernel phase one substrate
+
+- Target: implement Phase 1 as a copy-first, VSCode-native workspace kernel
+  substrate while keeping the root repository as the system producer.
+- Changed areas: updated `README.md`,
+  `docs/top-level-design/system-architecture-plan.md`, `templates/README.md`,
+  and `tools/README.md`; added Phase 1 design under `docs/phase-plans/`, rules
+  under `rules/`, contracts under `contracts/schemas/`, the copyable workspace
+  kernel under `templates/workspace-kernel/`, tool skeletons under `tools/`,
+  test guidance under `tests/`, and the target plan under
+  `plan/2026-06-03-phase-1-workspace-kernel/`.
+- Validation: `tools/validate-kernel/validate-kernel.ps1` passed; JSON schemas
+  parsed with `ConvertFrom-Json`; root-level active workspace paths
+  `raw/`, `wiki/`, `reports/`, and `schema.md` were absent; `git diff --check`
+  passed with only Windows line-ending warnings; `git submodule status`
+  confirmed `llm_wiki` remained pinned.
+- Commit: ready for `Add workspace kernel phase one substrate`.

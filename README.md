@@ -41,17 +41,31 @@ The repository has completed its bootstrap stage:
 - Core philosophy and architecture documents live under `docs/`.
 - `llm_wiki/` is pinned as a reference submodule.
 - Planning and maintenance records live under `plan/`.
-- `tools/` and `templates/` are placeholders for future construction tooling
-  and reusable workflow artifacts.
+- `tools/` and `templates/` are now the homes for future construction tooling
+  and reusable workspace-kernel artifacts.
 
-The next major planning target is **Phase 1: Repository Kernel**.
+The current implementation target is **Phase 1: Workspace Kernel**.
 
-## Phase 1: Repository Kernel
+## Phase 1: Workspace Kernel
 
-Phase 1 should establish the reusable kernel for generated knowledge
-workspaces. It is the system structure stage: directory contracts, schema
-contracts, templates, and validation entrypoints. It is not a raw-resource
-converter and not a wiki-generation engine.
+Phase 1 establishes a copyable workspace kernel for generated knowledge
+workspaces. It is the system structure stage: workflow rules, directory
+contracts, machine-readable contracts, templates, and validation entrypoints.
+It is not a raw-resource converter and not a wiki-generation engine.
+
+The system repository is not the place where day-to-day knowledge distillation
+happens. The intended use pattern is:
+
+```text
+system repo
+-> copy or scaffold workspace kernel
+-> independent knowledge workspace repo
+-> VSCode + Git + CLI + Agent maintenance inside that repo
+```
+
+This keeps the workflow repo-local. The user opens the knowledge workspace
+directly in VSCode; there is no required Obsidian vault, desktop application,
+background service, or external tool wrapper.
 
 Expected Phase 1 deliverables:
 
@@ -83,10 +97,13 @@ Current system repository areas:
 
 ```text
 AGENTS.md                  # required rules for agents working in this repo
+contracts/                 # reusable machine contracts, including JSON Schema
 docs/                      # philosophy, architecture, and phase design docs
 llm-wiki.md                # original LLM Wiki concept note
 llm_wiki/                  # pinned reference submodule
 plan/                      # target plans and maintenance log
+rules/                     # repo-native workflow rules and contracts
+tests/                     # validation guidance and future scenario fixtures
 tools/                     # future construction tools
 templates/                 # future reusable workflow templates
 ```
@@ -94,8 +111,6 @@ templates/                 # future reusable workflow templates
 Potential future system repository areas:
 
 ```text
-schemas/                   # reusable schema contracts, not instance data
-tests/                     # tests for construction tools and templates
 examples/                  # small fixture workspaces, never active project data
 ```
 
@@ -106,7 +121,7 @@ raw/sources/               # immutable source files
 raw/derived/               # source packets and extracted media
 wiki/                      # maintained distilled knowledge
 reports/                   # compare, coverage, lint, review outputs
-schemas/                   # copied or referenced schema/config contracts
+contracts/                 # copied or referenced schema/config contracts
 tests/                     # validation for construction tools and artifacts
 skills/                    # reserved for downstream domain skills
 ```
@@ -119,10 +134,15 @@ projects, examples, or fixtures.
 
 - `AGENTS.md`: required workflow discipline for agents.
 - `docs/top-level-design/system-architecture-plan.md`: top-level system plan.
+- `docs/phase-plans/phase-1-workspace-kernel.md`: Phase 1 implementation
+  target.
 - `docs/core-philosophy.md`: project principles and two execution layers.
 - `docs/knowledge-to-executable.md`: construction tools vs downstream
   knowledge-to-code.
 - `docs/llm_wiki-reference.md`: how to use `llm_wiki` as reference material.
+- `rules/`: operational rules for generated workspaces.
+- `contracts/schemas/`: reusable JSON Schema contracts.
+- `templates/workspace-kernel/`: copyable repo-local workspace substrate.
 - `plan/log.md`: maintenance history.
 
 ## Working Rules
@@ -171,7 +191,8 @@ Good early contributions are narrow Phase 1 tasks, such as:
 - defining the source inventory schema
 - defining the source packet schema
 - defining the report schema
-- improving repository kernel templates
+- improving workspace kernel templates
+- improving workspace-kernel validation
 - documenting stable knowledge release criteria
 
 Avoid broad tasks like "build the whole system" or "generate all wiki pages."

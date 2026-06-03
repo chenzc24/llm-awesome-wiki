@@ -32,10 +32,29 @@ raw resources
 The system is not only a reading surface. It is an engineering workflow for
 making knowledge traceable, reviewable, and eventually executable.
 
+## Product Form
+
+The system is repo-native rather than app-native. It has three distinct forms:
+
+- **System repo**: this repository. It maintains the philosophy, architecture,
+  rules, contracts, templates, tool source, and tests.
+- **Workspace kernel**: the copyable set of local files produced by the system
+  repo. It includes workspace `AGENTS.md`, `purpose.md`, `schema.md`, rules,
+  contracts, template directories, and construction-tool entrypoints.
+- **Knowledge workspace repo**: an independent user repository created from the
+  kernel. This is where `raw/`, `wiki/`, `reports/`, and workspace-local
+  validation live.
+
+The intended usage surface is the knowledge workspace repository itself. Users
+open that repository in VSCode and work with Git, CLI tools, and agents against
+repo-local files. The system should not require a desktop app, Obsidian vault,
+background service, or external wrapper as the source of truth.
+
 ## System Non-Goals
 
 - Do not make Obsidian a required dependency.
 - Do not wrap or depend on the `llm_wiki` desktop application.
+- Do not turn this system repository into an active knowledge workspace.
 - Do not treat graph visualization as a quality gate.
 - Do not rely on model self-evaluation as the only acceptance signal.
 - Do not merge source conversion, wiki distillation, and downstream code
@@ -45,12 +64,13 @@ making knowledge traceable, reviewable, and eventually executable.
 
 ## Architecture Layers
 
-### Layer 1: Repository Kernel
+### Layer 1: Workspace Kernel Producer
 
-The root repository is the system substrate. It owns architecture documents,
-template contracts, reusable schemas, construction tools, tests, and
-deterministic tooling. It should not itself become an active knowledge
-workspace.
+The root repository is the system substrate. It produces a workspace kernel
+that can be copied or scaffolded into independent knowledge workspace
+repositories. It owns architecture documents, workflow rules, reusable machine
+contracts, construction tools, tests, and deterministic validation entrypoints.
+It should not itself become an active knowledge workspace.
 
 Expected responsibilities:
 
@@ -64,11 +84,12 @@ Expected responsibilities:
 System repository directories:
 
 ```text
+contracts/                # reusable machine contracts, including JSON Schema
 docs/                     # architecture, phase plans, and project guidance
 plan/                     # target plans and maintenance log
+rules/                    # workspace workflow rules and index/gate contracts
 tools/                    # construction tool source and entrypoints
 templates/                # reusable workspace, page, report, and spec templates
-schemas/                  # reusable schema contracts, if authored as files
 tests/                    # validation for tools, templates, and schemas
 examples/                 # small generated-workspace fixtures only
 ```
@@ -80,7 +101,7 @@ raw/sources/              # immutable source files
 raw/derived/              # source packets and extracted media
 wiki/                     # maintained distilled knowledge
 reports/                  # compare, coverage, lint, review outputs
-schemas/                  # source, claim, page, and report schemas
+contracts/                # copied or referenced schema/config contracts
 tools/                    # deterministic construction tools
 templates/                # reusable plans, pages, reports, specs
 skills/                   # reserved for downstream domain skills
@@ -90,6 +111,11 @@ tests/                    # validation for construction tools and downstream art
 The generated workspace contract is what the system should scaffold for users.
 Those directories should not be created at the root of this system repository
 except inside `examples/` or test fixtures.
+
+The first version is copy-first: a developer can copy
+`templates/workspace-kernel/` into a new repository and then work entirely from
+that repository. A future scaffold command may automate the copy and later sync
+kernel updates, but daily use must remain local to the workspace repo.
 
 ### Layer 2: Raw Resource Conversion
 
@@ -246,25 +272,29 @@ Validation:
 - system phases include construction tooling before downstream executable
   artifacts, not only wiki pages
 
-### Phase 1: Repository Kernel
+### Phase 1: Workspace Kernel
 
-Goal: create the reusable file, schema, and template substrate needed for
-generated knowledge workspaces.
+Goal: create the reusable rules, contracts, templates, and validation substrate
+needed to instantiate generated knowledge workspaces.
 
 Deliverables:
 
 - canonical directory map
+- workspace-kernel template
+- workflow rules outside `docs/`
 - source inventory schema
 - source packet schema
 - claim/evidence schema
 - report schema
 - plan and log templates
+- root kernel validator
 
 Validation:
 
-- schemas are stored in files
+- machine contracts are stored in `contracts/schemas/`
 - templates are diffable
 - a new agent can identify where each artifact belongs
+- the root repository has no live `raw/`, `wiki/`, `reports/`, or `schema.md`
 - root repository docs distinguish system repository files from generated
   workspace files
 

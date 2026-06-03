@@ -1,0 +1,39 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://llm-awesome-wiki.local/contracts/evidence-record.schema.json",
+  "title": "Evidence Record",
+  "type": "object",
+  "required": ["evidence_id", "source_id", "anchor_id", "evidence_type"],
+  "properties": {
+    "evidence_id": {
+      "type": "string"
+    },
+    "source_id": {
+      "type": "string"
+    },
+    "anchor_id": {
+      "type": "string"
+    },
+    "evidence_type": {
+      "type": "string",
+      "enum": ["quote", "summary", "table", "image-caption", "ocr", "inference"]
+    },
+    "text": {
+      "type": "string"
+    },
+    "confidence": {
+      "type": "string",
+      "enum": ["low", "medium", "high"]
+    },
+    "generated": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

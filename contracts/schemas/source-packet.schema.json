@@ -1,0 +1,67 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://llm-awesome-wiki.local/contracts/source-packet.schema.json",
+  "title": "Source Packet",
+  "type": "object",
+  "required": ["source_id", "raw_path", "source_kind", "extraction_status", "anchors"],
+  "properties": {
+    "source_id": {
+      "type": "string"
+    },
+    "raw_path": {
+      "type": "string"
+    },
+    "raw_sha256": {
+      "type": "string"
+    },
+    "source_kind": {
+      "type": "string"
+    },
+    "extraction_tool": {
+      "type": "string"
+    },
+    "extraction_version": {
+      "type": "string"
+    },
+    "extraction_status": {
+      "type": "string",
+      "enum": ["complete", "partial", "failed", "manual-review"]
+    },
+    "modalities": {
+      "type": "array",
+      "items": {
+        "type": "string",
+        "enum": ["text", "image", "table", "audio", "video", "code", "data", "other"]
+      }
+    },
+    "anchors": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["anchor_id", "label"],
+        "properties": {
+          "anchor_id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "location": {
+            "type": "string"
+          },
+          "text": {
+            "type": "string"
+          }
+        },
+        "additionalProperties": true
+      }
+    },
+    "gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  },
+  "additionalProperties": true
+}

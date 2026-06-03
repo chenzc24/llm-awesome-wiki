@@ -1,27 +1,31 @@
 # Tools
 
-This directory is reserved for future repo-local tooling. The first tool layer
-belongs to knowledge-base construction: maintenance, lint, search, compare
-gates, source inventory, and claim audit. These are construction tools, not the
-later downstream domain `skill + tool` codebase.
+This directory is reserved for repo-local tooling. The first tool layer belongs
+to knowledge-base construction: maintenance, lint, search, compare gates,
+source inventory, and claim audit. These are construction tools, not the later
+downstream domain `skill + tool` codebase.
 
-The first version of the workflow only documents tool direction; it does not
-implement runnable scripts yet.
+Phase 1 only provides skeletons and one workspace-kernel validator. It does
+not implement the full raw conversion, wiki lint, compare, or claim audit
+toolchain.
 
 ## Planned Tool Families
 
-- `source_inventory`: scan raw sources, record path/hash/type/status, and
+- `validate-kernel`: verify that this system repo contains a reusable kernel
+  rather than live workspace output.
+- `source-inventory`: scan raw sources, record path/hash/type/status, and
   identify unprocessed or changed material.
-- `wiki_lint`: check frontmatter, broken links, orphan pages, missing index
+- `wiki-lint`: check frontmatter, broken links, orphan pages, missing index
   entries, and required maintenance files.
-- `coverage_compare`: compare raw source inventory against distilled wiki
+- `compare-gate`: compare raw source inventory against distilled wiki
   pages and report missing coverage.
-- `claim_audit`: map important wiki claims to source references and flag
+- `claim-audit`: map important wiki claims to source references and flag
   unsupported claims.
-- `search_index`: provide CLI-friendly keyword or hybrid search over raw and
+- `search-index`: provide CLI-friendly keyword or hybrid search over raw and
   distilled content.
-- `todo_sync`: consolidate compare, lint, and review outputs into actionable
+- `todo-sync`: consolidate compare, lint, and review outputs into actionable
   plan or todo files.
+- `scaffold-workspace`: future copy/sync helper for workspace kernels.
 
 ## Tool Principles
 

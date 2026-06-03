@@ -1,11 +1,12 @@
 # Templates
 
-This directory is reserved for reusable workflow templates. The first version
-only establishes the categories.
+This directory is reserved for reusable workflow templates. Phase 1 introduces
+`workspace-kernel/`, a copy-first substrate for new knowledge workspace
+repositories.
 
 ## Planned Template Families
 
-- project skeletons for new distilled knowledge bases
+- workspace kernels for new distilled knowledge bases
 - Agent prompt and instruction templates
 - distillation round plan templates
 - compare gate report templates
@@ -21,3 +22,6 @@ only establishes the categories.
 - Templates should separate human-facing explanation from agent-facing rules.
 - Templates should lead toward executable artifacts when appropriate.
 - Templates should avoid Obsidian-only conventions as requirements.
+- Templates may contain `raw/`, `wiki/`, and `reports/` because they are copied
+  into generated workspaces; those directories should not exist as active root
+  outputs in the system repository.
