@@ -131,6 +131,23 @@
   line-ending warnings; `git status --short --branch` reviewed.
 - Commit: ready for `Add multi-agent maintenance rules`.
 
+## 2026-06-03 - Add user plan namespaces
+
+- Target: introduce per-user plan namespaces and personal logs, keep shared
+  integration plans separate, and document that `docs/phase-plans/` contains
+  important Coordinator-owned phase plans.
+- Changed areas: updated `AGENTS.md`, `plan/README.md`,
+  `rules/maintenance-workflow.md`, and `rules/README.md`; added
+  `plan/users/`, `plan/users/chenzc24/`, `plan/shared/`,
+  `plan/shared/integration/`, `docs/phase-plans/README.md`, and the target
+  plan under `plan/2026-06-03-add-user-plan-namespaces/`.
+- Validation: targeted `rg` confirmed `plan/users/<user>`,
+  `plan/users/chenzc24/log.md`, `plan/shared/integration`,
+  `docs/phase-plans`, Coordinator ownership, and global log language;
+  `git diff --check` passed with only Windows line-ending warnings; `git
+  status --short --branch` reviewed.
+- Commit: ready for `Add user plan namespaces`.
+
 ## 2026-06-03 - Add workspace kernel phase one substrate
 
 - Target: implement Phase 1 as a copy-first, VSCode-native workspace kernel

@@ -19,4 +19,5 @@ required dependency.
   advancing a distillation round.
 - `distillation-rounds.md`: run wiki construction in small reviewable rounds.
 - `maintenance-workflow.md`: keep workspace plans, logs, commits, and reports
-  disciplined.
+  disciplined, including per-user plan namespaces and personal logs for
+  multi-agent work.

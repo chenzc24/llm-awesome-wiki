@@ -17,7 +17,13 @@ Before starting any single target:
 
 Before making modifications:
 
-1. Create a target-specific plan at `plan/<date-goal-slug>/plan.md`.
+1. Create a target-specific plan before editing tracked files.
+   - Individual co-worker work goes under
+     `plan/users/<user>/<date-goal-slug>/plan.md`.
+   - Shared integration work goes under
+     `plan/shared/integration/<date-goal-slug>/plan.md`.
+   - Existing historical plans directly under `plan/<date-goal-slug>/` remain
+     valid records, but new multi-person work should use the namespaced paths.
 2. The plan must state the goal, expected files, validation steps, and commit
    intent.
 3. In multi-agent or co-worker work, the plan must also declare:
@@ -40,9 +46,16 @@ Multi-agent coordination:
    are Coordinator-owned. Non-coordinator workers should propose changes rather
    than directly editing `docs/top-level-design/**` or other shared vocabulary
    sources.
-5. Each PR or commit must run at least `git diff --check`,
+5. Phase-level plans under `docs/phase-plans/**` are important shared plans and
+   are Coordinator-owned unless a task explicitly claims ownership of a specific
+   phase-plan file.
+6. Each co-worker has a personal log at `plan/users/<user>/log.md`. Record
+   personal task outcomes there before integration.
+7. The global `plan/log.md` records merged or integration-level maintenance
+   history and should be updated by the Coordinator or merge owner.
+8. Each PR or commit must run at least `git diff --check`,
    `git status --short --branch`, and any relevant schema or validator command.
-6. Treat `llm_wiki/` as read-only for all co-workers unless the user explicitly
+9. Treat `llm_wiki/` as read-only for all co-workers unless the user explicitly
    asks to update the submodule pointer or work inside that repository.
 
 After making modifications:
@@ -56,11 +69,12 @@ Plan hygiene:
 
 1. Periodically clean completed target plans so `plan/` stays useful.
 2. At the end of a day or completed stage, summarize finished
-   `plan/<date-goal-slug>/plan.md` entries into `plan/log.md` or a future
-   archive file.
+   personal plan entries into `plan/users/<user>/log.md`.
 3. After the summary preserves the goal, outcome, validation, and commit hash,
    remove or archive the detailed completed plan folders.
-4. Never delete an in-progress, failed, or unresolved plan. Keep it visible
+4. Keep `plan/log.md` focused on merged or integration-level history rather
+   than every individual draft task.
+5. Never delete an in-progress, failed, or unresolved plan. Keep it visible
    until the work is finished or explicitly abandoned.
 
 When the target is verified:

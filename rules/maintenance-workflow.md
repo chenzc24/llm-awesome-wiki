@@ -11,8 +11,20 @@ humans and agents.
 - Identify whether the target is raw conversion, wiki distillation, compare,
   lint, review, or downstream execution.
 
-Workspace plans should live under `plan/<date-goal-slug>/plan.md` unless the
-workspace chooses a different path in `schema.md`.
+Workspace plans should live under namespaced plan paths unless the workspace
+chooses a different path in `schema.md`.
+
+Individual co-worker work:
+
+```text
+plan/users/<user>/<date-goal-slug>/plan.md
+```
+
+Shared integration work:
+
+```text
+plan/shared/integration/<date-goal-slug>/plan.md
+```
 
 For multi-agent or co-worker work, each plan must also declare:
 
@@ -21,6 +33,10 @@ For multi-agent or co-worker work, each plan must also declare:
   modify.
 - shared contracts or schemas the task depends on.
 - the Coordinator or integration owner for shared terminology decisions.
+
+Each co-worker should also keep a personal log at
+`plan/users/<user>/log.md`. The global `plan/log.md` is for merged or
+integration-level history.
 
 ## During Work
 
@@ -33,6 +49,8 @@ For multi-agent or co-worker work, each plan must also declare:
   getting Coordinator approval.
 - Do not change shared terminology or top-level design boundaries unless the
   task is Coordinator-owned. Submit a proposal instead.
+- Do not change phase-level plans under `docs/phase-plans/**` unless the task
+  is Coordinator-owned or explicitly owns the specific phase-plan file.
 - Only one owner may edit a given `contracts/schemas/*` schema at a time.
 - Treat pinned reference repositories, including `llm_wiki/` when present, as
   read-only unless the user explicitly requests a pointer update or direct
@@ -51,6 +69,9 @@ For multi-agent or co-worker work, each plan must also declare:
 
 The workspace log should record target, changed areas, validation, unresolved
 review items, commit hash, and push status when available.
+
+Personal logs should record individual task outcomes. The global log should
+record integration outcomes.
 
 ## Multi-Agent Coordination
 

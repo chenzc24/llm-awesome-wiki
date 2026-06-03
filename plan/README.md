@@ -5,17 +5,36 @@ It exists so agents do not make untracked, unplanned changes.
 
 ## Required Pattern
 
-Before modifying repository files for a single target, create:
+Before modifying repository files for a single target, create a plan in the
+appropriate namespace.
+
+Individual co-worker work:
 
 ```text
-plan/<date-goal-slug>/plan.md
+plan/users/<user>/<date-goal-slug>/plan.md
 ```
 
 Example:
 
 ```text
-plan/2026-06-03-bootstrap-dev-maintenance/plan.md
+plan/users/chenzc24/2026-06-03-source-packet-contract/plan.md
 ```
+
+Shared integration work:
+
+```text
+plan/shared/integration/<date-goal-slug>/plan.md
+```
+
+Example:
+
+```text
+plan/shared/integration/2026-06-03-merge-contracts/plan.md
+```
+
+Historical plans directly under `plan/<date-goal-slug>/` remain valid records
+from before the multi-person namespace convention. New work should use the
+namespaced paths.
 
 Each target plan should include:
 
@@ -33,10 +52,22 @@ should not edit files outside the owned set without updating the plan first.
 Only one owner may edit a given `contracts/schemas/*` schema at a time, and
 shared terminology or top-level design changes should be Coordinator-owned.
 
+## Personal Logs
+
+Each co-worker should have a personal log:
+
+```text
+plan/users/<user>/log.md
+```
+
+The personal log records individual task outcomes, validation, unresolved
+issues, and commit references before or after integration.
+
 ## Global Log
 
-`plan/log.md` is the maintenance log. Update it after modifications and before
-commit.
+`plan/log.md` is the global integration and maintenance log. It should record
+work that has been merged, pushed, or accepted as repository-level history. In
+multi-person work, this log is maintained by the Coordinator or merge owner.
 
 Each entry should record:
 
@@ -45,6 +76,12 @@ Each entry should record:
 - summary of changes
 - validation performed
 - commit status
+
+## Phase Plans
+
+`docs/phase-plans/` stores phase-level system plans. These are important shared
+plans, not personal execution plans. They should be Coordinator-owned unless a
+target plan explicitly claims ownership of a specific phase-plan file.
 
 ## Relationship To Git
 
