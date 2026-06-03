@@ -49,7 +49,8 @@ Repository-wide merged or integration-level maintenance history belongs in
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   the golden-path terms and compare-deferred language; `git submodule status`
   confirmed `llm_wiki` remained pinned.
-- Commit: pending.
+- Commit: completed and pushed to `origin/main` as `804412a Add workspace
+  kernel golden path templates`.
 
 ## 2026-06-03 - Document two-person pre-skill/tools worksplit
 
@@ -58,5 +59,8 @@ Repository-wide merged or integration-level maintenance history belongs in
   file boundaries, and milestones.
 - Changed areas: `docs/collaboration/` and
   `plan/users/chenzc24/2026-06-03-document-two-person-worksplit/`.
-- Validation: pending in the target plan.
-- Commit: pending.
+- Validation: targeted `rg` confirmed the two owner lines, pre-skill/tools
+  scope, recommended branches, daily sync, and three milestones; `git diff
+  --check` passed with only Windows line-ending warnings; `git status
+  --short --branch` reviewed.
+- Commit: ready for `Document two-person pre-skill tools worksplit`.

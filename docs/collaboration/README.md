@@ -1,0 +1,12 @@
+# Collaboration
+
+This directory contains collaboration guidance for humans and agents working on
+LLM Awesome Wiki.
+
+These documents explain how to split work safely across a small team without
+changing the top-level system architecture or phase plans on every task.
+
+Current guides:
+
+- `two-person-pre-skill-tools-worksplit.md`: newcomer-friendly two-person split
+  for all major work before downstream skill/tool development.

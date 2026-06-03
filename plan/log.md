@@ -264,7 +264,8 @@
   Phase 1.3 files plus unrelated untracked user work under `docs/collaboration/`
   and `plan/users/chenzc24/2026-06-03-document-two-person-worksplit/`, which
   were left untouched.
-- Commit: pending `Add workspace kernel golden path templates`.
+- Commit: completed and pushed to `origin/main` as `804412a Add workspace
+  kernel golden path templates`.
 
 ## 2026-06-03 - Align distillation rounds with overview-first flow
 
@@ -304,6 +305,8 @@
   target plan under
   `plan/users/chenzc24/2026-06-03-document-two-person-worksplit/`; updated
   `plan/users/chenzc24/log.md`.
-- Validation: pending targeted `rg`, `git diff --check`, and
-  `git status --short --branch`.
-- Commit: pending.
+- Validation: targeted `rg` confirmed the two owner lines, pre-skill/tools
+  scope, recommended branches, daily sync, and three milestones; `git diff
+  --check` passed with only Windows line-ending warnings; `git status
+  --short --branch` reviewed.
+- Commit: ready for `Document two-person pre-skill tools worksplit`.
