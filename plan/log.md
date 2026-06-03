@@ -164,4 +164,17 @@
   `ConvertFrom-Json`; root-level active workspace paths were absent; targeted
   `rg` confirmed Phase 1.1 and Phase 2-not-started language; `git submodule
   status` confirmed `llm_wiki` remained pinned.
-- Commit: ready for `Close workspace kernel phase one loop`.
+- Commit: completed and pushed to `origin/main` as `7376979 Close workspace
+  kernel phase one loop`.
+
+## 2026-06-03 - Record phase one point one final maintenance status
+
+- Target: correct the Phase 1.1 maintenance record so it reflects the actual
+  committed and pushed state.
+- Changed areas: updated `plan/log.md`; added the target plan under
+  `plan/2026-06-03-record-phase-1-1-final-status/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed the Phase 1.1 entry references commit `7376979`; `git
+  status --short --branch` showed only the intended maintenance files before
+  commit.
+- Commit: ready for `Record phase one point one final maintenance status`.
