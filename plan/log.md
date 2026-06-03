@@ -346,4 +346,5 @@
   submodule status` confirmed `llm_wiki` remained pinned; `git status --short
   --branch --untracked-files=all` showed only the intended tracked maintenance
   files.
-- Commit: pending `Add ignored workspace dry run area`.
+- Commit: completed and pushed to `origin/main` as `d32621d Add ignored
+  workspace dry run area`.

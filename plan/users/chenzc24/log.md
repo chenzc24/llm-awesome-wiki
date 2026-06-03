@@ -90,4 +90,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   compare-deferred language; dry-run workspace produced source inventory,
   source packet, wiki pages, rendered visual review images, and validation
   note.
-- Commit: pending in the parent repository task.
+- Commit: completed and pushed to `origin/main` as `d32621d Add ignored
+  workspace dry run area`.
