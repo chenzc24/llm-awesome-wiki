@@ -52,3 +52,18 @@
   `raw_resource`, source packet, PDF/PPTX/DOCX handling, LLM responsibility
   boundaries, and `llm_wiki` reference points in the new design docs.
 - Commit: ready for `Add top-level phased distillation design`.
+
+## 2026-06-03 - Reframe top-level design as system architecture
+
+- Target: reframe the top-level design area as the architecture plan for the
+  new LLM Awesome Wiki system, not a `llm_wiki`-based knowledge-base generation
+  plan, and make the design docs English-only.
+- Changed areas: updated `docs/top-level-design/README.md`, replaced
+  `docs/top-level-design/phased-distillation-design.md` with
+  `docs/top-level-design/system-architecture-plan.md`, and added the target
+  plan under `plan/2026-06-03-reframe-top-level-system-design/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed no Chinese text remains in the top-level design area,
+  `llm_wiki` is framed as a reference boundary, raw-resource conversion is a
+  subsystem, and PDF/PPTX/DOCX plus LLM responsibility sections are present.
+- Commit: ready for `Reframe top-level design as system architecture`.
