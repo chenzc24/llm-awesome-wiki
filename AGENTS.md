@@ -9,8 +9,17 @@ or a desktop-app extension.
 Before starting any single target:
 
 1. Run `git status --short --branch` from the repository root.
-2. Confirm the root repository is clean. If it is not clean, stop and identify
-   whether the changes belong to the user or to a previous task.
+2. Perform a dirty-state audit:
+   - If the worktree is clean, proceed normally.
+   - If the worktree is dirty, identify the changed paths and whether they
+     belong to the user, another co-worker, or a previous task.
+   - Do not require a fully clean repository when the dirty paths are unrelated
+     to the current target.
+   - Stop before editing if any dirty path overlaps the current target's
+     `Owned files`, if ownership is unclear, or if the dirty state changes a
+     shared contract the current target depends on.
+   - If proceeding with unrelated dirty files present, record that decision in
+     the target plan.
 3. Run `git submodule status` when the task touches or references `llm_wiki`.
 4. Treat `llm_wiki/` as a pinned reference submodule unless the user explicitly
    asks to update that pointer or work inside that repository.
@@ -35,7 +44,9 @@ Before making modifications:
    - `Read-only files`: files or directories this worker may inspect but not
      edit.
    - expected shared-contract dependencies, if any.
-4. Do not begin content or code edits until the plan is written.
+4. If the worktree was dirty at start, the plan must include a dirty-state note
+   listing the unrelated dirty paths or explaining why the target is blocked.
+5. Do not begin content or code edits until the plan is written.
 
 Multi-agent coordination:
 
@@ -45,6 +56,8 @@ Multi-agent coordination:
    their own user directory.
 2. Keep file ownership explicit. Do not edit another worker's owned files
    without a new plan update or Coordinator approval.
+   A dirty worktree is acceptable only when dirty files do not overlap the
+   current target's owned files or shared dependencies.
 3. Only one owner may edit a given `contracts/schemas/*` schema at a time.
    Other workers should submit notes, proposals, or review comments instead of
    changing that schema directly.

@@ -64,3 +64,16 @@ Repository-wide merged or integration-level maintenance history belongs in
   --check` passed with only Windows line-ending warnings; `git status
   --short --branch` reviewed.
 - Commit: ready for `Document two-person pre-skill tools worksplit`.
+
+## 2026-06-03 - Relax dirty worktree policy
+
+- Target: allow unrelated dirty worktree state during parallel work while still
+  blocking edits that overlap the current target's owned files or shared
+  dependencies.
+- Changed areas: `AGENTS.md`, `plan/README.md`, and
+  `plan/users/chenzc24/2026-06-03-relax-dirty-worktree-policy/`.
+- Validation: targeted `rg` confirmed dirty-state audit, unrelated dirty work,
+  owned-file overlap, shared-contract dependency, and plan-note language; `git
+  diff --check` passed with only Windows line-ending warnings; `git status
+  --short --branch` reviewed.
+- Commit: ready for `Relax dirty worktree policy for parallel work`.

@@ -47,6 +47,7 @@ Each target plan should include:
 - owned files or directories
 - read-only files or directories
 - shared-contract dependencies, if any
+- dirty-state note, if the worktree was not clean at start
 - implementation steps
 - validation steps
 - intended commit message
@@ -55,6 +56,27 @@ For multi-agent work, `Owned files` and `Read-only files` are required. A worker
 should not edit files outside the owned set without updating the plan first.
 Only one owner may edit a given `contracts/schemas/*` schema at a time, and
 shared terminology or top-level design changes should be Coordinator-owned.
+
+## Dirty Worktree Handling
+
+A dirty worktree does not automatically block unrelated work. Before editing,
+run `git status --short --branch` and compare existing dirty paths with the
+target's planned `Owned files`.
+
+Proceed only when:
+
+- dirty files are unrelated to the current target
+- dirty files do not overlap the target's `Owned files`
+- dirty files do not change shared contracts or dependencies the target relies
+  on
+- the target plan records the dirty-state decision
+
+Stop and ask for coordination when:
+
+- a dirty file overlaps the target's `Owned files`
+- ownership of the dirty file is unclear
+- a dirty shared contract may affect this target
+- the current task would need to edit or stage someone else's dirty file
 
 ## Personal Logs
 
