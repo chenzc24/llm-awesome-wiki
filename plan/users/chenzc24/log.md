@@ -817,4 +817,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 6.5, report-check, Mode reports, compare report, review queue,
   claim/evidence, validation note, no-claim-extraction, and no-semantic-truth
   language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `6151b30 Add phase six report surface checker`; finalized by the follow-up
+  maintenance-status commit.

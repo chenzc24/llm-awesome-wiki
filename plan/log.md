@@ -981,4 +981,6 @@
   `workspace-check.ps1 -Mode reports`; `git diff --check` passed with only
   Windows line-ending warnings; `tools/validate-kernel/validate-kernel.ps1`
   passed; targeted `rg` confirmed Phase 6.5 report checker language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `6151b30 Add phase six report surface checker`; finalized by the follow-up
+  maintenance-status commit.
