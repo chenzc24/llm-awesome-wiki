@@ -832,4 +832,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 5.4 review queue workflow language.
-- Commit: pending.
+- Commit: completed on `main` as `65fff4a Define phase five review queue
+  workflow`; finalized by the follow-up maintenance-status commit.

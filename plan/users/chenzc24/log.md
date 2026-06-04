@@ -625,4 +625,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 5.4, Review Queue, carried-forward, blocking, nonblocking, resolved,
   dismissed, stale, re-enter, review lifecycle, and not-a-review-export-tool
   language; reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `65fff4a Define phase five review queue
+  workflow`; finalized by the follow-up maintenance-status commit.
