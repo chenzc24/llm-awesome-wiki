@@ -4,6 +4,10 @@ This file defines how the workspace is structured and how agents should write
 source packets, claim/evidence maps, chapter-oriented wiki pages, reports, and
 review items.
 
+If workflow rules are copied into the workspace, use `rules/README.md` as the
+entrypoint. It exposes the default golden path first and specialized modules
+only when the round needs them.
+
 ## Directory Contract
 
 ```text
@@ -101,7 +105,8 @@ knowledge in `wiki/chapters/` by default.
 ## Wiki Construction Analysis Minimum
 
 Before writing or updating wiki pages from source packets, record construction
-analysis in a visible report or plan note.
+analysis in a visible report or plan note. Follow the wiki surface workflow for
+page routing, index updates, overview refreshes, and wiki log maintenance.
 
 The analysis should preserve:
 

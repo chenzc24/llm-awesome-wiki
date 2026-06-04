@@ -936,3 +936,28 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `b3962af Add phase six fixture runner`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Consolidate rules progressive disclosure
+
+- Target: reorganize `rules/` into a progressive-disclosure rule map with
+  clear entrypoints, semantic owner documents, and compatibility entries for
+  historical links.
+- Changed areas: rewrote `rules/README.md`; added
+  `rules/evidence-claim-workflow.md` and `rules/wiki-surface-workflow.md`;
+  converted historical Phase 3 and Phase 4 split files into compatibility
+  entries; reduced duplicate semantic tables in `rules/compare-gate-contract.md`;
+  updated `rules/source-packet-to-wiki.md`, workspace-kernel guidance,
+  `llm_wiki_tools` kernel validation, top-level rules guidance, and the target
+  plan under
+  `plan/users/chenzc24/2026-06-04-rules-progressive-disclosure-consolidation/`.
+- Design review: the rules now expose the default path as maintenance, round,
+  source packet, wiki, compare, and closure before specialized modules. The
+  semantic owner map keeps coverage, review lifecycle, claim/modality, evidence
+  and claim, and wiki surface definitions in one owner file each while old
+  links remain valid.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  `Default Golden Path`, `When To Read More`, `Semantic Ownership`,
+  compatibility entries, `evidence-claim-workflow`, `wiki-surface-workflow`,
+  and reduced compare-gate duplicate tables.
+- Commit: pending.

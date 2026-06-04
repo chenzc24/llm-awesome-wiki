@@ -101,6 +101,12 @@ requiredness, enum values, fixture behavior, and validation checks. Conversely,
 Person A should not invent new workflow requirements in schemas without
 reporting the mismatch back to Person B.
 
+Rules should use progressive disclosure. `rules/README.md` is the first
+entrypoint and should explain the default golden path before specialized
+modules. Each status, enum, lifecycle, and workflow concept should have one
+semantic owner file; other rule files should link to that owner instead of
+copying the full definition.
+
 ## System Non-Goals
 
 - Do not make Obsidian a required dependency.

@@ -5,13 +5,15 @@ scope, the evidence/claim layer. It does not start directly from raw files. The
 wiki is a maintained synthesis layer; it must remain traceable to source
 packets and evidence records.
 
-Before writing page prose, apply `wiki-page-routing.md`.
-For round-level sequencing, also follow `distillation-rounds.md`.
+This rule owns the action flow from source packet input to construction
+analysis and accepted wiki updates. For page routing, source/chapter surface,
+index, overview, and wiki log rules, follow `wiki-surface-workflow.md`. For
+round-level sequencing, follow `distillation-rounds.md`.
 
-## Routing And Two-Stage Flow
+## Two-Stage Flow
 
 0. Routing stage:
-   - read `wiki-page-routing.md`
+   - read `wiki-surface-workflow.md`
    - read `wiki/index.md`, `wiki/overview.md`, and existing source/chapter
      pages
    - decide whether the input belongs in overview, source page, chapter page,
@@ -60,7 +62,7 @@ The analysis stage should record:
 - claims worth preserving as claim records
 - evidence anchors that support important claims
 - contradictions or uncertain interpretations
-- pages to create, update, or leave unchanged
+- pages to create, update, merge, leave unchanged, report-only, or defer
 - review items needed before acceptance
 
 The analysis output may be a report, a plan entry, or a structured note. It
@@ -87,7 +89,7 @@ The generation stage should produce only accepted workspace artifacts:
 - review item or report updates
 - claim/evidence records when the workspace uses them
 
-## Page Requirements
+## Page Output Minimum
 
 Every generated wiki page should include:
 
@@ -115,7 +117,8 @@ and avoid adding audit fields that already belong in source packets or reports.
 - Do not use claim/evidence records as a replacement for readable
   source/chapter pages.
 - Do not rely on the model's self-assessment as the final quality gate.
-- Do not advance a distillation round until compare and lint checks are recorded.
+- Do not advance a distillation round until compare and lint checks are
+  recorded.
 - Put unresolved semantic judgment into review items.
 
 ## Handoff
@@ -135,6 +138,7 @@ overview or index update was needed, record why.
   contains sourced knowledge
 - every wiki update has a routing decision or an obvious route from the round
   plan
+- construction analysis is visible before page generation begins
 - overview refresh is recorded when corpus map, coverage, or chapter structure
   changed
 - index and log are updated in the same round

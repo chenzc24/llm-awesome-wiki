@@ -8,7 +8,9 @@ workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
 1. Run `git status --short --branch`.
 2. Confirm unrelated changes are not mixed into the current target.
 3. Read `purpose.md`, `schema.md`, and `wiki/index.md` when they exist.
-4. Create or update `plan/<date-goal-slug>/plan.md` before editing tracked
+4. If workspace rules are copied into this repo, start from `rules/README.md`
+   and follow its default golden path before opening specialized rule modules.
+5. Create or update `plan/<date-goal-slug>/plan.md` before editing tracked
    files.
 
 ## During Work
@@ -19,11 +21,12 @@ workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
 3. Keep source identities, hashes, anchors, and extraction gaps visible.
 4. Cite packet anchors as `<source_id>#<anchor_id>`.
 5. For important sourced knowledge, create or update a concise claim/evidence
-   map before treating a claim as supported.
+   map according to the evidence/claim workflow before treating a claim as
+   supported.
 6. Keep generated evidence, such as OCR, captions, chart summaries, table
    repairs, formula recognition, and agent notes, visibly marked.
-7. Apply page routing and write construction analysis before creating or
-   updating wiki pages.
+7. Apply the wiki surface workflow and write construction analysis before
+   creating or updating wiki pages.
 8. Keep wiki claims traceable to source packet anchors, evidence records, or
    review items.
 9. Put uncertain semantic judgment into review items or reports.

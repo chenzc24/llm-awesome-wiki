@@ -7,6 +7,15 @@ state.
 It is a construction quality gate. It is not a wiki rewrite step, not a
 downstream `skill + tool` generator, and not a model self-evaluation prompt.
 
+This rule owns the compare report decision surface and the `pass`, `fail`, and
+`needs-review` meanings. Specialized semantics are owned by these modules:
+
+- source/wiki coverage: `source-wiki-coverage-protocol.md`
+- claim support, generated evidence, modality, unsupported statements, and
+  contradictions: `claim-modality-contradiction-review-protocol.md`
+- review item lifecycle and blocking levels: `review-queue-workflow.md`
+- round closure decisions: `round-closure-workflow.md`
+
 ## Purpose
 
 The gate should make round quality visible.
@@ -147,179 +156,28 @@ Every compare report should address these checks, even when the result is
 - unresolved review items are listed, resolved, or carried forward
 - report status is one of `pass`, `fail`, or `needs-review`
 
-## Coverage Expectations
+## Delegated Semantics
 
-Coverage does not mean every source sentence becomes wiki prose.
+Coverage does not mean every source sentence becomes wiki prose. It means the
+report can explain what happened to source material. Follow
+`source-wiki-coverage-protocol.md` for coverage units, disposition values,
+importance values, omission reasons, source coverage tables, anchor disposition
+tables, wiki page coverage tables, and coverage status impact.
 
-Coverage means the report can explain what happened to source material:
+Important claims in scope must have support, review routing, or explicit
+not-in-scope status. Follow
+`claim-modality-contradiction-review-protocol.md` for claim support statuses,
+generated evidence states, modality states, unsupported statement findings,
+contradiction findings, and claim/modality status impact.
 
-- represented in a source page
-- represented in a chapter page
-- represented in optional synthesis or research page
-- preserved only in source packet
-- omitted intentionally
-- deferred to a later round
-- routed to review
-- blocked by extraction or modality gap
+Review items keep unresolved judgment visible across rounds. Follow
+`review-queue-workflow.md` for lifecycle states, blocking levels, required
+review item fields, opening or updating review items, resolution, dismissal,
+carry-forward, stale review, and re-entry.
 
 For document and PPT corpora, preserve the source/chapter default. Do not use
 compare findings as a reason to create fragmented concept/entity pages unless
 the workspace explicitly needs them.
-
-For detailed source/wiki coverage semantics, follow
-`source-wiki-coverage-protocol.md`.
-
-For claim, generated evidence, modality, unsupported statement, and
-contradiction review semantics, follow
-`claim-modality-contradiction-review-protocol.md`.
-
-For review queue lifecycle and carried-forward semantics, follow
-`review-queue-workflow.md`.
-
-## Disposition Values
-
-Use these source/wiki coverage dispositions:
-
-| disposition | meaning |
-| --- | --- |
-| `covered` | represented in accepted wiki pages or reports at the right level of detail |
-| `weak` | represented, but too shallow, overgeneralized, poorly sourced, or risky |
-| `deferred` | intentionally left for a later planned round |
-| `omitted` | intentionally excluded from wiki construction for a recorded reason |
-| `out-of-scope` | outside the round's fixed input or workspace purpose |
-| `review` | routed to human review before wiki acceptance |
-| `blocked` | cannot be judged because required input, extraction, anchor, or context is missing |
-
-Do not use `covered` merely because content exists in `source.md`. The compare
-gate checks source-to-wiki alignment, not packet existence alone.
-
-## Omission And Scope Rules
-
-An omitted or out-of-scope source unit needs a reason.
-
-Acceptable omission reasons include:
-
-- `decorative`
-- `duplicate`
-- `out-of-scope`
-- `low-value`
-- `deferred`
-- `blocked`
-- `superseded`
-
-Unsafe omissions include:
-
-- important source content omitted without reason
-- source content omitted because the agent skipped it
-- omitted chart, table, formula, or visual material that supports an accepted
-  wiki claim
-- generated interpretation kept while the source anchor is omitted
-- omitted material that contradicts accepted wiki prose without review routing
-
-Scope exclusions are allowed only when the round plan, workspace purpose, or
-compare report says why the material is out of scope.
-
-## Review Rules
-
-Review items keep unresolved judgment visible across rounds.
-
-Use these lifecycle states:
-
-| status | meaning |
-| --- | --- |
-| `open` | decision still needed |
-| `in-review` | owner or reviewer is actively deciding |
-| `resolved` | decision recorded and affected artifacts updated or scheduled |
-| `dismissed` | concern no longer applies and reason is recorded |
-| `carried-forward` | unresolved but explicitly kept visible for a later round |
-| `blocked` | cannot be resolved until another artifact or review exists |
-| `stale` | previous decision may no longer be valid |
-
-Use these blocking levels:
-
-| blocking_level | meaning |
-| --- | --- |
-| `blocking` | affected round cannot advance as `pass` |
-| `nonblocking` | round may advance only with explicit carry-forward reason and next action |
-| `informational` | tracked context that does not affect advancement |
-
-Carried-forward review items must include:
-
-- review item id
-- source references when available
-- affected wiki or report target
-- reason for carry-forward
-- blocking level
-- owner or next action
-- target round or condition for resolution
-
-Resolved review items must include a decision and affected artifacts.
-
-Dismissed review items must include a dismissal reason.
-
-Stale review items must re-enter compare when the affected source packet,
-claim, wiki page, or review decision changes.
-
-Do not silently clear review items.
-
-Do not convert unresolved semantic judgment into `pass`.
-
-## Claim And Modality Rules
-
-Important claims in scope must have support, review routing, or explicit
-not-in-scope status.
-
-Use these claim support statuses:
-
-| status | meaning |
-| --- | --- |
-| `supported` | cited evidence supports the actual claim wording |
-| `weak` | evidence partially supports the claim or wording is too broad |
-| `unsupported` | no cited evidence supports the claim |
-| `contested` | sources, claims, or wiki sections disagree |
-| `generated-derived` | claim depends on generated or model-assisted evidence |
-| `reviewed-generated` | generated evidence was explicitly reviewed and accepted |
-| `needs-review` | human judgment is required before acceptance |
-| `not-in-scope` | outside this compare round |
-
-Use these modality states:
-
-| modality_state | meaning |
-| --- | --- |
-| `source-derived` | source-visible content is represented directly |
-| `extracted-with-tool` | deterministic or named extraction produced the content |
-| `generated` | model-assisted interpretation produced the content |
-| `reviewed-generated` | generated content was reviewed and accepted |
-| `skipped` | modality was intentionally skipped with reason |
-| `failed` | extraction or interpretation failed visibly |
-| `unsupported-or-unknown` | state is unclear or untrusted |
-
-Generated-derived important claims require review routing or accepted review.
-Do not treat generated chart summaries, OCR cleanup, table repairs, formula
-recognition, or image captions as source-derived truth.
-
-## Unsupported And Contradiction Rules
-
-Unsupported statements and contradictions are compare findings, not silent edit
-instructions.
-
-Record unsupported statements when important wiki or claim-map statements lack
-adequate support.
-
-Record contradictions when accepted source anchors, claim records, wiki
-sections, or review decisions cannot all remain true as written.
-
-Contradiction types include:
-
-- `source-vs-source`
-- `source-vs-wiki`
-- `claim-vs-claim`
-- `wiki-vs-wiki`
-- `generated-vs-source`
-- `old-review-vs-new-source`
-
-Do not choose a winner by model preference. Use an accepted source priority
-rule or route to review.
 
 ## Anti-Self-Evaluation Rule
 

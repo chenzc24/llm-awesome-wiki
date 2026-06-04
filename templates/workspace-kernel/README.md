@@ -12,25 +12,27 @@ synthesis are optional extensions.
 ## First Ten Minutes
 
 1. Read `AGENTS.md`.
-2. Edit `purpose.md` so the workspace has a concrete corpus goal.
-3. Edit `schema.md` only enough to name expected source, chapter, and report
+2. If `rules/` has been copied into the workspace, read `rules/README.md` and
+   use the default golden path as the first entrypoint.
+3. Edit `purpose.md` so the workspace has a concrete corpus goal.
+4. Edit `schema.md` only enough to name expected source, chapter, and report
    conventions.
-4. Copy `plan/first-round-plan.template.md` into
+5. Copy `plan/first-round-plan.template.md` into
    `plan/<date-first-round-slug>/plan.md`.
-5. Put original files under `raw/sources/`.
-6. Copy `raw/source-inventory.template.md` into a round-specific inventory
+6. Put original files under `raw/sources/`.
+7. Copy `raw/source-inventory.template.md` into a round-specific inventory
    file under `raw/derived/` or `reports/inventory/`.
-7. Copy `raw/source-packet.template.md` into
+8. Copy `raw/source-packet.template.md` into
    `raw/derived/<source-id>/source.md` for each processed source.
-8. Copy `reports/claim-evidence-map.template.md` into `reports/review/` when
+9. Copy `reports/claim-evidence-map.template.md` into `reports/review/` when
    the round creates important source-backed claims.
-9. Copy `reports/wiki-construction-analysis.template.md` into `reports/`
+10. Copy `reports/wiki-construction-analysis.template.md` into `reports/`
    before creating or updating wiki pages.
-10. Use the wiki templates to create `wiki/overview.md`, source pages, and
+11. Use the wiki templates to create `wiki/overview.md`, source pages, and
    chapter pages.
-11. Copy `reports/first-round-validation-note.template.md` into `reports/` and
+12. Copy `reports/first-round-validation-note.template.md` into `reports/` and
    record what was checked.
-12. Update `wiki/index.md`, `wiki/log.md`, and `plan/log.md`, then commit.
+13. Update `wiki/index.md`, `wiki/log.md`, and `plan/log.md`, then commit.
 
 ## Golden Path
 
@@ -40,7 +42,7 @@ configure purpose/schema
 -> write source inventory
 -> write source packet
 -> map important claims to evidence
--> route wiki page updates
+-> route wiki surface updates
 -> write construction analysis
 -> create overview and index skeleton
 -> create source and chapter pages

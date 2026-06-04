@@ -1076,3 +1076,23 @@
 - Commit: completed on `main` as
   `c27ee85 Add person B workflow closure review`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Consolidate rules progressive disclosure
+
+- Target: reorganize `rules/` from flat phase-accumulated files into
+  progressive-disclosure workflow entrypoints.
+- Changed areas: added evidence/claim and wiki-surface owner rules; converted
+  historical split rule files into compatibility entries; rewrote the rules
+  README; reduced compare-gate duplicate semantic definitions; updated
+  workspace-kernel guidance, top-level rules guidance, Python kernel
+  validation, and target plan under
+  `plan/users/chenzc24/2026-06-04-rules-progressive-disclosure-consolidation/`.
+- Design review: rule semantics are kept, but the default reader path is now
+  entrypoint-first and module-based. Coverage, review lifecycle,
+  claim/modality, evidence/claim, and wiki surface semantics each have one
+  owner file.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  progressive-disclosure entrypoints, compatibility stubs, new owner files, and
+  reduced compare-gate duplicate tables.
+- Commit: pending.

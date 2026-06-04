@@ -1,52 +1,84 @@
 # Rules
 
-This directory contains operational contracts for generated knowledge
-workspaces. These are not top-level philosophy documents. They are the rules an
-agent follows inside a workspace repo when moving from raw source material to
-source packets, evidence and claims, wiki pages, reports, and maintenance logs.
+This directory contains operational rules for generated knowledge workspaces.
+It is organized for progressive disclosure: start from the default path, then
+open specialized modules only when the round needs them.
 
-The rules are designed for VSCode, Git, CLI tools, and repo-local agents. They
-may use Markdown conventions that also work in Obsidian, but Obsidian is not a
-required dependency.
+These files are human/agent-facing workflow protocols, not machine-readable
+schemas. Machine-readable contracts live under `contracts/schemas/` and
+validator code.
 
-## Rule Files
+Historical files named `*-contract.md` are operational rules unless they live
+under `contracts/schemas/**` or validator-owned paths.
 
-- `raw-to-source-packet.md`: convert raw material into auditable source packets.
-- `extractor-adapter-protocol.md`: connect optional human, agent, MCP, local
-  CLI, or extractor backends to the source packet protocol without making them
-  workspace owners.
-- `source-type-packet-profiles.md`: define minimum source packet expectations
-  for PDF, PPTX, DOCX, image, table/dataset, and mixed media sources.
-- `generated-fields-review-routing.md`: mark generated or model-assisted
-  packet content and route important uncertainty to review before claim/wiki
-  handoff.
-- `source-packet-to-evidence.md`: select compact evidence from packet anchors
-  without turning the packet into a second wiki.
-- `evidence-to-claim.md`: turn selected evidence into reusable, checkable
-  claims while preserving source/chapter readability.
-- `claim-review-routing.md`: route unsupported, generated-derived, contested,
-  or judgment-heavy claims to explicit review.
-- `wiki-page-routing.md`: decide whether source packet knowledge belongs in
-  overview, index, source pages, chapter pages, reports, optional synthesis, or
-  optional research pages.
-- `source-packet-to-wiki.md`: distill source packets into maintained wiki
-  pages.
-- `wiki-index-contract.md`: maintain `wiki/index.md` as the navigation entry.
-- `wiki-overview-log-contract.md`: keep `wiki/overview.md` and `wiki/log.md`
-  concise, current, and distinct from reports or source packets.
-- `compare-gate-contract.md`: compare source coverage and claim coverage before
-  advancing a distillation round.
-- `source-wiki-coverage-protocol.md`: record source packet, anchor, wiki page,
-  omission, deferral, and scope-exclusion coverage in compare reports.
-- `claim-modality-contradiction-review-protocol.md`: record claim support,
-  generated evidence, modality state, unsupported statements, and
-  contradictions in compare reports.
-- `review-queue-workflow.md`: manage review item lifecycle, blocking levels,
-  resolutions, dismissals, stale items, and carried-forward review.
-- `round-closure-workflow.md`: decide whether a round can close, close with
-  review, or remain open based on compare status, review state, validation
-  notes, index, overview, and wiki log.
-- `distillation-rounds.md`: run wiki construction in small reviewable rounds.
-- `maintenance-workflow.md`: keep workspace plans, logs, commits, and reports
-  disciplined, including per-user plan namespaces and personal logs for
-  multi-agent work.
+## Default Golden Path
+
+A normal document/PPT distillation round should start with these six
+entrypoints:
+
+1. `maintenance-workflow.md`: plan, edit, validate, log, commit, and push.
+2. `distillation-rounds.md`: keep the round scoped, staged, and reviewable.
+3. `raw-to-source-packet.md`: turn raw sources into auditable source packets.
+4. `source-packet-to-wiki.md`: move from packets to wiki construction
+   analysis and accepted wiki updates.
+5. `compare-gate-contract.md`: record source/wiki, claim, modality, review,
+   and navigation findings before advancement.
+6. `round-closure-workflow.md`: decide `close-pass`, `close-with-review`, or
+   `do-not-close`.
+
+This path is enough for the first pass through most document/PPT workspaces.
+It preserves source/chapter readability without forcing every source into a
+research graph.
+
+## When To Read More
+
+Open these modules only when the round needs the extra detail:
+
+| Need | Rule |
+| --- | --- |
+| Use manual, Agent/MCP, MinerU, Poppler, LibreOffice, or custom extraction output | `extractor-adapter-protocol.md` |
+| Check PDF, PPTX, DOCX, image, table, dataset, or mixed-media packet shape | `source-type-packet-profiles.md` |
+| Mark OCR, captions, chart summaries, table repairs, formula recognition, or inferred structure | `generated-fields-review-routing.md` |
+| Select evidence, extract important claims, or route claim uncertainty | `evidence-claim-workflow.md` |
+| Decide page destination, index behavior, overview refresh, or wiki log update | `wiki-surface-workflow.md` |
+| Explain source-to-wiki coverage, omissions, deferrals, and anchor disposition | `source-wiki-coverage-protocol.md` |
+| Review claim support, generated evidence, modality state, unsupported statements, or contradictions | `claim-modality-contradiction-review-protocol.md` |
+| Manage review item lifecycle, blocking level, carry-forward, stale review, or dismissal | `review-queue-workflow.md` |
+
+## Semantic Ownership
+
+Each workflow concept should have one owner file. Other rules may reference
+the concept, but should not redefine the full table or lifecycle.
+
+| Concept | Owner |
+| --- | --- |
+| workspace planning, logs, commits, validation discipline | `maintenance-workflow.md` |
+| round sequencing, overview-first initialization, staged work packages | `distillation-rounds.md` |
+| source identity, inventory status, packet metadata, extraction status, anchors | `raw-to-source-packet.md` |
+| optional extractor/backend handoff shape | `extractor-adapter-protocol.md` |
+| source-type packet minimum profiles | `source-type-packet-profiles.md` |
+| generated field kinds, trust levels, and packet review routing | `generated-fields-review-routing.md` |
+| evidence selection, claim extraction, claim review routing | `evidence-claim-workflow.md` |
+| packet-to-wiki action flow | `source-packet-to-wiki.md` |
+| wiki routing, source/chapter surface, index, overview, and wiki log | `wiki-surface-workflow.md` |
+| compare report decision surface and `pass`/`fail`/`needs-review` semantics | `compare-gate-contract.md` |
+| source/wiki coverage units, dispositions, importance, omission reasons | `source-wiki-coverage-protocol.md` |
+| claim support, generated-evidence, modality, unsupported statement, contradiction semantics | `claim-modality-contradiction-review-protocol.md` |
+| review item lifecycle and blocking levels | `review-queue-workflow.md` |
+| round closure decisions and advancement | `round-closure-workflow.md` |
+
+## Compatibility Entries
+
+The following historical files remain as compatibility entries so phase plans,
+logs, and older workspace guidance do not break:
+
+- `source-packet-to-evidence.md`
+- `evidence-to-claim.md`
+- `claim-review-routing.md`
+- `wiki-page-routing.md`
+- `wiki-index-contract.md`
+- `wiki-overview-log-contract.md`
+
+New work should update the owner files listed in the semantic ownership map.
+Compatibility entries should stay short and should not accumulate new
+normative workflow semantics.
