@@ -794,3 +794,27 @@ Repository-wide merged or integration-level maintenance history belongs in
   no-page-generation, no-link-rewrite, and semantic-review language.
 - Commit: completed on `main` as `7541178 Add phase six wiki lint checker`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six report surface checker
+
+- Target: implement Phase 6.5 report surface validation for compare reports,
+  claim/evidence maps, review queues, and validation notes.
+- Changed areas: added
+  `docs/phase-plans/phase-6.5-report-surface-checker.md`; implemented
+  `tools/report-check/report-check.ps1`; integrated report checking into
+  `workspace-check -Mode reports`; updated Phase 6 docs, tool READMEs,
+  `validate-kernel`, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-5-report-surface-checker/`.
+- Design review: Phase 6.5 validates Markdown report structure, status
+  vocabulary, obvious pass/blocker consistency, supported-claim evidence IDs,
+  review lifecycle fields, and validation-note closure fields. It does not
+  extract claims, decide semantic truth, rewrite reports, generate wiki pages,
+  or close rounds.
+- Validation: temporary smoke workspace under the OS temp directory passed
+  `report-check.ps1` and `workspace-check.ps1 -Mode reports`; `git diff
+  --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 6.5, report-check, Mode reports, compare report, review queue,
+  claim/evidence, validation note, no-claim-extraction, and no-semantic-truth
+  language.
+- Commit: pending.

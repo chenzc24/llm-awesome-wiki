@@ -140,6 +140,23 @@ powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.p
 overview sections, and log maintenance headings. It does not generate pages or
 rewrite links.
 
+Phase 6.5 adds report surface checks:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/report-check/report-check.ps1 `
+  -Workspace . `
+  -Report report-check-report.md
+
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode reports `
+  -Report workspace-report-check-report.md
+```
+
+`report-check` validates compare reports, claim/evidence maps, review queues,
+and validation notes. It does not extract claims, decide semantic truth, rewrite
+reports, or close rounds.
+
 ## Phase 3 Tool Surface
 
 Phase 3 adds behavior prose for:

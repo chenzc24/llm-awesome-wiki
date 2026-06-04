@@ -965,3 +965,20 @@
   passed; targeted `rg` confirmed Phase 6.4 wiki lint language.
 - Commit: completed on `main` as `7541178 Add phase six wiki lint checker`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six report surface checker
+
+- Target: implement Phase 6.5 report surface validation for compare,
+  claim/evidence, review queue, and validation-note reports.
+- Changed areas: added the Phase 6.5 plan; implemented `report-check`;
+  integrated `workspace-check -Mode reports`; updated `validate-kernel`, Phase
+  6 docs, tool READMEs, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-5-report-surface-checker/`.
+- Design review: Phase 6.5 checks Markdown report structure and obvious status
+  consistency without extracting claims, resolving semantic truth, rewriting
+  reports, generating wiki pages, or closing rounds.
+- Validation: temporary smoke workspace passed `report-check.ps1` and
+  `workspace-check.ps1 -Mode reports`; `git diff --check` passed with only
+  Windows line-ending warnings; `tools/validate-kernel/validate-kernel.ps1`
+  passed; targeted `rg` confirmed Phase 6.5 report checker language.
+- Commit: pending.

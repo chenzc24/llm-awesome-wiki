@@ -8,7 +8,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $toolName = "workspace-check"
-$toolPhase = "Phase 6.4 runtime with schema, source artifact, and wiki lint integration"
+$toolPhase = "Phase 6.5 runtime with schema, source, wiki, and report checks"
 $started = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
 $checksRun = New-Object System.Collections.Generic.List[string]
 $checksNotImplemented = New-Object System.Collections.Generic.List[string]
@@ -138,22 +138,32 @@ if ($exitCode -eq 0) {
         }
     }
 
+    if ($Mode -in @("reports", "all")) {
+        $reportCheckScript = Join-Path $PSScriptRoot "..\report-check\report-check.ps1"
+        $reportCheckReportPath = Join-Path $reportDir "report-check-report.md"
+
+        if (-not (Test-Path -LiteralPath $reportCheckScript)) {
+            $status = "error"
+            $exitCode = 3
+            $findings.Add("Missing report-check script: $reportCheckScript")
+        }
+        else {
+            & powershell -NoProfile -ExecutionPolicy Bypass -File $reportCheckScript -Workspace $workspacePath -Report $reportCheckReportPath | Out-Host
+            $reportCheckExitCode = $LASTEXITCODE
+            Merge-ChildResult "report surface validation" $reportCheckExitCode $reportCheckReportPath
+        }
+    }
+
     if ($Mode -eq "smoke") {
-        Add-NotImplemented "claim audit"
-        Add-NotImplemented "compare report check"
-        Add-NotImplemented "review queue check"
         Add-NotImplemented "round closure check"
         Add-NotImplemented "fixture runner"
         $nextActions.Add("Run workspace-check with -Mode schemas or -Mode source for implemented Phase 6 validators.")
     }
     elseif ($Mode -eq "all") {
-        Add-NotImplemented "claim audit"
-        Add-NotImplemented "compare report check"
-        Add-NotImplemented "review queue check"
         Add-NotImplemented "round closure check"
         Add-NotImplemented "fixture runner"
     }
-    elseif ($Mode -notin @("schemas", "source", "wiki")) {
+    elseif ($Mode -notin @("schemas", "source", "wiki", "reports")) {
         Add-NotImplemented "$Mode check"
     }
 

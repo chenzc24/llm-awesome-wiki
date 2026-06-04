@@ -192,6 +192,21 @@ Phase 6.4 validates existing wiki artifacts. It does not generate pages,
 rewrite links, run compare gates, validate report semantics, or resolve
 semantic review.
 
+## Phase 6.5 Active Scope
+
+Phase 6.5 adds report surface validation:
+
+- `report-check.ps1`
+- `workspace-check -Mode reports` integration
+- compare report structure and check-matrix consistency
+- claim/evidence map source-ref and support consistency
+- review queue lifecycle and blocking-level consistency
+- validation-note compare status and closure-field consistency
+
+Phase 6.5 validates existing Markdown reports. It does not extract claims,
+decide semantic truth, generate compare reports, resolve review items, generate
+wiki pages, or close rounds.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.

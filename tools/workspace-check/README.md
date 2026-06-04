@@ -80,8 +80,19 @@ It validates existing wiki frontmatter, links, index membership, overview
 sections, and log maintenance headings. It does not generate pages or rewrite
 links.
 
-`-Mode all` currently runs schema, source, and wiki checks, then reports later
-validator families as `not-implemented`.
+In Phase 6.4, `-Mode all` began running schema, source, and wiki checks before
+reporting later validator families as `not-implemented`.
+
+## Phase 6.5 Behavior
+
+`-Mode reports` invokes `tools/report-check/report-check.ps1`.
+
+It validates compare reports, claim/evidence maps, review queues, and
+validation notes. It does not extract claims, decide semantic truth, rewrite
+reports, or close rounds.
+
+`-Mode all` currently runs schema, source, wiki, and report checks, then
+reports round closure and fixture validation as `not-implemented`.
 
 ## Non-Goals
 

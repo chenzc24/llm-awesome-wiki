@@ -81,3 +81,5 @@ Rules:
   source packet output checkers for workspace artifacts.
 - `phase-6.4-wiki-lint-navigation.md`: Phase 6.4 wiki frontmatter, link,
   index, overview, and log navigation checker.
+- `phase-6.5-report-surface-checker.md`: Phase 6.5 compare, claim/evidence,
+  review queue, and validation-note report surface checker.
