@@ -999,4 +999,6 @@
   `workspace-check.ps1 -Mode closure`; `git diff --check` passed with only
   Windows line-ending warnings; `tools/validate-kernel/validate-kernel.ps1`
   passed; targeted `rg` confirmed Phase 6.6 closure checker language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `5878219 Add phase six round closure checker`; finalized by the follow-up
+  maintenance-status commit.

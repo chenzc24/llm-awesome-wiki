@@ -841,4 +841,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 6.6, round-closure-check, Mode closure, close-pass,
   close-with-review, do-not-close, validation note, no-round-closing, and
   no-semantic-truth language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `5878219 Add phase six round closure checker`; finalized by the follow-up
+  maintenance-status commit.
