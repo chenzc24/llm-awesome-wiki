@@ -552,4 +552,5 @@
   captions, review routing, and non-goals language; `git submodule status`
   confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
   --short --branch` showed only the intended Person B Phase 2.4 files.
-- Commit: planned for `main` as `Define source-type packet profiles`.
+- Commit: completed on `main` as `47c2290 Define source-type packet profiles`;
+  finalized by the follow-up maintenance-status commit.
