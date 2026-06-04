@@ -1098,3 +1098,19 @@
 - Commit: completed on `main` as
   `e4b6da2 Consolidate rules progressive disclosure`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Prepare Person A dry-run v2 handoff
+
+- Target: provide Person A with a current-system local dry-run workspace and
+  clarify ownership of Python validator/checker implementation.
+- Changed areas: added
+  `docs/collaboration/person-a-dry-run-v2-review-brief.md`; updated
+  collaboration ownership docs; created ignored local dry-run output under
+  `workspace/local/adctoolbox-ch1-dry-run-v2/`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-person-a-dry-run-v2-handoff/`.
+- Design review: the handoff distinguishes Person B workflow/template ownership
+  from Person A schema, fixture, and `llm_wiki_tools/**` checker
+  implementation ownership.
+- Validation: local v2 passed `workspace-check --mode all`; final repository
+  validation is pending.
+- Commit: pending.

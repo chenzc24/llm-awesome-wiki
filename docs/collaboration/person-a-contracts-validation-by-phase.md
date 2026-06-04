@@ -33,6 +33,7 @@ Person A may edit:
 
 - `contracts/schemas/**`
 - `tools/validate-kernel/**`
+- `llm_wiki_tools/**` validator and checker implementation
 - `tests/**`
 - `tests/fixtures/**`
 
@@ -48,6 +49,10 @@ Person A may read, but should not directly edit without coordination:
 
 When a workflow term is unclear, write a proposal or mismatch note for Person B
 instead of patching Person B's owned files directly.
+
+Person A owns checker implementation, but not checker product prose. If a
+validator behavior change requires user-facing command semantics, coordinate
+with Person B so `tools/*/README.md` and workflow rules stay aligned.
 
 ## Protocol And Contract Boundary
 

@@ -963,3 +963,25 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `e4b6da2 Consolidate rules progressive disclosure`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Prepare Person A dry-run v2 handoff
+
+- Target: create a current-system local `adctoolbox-ch1-dry-run-v2` workspace
+  from the same historical ADCtoolbox chapter material and clarify Person A's
+  checker ownership.
+- Changed areas: created ignored local workspace output under
+  `workspace/local/adctoolbox-ch1-dry-run-v2/`; added
+  `docs/collaboration/person-a-dry-run-v2-review-brief.md`; updated
+  collaboration ownership docs and the target plan under
+  `plan/users/chenzc24/2026-06-04-person-a-dry-run-v2-handoff/`.
+- Design review: v2 follows the current source/chapter default and intentionally
+  omits old research-profile directories. Person A should derive fixtures,
+  schemas, and validator expectations from v2 rather than rewriting Person B's
+  workflow prose.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-ch1-dry-run-v2 --mode all --report
+  workspace/local/adctoolbox-ch1-dry-run-v2/reports/workspace-check-v2.md`
+  passed after copying `contracts/schemas/**` into the local workspace;
+  `git diff --check`, `python -m llm_wiki_tools validate-kernel`, and targeted
+  `rg` are pending final commit validation.
+- Commit: pending.

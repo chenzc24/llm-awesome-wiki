@@ -81,6 +81,7 @@ Owned files:
 
 - `contracts/schemas/**`
 - `tools/validate-kernel/**`
+- `llm_wiki_tools/**` validator and checker implementation
 - `tests/**`
 - `tests/fixtures/**`
 
@@ -92,6 +93,7 @@ Primary responsibilities:
   schemas
 - define and maintain `compare-report` schema
 - build or extend the kernel validator
+- build or extend Python workspace checkers
 - create small fixture examples
 - check schema consistency
 - report workflow/schema mismatches to Person B
@@ -105,6 +107,11 @@ What Person A should not own by default:
 
 Person A can read those files, but should submit notes or proposals when the
 change belongs to Person B's owned area.
+
+Person A may change checker implementation under `llm_wiki_tools/**`. Person B
+keeps ownership of checker-facing prose and intended command behavior in
+`tools/*/README.md`; implementation changes that alter behavior should be
+coordinated through an explicit handoff.
 
 ### Person B: Workflow + Tool Surface Owner
 
@@ -138,6 +145,7 @@ What Person B should not own by default:
 
 - JSON Schemas under `contracts/schemas/**`
 - validator implementation under `tools/validate-kernel/**`
+- Python checker implementation under `llm_wiki_tools/**`
 - test fixtures under `tests/**`
 
 Person B can read those files, but should not change them without coordination

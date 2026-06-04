@@ -17,3 +17,6 @@ Current guides:
 - `person-b-workflow-closure-review.md`: closure review confirming that Person
   B source packet profile and wiki construction workflow surfaces are ready for
   Person A fixture and validator hardening.
+- `person-a-dry-run-v2-review-brief.md`: handoff brief for the local
+  `adctoolbox-ch1-dry-run-v2` workspace that Person A can use to derive
+  fixtures and checker expectations.
