@@ -13,7 +13,18 @@
     },
     "status": {
       "type": "string",
-      "enum": ["draft", "supported", "contested", "unsupported", "stale", "needs-review"]
+      "enum": [
+        "draft",
+        "supported",
+        "weak",
+        "unsupported",
+        "contested",
+        "generated-derived",
+        "reviewed-generated",
+        "needs-review",
+        "not-in-scope",
+        "stale"
+      ]
     },
     "evidence_ids": {
       "type": "array",

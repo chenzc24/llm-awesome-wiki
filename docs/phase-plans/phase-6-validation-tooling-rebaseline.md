@@ -144,6 +144,21 @@ Phase 6.1 does not implement schema validation, source packet checks, wiki
 lint, report validation, round closure validation, fixtures, extractor
 execution, or downstream `skill + tool` work.
 
+## Phase 6.2 Active Scope
+
+Phase 6.2 adds schema and structured-field validation:
+
+- `schema-check` README
+- `schema-check.ps1`
+- source inventory schema field and enum alignment
+- source packet schema field and enum alignment
+- claim, compare, and review enum alignment
+- `workspace-check -Mode schemas` integration
+
+Phase 6.2 checks reusable schema contracts only. It does not validate real
+workspace artifact instances, inspect packet directories, run extractors, parse
+raw binaries, perform wiki lint, validate compare semantics, or run fixtures.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.

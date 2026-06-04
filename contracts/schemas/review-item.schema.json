@@ -10,7 +10,19 @@
     },
     "type": {
       "type": "string",
-      "enum": ["contradiction", "duplicate", "missing-page", "confirm", "suggestion", "unsupported-claim", "extraction-gap"]
+      "enum": [
+        "contradiction",
+        "duplicate",
+        "missing-page",
+        "confirm",
+        "suggestion",
+        "unsupported-claim",
+        "extraction-gap",
+        "generated-evidence",
+        "modality-review",
+        "omission",
+        "weak-coverage"
+      ]
     },
     "title": {
       "type": "string"
@@ -20,7 +32,30 @@
     },
     "status": {
       "type": "string",
-      "enum": ["open", "resolved", "dismissed", "carried-forward"]
+      "enum": [
+        "open",
+        "in-review",
+        "resolved",
+        "dismissed",
+        "carried-forward",
+        "blocked",
+        "stale"
+      ]
+    },
+    "blocking_level": {
+      "type": "string",
+      "enum": ["blocking", "nonblocking", "informational"]
+    },
+    "dismissal_reason": {
+      "type": "string",
+      "enum": [
+        "duplicate",
+        "out-of-scope",
+        "incorrect-reference",
+        "superseded",
+        "informational-only",
+        "no-longer-relevant"
+      ]
     },
     "affected_paths": {
       "type": "array",

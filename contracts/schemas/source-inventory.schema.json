@@ -19,15 +19,15 @@
       "type": "array",
       "items": {
         "type": "object",
-        "required": ["source_id", "path", "source_kind", "status"],
+        "required": ["source_id", "raw_path", "source_kind", "status"],
         "properties": {
           "source_id": {
             "type": "string"
           },
-          "path": {
+          "raw_path": {
             "type": "string"
           },
-          "sha256": {
+          "raw_sha256": {
             "type": "string"
           },
           "added_at": {
@@ -43,10 +43,13 @@
           },
           "status": {
             "type": "string",
-            "enum": ["new", "processed", "changed", "ignored", "failed"]
+            "enum": ["new", "ready", "processed", "changed", "ignored", "failed", "needs-review"]
           },
           "packet_path": {
             "type": "string"
+          },
+          "review_required": {
+            "type": "boolean"
           },
           "review_item_ids": {
             "type": "array",

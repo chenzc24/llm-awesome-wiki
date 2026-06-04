@@ -722,3 +722,28 @@ Repository-wide merged or integration-level maintenance history belongs in
   checker language.
 - Commit: completed on `main` as `990f384 Add phase six tool runtime
   skeleton`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six schema checker
+
+- Target: implement Phase 6.2 schema and structured-field validation as the
+  first real checker in the Phase 6 validation tooling layer.
+- Changed areas: added
+  `docs/phase-plans/phase-6.2-schema-structured-field-validation.md`,
+  `tools/schema-check/README.md`, and `tools/schema-check/schema-check.ps1`;
+  aligned source inventory, source packet, claim record, compare report, and
+  review item schemas with stable workflow fields and enums; integrated
+  `schema-check` into `workspace-check -Mode schemas`; updated `validate-kernel`
+  required paths, Phase 6 rebaseline docs, phase-plan index, tool READMEs, and
+  the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-2-schema-structured-field-validation/`.
+- Design review: Phase 6.2 validates reusable schema contracts, not workspace
+  instances. It is not a JSON Schema engine, does not validate source packet
+  directories, and does not run extractors.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; `schema-check.ps1`
+  smoke run passed; `workspace-check.ps1 -Mode schemas` passed and invoked
+  schema-check; generated smoke reports were removed; targeted `rg` confirmed
+  Phase 6.2, schema-check, structured-field, source-packet-output,
+  not-a-JSON-Schema-engine, does-not-validate-workspace-instances, and
+  does-not-run-extractors language; reference submodules remained pinned.
+- Commit: pending.

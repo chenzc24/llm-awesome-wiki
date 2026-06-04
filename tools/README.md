@@ -16,6 +16,8 @@ audit toolchain.
 - `workspace-check`: Phase 6 checker orchestrator skeleton for validating
   workspace artifacts and emitting summary reports.
 - `shared`: shared report and exit-code conventions for Phase 6 checker tools.
+- `schema-check`: validate reusable schema contracts and stable structured
+  field/enumeration vocabulary.
 - `source-inventory`: scan raw sources, record path/hash/type/status, and
   identify unprocessed or changed material.
 - `source-packet-convert`: Phase 2 behavior spec for planning or checking
@@ -83,6 +85,22 @@ powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.p
 
 Business validators are intentionally reported as `not-implemented` until later
 Phase 6 subphases add them.
+
+Phase 6.2 adds:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/schema-check/schema-check.ps1 `
+  -Workspace . `
+  -Report schema-check-report.md
+
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode schemas `
+  -Report workspace-schema-check-report.md
+```
+
+`schema-check` validates reusable schema contracts only. It is not a full JSON
+Schema engine and does not validate workspace artifact instances.
 
 ## Phase 3 Tool Surface
 

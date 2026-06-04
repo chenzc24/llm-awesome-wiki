@@ -50,6 +50,17 @@ The skeleton checks:
 
 The skeleton reports future validators as `not-implemented`.
 
+## Phase 6.2 Behavior
+
+`-Mode schemas` invokes `tools/schema-check/schema-check.ps1`.
+
+It validates reusable schema contract files and writes a `schema-check` report
+next to the workspace-check report. It does not validate actual workspace
+artifact instances.
+
+`-Mode all` currently runs schema checking and reports the remaining validator
+families as `not-implemented`.
+
 ## Non-Goals
 
 `workspace-check` does not:

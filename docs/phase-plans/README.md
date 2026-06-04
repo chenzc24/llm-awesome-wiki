@@ -74,3 +74,6 @@ Rules:
 - `phase-6.1-tool-runtime-skeleton.md`: Phase 6.1 checker runtime skeleton,
   shared report conventions, exit-code semantics, and `workspace-check`
   smoke-run entrypoint.
+- `phase-6.2-schema-structured-field-validation.md`: Phase 6.2 schema and
+  structured-field checker for reusable contract files and stable workflow
+  enums.

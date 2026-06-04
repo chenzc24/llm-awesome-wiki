@@ -24,7 +24,13 @@
     "source_kind": {
       "type": "string"
     },
-    "extraction_tool": {
+    "inventory_status_at_extraction": {
+      "type": "string"
+    },
+    "extraction_backend": {
+      "type": "string"
+    },
+    "extraction_method": {
       "type": "string"
     },
     "extraction_version": {
@@ -47,6 +53,24 @@
         "type": "string"
       }
     },
+    "known_gaps": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "review_required": {
+      "type": "boolean"
+    },
+    "review_reason": {
+      "type": "string"
+    },
+    "derived_artifacts": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
     "anchors": {
       "type": "array",
       "items": {
@@ -56,20 +80,32 @@
           "anchor_id": {
             "type": "string"
           },
+          "location": {
+            "type": "string"
+          },
+          "content_kind": {
+            "type": "string"
+          },
           "label": {
             "type": "string"
           },
-          "location": {
+          "source_derived": {
+            "type": "boolean"
+          },
+          "generated": {
+            "type": "boolean"
+          },
+          "media_ref": {
             "type": "string"
+          },
+          "review_required": {
+            "type": "boolean"
           },
           "text": {
             "type": "string"
           },
           "modality": {
             "type": "string"
-          },
-          "generated": {
-            "type": "boolean"
           }
         },
         "additionalProperties": true

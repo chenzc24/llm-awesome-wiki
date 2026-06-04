@@ -909,3 +909,20 @@
   Phase 6.1 runtime skeleton language.
 - Commit: completed on `main` as `990f384 Add phase six tool runtime
   skeleton`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six schema checker
+
+- Target: implement Phase 6.2 schema and structured-field validation as the
+  first real checker in the Phase 6 validation tooling layer.
+- Changed areas: added the Phase 6.2 plan and `schema-check` tool; aligned key
+  schema fields and enums; integrated schema checking into `workspace-check`;
+  updated `validate-kernel`, Phase 6 docs, tool READMEs, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-2-schema-structured-field-validation/`.
+- Design review: Phase 6.2 checks reusable contract shape and workflow
+  vocabulary only. It does not validate full workspace artifact instances or
+  run extractors.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; `schema-check.ps1` and
+  `workspace-check.ps1 -Mode schemas` smoke runs passed; temporary reports were
+  removed; targeted `rg` confirmed Phase 6.2 schema checker language.
+- Commit: pending.
