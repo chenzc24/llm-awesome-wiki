@@ -47,6 +47,8 @@ pass.
    - which source packets and anchors were checked
    - whether core source units are covered at the right detail level, weak,
      deferred, omitted, or routed to review
+   - whether core formulas and derivations are represented or explicitly block
+     knowledge coverage
    - which wiki pages changed or were inspected
    - whether important claims have source, evidence, accepted review, or review
      routing
@@ -69,7 +71,7 @@ pass.
      reviewable, and carried-forward review has reason, next action, target
      round or condition, and blocking level. This can carry nonblocking
      modality review or explicit overview/selective deferrals, but not a
-     full-round core coverage hole.
+     full-round core coverage hole or missing core formula/derivation coverage.
    - `do-not-close`: compare is `fail`, required artifacts are missing,
      blocking review remains, full-round core knowledge coverage is weak or
      missing, or index/overview/log/claim/source coverage is materially stale
@@ -108,6 +110,8 @@ Minimum manual checks:
 - core document/PPT source units have anchor disposition or explicit
   overview/selective deferral
 - knowledge coverage review is separate from modality review
+- formula/equation/derivation gaps that support accepted knowledge affect
+  knowledge coverage status, not only modality status
 - generated evidence is visible and not treated as source-derived truth by
   default
 - unresolved review is carried forward with reason and next action

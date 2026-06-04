@@ -1223,3 +1223,21 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `8c10dba Record ADCtoolbox hardened redistillation`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-05 - Minimal formula derivation coverage hardening
+
+- Target: make the smallest system adjustment after the ADCtoolbox redistill
+  showed formulas and derivations can be lost while page-level coverage passes.
+- Changed areas: updated wiki-round and quality-gate skills,
+  `rules/wiki/source-wiki-coverage-protocol.md`, and compare/validation
+  templates. Added the target plan under
+  `plan/users/chenzc24/2026-06-05-minimal-formula-derivation-coverage-hardening/`.
+- Design review: no new rule file, schema, checker, fixture, or tool was
+  added. The change reuses existing Claim Coverage, Modality Coverage,
+  Knowledge coverage status, and closure fields to say that core
+  formula/derivation loss is knowledge coverage, not merely nonblocking visual
+  review.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m llm_wiki_tools validate-kernel` passed;
+  `python -m llm_wiki_tools fixture-runner` passed.
+- Commit: pending.

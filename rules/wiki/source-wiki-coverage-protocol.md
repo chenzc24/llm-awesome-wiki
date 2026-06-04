@@ -43,6 +43,11 @@ Do not close a `full-round` document/PPT distillation as `pass` when core source
 units are only summarized at a coarse level, cited by a broad range, or missing
 from the anchor disposition table.
 
+For technical source material, formulas, equations, definitions with variables,
+and derivations are knowledge coverage when they carry the source's technical
+meaning. Do not classify their loss as only nonblocking modality review when
+accepted wiki prose depends on them.
+
 ## Required Inputs
 
 - round plan and fixed source scope
@@ -74,6 +79,12 @@ Choose the smallest useful unit for the source type:
 
 Do not over-split decorative or low-value source material. Do not under-split
 important charts, tables, formulas, diagrams, or claim-bearing sections.
+
+When a page or slide contains a core formula or derivation and the current
+source packet only preserves broken glyphs, partial OCR, or an image-level gap,
+record the formula/derivation as `weak`, `review`, or `blocked` unless the
+round is explicitly `selective` or `overview-only` and the formula is recorded
+as out of scope.
 
 ## Disposition Values
 
@@ -202,6 +213,8 @@ Use `needs-review` when:
 - an omission reason is plausible but not confirmed
 - source material is routed to review with a next action
 - modality review is nonblocking but must be carried forward visibly
+- a core formula or derivation is partially represented but needs technical
+  transcription or derivation review before final acceptance
 
 Use `fail` when:
 
@@ -214,6 +227,8 @@ Use `fail` when:
 - important source material is neither covered, deferred, omitted, nor routed
   to review
 - a `full-round` document/PPT distillation has weak core knowledge coverage
+- accepted wiki knowledge depends on a core formula or derivation that is
+  missing, unreadable, or only represented as a generic visual-review item
 
 Separate knowledge coverage from modality review. A diagram, chart, OCR, or
 formula review item may be carried forward as nonblocking only when the accepted

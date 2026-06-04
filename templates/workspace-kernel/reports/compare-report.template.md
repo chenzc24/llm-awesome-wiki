@@ -20,6 +20,7 @@
 - Needs human review:
 - Knowledge coverage status:
 - Modality review status:
+- Formula/derivation coverage status:
 - Carried forward:
 - Closure handoff:
 - Next action:
@@ -113,6 +114,11 @@ Focus on important claims, not every sentence.
 Do not mark a claim `supported` only because the wiki prose is clean. Evidence
 must support the actual claim wording.
 
+For technical sources, important formulas, equations, variables, and derivation
+steps should appear here as formula or design-rule claims when they support the
+accepted wiki knowledge. If they are unreadable, omitted, or only visually
+routed, mark support as `weak`, `needs-review`, or `unsupported`.
+
 ## Modality Coverage
 
 | source_ref | modality | modality_state | generated_field | wiki_or_report_handling | related_claims | review_required | status_impact | notes |
@@ -121,6 +127,10 @@ must support the actual claim wording.
 
 Generated or model-assisted modality output that supports an important claim
 usually needs review unless an accepted review decision exists.
+
+Formula recognition and derivation reconstruction are modality issues only
+when they do not affect accepted knowledge. If accepted wiki prose depends on
+them, reflect the gap in Claim Coverage and Knowledge coverage status too.
 
 ## Link, Index, Overview, And Log Checks
 
@@ -198,6 +208,7 @@ review needs a reason and next action before the round may advance.
 - Validation note:
 - Knowledge coverage supports closure: yes/no
 - Modality review supports closure: yes/no
+- Formula/derivation coverage supports closure: yes/no
 - Index update or no-change reason:
 - Overview update or no-change reason:
 - Wiki log entry:

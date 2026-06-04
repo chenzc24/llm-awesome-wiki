@@ -51,6 +51,8 @@ Detailed rules are loaded only when needed:
    intended wiki target, planned disposition, and reason or next action.
    Broad ranges such as `p002-p020` are only acceptable when the covered topics
    inside the range are named or the round is explicitly `overview-only`.
+   When formulas or derivations carry the lesson's technical meaning, name
+   them in the plan instead of hiding them inside a page-level row.
 7. Write visible wiki construction analysis before page generation. It should
    record packets read, existing pages inspected, source outline or coverage
    plan, page decisions, important claims, supporting anchors, contradictions,
@@ -102,6 +104,8 @@ Minimum manual checks:
   coverage plan
 - full-round document/PPT closure does not rely on broad source ranges without
   topic-level or anchor-level disposition
+- core formulas and derivations are represented, deferred, or marked as
+  blocking/needs-review knowledge coverage, not only as generic visual review
 - index, overview, and log status is explicit
 - unresolved judgment appears in review output
 - one source chapter has not been fragmented into unnecessary object pages

@@ -1318,3 +1318,19 @@
 - Commit: completed on `main` as
   `8c10dba Record ADCtoolbox hardened redistillation`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-05 - Minimal formula derivation coverage hardening
+
+- Target: prevent important formula and derivation loss from being treated only
+  as nonblocking modality review.
+- Changed areas: updated the wiki-round and quality-gate runtime skills,
+  `rules/wiki/source-wiki-coverage-protocol.md`, and existing compare and
+  validation templates. Added the target plan under
+  `plan/users/chenzc24/2026-06-05-minimal-formula-derivation-coverage-hardening/`.
+- Design review: this is intentionally minimal. It adds no new schema, checker,
+  or separate formula protocol; it clarifies existing coverage semantics so
+  accepted wiki knowledge cannot depend on unreadable formulas or derivations
+  while still claiming knowledge coverage pass.
+- Validation: `git diff --check`, `validate-kernel`, and `fixture-runner`
+  passed.
+- Commit: pending.

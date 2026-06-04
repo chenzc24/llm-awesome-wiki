@@ -37,6 +37,7 @@
 - Compare status: `pass`, `needs-review`, `fail`, or `compare gate not enabled`
 - Knowledge coverage status: `pass`, `needs-review`, or `fail`
 - Modality review status: `pass`, `needs-review`, or `fail`
+- Formula/derivation coverage status: `pass`, `needs-review`, `fail`, or `not-in-scope`
 
 Use `compare gate not enabled` exactly when no deterministic, manual-protocol,
 or human-reviewed compare gate has been run. Do not convert it into `pass`.
@@ -56,6 +57,7 @@ If a compare report exists, link it here and summarize its final status.
 - Compare report status supports closure: yes/no
 - Knowledge coverage supports closure: yes/no
 - Modality review supports closure: yes/no
+- Formula/derivation coverage supports closure: yes/no
 - Review queue status supports closure: yes/no
 - Index status supports closure: yes/no
 - Overview status supports closure: yes/no
@@ -91,6 +93,8 @@ If a compare report exists, link it here and summarize its final status.
 - Core material represented at right detail:
 - Core material only broadly summarized:
 - Core material missing from wiki:
+- Core formulas/derivations represented:
+- Core formulas/derivations missing or unreadable:
 - Weak coverage blocks closure: yes/no
 - Overview-only or selective deferrals:
 
