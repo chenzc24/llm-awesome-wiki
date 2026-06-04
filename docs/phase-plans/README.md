@@ -60,3 +60,6 @@ Rules:
 - `phase-5.4-review-queue-carry-forward-workflow.md`: Phase 5.4 review item
   lifecycle, blocking level, resolution, dismissal, stale, and carried-forward
   workflow.
+- `phase-5.5-round-closure-integration.md`: Phase 5.5 round closure
+  integration across compare status, review state, validation notes, index,
+  overview, and wiki log.

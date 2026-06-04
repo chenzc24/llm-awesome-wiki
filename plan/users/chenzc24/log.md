@@ -627,3 +627,28 @@ Repository-wide merged or integration-level maintenance history belongs in
   language; reference submodules remained pinned.
 - Commit: completed on `main` as `65fff4a Define phase five review queue
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five round closure workflow
+
+- Target: continue Person B Phase 5.5 by defining round closure integration
+  across compare status, review state, validation notes, `wiki/index.md`,
+  `wiki/overview.md`, and `wiki/log.md`.
+- Changed areas: added
+  `docs/phase-plans/phase-5.5-round-closure-integration.md` and
+  `rules/round-closure-workflow.md`; updated the main Phase 5 plan,
+  phase-plan and rule indexes, `rules/compare-gate-contract.md`,
+  `rules/distillation-rounds.md`, `rules/wiki-overview-log-contract.md`,
+  workspace reports README, compare report template, first-round validation
+  note template, wiki index template, wiki overview template, wiki log
+  template, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-5-round-closure-integration/`.
+- Design review: Phase 5.5 keeps round closure as an integration decision over
+  existing artifacts rather than a new report family. Rounds now close as
+  `close-pass`, `close-with-review`, or `do-not-close` based on compare,
+  review, validation, index, overview, and wiki log state.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5.5, Round Closure, round can close, close with review, must not
+  close, advance with review, closure packet, validation note, index,
+  overview, wiki log, and not-a-validator-implementation language.
+- Commit: pending.

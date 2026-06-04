@@ -18,6 +18,7 @@
 - Blocking findings:
 - Needs human review:
 - Carried forward:
+- Closure handoff:
 - Next action:
 
 Do not use `pass` when the compare gate was not actually run. Use the
@@ -34,6 +35,8 @@ validation note phrase `compare gate not enabled` when no compare report exists.
 | wiki overview | wiki/overview.md | present/missing/not-in-scope |  |
 | wiki index | wiki/index.md | present/missing/not-in-scope |  |
 | wiki log | wiki/log.md | present/missing/not-in-scope |  |
+| validation note | reports/validation/replace-me.md | present/missing/not-in-scope |  |
+| review queue | reports/review/review-queue.md | present/missing/not-in-scope |  |
 
 ## Check Matrix
 
@@ -183,10 +186,22 @@ priority rule or route to review.
 Blocking carried-forward review prevents `pass`. Nonblocking carried-forward
 review needs a reason and next action before the round may advance.
 
+## Round Closure Handoff
+
+- Suggested closure decision: `close-pass`, `close-with-review`, or `do-not-close`
+- Validation note:
+- Index update or no-change reason:
+- Overview update or no-change reason:
+- Wiki log entry:
+- Active reports or review queues to link from index:
+- Required fixes before closure:
+- Next round may accept carried-forward review: yes/no
+
 ## Decision And Next Actions
 
 - Final status:
 - May round advance:
+- Closure decision:
 - Required fixes before advance:
 - Review items to resolve:
 - Review items carried forward:

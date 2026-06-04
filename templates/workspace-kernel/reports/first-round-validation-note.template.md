@@ -5,6 +5,7 @@
 - Plan:
 - Date:
 - Status: `pass`, `needs-review`, or `fail`
+- Closure decision: `close-pass`, `close-with-review`, or `do-not-close`
 
 ## Checks Performed
 
@@ -24,6 +25,9 @@
 - Stale index entries checked:
 - Wiki log updated:
 - Plan log updated:
+- Compare report reviewed:
+- Review queue reviewed:
+- Closure packet recorded:
 
 ## Compare Status
 
@@ -34,6 +38,22 @@ Use `compare gate not enabled` exactly when no deterministic, manual-protocol,
 or human-reviewed compare gate has been run. Do not convert it into `pass`.
 
 If a compare report exists, link it here and summarize its final status.
+
+## Round Closure
+
+- Closure decision: `close-pass`, `close-with-review`, or `do-not-close`
+- Closure packet:
+- Round can close: yes/no
+- Round can advance normally: yes/no
+- Round can advance with review: yes/no
+- Reason:
+- Required fixes before closure:
+- Next round or next action:
+- Compare report status supports closure: yes/no
+- Review queue status supports closure: yes/no
+- Index status supports closure: yes/no
+- Overview status supports closure: yes/no
+- Wiki log status supports closure: yes/no
 
 ## Coverage Notes
 
@@ -98,4 +118,6 @@ If a compare report exists, link it here and summarize its final status.
 
 ## Result
 
-State whether the round can be committed, needs review, or failed validation.
+State whether the round can be committed, closed with review, or failed
+validation. Do not use `close-pass` when the compare gate was not run or when
+blocking review remains.

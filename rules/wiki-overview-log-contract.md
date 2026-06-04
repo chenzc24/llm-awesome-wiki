@@ -86,15 +86,27 @@ Update `wiki/log.md` when a round:
 
 Before closing a wiki construction round, record:
 
+- compare report path and status
+- closure decision
 - overview update status
 - index update status
 - wiki log entry status
 - validation note path
 - active reports or review queues linked from index when needed
 - carried-forward review items
+- next action or next round
 
 If overview or index did not change, record that the round inspected them and
 why no update was needed.
+
+Use `round-closure-workflow.md` for closure decisions:
+
+- `close-pass`: index, overview, log, compare, validation, and review state are
+  acceptable
+- `close-with-review`: unresolved nonblocking review is carried forward with
+  reason, owner or next action, and target round or condition
+- `do-not-close`: blocking findings, missing validation, stale navigation, or
+  unresolved required review prevents closure
 
 ## Acceptance Criteria
 
@@ -103,3 +115,4 @@ why no update was needed.
 - log remains chronological and short
 - stale navigation or log omissions become validation findings
 - reports are linked instead of copied
+- closure decisions remain discoverable from the validation note and wiki log

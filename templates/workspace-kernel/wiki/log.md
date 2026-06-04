@@ -16,9 +16,12 @@ construction analysis report, claim/evidence map, or validation report.
 - Overview:
 - Index:
 - Reports:
+- Compare status:
+- Closure decision:
 - Review items:
 - Review carried forward:
 - Validation:
+- Next action:
 - Commit:
 - Push:
 

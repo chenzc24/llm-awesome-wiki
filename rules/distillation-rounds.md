@@ -56,7 +56,9 @@ later rounds can be deliberately scoped.
 13. Run lint and compare checks available for the workspace, or record that
     they are not enabled.
 14. Record review items and validation notes.
-15. Commit the accepted result.
+15. Decide round closure as `close-pass`, `close-with-review`, or
+    `do-not-close`.
+16. Commit only an accepted `close-pass` or allowed `close-with-review` result.
 
 ## Round Plan
 
@@ -73,6 +75,7 @@ The plan should state:
 - expected index and wiki log updates
 - expected overview refresh decision
 - validation commands or manual checks
+- expected closure decision surface
 - commit intent
 
 Changing the input set mid-round should be recorded in the plan or log.
@@ -148,6 +151,8 @@ Each round should leave a short log entry with:
 - overview/index/log changes or no-change reasons
 - stale index entries found or cleared
 - reports produced
+- compare status
+- closure decision
 - review items created or resolved
 - validation run
 - commit hash when available
@@ -164,15 +169,18 @@ Each round should leave at least one report or explicit validation note:
 - lint or index status for wiki-facing work
 - compare status before advancing to the next round
 - review queue status when judgment is unresolved
+- closure decision and next action
 
 ## Completion Criteria
 
 A round is complete when all intended files are updated, validation is recorded,
-review items are visible, and the accepted diff is committed.
+review items are visible, closure decision is recorded, and the accepted diff
+is committed.
 
 For wiki construction rounds, completion also requires construction analysis,
 overview/index/log status, index/log updates for accepted page changes, and a
-validation note that records page decisions and review carry-forward.
+validation note that records page decisions, compare status, review
+carry-forward, and closure decision.
 
 For rounds that create or update important claims, completion also requires
 evidence references or review routing. A clean-looking wiki page is not proof
@@ -181,3 +189,8 @@ that claim support is sufficient.
 For the initialization pass, completion also requires `wiki/overview.md`,
 `wiki/index.md`, and the staged distillation plan to exist and be linked from
 the workspace logs or plan records.
+
+Follow `round-closure-workflow.md` before advancing from a wiki-facing round.
+`close-pass` is the normal closure. `close-with-review` is allowed only when
+the next plan accepts the carried-forward review state. `do-not-close` blocks
+advancement until the blocker is fixed or the scope is changed and logged.

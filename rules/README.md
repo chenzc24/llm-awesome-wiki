@@ -43,6 +43,9 @@ required dependency.
   contradictions in compare reports.
 - `review-queue-workflow.md`: manage review item lifecycle, blocking levels,
   resolutions, dismissals, stale items, and carried-forward review.
+- `round-closure-workflow.md`: decide whether a round can close, close with
+  review, or remain open based on compare status, review state, validation
+  notes, index, overview, and wiki log.
 - `distillation-rounds.md`: run wiki construction in small reviewable rounds.
 - `maintenance-workflow.md`: keep workspace plans, logs, commits, and reports
   disciplined, including per-user plan namespaces and personal logs for

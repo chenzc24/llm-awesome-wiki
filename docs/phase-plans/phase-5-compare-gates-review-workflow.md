@@ -189,7 +189,9 @@ Phase 5.3 does not implement:
 - wiki page rewrites
 - downstream `skill + tool` artifacts
 
-## Phase 5.4 Active Scope
+## Phase 5.4 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 5.4 defines review queue lifecycle and carried-forward semantics.
 
@@ -214,6 +216,33 @@ Phase 5.4 does not implement:
 - schema or validator changes
 - fixtures
 - wiki page rewrites
+- downstream `skill + tool` artifacts
+
+## Phase 5.5 Active Scope
+
+Phase 5.5 defines round closure integration.
+
+It owns:
+
+- round closure decision semantics
+- required closure evidence across existing artifacts
+- relationship between compare status and round advancement
+- validation-note closure summary expectations
+- index, overview, and wiki log closure expectations
+- active compare and review report discoverability
+- advancement rules for `close-pass`, `close-with-review`, and `do-not-close`
+
+Phase 5.5 does not implement:
+
+- compare CLI implementation
+- review export implementation
+- link checker implementation
+- schemas or validators
+- fixtures
+- wiki page generation
+- source/wiki coverage semantics from Phase 5.2
+- claim/modality/contradiction semantics from Phase 5.3
+- review item lifecycle details from Phase 5.4
 - downstream `skill + tool` artifacts
 
 ## Later Phase 5 Subphases
@@ -280,6 +309,16 @@ Potential Person A validation needs:
 - fixture for nonblocking carried-forward review
 - fixture for stale review after source packet change
 - fixture for dismissed duplicate review item
+- closure decision enum: `close-pass`, `close-with-review`, `do-not-close`
+- validator rule that `close-pass` requires compare `pass`
+- validator rule that `close-with-review` requires compare `needs-review`
+  plus valid carried-forward review
+- validator rule that `do-not-close` blocks advancement
+- validation-note closure packet field validation
+- fixture for close-pass
+- fixture for close-with-review
+- fixture for do-not-close caused by stale index
+- fixture for do-not-close caused by missing validation note
 - fixture for stale index link
 
 ## Non-Goals
@@ -350,11 +389,25 @@ Phase 5.4 is complete when:
 - Phase 5 main plan identifies Phase 5.5 as the next round-closure integration
   target
 
+## Phase 5.5 Completion Criteria
+
+Phase 5.5 is complete when:
+
+- the Phase 5.5 phase plan exists
+- round closure workflow rule exists
+- compare gate and distillation round rules include closure decision semantics
+- overview/index/log rules include closure expectations
+- compare report and validation note templates expose closure fields
+- wiki index, overview, and log templates can record closure state
+- Phase 5 main plan identifies Phase 5.6 as the closure review and handoff
+  target
+
 ## Next Subphase
 
-After Phase 5.4, the next useful target is Phase 5.5: round closure
-integration with validation note, index, overview, and log expectations.
+After Phase 5.5, the next useful target is Phase 5.6: Phase 5 closure review
+and Person A/Phase 6 handoff.
 
-Phase 5.5 should define how compare status, review status, validation notes,
-wiki index, overview, and wiki log together decide whether a round can close or
-advance.
+Phase 5.6 should review the complete Phase 5 workflow surface, confirm
+alignment with the core design philosophy, and hand schema, validator, fixture,
+and tool implementation needs to the next owner without starting that
+implementation in the same pass.

@@ -834,3 +834,23 @@
   Phase 5.4 review queue workflow language.
 - Commit: completed on `main` as `65fff4a Define phase five review queue
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five round closure workflow
+
+- Target: continue Phase 5 from the Person B workflow-surface side by defining
+  round closure integration across compare status, review state, validation
+  notes, index, overview, and wiki log.
+- Changed areas: added the Phase 5.5 plan and round closure workflow rule;
+  updated the main Phase 5 plan, phase-plan and rule indexes, compare gate
+  rule, distillation rounds rule, overview/log rule, workspace reports README,
+  compare report template, first-round validation note template, wiki index
+  template, wiki overview template, wiki log template, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-5-round-closure-integration/`.
+- Design review: aligned with raw-wiki alignment and anti-self-evaluation by
+  making closure depend on compare, review, validation, navigation, overview,
+  and log state instead of clean-looking wiki prose. The workflow defines
+  `close-pass`, `close-with-review`, and `do-not-close`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5.5 round closure workflow language.
+- Commit: pending.

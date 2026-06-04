@@ -362,3 +362,27 @@ A round with compare status `fail` must not advance until the blocking findings
 are fixed or the scope is changed and logged.
 
 A round with `blocking` carried-forward review must not advance as `pass`.
+
+## Round Closure Integration
+
+Compare status is an input to round closure. It is not the whole closure
+decision.
+
+Follow `round-closure-workflow.md` after a compare report is produced:
+
+- compare `pass` can support `close-pass` only when validation note, index,
+  overview, wiki log, and review state are also acceptable
+- compare `needs-review` can support `close-with-review` only when carried
+  review items have reason, owner or next action, target round or condition,
+  and blocking level
+- compare `fail` maps to `do-not-close` unless the scope is changed and logged
+- `compare gate not enabled` cannot support `close-pass`
+
+The compare report should hand off:
+
+- final compare status
+- blocking findings
+- review items to resolve
+- review items carried forward
+- active report or review queue links
+- required fixes before closure

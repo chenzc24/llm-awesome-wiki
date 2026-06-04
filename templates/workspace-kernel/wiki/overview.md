@@ -33,6 +33,14 @@ Link active review reports instead of copying their full contents.
 
 - Replace this row.
 
+## Current Round State
+
+- Latest validation note:
+- Latest compare status:
+- Latest closure decision:
+- Active review queue:
+- Next planned round:
+
 ## Maintenance
 
 - Last refreshed:

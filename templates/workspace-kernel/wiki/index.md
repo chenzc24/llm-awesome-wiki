@@ -34,6 +34,8 @@ overview
 
 - Link active validation, claim/evidence, compare, lint, coverage, and review
   reports here.
+- Link active compare or review reports when the current round closed with
+  review or when unresolved review affects the next reader.
 - Do not index every evidence row or claim row.
 - Remove stale report links when reports are no longer active.
 
@@ -54,3 +56,4 @@ overview
 - Deleted, merged, moved, or retitled pages do not leave stale entries.
 - Source pages, chapter pages, active reports, and optional pages stay in the
   right section.
+- Active closure-blocking or carried-forward review remains discoverable.

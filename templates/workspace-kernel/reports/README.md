@@ -49,6 +49,23 @@ Create a separate `reports/coverage/` report only when the coverage matrix is
 too large for a concise compare report or a future deterministic tool produces
 the detailed matrix.
 
+## Round Closure
+
+Do not create a separate closure report by default. Record closure state in the
+compare report handoff, validation note, `wiki/index.md`, `wiki/overview.md`,
+and `wiki/log.md`.
+
+Use these closure decisions:
+
+- `close-pass`
+- `close-with-review`
+- `do-not-close`
+
+`close-pass` requires compare `pass` plus acceptable review, validation, index,
+overview, and wiki log state. `close-with-review` requires compare
+`needs-review` plus explicit carried-forward review. `do-not-close` blocks
+advancement until the blocker is fixed or scope is changed and logged.
+
 ## Claim And Evidence Reports
 
 Use `reports/review/claim-evidence-map.md` or a similarly named report when a
