@@ -1093,4 +1093,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
   current-facing files no longer reference old flat rule paths or bare old rule
   filenames; `rg --files rules` confirmed the new grouped layout.
-- Commit: pending.
+- Commit: completed on `main` as
+  `a016187 Group rules by workflow area`; finalized by the follow-up
+  maintenance-status commit.

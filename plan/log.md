@@ -1209,4 +1209,6 @@
   `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
   current-facing references use grouped rule paths; `rg --files rules`
   confirmed the grouped layout.
-- Commit: pending.
+- Commit: completed on `main` as
+  `a016187 Group rules by workflow area`; finalized by the follow-up
+  maintenance-status commit.
