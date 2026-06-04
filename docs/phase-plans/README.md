@@ -63,3 +63,5 @@ Rules:
 - `phase-5.5-round-closure-integration.md`: Phase 5.5 round closure
   integration across compare status, review state, validation notes, index,
   overview, and wiki log.
+- `phase-5-closure-review.md`: Phase 5 closure review, design confirmation,
+  and Person A/Phase 6 validation and tooling handoff.

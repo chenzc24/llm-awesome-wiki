@@ -653,3 +653,23 @@ Repository-wide merged or integration-level maintenance history belongs in
   overview, wiki log, and not-a-validator-implementation language.
 - Commit: completed on `main` as `32aff4f Define phase five round closure
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Close phase five compare gate workflow
+
+- Target: close Phase 5 from the Person B workflow-surface side by reviewing
+  the complete compare gates and review workflow and handing schema,
+  validator, fixture, and tool needs to Person A or Phase 6.
+- Changed areas: added `docs/phase-plans/phase-5-closure-review.md`; updated
+  the main Phase 5 plan, phase-plan index, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-6-closure-review/`.
+- Design review: Phase 5 now has a closed workflow surface for compare report
+  foundation, source/wiki coverage, claim/modality/contradiction checks,
+  review queue lifecycle, and round closure. Phase 6 is explicitly scoped as
+  validation and tooling for the workspace kernel, not downstream
+  knowledge-to-`skill + tool` generation.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5 Closure, Phase 5 is complete, compare gates, review workflow,
+  close-pass, close-with-review, do-not-close, Person A handoff, Phase 6, and
+  not-implement language; reference submodules remained pinned.
+- Commit: pending.

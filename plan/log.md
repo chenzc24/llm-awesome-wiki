@@ -855,3 +855,20 @@
   Phase 5.5 round closure workflow language.
 - Commit: completed on `main` as `32aff4f Define phase five round closure
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Close phase five compare gate workflow
+
+- Target: close Phase 5 from the Person B workflow-surface side by reviewing
+  the complete compare gates and review workflow and handing Person A/Phase 6
+  validation and tooling needs forward.
+- Changed areas: added the Phase 5 closure review; updated the main Phase 5
+  plan, phase-plan index, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-6-closure-review/`.
+- Design review: Phase 5 is closed as a protocol and template surface. It
+  defines compare reports, source/wiki coverage, claim/modality/contradiction
+  checks, review queue lifecycle, and round closure decisions, while leaving
+  schemas, validators, fixtures, and tools to Phase 6.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5 closure and Phase 6 handoff language.
+- Commit: pending.

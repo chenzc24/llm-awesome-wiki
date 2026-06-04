@@ -218,7 +218,9 @@ Phase 5.4 does not implement:
 - wiki page rewrites
 - downstream `skill + tool` artifacts
 
-## Phase 5.5 Active Scope
+## Phase 5.5 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 5.5 defines round closure integration.
 
@@ -244,6 +246,22 @@ Phase 5.5 does not implement:
 - claim/modality/contradiction semantics from Phase 5.3
 - review item lifecycle details from Phase 5.4
 - downstream `skill + tool` artifacts
+
+## Phase 5.6 Closure Status
+
+Status: complete from the Person B workflow-surface side.
+
+Phase 5.6 closes Phase 5 by reviewing the complete compare gate and review
+workflow surface and handing schema, validator, fixture, and tool needs to
+Person A or Phase 6.
+
+It owns:
+
+- Phase 5 design review
+- completed workflow surface summary
+- Person A validation handoff
+- Phase 6 implementation boundary
+- confirmation that downstream `skill + tool` generation remains out of scope
 
 ## Later Phase 5 Subphases
 
@@ -402,12 +420,28 @@ Phase 5.5 is complete when:
 - Phase 5 main plan identifies Phase 5.6 as the closure review and handoff
   target
 
-## Next Subphase
+## Phase 5.6 Completion Criteria
 
-After Phase 5.5, the next useful target is Phase 5.6: Phase 5 closure review
-and Person A/Phase 6 handoff.
+Phase 5.6 is complete when:
 
-Phase 5.6 should review the complete Phase 5 workflow surface, confirm
-alignment with the core design philosophy, and hand schema, validator, fixture,
-and tool implementation needs to the next owner without starting that
-implementation in the same pass.
+- the Phase 5 closure review exists
+- the closure review summarizes completed Phase 5 workflow surfaces
+- the closure review confirms alignment with the core design philosophy
+- Person A and Phase 6 schema, validator, fixture, and tool needs are listed
+- the next phase boundary is validation and tooling for the workspace kernel
+- downstream knowledge-to-`skill + tool` generation remains explicitly out of
+  scope
+
+## Next Phase Boundary
+
+After Phase 5, the next useful target is Phase 6: validation and tooling for
+the workspace kernel.
+
+Phase 6 should consume Phase 2 through Phase 5 workflow surfaces and implement
+the minimal executable maintenance layer: schema checks, lint checks, report
+checks, compare validation, review queue validation, round closure validation,
+and scenario fixtures.
+
+Phase 6 should not start the separate downstream knowledge-to-`skill + tool`
+mainline. That remains a later major stage after the knowledge construction
+workflow and its executable maintenance layer are reliable.
