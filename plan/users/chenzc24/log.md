@@ -551,4 +551,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 5, Compare Gate, Compare Report, raw-wiki alignment, source coverage,
   claim coverage, modality coverage, pass, fail, needs-review, model
   self-evaluation, carried forward, and wiki rewrite boundary language.
-- Commit: pending.
+- Commit: completed on `main` as `2233f28 Define phase five compare report
+  foundation`; finalized by the follow-up maintenance-status commit.

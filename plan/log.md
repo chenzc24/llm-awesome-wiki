@@ -773,4 +773,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 5 compare report foundation language.
-- Commit: pending.
+- Commit: completed on `main` as `2233f28 Define phase five compare report
+  foundation`; finalized by the follow-up maintenance-status commit.
