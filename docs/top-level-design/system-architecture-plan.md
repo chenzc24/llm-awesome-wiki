@@ -64,6 +64,43 @@ open that repository in VSCode and work with Git, CLI tools, and agents against
 repo-local files. The system should not require a desktop app, Obsidian vault,
 background service, or external wrapper as the source of truth.
 
+## Protocol, Contract, And Template Vocabulary
+
+The system uses three related terms with different ownership.
+
+**Workflow protocol** or **operational rule** means human/agent-facing
+instructions for how work should proceed. A protocol answers: what step happens
+next, what inputs are allowed, what outputs must be produced, what failure must
+look like, and what shortcuts are forbidden. Protocols live primarily in
+`rules/**`, `docs/phase-plans/**`, workspace templates, and tool behavior
+prose. Person B owns this layer.
+
+**Machine-readable contract** means the data shape and checks that can be
+validated by software. A contract answers: which fields are required, which enum
+values are legal, what references must parse, which fixtures pass or fail, and
+which validator reports should be emitted. Machine-readable contracts live in
+`contracts/schemas/**`, validator code, and fixtures. Person A owns this layer.
+
+**Template** means a copyable artifact shape that helps humans and agents write
+valid workspace files. Templates are part of the workflow surface and are
+therefore owned by Person B for usability and intent. Person A may validate
+templates against machine-readable contracts and report mismatches.
+
+Quality gates have two halves: Person B defines the workflow meaning of pass,
+fail, needs-review, review routing, and closure rules; Person A defines the
+machine-readable report shapes and deterministic validation behavior.
+
+Some historical rule files use names such as `*-contract.md`. In this
+repository, those files are operational contracts or workflow rules unless they
+live under `contracts/schemas/**` or validator-owned paths. The machine-readable
+contract source of truth is the schema and validation layer, not prose alone.
+
+Stable workflow needs should become Person A handoff proposals. They become
+machine-readable contracts only after Person A accepts the field names,
+requiredness, enum values, fixture behavior, and validation checks. Conversely,
+Person A should not invent new workflow requirements in schemas without
+reporting the mismatch back to Person B.
+
 ## System Non-Goals
 
 - Do not make Obsidian a required dependency.

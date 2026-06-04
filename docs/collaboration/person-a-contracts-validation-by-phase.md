@@ -49,6 +49,30 @@ Person A may read, but should not directly edit without coordination:
 When a workflow term is unclear, write a proposal or mismatch note for Person B
 instead of patching Person B's owned files directly.
 
+## Protocol And Contract Boundary
+
+Person A owns machine-readable contracts, not workflow intent.
+
+A machine-readable contract is a JSON Schema, validator behavior, fixture, or
+deterministic check that can say whether an artifact is structurally valid. It
+should stabilize fields, enum values, references, requiredness, and error
+behavior.
+
+Person B owns workflow protocols and operational rules: the prose that says how
+a human or agent should move from one artifact to the next. Person A should use
+those protocols as input, then decide which stable parts can become
+machine-checkable contracts.
+
+When a protocol needs a field that does not exist, either add it deliberately
+inside the schema task or record why it is deferred. When a schema would require
+new workflow behavior, record a mismatch for Person B instead of silently
+changing Person B's rules or templates.
+
+Historical files named `rules/*-contract.md` are not Person A-owned machine
+contracts by default. Treat them as Person B-owned operational rules unless a
+task explicitly asks Person A to translate part of them into schema, validator,
+or fixture behavior.
+
 ## Phase Responsibilities
 
 | Phase | Person A responsibility | Expected output |

@@ -45,6 +45,27 @@ Person B may read, but should not directly edit without coordination:
 Person B should propose schema changes to Person A instead of directly changing
 `contracts/schemas/**` during coworker work.
 
+## Protocol And Contract Boundary
+
+Person B owns workflow protocols, operational rules, templates, phase plans, and
+tool behavior prose. This layer answers what a human or agent should do next,
+what files are inputs and outputs, how failures become visible, and what
+shortcuts are forbidden.
+
+Person A owns machine-readable contracts: JSON Schemas, validator behavior,
+fixtures, and deterministic checks. This layer answers which fields are
+required, which enum values are legal, and what a validator can accept or reject.
+
+Person B may name workflow needs and propose fields, but should not treat a new
+field as accepted until Person A has aligned the schema or explicitly deferred
+it. Person B should write handoff proposals for missing fields or validation
+needs instead of editing `contracts/schemas/**`.
+
+Historical files named `rules/*-contract.md` are still Person B workflow
+surfaces unless a task explicitly moves part of their content into
+machine-readable contracts. Their name means "operational contract for agents,"
+not "schema owned by Person A."
+
 ## Phase Responsibilities
 
 | Phase | Person B responsibility | Expected output |

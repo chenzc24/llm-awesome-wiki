@@ -554,3 +554,25 @@
   --short --branch` showed only the intended Person B Phase 2.4 files.
 - Commit: completed on `main` as `47c2290 Define source-type packet profiles`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Clarify protocol and contract ownership
+
+- Target: clarify at the top-level design and collaboration split that
+  workflow protocols and operational rules are Person B-owned, while
+  machine-readable contracts, validators, schemas, and fixtures are Person
+  A-owned.
+- Changed areas: updated `docs/top-level-design/system-architecture-plan.md`,
+  `docs/top-level-design/README.md`,
+  `docs/collaboration/two-person-pre-skill-tools-worksplit.md`,
+  `docs/collaboration/person-a-contracts-validation-by-phase.md`, and
+  `docs/collaboration/person-b-workflow-surface-by-phase.md`; added the target
+  plan under
+  `plan/users/chenzc24/2026-06-04-clarify-protocol-contract-ownership/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  workflow protocol, operational rule, machine-readable contract, template,
+  Person A, Person B, schema, validator, fixture, ownership,
+  `rules/*-contract.md`, and `contracts/schemas/**` language; `git submodule
+  status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
+  --short --branch` showed only the intended terminology and maintenance files.
+- Commit: planned for `main` as `Clarify protocol and contract ownership`.

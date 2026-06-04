@@ -43,6 +43,28 @@ For detailed phase-by-phase assignments, use:
 - `person-a-contracts-validation-by-phase.md` for the coworker / Person A
 - `person-b-workflow-surface-by-phase.md` for `chenzc24` / Person B
 
+## Protocol Versus Machine Contract
+
+Use these terms consistently:
+
+- **Workflow protocol / operational rule**: human- and agent-facing prose that
+  says how to perform a step, what to produce, how to fail visibly, and what not
+  to skip. Person B owns this layer.
+- **Machine-readable contract**: JSON Schema, validator behavior, fixture
+  expectations, and deterministic checks. Person A owns this layer.
+- **Template**: a copyable artifact shape used by humans and agents. Person B
+  owns template intent and usability; Person A validates whether templates can
+  satisfy machine-readable contracts.
+
+Protocol normally comes first: it names the workflow need. Contract follows by
+making stable parts machine-checkable. If Person B needs a field, Person B
+records a handoff proposal. If Person A sees workflow prose that cannot be
+validated or contradicts schema names, Person A records a mismatch for Person B.
+
+Files named `rules/*-contract.md` are historical operational contracts. They
+are Person B-owned workflow rules unless a task explicitly moves their content
+into `contracts/schemas/**`, validator code, or fixtures.
+
 ## The Two Owner Lines
 
 ### Person A: Contracts + Validation Owner

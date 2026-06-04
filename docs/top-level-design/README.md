@@ -25,8 +25,8 @@ execution plans.
 - `system-architecture-plan.md`: top-level system construction plan for LLM
   Awesome Wiki, including architecture layers, staged build phases,
   source packet protocol and raw-wiki alignment as the Phase 2 substrate, LLM
-  responsibility boundaries, quality gates, and the limited reference role of
-  `llm_wiki`.
+  responsibility boundaries, quality gates, protocol/contract/template
+  vocabulary, and the limited reference role of `llm_wiki`.
 - `artifact-economy-and-raw-wiki-alignment.md`: cross-cutting design principle
   for keeping agent-readable, human-reviewable wiki output aligned with raw
   sources without creating duplicate truth sources or verbose default
