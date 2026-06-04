@@ -10,6 +10,8 @@
 ## Inputs Read
 
 - Source packets:
+- Raw or rendered source views:
+- External extraction output or high-density notes:
 - Claim/evidence maps:
 - Review queues:
 - Existing overview:
@@ -28,6 +30,32 @@ explicitly `overview-only`.
 
 Broad page or slide ranges should name the important topics inside the range.
 Do not use a broad range as a substitute for core source coverage.
+
+## Semantic Draft
+
+Draft the source's important knowledge before compressing it into final wiki
+prose. This section may be denser than the accepted chapter page.
+
+- Important definitions:
+- Core formulas and variables:
+- Derivation steps:
+- Tables, charts, or examples:
+- Procedures or methods:
+- Practical implications:
+- Candidate-derived content that needs grounding:
+
+## Grounding Pass
+
+For every important semantic unit above, record how it will be accepted,
+narrowed, deferred, rejected, or routed to review.
+
+| draft_unit | source_refs | grounding_state | wiki_target | review_or_reason |
+| --- | --- | --- | --- | --- |
+| formula/example/definition | source-id#anchor-id | grounded/candidate-derived/reviewed/deferred/rejected | wiki/chapters/replace-me.md |  |
+
+Do not discard useful candidate-derived content silently. If source packets are
+lossy, use raw/rendered views or external notes to identify the knowledge, then
+ground it or route it to review.
 
 ## Routing Decisions
 

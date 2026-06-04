@@ -9,6 +9,12 @@ structure, keep chapter order readable, and make source coverage auditable.
 Research-wiki pages such as concepts, entities, comparisons, queries, and broad
 synthesis are optional extensions.
 
+Source packets are required audit baselines, not the semantic ceiling. A wiki
+round may draft from source packets plus raw/rendered views, external extractor
+output, or high-density reading notes. Accepted wiki knowledge must then be
+grounded to source anchors, evidence, accepted review, or explicit review
+items.
+
 ## First Ten Minutes
 
 1. Read `AGENTS.md`.
@@ -27,7 +33,8 @@ synthesis are optional extensions.
 9. Copy `reports/claim-evidence-map.template.md` into `reports/review/` when
    the round creates important source-backed claims.
 10. Copy `reports/wiki-construction-analysis.template.md` into `reports/`
-   before creating or updating wiki pages.
+   before creating or updating wiki pages. Use it for semantic drafting and
+   grounding.
 11. Use the wiki templates to create `wiki/overview.md`, source pages, and
    chapter pages.
 12. Copy `reports/first-round-validation-note.template.md` into `reports/` and
@@ -41,6 +48,8 @@ configure purpose/schema
 -> add raw sources
 -> write source inventory
 -> write source packet
+-> write semantic draft
+-> run grounding pass
 -> map important claims to evidence
 -> route wiki surface updates
 -> write construction analysis
@@ -53,9 +62,12 @@ configure purpose/schema
 
 ## First Round Boundaries
 
-- Do not write final wiki pages directly from binary raw files when a source
-  packet is feasible.
-- Do not create or update wiki pages before routing and construction analysis.
+- Do not write accepted wiki pages directly from raw or rendered sources
+  without a grounding pass.
+- Do not let lossy source packets suppress important formulas, derivations,
+  examples, or tables.
+- Do not create or update wiki pages before semantic drafting, routing, and
+  construction analysis.
 - Do not split a document/PPT corpus into research-style object pages by
   default.
 - Do not turn every sentence into a claim record; map only important,

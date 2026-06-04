@@ -19,6 +19,8 @@
 - Blocking findings:
 - Needs human review:
 - Knowledge coverage status:
+- Semantic draft richness status:
+- Grounding status:
 - Modality review status:
 - Formula/derivation coverage status:
 - Carried forward:
@@ -34,6 +36,7 @@ validation note phrase `compare gate not enabled` when no compare report exists.
 | --- | --- | --- | --- |
 | source inventory | raw/source-inventory.md | present/missing/not-in-scope |  |
 | source packet | raw/derived/source-id/source.md | present/missing/not-in-scope |  |
+| raw/rendered/external reading notes | reports/wiki-construction-analysis.md or raw/derived/source-id/media/ | present/missing/not-in-scope |  |
 | claim/evidence map | reports/review/claim-evidence-map.md | present/missing/not-in-scope |  |
 | wiki construction analysis | reports/wiki-construction-analysis.md | present/missing/not-in-scope |  |
 | wiki overview | wiki/overview.md | present/missing/not-in-scope |  |
@@ -47,6 +50,8 @@ validation note phrase `compare gate not enabled` when no compare report exists.
 | check | category | result | blocking | evidence |
 | --- | --- | --- | --- | --- |
 | source coverage | deterministic/manual-protocol | pass/fail/needs-review/not-enabled | yes/no |  |
+| semantic draft richness | manual-protocol/human-review | pass/fail/needs-review/not-enabled | yes/no |  |
+| grounding pass | manual-protocol/human-review | pass/fail/needs-review/not-enabled | yes/no |  |
 | claim coverage | deterministic/manual-protocol/human-review | pass/fail/needs-review/not-enabled | yes/no |  |
 | modality coverage | manual-protocol/human-review | pass/fail/needs-review/not-enabled | yes/no |  |
 | link and index integrity | deterministic/manual-protocol | pass/fail/needs-review/not-enabled | yes/no |  |
@@ -102,6 +107,16 @@ by a broad range summary should be marked `weak` or `review`, not `covered`.
 | wiki_page | page_type | declared_source_scope | actual_source_refs | coverage_gaps | disposition | status_impact | notes |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | wiki/chapters/replace-me.md | chapter | source-id slides/pages/anchors | source-id#anchor-id |  | covered/weak/review/blocked | pass/needs-review/fail/none |  |
+
+## Semantic Draft Coverage
+
+Use this section when the round produced a semantic draft or high-density
+reading notes. Important draft units should not disappear silently just because
+the final wiki page is shorter.
+
+| draft_unit | draft_ref | source_refs | wiki_target | grounding_state | reason | status_impact | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| formula/derivation/example/table/definition | reports/wiki-construction-analysis.md#replace-me | source-id#anchor-id | wiki/chapters/replace-me.md | grounded/candidate-derived/reviewed/deferred/rejected |  | pass/needs-review/fail/none |  |
 
 ## Claim Coverage
 
@@ -207,6 +222,8 @@ review needs a reason and next action before the round may advance.
 - Suggested closure decision: `close-pass`, `close-with-review`, or `do-not-close`
 - Validation note:
 - Knowledge coverage supports closure: yes/no
+- Semantic draft richness supports closure: yes/no
+- Grounding supports closure: yes/no
 - Modality review supports closure: yes/no
 - Formula/derivation coverage supports closure: yes/no
 - Index update or no-change reason:

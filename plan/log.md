@@ -1,5 +1,25 @@
 # Maintenance Log
 
+## 2026-06-05 - Refactor workflow toward semantic-first grounding
+
+- Target: change the current system direction after real PPT/PDF distillation
+  showed that structurally valid source-packet-first output can be much weaker
+  than a direct high-density semantic reading.
+- Changed areas: updated README, core philosophy, knowledge-to-executable,
+  top-level architecture, runtime skills, wiki rules, workspace-kernel
+  guidance, compare/validation/construction templates, chapter template, and
+  the target plan under
+  `plan/users/chenzc24/2026-06-05-semantic-first-audit-grounded-refactor/`.
+- Design review: the construction path is now
+  `source packet + raw/rendered/external reading -> semantic draft ->
+  grounding pass -> accepted wiki -> compare/review/closure`. Source packets
+  remain the audit baseline for anchors and gaps, but not the semantic ceiling.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m llm_wiki_tools validate-kernel` passed;
+  `python -m llm_wiki_tools fixture-runner` passed; targeted `rg` confirmed
+  the new semantic-first and grounding language.
+- Commit: planned as `Refactor workflow toward semantic-first grounding`.
+
 ## 2026-06-03 - Bootstrap VSCode-native LLM Wiki workflow
 
 - Target: establish root repository guidance, core philosophy, planning

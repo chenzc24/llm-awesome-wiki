@@ -1,4 +1,4 @@
 interface:
   display_name: "LLM Wiki Wiki Round"
-  short_description: "Run the source-packet-to-wiki runtime."
+  short_description: "Run semantic-first, audit-grounded wiki construction."
   default_prompt: "Run the wiki construction round workflow for this workspace."

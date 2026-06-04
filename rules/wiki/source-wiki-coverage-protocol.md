@@ -1,6 +1,7 @@
 # Source Wiki Coverage Protocol
 
-This rule defines how a compare report records source-to-wiki coverage.
+This rule defines how a compare report records source-to-wiki coverage,
+semantic richness, and grounding.
 
 Use it during Phase 5 compare work after source packets and wiki construction
 artifacts exist. It is a workflow protocol, not a coverage algorithm and not a
@@ -8,7 +9,8 @@ schema.
 
 ## Purpose
 
-Coverage should explain the disposition of source material.
+Coverage should explain the disposition of source material and the fate of
+important semantic draft content.
 
 It should not force agents to copy every source paragraph, slide, or table into
 the wiki.
@@ -16,6 +18,11 @@ the wiki.
 For document and PPT corpora, the default target remains readable
 source/chapter wiki pages. Coverage reports protect raw-wiki alignment without
 turning the wiki into a second source packet.
+
+The source packet is the audit baseline, not the semantic ceiling. A compare
+report should fail or request review when the accepted wiki is much poorer than
+the semantic draft or direct source reading, even if every page has some broad
+anchor citation.
 
 ## Mandatory For Document And PPT Rounds
 
@@ -54,7 +61,8 @@ accepted wiki prose depends on them.
 - source inventory
 - source packet metadata
 - source packet anchors
-- wiki construction analysis
+- semantic draft and wiki construction analysis
+- raw/rendered source views or external reading notes when used
 - current source pages
 - current chapter pages
 - current `wiki/overview.md`
@@ -85,6 +93,11 @@ source packet only preserves broken glyphs, partial OCR, or an image-level gap,
 record the formula/derivation as `weak`, `review`, or `blocked` unless the
 round is explicitly `selective` or `overview-only` and the formula is recorded
 as out of scope.
+
+When raw/rendered source views or external notes recover useful formulas,
+derivations, examples, or tables that the packet lost, record them as
+candidate-derived until they are grounded to anchors, accepted by review, or
+explicitly excluded from the round.
 
 ## Disposition Values
 
@@ -200,6 +213,29 @@ Recommended fields:
 | `disposition` | `covered`, `weak`, `review`, or `blocked` |
 | `status_impact` | `pass`, `needs-review`, `fail`, or `none` |
 
+## Semantic Draft Coverage
+
+Use this check when a wiki construction analysis contains a semantic draft or
+high-density reading notes.
+
+What happened to the important knowledge units in the draft?
+
+Recommended fields:
+
+| field | purpose |
+| --- | --- |
+| `draft_unit` | formula, derivation, example, table, definition, method, or implication |
+| `draft_ref` | heading, report row, or note location |
+| `source_refs` | anchors or source ranges used for grounding |
+| `wiki_target` | accepted page or section when merged |
+| `grounding_state` | grounded, candidate-derived, reviewed, deferred, or rejected |
+| `reason` | required unless grounded |
+| `status_impact` | `pass`, `needs-review`, `fail`, or `none` |
+
+Important draft units should not disappear silently. If they are too detailed
+for the final wiki page, record whether they were narrowed, deferred, rejected,
+or routed to review.
+
 ## Status Impact
 
 Use `pass` only when source/wiki coverage is explainable and no blocking
@@ -215,6 +251,7 @@ Use `needs-review` when:
 - modality review is nonblocking but must be carried forward visibly
 - a core formula or derivation is partially represented but needs technical
   transcription or derivation review before final acceptance
+- useful candidate-derived draft content needs grounding or human review
 
 Use `fail` when:
 
@@ -229,6 +266,8 @@ Use `fail` when:
 - a `full-round` document/PPT distillation has weak core knowledge coverage
 - accepted wiki knowledge depends on a core formula or derivation that is
   missing, unreadable, or only represented as a generic visual-review item
+- accepted wiki pages are materially poorer than the semantic draft or direct
+  source reading without recorded narrowing, deferral, rejection, or review
 
 Separate knowledge coverage from modality review. A diagram, chart, OCR, or
 formula review item may be carried forward as nonblocking only when the accepted
@@ -245,6 +284,9 @@ core knowledge coverage is not the same thing as nonblocking modality review.
   coverage plan before final prose
 - validation notes record knowledge coverage status separately from modality
   review status
+- semantic draft coverage is checked when a semantic draft exists
+- candidate-derived content is grounded, deferred, rejected, or routed to
+  review before closure
 - omissions are explicit and reviewable
 - deferred source material names a later round, condition, or next action
 - compare status does not rely on model self-evaluation

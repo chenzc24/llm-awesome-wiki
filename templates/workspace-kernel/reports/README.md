@@ -24,9 +24,9 @@ gate before advancing.
 
 The compare report is the default round decision surface. It should record
 source coverage, source packet and anchor coverage, wiki page coverage, claim
-coverage, modality coverage, link/index/overview/log checks, omissions,
-contradictions, review items, carried-forward review, and final
-`pass`/`fail`/`needs-review` status.
+coverage, semantic draft richness, grounding status, modality coverage,
+link/index/overview/log checks, omissions, contradictions, review items,
+carried-forward review, and final `pass`/`fail`/`needs-review` status.
 
 Keep one concise compare report as the default. Link to detailed coverage,
 lint, claim-audit, or review reports only when the workspace needs more depth.
@@ -89,10 +89,13 @@ requires a reason and next action.
 ## Wiki Construction Reports
 
 Use `reports/wiki-construction-analysis.md` or a similarly named report before
-creating or updating wiki pages from source packets.
+creating or updating accepted wiki pages.
 
 The construction analysis records routing decisions, existing pages inspected,
-target pages, merge decisions, and review handoff. It is the visible bridge
-between routing and page generation.
+semantic draft, grounding decisions, target pages, merge decisions, and review
+handoff. It is the visible bridge between reading, routing, grounding, and page
+generation.
 
-It should not be a polished wiki page or a duplicate source packet.
+It should not be a polished wiki page or a duplicate source packet. It may be
+denser than the accepted wiki page so formulas, derivations, examples, tables,
+and implications are not lost before grounding.

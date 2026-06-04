@@ -1,6 +1,6 @@
 ---
 name: llm-wiki-distill
-description: End-to-end runtime skill for LLM Awesome Wiki distillation. Use when an agent needs to plan or run a bounded workflow from raw source material through source packets, wiki construction, compare/review, validation, closure, and commit. This skill routes to narrower subskills only when a stage needs deeper execution detail.
+description: End-to-end runtime skill for LLM Awesome Wiki distillation. Use when an agent needs to plan or run a bounded workflow from raw source material through source packets, semantic drafting, grounding, wiki construction, compare/review, validation, closure, and commit. This skill routes to narrower subskills only when a stage needs deeper execution detail.
 ---
 
 # LLM Wiki Distill
@@ -41,6 +41,8 @@ preflight and plan
 -> fixed input set
 -> source inventory
 -> source packet
+-> semantic draft from packets plus raw/rendered/external reading
+-> grounding pass to source anchors, evidence, or review items
 -> optional evidence/claim map for important claims
 -> wiki construction analysis
 -> source/chapter wiki updates
@@ -52,6 +54,13 @@ preflight and plan
 Keep the round bounded. Do not process a large corpus in one pass unless the
 plan explicitly says the workspace is small enough.
 
+Treat the source packet as the audit baseline, not the semantic ceiling. For
+dense technical material, especially PPT/PDF lessons, the round may use raw
+source views, rendered pages, external extractor output, or high-density notes
+to draft semantics before final wiki prose. Accepted wiki knowledge still must
+be grounded to source anchors, evidence, accepted review decisions, or explicit
+review items.
+
 Do not mix generated knowledge updates with system-rule or template edits in
 the same workspace commit unless the plan explicitly selects that scope.
 
@@ -62,7 +71,7 @@ Load the smallest subskill set needed:
 - Source intake, source inventory, source packet, adapter handoff, source-type
   packet profile, or generated-field review:
   `skills/llm-wiki-source-packet/SKILL.md`
-- Source packet to wiki construction, construction analysis, source/chapter
+- Semantic draft, grounding pass, wiki construction analysis, source/chapter
   pages, overview, index, or wiki log:
   `skills/llm-wiki-wiki-round/SKILL.md`
 - Compare report, review queue, source/wiki coverage, claim audit, validation
@@ -78,7 +87,8 @@ An accepted end-to-end round should leave:
 
 - target plan or updated staged plan
 - source inventory and source packet updates when raw sources were in scope
-- wiki construction analysis when wiki pages changed
+- semantic draft or wiki construction analysis when wiki pages changed
+- grounding evidence, review routing, or explicit ungrounded candidate notes
 - accepted source/chapter wiki updates
 - compare or validation report
 - review queue updates when judgment remains unresolved

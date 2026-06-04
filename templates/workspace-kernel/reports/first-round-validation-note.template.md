@@ -14,6 +14,8 @@
 - Source inventory reviewed:
 - Source packets reviewed:
 - Source outline or coverage plan reviewed:
+- Semantic draft reviewed:
+- Grounding pass reviewed:
 - Claim/evidence map reviewed:
 - Wiki construction analysis reviewed:
 - Generated evidence marked:
@@ -36,6 +38,8 @@
 - Compare report:
 - Compare status: `pass`, `needs-review`, `fail`, or `compare gate not enabled`
 - Knowledge coverage status: `pass`, `needs-review`, or `fail`
+- Semantic draft richness status: `pass`, `needs-review`, `fail`, or `not-in-scope`
+- Grounding status: `pass`, `needs-review`, or `fail`
 - Modality review status: `pass`, `needs-review`, or `fail`
 - Formula/derivation coverage status: `pass`, `needs-review`, `fail`, or `not-in-scope`
 
@@ -56,6 +60,8 @@ If a compare report exists, link it here and summarize its final status.
 - Next round or next action:
 - Compare report status supports closure: yes/no
 - Knowledge coverage supports closure: yes/no
+- Semantic draft richness supports closure: yes/no
+- Grounding supports closure: yes/no
 - Modality review supports closure: yes/no
 - Formula/derivation coverage supports closure: yes/no
 - Review queue status supports closure: yes/no
@@ -89,6 +95,13 @@ If a compare report exists, link it here and summarize its final status.
 ## Knowledge Coverage Review
 
 - Source outline or coverage plan:
+- Semantic draft:
+- Grounding pass:
+- Important draft units merged:
+- Important draft units narrowed:
+- Important draft units deferred:
+- Important draft units rejected:
+- Candidate-derived content routed to review:
 - Anchor disposition table:
 - Core material represented at right detail:
 - Core material only broadly summarized:

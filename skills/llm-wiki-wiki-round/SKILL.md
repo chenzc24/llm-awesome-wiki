@@ -1,16 +1,17 @@
 ---
 name: llm-wiki-wiki-round
-description: Wiki construction runtime skill for LLM Awesome Wiki. Use when an agent needs to move from source packets and optional evidence/claim maps into wiki construction analysis, source pages, chapter pages, overview refresh, index updates, wiki log updates, or wiki-facing round plans.
+description: Wiki construction runtime skill for LLM Awesome Wiki. Use when an agent needs to move from source packets plus raw/rendered/external reading into semantic drafts, grounding passes, wiki construction analysis, source pages, chapter pages, overview refresh, index updates, wiki log updates, or wiki-facing round plans.
 ---
 
 # LLM Wiki Wiki Round
 
 ## Role
 
-Use this subskill for source-packet-to-wiki construction rounds.
+Use this subskill for semantic-first, audit-grounded wiki construction rounds.
 
-This skill owns the normal runtime from source packets to accepted wiki
+This skill owns the normal runtime from fixed source scope to accepted wiki
 updates. It is not a raw extractor and not a deterministic wiki generator.
+Source packets are the audit baseline, not the semantic ceiling.
 
 Detailed rules are loaded only when needed:
 
@@ -24,9 +25,11 @@ Detailed rules are loaded only when needed:
 
 ## Inputs
 
-- round plan with fixed source packet set or wiki area
+- round plan with fixed source packet set, raw/rendered source views, external
+  reading notes, or wiki area
 - `purpose.md`, `schema.md`, `wiki/overview.md`, and `wiki/index.md`
-- selected source packets and relevant existing wiki pages
+- selected source packets, direct source views when needed, and relevant
+  existing wiki pages
 - claim/evidence maps and review queues only when important claims or
   unresolved judgment are in scope
 
@@ -53,30 +56,38 @@ Detailed rules are loaded only when needed:
    inside the range are named or the round is explicitly `overview-only`.
    When formulas or derivations carry the lesson's technical meaning, name
    them in the plan instead of hiding them inside a page-level row.
-7. Write visible wiki construction analysis before page generation. It should
-   record packets read, existing pages inspected, source outline or coverage
-   plan, page decisions, important claims, supporting anchors, contradictions,
-   and review items.
-8. Generate accepted artifacts only after analysis:
+7. Write a visible semantic draft inside the wiki construction analysis before
+   final page generation. It should preserve the source's real knowledge
+   density: definitions, formulas, derivations, examples, tables, procedures,
+   and implications that a high-quality direct reading would retain.
+8. Run a grounding pass over the draft. For each important draft unit, record
+   source anchors, evidence or claim references, accepted review decisions, or
+   explicit review routing. If the source packet is lossy but the raw/rendered
+   source or external notes contain useful content, mark it as
+   candidate-derived until grounded or reviewed.
+9. Generate accepted artifacts only after analysis and grounding:
    - source page or chapter page creates/updates
    - overview refresh or no-change reason
    - index update when accepted pages change
    - wiki log entry
    - review item or claim/evidence update when needed
-9. Keep source pages short and source-facing. Put distilled readable knowledge
+10. Keep source pages short and source-facing. Put distilled readable knowledge
    in chapter pages.
-10. Preserve uncertainty. Do not silently resolve conflicts or unsupported
+11. Preserve uncertainty. Do not silently resolve conflicts or unsupported
    claims inside polished prose.
 
 ## Boundaries
 
-Do not write final wiki prose directly from raw binary files. Do not create
-research object pages by default. Do not use claim/evidence maps as the primary
-reading surface. Do not advance a round because the generated page looks clean.
+Do not write accepted wiki prose directly from raw binary files without a
+grounding pass. Do not let a lossy source packet suppress important semantic
+content. Do not create research object pages by default. Do not use
+claim/evidence maps as the primary reading surface. Do not advance a round
+because the generated page looks clean.
 
 ## Outputs
 
-- wiki construction analysis, usually under `reports/`
+- semantic draft and wiki construction analysis, usually under `reports/`
+- grounding notes for important semantic units
 - accepted source/chapter wiki page changes or explicit no-change decisions
 - `wiki/overview.md` update or no-change reason
 - `wiki/index.md` update when accepted pages change
@@ -100,6 +111,9 @@ Minimum manual checks:
 - every new or changed wiki page cites source identity or packet anchors when
   it contains sourced knowledge
 - construction analysis exists before accepted page prose
+- semantic draft was reviewed against source packets plus raw/rendered or
+  external reading inputs when the packet is lossy
+- accepted wiki knowledge has a grounding pass or explicit review routing
 - document/PPT rounds record `distillation_depth` and a source outline or
   coverage plan
 - full-round document/PPT closure does not rely on broad source ranges without

@@ -10,9 +10,10 @@ round.
 ## Minimum Path
 
 ```text
-source packet + optional claim/evidence/review inputs
+source packet + raw/rendered/external reading + optional claim/evidence/review inputs
 -> routing decision
--> wiki construction analysis
+-> semantic draft and wiki construction analysis
+-> grounding pass
 -> accepted wiki updates
 -> index, overview, and log maintenance
 ```
@@ -37,6 +38,9 @@ separate.
 Routing and surface maintenance should inspect:
 
 - source packet metadata and anchors
+- raw or rendered source views when the packet is lossy
+- external extractor output or high-density notes when they are part of the
+  fixed input set
 - source structure, such as pages, slides, sections, chapters, or headings
 - claim/evidence map when important claims are in scope
 - review queue when unresolved judgment exists
@@ -67,6 +71,12 @@ Chapter pages are the main distilled knowledge surface. They should preserve
 source order or deliberate chapter structure, cite packet anchors for important
 claims, carry unresolved judgment into gaps/review sections, and stay compact
 enough for agents to scan.
+
+Chapter pages should be built from a semantic draft, not from a lossy packet
+summary. The draft may preserve formulas, derivations, examples, tables, and
+technical implications at higher density than the final page. The accepted page
+then selects what belongs in the reading surface and grounds it to source
+anchors, evidence, accepted review, or explicit review items.
 
 Chapter pages should not become claim/evidence tables, hide generated-evidence
 uncertainty, merge unrelated source sections only by vocabulary, or split one
@@ -182,9 +192,9 @@ unsupported, contested, stale, or needs review.
 ## Closure Surface
 
 Before closing a wiki construction round, record compare report path and
-status, closure decision, overview/index/log status, validation note path,
-active report or review links when needed, carried-forward review items, and
-next action or next round.
+status, closure decision, semantic draft status, grounding status,
+overview/index/log status, validation note path, active report or review links
+when needed, carried-forward review items, and next action or next round.
 
 If overview or index did not change, record that the round inspected them and
 why no update was needed.
@@ -195,7 +205,9 @@ why no update was needed.
 - source pages remain short source notes
 - chapter pages remain the primary distilled knowledge surface
 - claim/evidence maps remain reports, not page bodies
-- construction analysis records page decisions
+- construction analysis records semantic draft, grounding, and page decisions
+- accepted wiki pages do not silently drop important semantic draft content
+  without narrowing, deferral, or review routing
 - optional synthesis or research pages have recorded reasons
 - index entries make the default reading path visible
 - content pages have index entries unless treated as special pages

@@ -17,7 +17,7 @@ validator code.
 ```text
 rules/
   source/  optional extraction handoff, source-type profiles, generated data
-  wiki/    wiki surface and source-to-wiki coverage
+  wiki/    wiki surface, semantic grounding, and source-to-wiki coverage
   claims/  evidence, claims, modality, support, contradiction review
   review/  review queue lifecycle
 ```
@@ -41,7 +41,7 @@ Open these modules only when the active skill needs the extra detail:
 | Check PDF, PPTX, DOCX, image, table, dataset, or mixed-media packet shape | `rules/source/source-type-packet-profiles.md` |
 | Mark OCR, captions, chart summaries, table repairs, formula recognition, or inferred structure | `rules/source/generated-fields-review-routing.md` |
 | Decide page destination, index behavior, overview refresh, or wiki log update | `rules/wiki/wiki-surface-workflow.md` |
-| Explain source-to-wiki coverage, omissions, deferrals, and anchor disposition | `rules/wiki/source-wiki-coverage-protocol.md` |
+| Explain source-to-wiki coverage, semantic richness, grounding, omissions, deferrals, and anchor disposition | `rules/wiki/source-wiki-coverage-protocol.md` |
 | Select evidence, extract important claims, or route claim uncertainty | `rules/claims/evidence-claim-workflow.md` |
 | Review claim support, generated evidence, modality state, unsupported statements, or contradictions | `rules/claims/claim-modality-contradiction-review-protocol.md` |
 | Manage review item lifecycle, blocking level, carry-forward, stale review, or dismissal | `rules/review/review-queue-workflow.md` |
@@ -68,9 +68,9 @@ machine-checkable contracts.
 | optional extractor/backend handoff shape | `rules/source/extractor-adapter-protocol.md` |
 | source-type packet minimum profiles | `rules/source/source-type-packet-profiles.md` |
 | generated field kinds, trust levels, and packet review routing | `rules/source/generated-fields-review-routing.md` |
-| wiki construction runtime, construction analysis, source/chapter updates | `skills/llm-wiki-wiki-round/SKILL.md` |
+| wiki construction runtime, semantic draft, grounding pass, construction analysis, source/chapter updates | `skills/llm-wiki-wiki-round/SKILL.md` |
 | wiki routing, source/chapter surface, index, overview, and wiki log edge cases | `rules/wiki/wiki-surface-workflow.md` |
-| source/wiki coverage units, dispositions, importance, omission reasons | `rules/wiki/source-wiki-coverage-protocol.md` |
+| source/wiki coverage units, semantic richness, grounding states, dispositions, importance, omission reasons | `rules/wiki/source-wiki-coverage-protocol.md` |
 | evidence selection, claim extraction, claim review routing | `rules/claims/evidence-claim-workflow.md` |
 | claim support, generated-evidence, modality, unsupported statement, contradiction semantics | `rules/claims/claim-modality-contradiction-review-protocol.md` |
 | compare, validation, review, and closure runtime | `skills/llm-wiki-quality-gate/SKILL.md` |

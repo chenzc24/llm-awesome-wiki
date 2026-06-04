@@ -5,6 +5,26 @@ This log records personal task outcomes for `chenzc24`.
 Repository-wide merged or integration-level maintenance history belongs in
 `plan/log.md`.
 
+## 2026-06-05 - Refactor workflow toward semantic-first grounding
+
+- Target: correct the workflow direction after real ADCtoolbox PPT/PDF tests
+  showed that a source-packet-first process can preserve citations while
+  losing formulas, derivations, examples, and dense technical meaning.
+- Changed areas: updated current top-level direction docs, runtime skills,
+  wiki rules, workspace-kernel guidance, report templates, chapter template,
+  and the target plan under
+  `plan/users/chenzc24/2026-06-05-semantic-first-audit-grounded-refactor/`.
+- Design review: source packets remain required for identity, anchors, gaps,
+  and auditability, but they are no longer the semantic ceiling. Wiki
+  construction now explicitly routes through semantic draft, grounding pass,
+  accepted wiki, compare/review, and closure.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m llm_wiki_tools validate-kernel` passed;
+  `python -m llm_wiki_tools fixture-runner` passed; targeted `rg` confirmed
+  `semantic draft`, `grounding pass`, `audit baseline`, `semantic ceiling`,
+  `candidate-derived`, and `semantic richness` language.
+- Commit: planned as `Refactor workflow toward semantic-first grounding`.
+
 ## 2026-06-03 - Initialize personal planning namespace
 
 - Target: create the personal plan namespace and log for `chenzc24`.

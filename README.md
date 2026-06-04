@@ -14,13 +14,20 @@ The default workflow is:
 
 ```text
 raw resources
--> source packets
--> evidence and claim records
--> source/chapter wiki pages
+-> source inventory and source packets
+-> semantic draft from source packets plus raw/rendered/external reading
+-> grounding pass to source anchors, evidence, and review items
+-> accepted source/chapter wiki pages
 -> compare, review, lint, and closure reports
 -> stable knowledge release
 -> later downstream specs, skills, tools, tests, and code
 ```
+
+Source packets are required, but they are an audit baseline rather than the
+semantic ceiling for wiki construction. A wiki round may use direct reading of
+raw files, rendered pages, external extractor output, or high-density notes to
+draft knowledge, then it must ground accepted knowledge back to stable source
+anchors or route uncertainty to review.
 
 Two execution layers stay separate:
 
@@ -177,6 +184,7 @@ Start here:
 Good current contributions are narrow and evidence-backed:
 
 - improve real workspace fixtures
+- improve semantic-draft and grounding templates for real document/PPT corpora
 - harden checker behavior in `llm_wiki_tools/`
 - clarify rule language where validators expose ambiguity
 - improve workspace kernel templates

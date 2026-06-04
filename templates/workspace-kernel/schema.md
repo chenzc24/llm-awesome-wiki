@@ -1,8 +1,8 @@
 # Workspace Schema
 
 This file defines how the workspace is structured and how agents should write
-source packets, claim/evidence maps, chapter-oriented wiki pages, reports, and
-review items.
+source packets, semantic drafts, grounding notes, claim/evidence maps,
+chapter-oriented wiki pages, reports, and review items.
 
 If workflow rules are copied into the workspace, use `rules/README.md` as the
 entrypoint. It exposes the default golden path first and specialized modules
@@ -73,7 +73,8 @@ Use one link style consistently. The default is wikilink syntax:
 - `reports/` contains claim/evidence maps, compare, lint, coverage, and review
   outputs.
 - Wiki construction analysis reports belong under `reports/` or a configured
-  validation/review report path before page generation begins.
+  validation/review report path before page generation begins. They should
+  include semantic drafting and grounding status when wiki pages change.
 - A distillation round should not advance without a recorded validation result.
 
 ## Source Packet Minimum
@@ -104,13 +105,17 @@ knowledge in `wiki/chapters/` by default.
 
 ## Wiki Construction Analysis Minimum
 
-Before writing or updating wiki pages from source packets, record construction
-analysis in a visible report or plan note. Follow the wiki surface workflow for
-page routing, index updates, overview refreshes, and wiki log maintenance.
+Before writing or updating accepted wiki pages, record construction analysis in
+a visible report or plan note. Follow the wiki surface workflow for semantic
+drafting, grounding, page routing, index updates, overview refreshes, and wiki
+log maintenance.
 
 The analysis should preserve:
 
 - source packets and claim/evidence maps read
+- raw/rendered or external reading inputs used
+- important semantic draft units
+- grounding decisions for accepted, deferred, rejected, or reviewed content
 - existing wiki pages inspected
 - routing decisions
 - target pages to create, update, merge, or leave unchanged

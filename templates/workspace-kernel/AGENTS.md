@@ -18,22 +18,25 @@ workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
 1. Treat `raw/sources/` as immutable source material.
 2. Convert raw files into source packets under `raw/derived/` before wiki
    distillation when a structured packet is feasible.
-3. Keep source identities, hashes, anchors, and extraction gaps visible.
-4. Cite packet anchors as `<source_id>#<anchor_id>`.
-5. For important sourced knowledge, create or update a concise claim/evidence
+3. Treat source packets as audit baselines, not semantic ceilings.
+4. Keep source identities, hashes, anchors, and extraction gaps visible.
+5. Cite packet anchors as `<source_id>#<anchor_id>`.
+6. For important sourced knowledge, create or update a concise claim/evidence
    map according to the evidence/claim workflow before treating a claim as
    supported.
-6. Keep generated evidence, such as OCR, captions, chart summaries, table
+7. Keep generated evidence, such as OCR, captions, chart summaries, table
    repairs, formula recognition, and agent notes, visibly marked.
-7. Apply the wiki surface workflow and write construction analysis before
-   creating or updating wiki pages.
-8. Keep wiki claims traceable to source packet anchors, evidence records, or
+8. Apply the wiki surface workflow and write semantic draft plus construction
+   analysis before creating or updating accepted wiki pages.
+9. Run a grounding pass for important definitions, formulas, derivations,
+   examples, tables, and implications.
+10. Keep wiki claims traceable to source packet anchors, evidence records, or
    review items.
-9. Put uncertain semantic judgment into review items or reports.
-10. Refresh `wiki/overview.md` when corpus map, coverage, or chapter structure
+11. Put uncertain semantic judgment into review items or reports.
+12. Refresh `wiki/overview.md` when corpus map, coverage, or chapter structure
     changes.
-11. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
-12. Record why overview or index did not change when a wiki construction round
+13. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
+14. Record why overview or index did not change when a wiki construction round
     inspected them but left them unchanged.
 
 ## After Work

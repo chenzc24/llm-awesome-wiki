@@ -29,6 +29,8 @@ covers.
 ## Construction Inputs
 
 - Routing analysis:
+- Semantic draft:
+- Grounding pass:
 - Claim/evidence map:
 - Review queue:
 
@@ -39,6 +41,22 @@ the chapter compact and source-anchored before creating optional
 research-profile pages.
 
 - Replace this row.
+
+## Technical Knowledge Blocks
+
+Use this section only when formulas, derivations, tables, examples, or
+procedures carry the chapter's meaning. Keep it readable; do not paste the
+whole source packet.
+
+### Formulas And Derivations
+
+| item | meaning | source_ref | review_state |
+| --- | --- | --- | --- |
+| Replace this row. |  | source-id#anchor-id | grounded/needs-review |
+
+### Examples, Tables, And Procedures
+
+- Replace this row with source-backed examples or procedures when they matter.
 
 ## Source-Backed Details
 

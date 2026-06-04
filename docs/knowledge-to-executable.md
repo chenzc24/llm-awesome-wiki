@@ -16,6 +16,8 @@ knowledge-to-code path. Do not attempt to implement both layers in one pass.
 ```text
 raw source
 -> source packet
+-> semantic draft
+-> grounding pass
 -> source-anchored agent-readable wiki
 -> raw-wiki alignment reports
 -> construction executable layer
@@ -88,6 +90,13 @@ chapter structure is more important than eagerly splitting everything into
 entities and concepts. Research-style pages can be enabled later when the
 workspace needs them.
 
+Wiki construction should be semantic-first and audit-grounded. Source packets
+provide anchors and provenance, but they are not the semantic ceiling. A
+construction round may use raw or rendered source views, external extraction
+output, and high-density reading notes to prepare a semantic draft. The
+accepted wiki page must then ground important knowledge to source anchors,
+evidence records, accepted review decisions, or explicit review items.
+
 Expected future artifacts:
 
 - `wiki/index.md`
@@ -104,6 +113,11 @@ should not consume or repeat every audit artifact. Important claims should cite
 source packet anchors, but operational facts such as raw hashes, extraction
 versions, and full packet metadata should remain in the audit layer unless they
 are directly relevant to agent use or human review.
+
+Useful but ungrounded semantic content should not silently become accepted
+wiki knowledge, and it should not be discarded merely because the current
+source packet is lossy. Treat it as candidate-derived content and route it to a
+grounding or review step.
 
 ## Layer 3: Structured Knowledge Units
 

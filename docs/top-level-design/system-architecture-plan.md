@@ -22,7 +22,9 @@ coverage auditable. It should support the full path:
 ```text
 raw resources
 -> source inventory and source packets
--> evidence and claim records
+-> semantic draft from packet, raw/rendered views, and external reading notes
+-> grounding to source anchors, evidence, and review items
+-> evidence and claim records where needed
 -> maintained source and chapter pages
 -> validation/checker tools and reports
    (inventory checks, lint, compare, review, claim audit)
@@ -34,6 +36,13 @@ raw resources
 
 The system is not only a wiki surface. It is an engineering workflow for making
 knowledge traceable, reviewable, and eventually executable.
+
+The source packet is required, but it is an audit baseline rather than the
+semantic ceiling. Dense technical wiki construction may read raw material,
+rendered pages, extractor artifacts, or high-density notes directly in order to
+avoid losing formulas, derivations, examples, tables, and explanations. The
+accepted wiki must then ground important knowledge back to source anchors,
+evidence records, accepted review decisions, or explicit review items.
 
 The first quality axis is **raw-wiki alignment**: important wiki knowledge
 should remain traceable to raw source material through stable source identity,
@@ -136,6 +145,8 @@ The core construction path is:
 raw source
 -> stable source identity
 -> source packet anchors
+-> semantic draft
+-> grounding pass
 -> agent-readable wiki references
 -> alignment reports
 -> review or correction
@@ -242,6 +253,11 @@ This layer is the raw side of raw-wiki alignment. Its job is not to produce a
 beautiful Markdown article. Its job is to create stable source identities and
 anchors that later wiki pages can cite.
 
+It is also not the semantic ceiling for the later wiki. If extraction is lossy,
+especially for formulas, derivations, tables, charts, or slide layout, the
+packet should expose the gap instead of forcing the wiki round to become a
+shallow packet summary.
+
 Optional extractors can satisfy the protocol: local CLI tools, MCPs, MinerU,
 Poppler-style PDF tools, LibreOffice-style office tools, manual extraction, or
 custom scripts. The workspace packet remains the source of truth, not the
@@ -279,8 +295,17 @@ The wiki should not duplicate the audit layer. It should reference source
 anchors for important claims while staying structured enough for agents to scan
 and clear enough for humans to review.
 
+Wiki construction is semantic-first and audit-grounded. A round first prepares
+a visible semantic draft or construction analysis at the source's real density,
+then performs a grounding pass before accepting wiki prose. Direct raw reading,
+rendered slide/page inspection, external extractor output, and high-density
+notes are allowed during drafting. Accepted claims, formulas, derivations,
+tables, examples, and technical implications must be grounded or routed to
+review.
+
 Expected outputs:
 
+- `reports/wiki-construction-analysis.md` or equivalent semantic draft report
 - `wiki/index.md`
 - `wiki/overview.md`
 - `wiki/log.md`
@@ -301,6 +326,7 @@ Required gate families:
 - raw-wiki alignment reports
 - source inventory coverage
 - source packet validity
+- semantic richness and grounding review
 - claim-to-source coverage
 - modality coverage
 - broken link and frontmatter lint
@@ -592,8 +618,8 @@ Validation:
 
 ### Phase 4: Wiki Construction Engine
 
-Goal: generate and maintain wiki pages from source packets, claims, concepts,
-and evidence records.
+Goal: generate and maintain wiki pages from source packets, raw/rendered
+source reading, semantic drafts, claims, concepts, and evidence records.
 
 Deliverables:
 
@@ -603,12 +629,15 @@ Deliverables:
 - index update rules
 - overview update rules
 - wiki log format
+- semantic draft and grounding-pass report expectations
 
 Validation:
 
 - generated pages contain parseable frontmatter
 - `sources` fields remain traceable
 - important claims cite source packet anchors
+- dense technical knowledge is not collapsed into broad packet summaries
+- semantic draft content that cannot be grounded is routed to review
 - readable pages do not repeat packet metadata, hashes, and extraction logs
 - existing pages are merged rather than overwritten
 - cross-links are checked
@@ -710,6 +739,12 @@ Validation:
 `raw_resource -> .md` means `raw resource -> source packet`, not `raw resource
 -> final wiki article`.
 
+That rule prevents raw files from becoming unsourced polished wiki pages. It
+does not mean the source packet is the semantic ceiling. Wiki construction may
+use raw/rendered source views, external extractor artifacts, or high-density
+reading notes for semantic drafting, then must ground accepted knowledge back
+to source packet anchors or review items.
+
 Protocol rules:
 
 - Keep raw files immutable.
@@ -719,7 +754,8 @@ Protocol rules:
 - Store extracted media separately and reference it with stable relative paths.
 - Mark OCR, captions, and summaries as generated fields.
 - Record extraction gaps instead of hiding them.
-- Keep source packets faithful; perform synthesis in later phases.
+- Keep source packets faithful; perform semantic drafting and synthesis in
+  later wiki construction phases.
 - Never emit local absolute paths into committed Markdown.
 - Use schemas to validate frontmatter and required metadata.
 
@@ -734,9 +770,9 @@ Protocol rules:
 | OCR | yes | cleanup only | low confidence |
 | Image/chart caption | media extraction first | factual VLM caption | important figures |
 | Source packet generation | yes | formatting and concise generated notes | schema changes |
-| Claim extraction | source packet required | primary assistant | ambiguous claims |
-| Wiki drafting | evidence/claim context required | primary assistant | important claims |
-| Compare gate | yes | assist with semantic gap discovery | unresolved issues |
+| Claim extraction | source packet anchors required | primary assistant | ambiguous claims |
+| Wiki drafting | fixed source scope plus packet, semantic draft, and grounding context | primary assistant | important claims |
+| Compare gate | yes | assist with semantic richness and gap discovery | unresolved issues |
 | Downstream skill/tool or code generation | stable spec required | implementation assistant | failing validation |
 
 ## `llm_wiki` Reference Boundary

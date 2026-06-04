@@ -27,7 +27,7 @@ Detailed rules are loaded only when needed:
 
 - round plan and fixed scope
 - source inventory and source packets in scope
-- wiki construction analysis when wiki pages changed
+- semantic draft or wiki construction analysis when wiki pages changed
 - source outline or coverage plan for document/PPT wiki rounds
 - changed or inspected wiki pages
 - `wiki/overview.md`, `wiki/index.md`, and `wiki/log.md`
@@ -47,8 +47,12 @@ pass.
    - which source packets and anchors were checked
    - whether core source units are covered at the right detail level, weak,
      deferred, omitted, or routed to review
+   - whether the accepted wiki preserves the semantic draft's important
+     definitions, formulas, derivations, examples, tables, and implications
    - whether core formulas and derivations are represented or explicitly block
      knowledge coverage
+   - whether useful candidate-derived content is grounded, narrowed, or routed
+     to review instead of silently discarded
    - which wiki pages changed or were inspected
    - whether important claims have source, evidence, accepted review, or review
      routing
@@ -66,7 +70,8 @@ pass.
 6. Decide closure:
    - `close-pass`: compare is `pass`, validation exists, no blocking review
      remains, knowledge coverage is pass, generated evidence is marked or
-     reviewed, navigation/log state is acceptable
+     reviewed, semantic draft richness is not materially lost, and
+     navigation/log state is acceptable
    - `close-with-review`: compare is `needs-review`, artifacts are structurally
      reviewable, and carried-forward review has reason, next action, target
      round or condition, and blocking level. This can carry nonblocking
@@ -74,7 +79,8 @@ pass.
      full-round core coverage hole or missing core formula/derivation coverage.
    - `do-not-close`: compare is `fail`, required artifacts are missing,
      blocking review remains, full-round core knowledge coverage is weak or
-     missing, or index/overview/log/claim/source coverage is materially stale
+     missing, accepted wiki is materially poorer than the semantic draft, or
+     index/overview/log/claim/source coverage is materially stale
 7. Update workspace logs and commit only accepted `close-pass` or explicitly
    allowed `close-with-review` state.
 
@@ -107,6 +113,8 @@ Minimum manual checks:
 - accepted wiki changes remain discoverable from index/log/overview state
 - important claims have source anchors, evidence, accepted review, or review
   routing
+- accepted wiki pages did not drop important semantic draft content without
+  grounding, narrowing, deferral, or review routing
 - core document/PPT source units have anchor disposition or explicit
   overview/selective deferral
 - knowledge coverage review is separate from modality review

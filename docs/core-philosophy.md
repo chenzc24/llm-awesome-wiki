@@ -54,6 +54,8 @@ turned into executable engineering artifacts.
    - read raw material broadly enough to build an overview
    - create a skeleton index and project structure
    - distill in small rounds
+   - draft semantic knowledge at the source's real density before compression
+   - ground accepted knowledge back to source anchors, evidence, or review
    - compare each round against the original source material
    - log outcomes and plan the next round
 
@@ -64,7 +66,22 @@ turned into executable engineering artifacts.
    broken links, frontmatter validity, unresolved contradictions, and explicit
    human review items.
 
-7. Knowledge should support two execution layers.
+7. Source packets are audit baselines, not semantic ceilings.
+
+   Source packets make raw material addressable: identity, hash state, anchors,
+   extraction gaps, generated fields, and review routing. They should not
+   become the maximum amount of knowledge an agent is allowed to understand.
+   For dense technical sources, especially PPT/PDF course material, wiki
+   construction needs a semantic drafting pass that may read raw files,
+   rendered pages, external extraction output, or high-density notes directly.
+
+   That freedom has a hard second half: accepted wiki knowledge must then be
+   grounded to source anchors, supported evidence, accepted review decisions,
+   or explicit review items. Ungrounded useful content is not thrown away; it
+   becomes candidate-derived knowledge that must be reviewed or narrowed before
+   it can support a stable release.
+
+8. Knowledge should support two execution layers.
 
    LLM Wiki partially solves the agent knowledge base problem: agents can find
    and maintain structured context. It does not fully design the next path:
@@ -90,6 +107,8 @@ The repository should eventually support this pipeline:
 ```text
 raw source
 -> source packet
+-> semantic draft
+-> grounding pass
 -> chapter-oriented distilled wiki
 -> construction tools for lint, compare, coverage, and maintenance
 -> structured claims, decisions, methods, and optional research objects

@@ -82,8 +82,8 @@ Use source references in later stages as:
 
 ## Boundaries
 
-- Do not write final wiki pages directly from raw files when a source packet is
-  feasible.
+- Do not accept final wiki pages directly from raw files without source packet
+  anchors and a grounding pass when a source packet is feasible.
 - Do not turn `source.md` into a polished chapter summary.
 - Do not hide unsupported modalities or extraction gaps.
 - Do not treat generated captions, OCR, chart summaries, formulas, or inferred
