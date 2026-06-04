@@ -927,3 +927,21 @@
   removed; targeted `rg` confirmed Phase 6.2 schema checker language.
 - Commit: completed on `main` as `b3e2c37 Add phase six schema checker`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six source artifact checkers
+
+- Target: implement Phase 6.3 source inventory and source packet output
+  validators for workspace artifacts.
+- Changed areas: added the Phase 6.3 plan; implemented source inventory and
+  source packet lint checkers; integrated `workspace-check -Mode source`;
+  updated `validate-kernel`, Phase 6 docs, tool READMEs, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-3-source-artifact-checkers/`.
+- Design review: Phase 6.3 checks source identity, raw path/hash, packet path,
+  metadata, anchors, generated fields, gaps, review routing, and derived
+  artifact references without running extractors or generating wiki pages.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; temporary smoke
+  workspace passed `source-inventory-check.ps1`, `source-packet-lint.ps1`, and
+  `workspace-check.ps1 -Mode source`; targeted `rg` confirmed Phase 6.3 source
+  artifact checker language.
+- Commit: pending.

@@ -77,3 +77,5 @@ Rules:
 - `phase-6.2-schema-structured-field-validation.md`: Phase 6.2 schema and
   structured-field checker for reusable contract files and stable workflow
   enums.
+- `phase-6.3-source-artifact-checkers.md`: Phase 6.3 source inventory and
+  source packet output checkers for workspace artifacts.

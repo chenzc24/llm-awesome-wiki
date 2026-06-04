@@ -58,8 +58,19 @@ It validates reusable schema contract files and writes a `schema-check` report
 next to the workspace-check report. It does not validate actual workspace
 artifact instances.
 
-`-Mode all` currently runs schema checking and reports the remaining validator
-families as `not-implemented`.
+## Phase 6.3 Behavior
+
+`-Mode source` invokes:
+
+- `tools/source-inventory/source-inventory-check.ps1`
+- `tools/source-packet-lint/source-packet-lint.ps1`
+
+It validates source inventory rows and existing source packet outputs. It does
+not create packets, run extractors, parse raw document content, or generate wiki
+pages.
+
+`-Mode all` currently runs schema and source checks, then reports later
+validator families as `not-implemented`.
 
 ## Non-Goals
 

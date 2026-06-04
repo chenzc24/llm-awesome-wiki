@@ -8,7 +8,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $toolName = "workspace-check"
-$toolPhase = "Phase 6.2 runtime with schema-check integration"
+$toolPhase = "Phase 6.3 runtime with schema and source artifact integration"
 $started = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
 $checksRun = New-Object System.Collections.Generic.List[string]
 $checksNotImplemented = New-Object System.Collections.Generic.List[string]
@@ -30,6 +30,39 @@ if ($reportDir -and -not (Test-Path -LiteralPath $reportDir)) {
 function Add-NotImplemented {
     param([string] $CheckName)
     $checksNotImplemented.Add($CheckName)
+}
+
+function Merge-ChildResult {
+    param(
+        [string] $CheckName,
+        [int] $ChildExitCode,
+        [string] $ChildReportPath
+    )
+
+    $checksRun.Add($CheckName)
+
+    if ($ChildExitCode -eq 0) {
+        $findings.Add("$CheckName passed. Report: $ChildReportPath")
+    }
+    elseif ($ChildExitCode -eq 1) {
+        if ($exitCode -ne 3) {
+            $script:status = "fail"
+            $script:exitCode = 1
+        }
+        $findings.Add("$CheckName failed. Report: $ChildReportPath")
+    }
+    elseif ($ChildExitCode -eq 2) {
+        if ($exitCode -eq 0) {
+            $script:status = "needs-review"
+            $script:exitCode = 2
+        }
+        $findings.Add("$CheckName needs review. Report: $ChildReportPath")
+    }
+    else {
+        $script:status = "error"
+        $script:exitCode = 3
+        $findings.Add("$CheckName runtime error. Report: $ChildReportPath")
+    }
 }
 
 try {
@@ -56,46 +89,49 @@ if ($exitCode -eq 0) {
         else {
             & powershell -NoProfile -ExecutionPolicy Bypass -File $schemaScript -Workspace $workspacePath -Report $schemaReportPath | Out-Host
             $schemaExitCode = $LASTEXITCODE
-            $checksRun.Add("schema and structured-field validation")
+            Merge-ChildResult "schema and structured-field validation" $schemaExitCode $schemaReportPath
+        }
+    }
 
-            if ($schemaExitCode -eq 0) {
-                $findings.Add("Schema check passed. Report: $schemaReportPath")
-            }
-            elseif ($schemaExitCode -eq 1) {
-                $status = "fail"
-                $exitCode = 1
-                $findings.Add("Schema check failed. Report: $schemaReportPath")
-            }
-            elseif ($schemaExitCode -eq 2) {
-                if ($exitCode -eq 0) {
-                    $status = "needs-review"
-                    $exitCode = 2
-                }
-                $findings.Add("Schema check needs review. Report: $schemaReportPath")
-            }
-            else {
-                $status = "error"
-                $exitCode = 3
-                $findings.Add("Schema check runtime error. Report: $schemaReportPath")
-            }
+    if ($Mode -in @("source", "all")) {
+        $inventoryScript = Join-Path $PSScriptRoot "..\source-inventory\source-inventory-check.ps1"
+        $packetScript = Join-Path $PSScriptRoot "..\source-packet-lint\source-packet-lint.ps1"
+        $inventoryReportPath = Join-Path $reportDir "source-inventory-check-report.md"
+        $packetReportPath = Join-Path $reportDir "source-packet-lint-report.md"
+
+        if (-not (Test-Path -LiteralPath $inventoryScript)) {
+            $status = "error"
+            $exitCode = 3
+            $findings.Add("Missing source-inventory-check script: $inventoryScript")
+        }
+        else {
+            & powershell -NoProfile -ExecutionPolicy Bypass -File $inventoryScript -Workspace $workspacePath -Report $inventoryReportPath | Out-Host
+            $inventoryExitCode = $LASTEXITCODE
+            Merge-ChildResult "source inventory check" $inventoryExitCode $inventoryReportPath
+        }
+
+        if (-not (Test-Path -LiteralPath $packetScript)) {
+            $status = "error"
+            $exitCode = 3
+            $findings.Add("Missing source-packet-lint script: $packetScript")
+        }
+        else {
+            & powershell -NoProfile -ExecutionPolicy Bypass -File $packetScript -Workspace $workspacePath -Report $packetReportPath | Out-Host
+            $packetExitCode = $LASTEXITCODE
+            Merge-ChildResult "source packet lint" $packetExitCode $packetReportPath
         }
     }
 
     if ($Mode -eq "smoke") {
-        Add-NotImplemented "schema and structured-field validation"
-        Add-NotImplemented "source inventory check"
-        Add-NotImplemented "source packet check"
         Add-NotImplemented "wiki lint"
         Add-NotImplemented "claim audit"
         Add-NotImplemented "compare report check"
         Add-NotImplemented "review queue check"
         Add-NotImplemented "round closure check"
         Add-NotImplemented "fixture runner"
-        $nextActions.Add("Run workspace-check with -Mode schemas for Phase 6.2 validation.")
+        $nextActions.Add("Run workspace-check with -Mode schemas or -Mode source for implemented Phase 6 validators.")
     }
     elseif ($Mode -eq "all") {
-        Add-NotImplemented "source inventory check"
-        Add-NotImplemented "source packet check"
         Add-NotImplemented "wiki lint"
         Add-NotImplemented "claim audit"
         Add-NotImplemented "compare report check"
@@ -103,7 +139,7 @@ if ($exitCode -eq 0) {
         Add-NotImplemented "round closure check"
         Add-NotImplemented "fixture runner"
     }
-    elseif ($Mode -ne "schemas") {
+    elseif ($Mode -notin @("schemas", "source")) {
         Add-NotImplemented "$Mode check"
     }
 

@@ -102,6 +102,27 @@ powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.p
 `schema-check` validates reusable schema contracts only. It is not a full JSON
 Schema engine and does not validate workspace artifact instances.
 
+Phase 6.3 adds source artifact checks:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/source-inventory/source-inventory-check.ps1 `
+  -Workspace . `
+  -Report source-inventory-check-report.md
+
+powershell -ExecutionPolicy Bypass -File tools/source-packet-lint/source-packet-lint.ps1 `
+  -Workspace . `
+  -Report source-packet-lint-report.md
+
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode source `
+  -Report workspace-source-check-report.md
+```
+
+These checks inspect source inventory rows and source packet outputs. They do
+not create inventory rows, generate packets, parse raw binary sources, or run
+extractor backends.
+
 ## Phase 3 Tool Surface
 
 Phase 3 adds behavior prose for:

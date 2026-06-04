@@ -159,6 +159,22 @@ Phase 6.2 checks reusable schema contracts only. It does not validate real
 workspace artifact instances, inspect packet directories, run extractors, parse
 raw binaries, perform wiki lint, validate compare semantics, or run fixtures.
 
+## Phase 6.3 Active Scope
+
+Phase 6.3 adds source artifact validation:
+
+- `source-inventory-check.ps1`
+- `source-packet-lint.ps1`
+- `workspace-check -Mode source` integration
+- source inventory path, hash, duplicate ID, status, review, and packet-path
+  checks
+- source packet metadata, anchor, generated field, known gap, review routing,
+  and derived artifact checks
+
+Phase 6.3 validates existing workspace artifacts. It does not scan raw content
+into packets, run extractor backends, parse PDF/PPTX/DOCX/image content,
+generate wiki pages, validate compare reports, or change schemas.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.

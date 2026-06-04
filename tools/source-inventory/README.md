@@ -7,6 +7,18 @@ Phase 2.1 defines the behavior surface only. It does not implement the command.
 Phase 2.6 keeps this as one member of the Phase 2 tool trio:
 `source-inventory`, `source-packet-convert`, and `source-packet-lint`.
 
+Phase 6.3 implements the checker-only slice:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/source-inventory/source-inventory-check.ps1 `
+  -Workspace . `
+  -Inventory raw/source-inventory.md `
+  -Report reports/source-inventory-check-report.md
+```
+
+The checker validates an existing inventory. It does not create or update raw
+source rows.
+
 ## Purpose
 
 The tool should answer:
@@ -36,6 +48,8 @@ Expected modes:
 - `scan`: inspect `raw/sources/` and produce proposed inventory rows
 - `check`: validate inventory consistency without changing files
 - `update`: merge detected new/changed sources into an existing inventory
+
+The Phase 6.3 checker implements only the validation part of `check`.
 
 ## Inputs
 

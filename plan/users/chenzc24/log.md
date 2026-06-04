@@ -748,3 +748,25 @@ Repository-wide merged or integration-level maintenance history belongs in
   does-not-run-extractors language; reference submodules remained pinned.
 - Commit: completed on `main` as `b3e2c37 Add phase six schema checker`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six source artifact checkers
+
+- Target: implement Phase 6.3 source inventory and source packet output
+  validators as checker-only workspace artifact tooling.
+- Changed areas: added
+  `docs/phase-plans/phase-6.3-source-artifact-checkers.md`;
+  implemented `tools/source-inventory/source-inventory-check.ps1` and
+  `tools/source-packet-lint/source-packet-lint.ps1`; integrated source checks
+  into `workspace-check -Mode source`; updated Phase 6 docs, tool READMEs,
+  `validate-kernel`, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-3-source-artifact-checkers/`.
+- Design review: Phase 6.3 validates existing inventory and packet artifacts.
+  It does not create inventory rows, generate packets, run extractors, parse
+  raw binary documents, or perform semantic truth review.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; temporary smoke
+  workspace under the OS temp directory passed `source-inventory-check.ps1`,
+  `source-packet-lint.ps1`, and `workspace-check.ps1 -Mode source`; targeted
+  `rg` confirmed Phase 6.3, source-inventory-check, source-packet-lint,
+  no-extractor, and source artifact language.
+- Commit: pending.

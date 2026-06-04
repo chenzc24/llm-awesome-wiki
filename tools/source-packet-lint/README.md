@@ -2,8 +2,18 @@
 
 Future tool family for checking source packets against Phase 2 protocols.
 
-Phase 2.6 defines the behavior surface only. It does not implement the command
-or validator.
+Phase 2.6 defined the behavior surface only. Phase 6.3 implements the
+checker-only validator:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/source-packet-lint/source-packet-lint.ps1 `
+  -Workspace . `
+  -Inventory raw/source-inventory.md `
+  -Report reports/source-packet-lint-report.md
+```
+
+The checker validates existing packet outputs. It does not run conversion
+adapters or repair packet content.
 
 ## Purpose
 
@@ -21,9 +31,9 @@ raw/derived/<source-id>/
 -> source packet lint report
 ```
 
-## Future Command Shape
+## Command Shape
 
-The exact command name is not final. The intended behavior is:
+The intended behavior is:
 
 ```powershell
 source-packet-lint check `
