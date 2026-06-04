@@ -1111,6 +1111,9 @@
 - Design review: the handoff distinguishes Person B workflow/template ownership
   from Person A schema, fixture, and `llm_wiki_tools/**` checker
   implementation ownership.
-- Validation: local v2 passed `workspace-check --mode all`; final repository
-  validation is pending.
-- Commit: pending.
+- Validation: local v2 passed `workspace-check --mode all`; `git diff
+  --check`, `python -m llm_wiki_tools validate-kernel`, and targeted `rg`
+  passed during final commit validation.
+- Commit: completed on `main` as
+  `845ce1a Clarify person A validation handoff`; finalized by the follow-up
+  maintenance-status commit.

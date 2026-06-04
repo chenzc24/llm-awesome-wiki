@@ -983,5 +983,7 @@ Repository-wide merged or integration-level maintenance history belongs in
   workspace/local/adctoolbox-ch1-dry-run-v2/reports/workspace-check-v2.md`
   passed after copying `contracts/schemas/**` into the local workspace;
   `git diff --check`, `python -m llm_wiki_tools validate-kernel`, and targeted
-  `rg` are pending final commit validation.
-- Commit: pending.
+  `rg` passed during final commit validation.
+- Commit: completed on `main` as
+  `845ce1a Clarify person A validation handoff`; finalized by the follow-up
+  maintenance-status commit.
