@@ -31,9 +31,7 @@ Key completed rules:
 - `rules/raw-to-source-packet.md`
 - `rules/source-type-packet-profiles.md`
 - `rules/source-packet-to-wiki.md`
-- `rules/wiki-page-routing.md`
-- `rules/wiki-index-contract.md`
-- `rules/wiki-overview-log-contract.md`
+- `rules/wiki-surface-workflow.md`
 - `rules/distillation-rounds.md`
 - `rules/source-wiki-coverage-protocol.md`
 

@@ -315,7 +315,6 @@ def cmd_validate_kernel(args: argparse.Namespace) -> int:
         "rules/source-packet-to-wiki.md",
         "rules/evidence-claim-workflow.md",
         "rules/wiki-surface-workflow.md",
-        "rules/wiki-index-contract.md",
         "rules/compare-gate-contract.md",
         "rules/distillation-rounds.md",
         "rules/maintenance-workflow.md",

@@ -1051,3 +1051,24 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `1f0408e Slim duplicate rules prose`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Remove rules compatibility stubs
+
+- Target: delete obsolete `rules/` compatibility stub files after the semantic
+  owner rules became the current entrypoints.
+- Changed areas: removed the source-packet-to-evidence, evidence-to-claim,
+  claim-review-routing, wiki-page-routing, wiki-index-contract, and
+  wiki-overview-log-contract stub files; updated `rules/README.md`,
+  `llm_wiki_tools/cli.py`, current Person B collaboration guidance, and the
+  target plan under
+  `plan/users/chenzc24/2026-06-04-remove-rules-compatibility-stubs/`.
+- Design review: no workflow semantics were removed. Evidence/claim semantics
+  remain owned by `rules/evidence-claim-workflow.md`; wiki surface semantics
+  remain owned by `rules/wiki-surface-workflow.md`; historical phase plans and
+  logs were left as historical records.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  the deleted stub paths are no longer referenced by current rules, tools,
+  skills, templates, agent guidance, README, or collaboration docs; `Test-Path`
+  confirmed all six stub files are absent.
+- Commit: pending.

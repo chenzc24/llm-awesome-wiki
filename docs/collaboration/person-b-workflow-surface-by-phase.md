@@ -73,8 +73,8 @@ not "schema owned by Person A."
 | Phase 1 | Make the workspace kernel usable by humans and agents. | Rules, templates, phase plans, and first-use guidance. |
 | Phase 1.1 | Close workflow ambiguity while Person A hardens contracts. | Term alignment notes, template cleanup, workflow corrections. |
 | Phase 2 | Describe raw-resource-to-source-packet protocol. | Source inventory rules, packet protocol, extractor adapter protocol, source-type packet profiles, and handoff expectations. |
-| Phase 3 | Describe source-packet-to-evidence/claim workflow. | Claim extraction, review routing, and generated-evidence rules. |
-| Phase 4 | Describe source-packet-to-wiki workflow. | Page routing, source/chapter templates, index and overview rules. |
+| Phase 3 | Describe evidence and claim workflow. | `evidence-claim-workflow.md` for claim extraction, review routing, and generated-evidence rules. |
+| Phase 4 | Describe source-packet-to-wiki workflow. | `wiki-surface-workflow.md` for page routing, source/chapter templates, index, overview, and wiki log rules. |
 | Phase 5 | Describe compare gate and review workflow. | Pass/fail/needs-review prose and review handoff rules. |
 | Phase 6 | Specify validation and checker tool surfaces. | CLI README specs for validators, lint checks, reports, fixtures, and failure modes. |
 | Phase 7 | Not active until validation/checker reports are stable. | Later downstream skill/tool workflow only after Phase 6. |

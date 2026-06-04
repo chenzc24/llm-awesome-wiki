@@ -8,8 +8,8 @@ These files are human/agent-facing workflow protocols, not machine-readable
 schemas. Machine-readable contracts live under `contracts/schemas/` and
 validator code.
 
-Historical files named `*-contract.md` are operational rules unless they live
-under `contracts/schemas/**` or validator-owned paths.
+Files named `*-contract.md` in this directory are operational rules unless
+they live under `contracts/schemas/**` or validator-owned paths.
 
 ## Default Golden Path
 
@@ -66,19 +66,3 @@ the concept, but should not redefine the full table or lifecycle.
 | claim support, generated-evidence, modality, unsupported statement, contradiction semantics | `claim-modality-contradiction-review-protocol.md` |
 | review item lifecycle and blocking levels | `review-queue-workflow.md` |
 | round closure decisions and advancement | `round-closure-workflow.md` |
-
-## Compatibility Entries
-
-The following historical files remain as compatibility entries so phase plans,
-logs, and older workspace guidance do not break:
-
-- `source-packet-to-evidence.md`
-- `evidence-to-claim.md`
-- `claim-review-routing.md`
-- `wiki-page-routing.md`
-- `wiki-index-contract.md`
-- `wiki-overview-log-contract.md`
-
-New work should update the owner files listed in the semantic ownership map.
-Compatibility entries should stay short and should not accumulate new
-normative workflow semantics.

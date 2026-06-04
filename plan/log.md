@@ -1174,3 +1174,20 @@
 - Commit: completed on `main` as
   `1f0408e Slim duplicate rules prose`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Remove rules compatibility stubs
+
+- Target: remove obsolete compatibility stub files from `rules/` so the
+  current rules directory exposes only semantic owner entrypoints.
+- Changed areas: deleted six compatibility stubs, updated the rules entry map,
+  removed the old `wiki-index-contract` validator requirement, updated current
+  Person B collaboration references, and added the target plan under
+  `plan/users/chenzc24/2026-06-04-remove-rules-compatibility-stubs/`.
+- Design review: this is a navigation cleanup only. Evidence/claim rules and
+  wiki surface rules keep their consolidated owner files; historical records
+  were not rewritten.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  the deleted stub paths are gone from current-facing entrypoints; `Test-Path`
+  confirmed all six stub files are absent.
+- Commit: pending.
