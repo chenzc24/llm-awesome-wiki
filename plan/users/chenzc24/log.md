@@ -960,4 +960,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   `Default Golden Path`, `When To Read More`, `Semantic Ownership`,
   compatibility entries, `evidence-claim-workflow`, `wiki-surface-workflow`,
   and reduced compare-gate duplicate tables.
-- Commit: pending.
+- Commit: completed on `main` as
+  `e4b6da2 Consolidate rules progressive disclosure`; finalized by the
+  follow-up maintenance-status commit.

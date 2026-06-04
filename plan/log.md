@@ -1095,4 +1095,6 @@
   `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
   progressive-disclosure entrypoints, compatibility stubs, new owner files, and
   reduced compare-gate duplicate tables.
-- Commit: pending.
+- Commit: completed on `main` as
+  `e4b6da2 Consolidate rules progressive disclosure`; finalized by the
+  follow-up maintenance-status commit.
