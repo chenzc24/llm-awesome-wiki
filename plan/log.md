@@ -663,3 +663,21 @@
   `git submodule status` confirmed reference submodules remained pinned.
 - Commit: completed on `main` as `4465b0a Define phase three evidence claim
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase four wiki page routing
+
+- Target: start Phase 4.1 from the Person B workflow-surface side by defining
+  page routing and the default source/chapter-oriented wiki reading surface.
+- Changed areas: added the main Phase 4 plan and `rules/wiki-page-routing.md`;
+  updated phase-plan and rule indexes, `source-packet-to-wiki`,
+  `wiki-index-contract`, and workspace wiki index/overview/source/chapter
+  guidance.
+- Design review: aligned with artifact economy and raw-wiki alignment by
+  routing source identity to short source notes, distilled knowledge to chapter
+  pages, claim/evidence support to reports, and optional synthesis/research
+  pages only when justified.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4.1 routing and reading-surface language; `git submodule status`
+  confirmed reference submodules remained pinned.
+- Commit: pending.

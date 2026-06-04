@@ -30,3 +30,8 @@ Rules:
   source-packet-to-evidence-and-claim workflow plan.
 - `phase-3-closure-review.md`: Phase 3 design review, closure summary, and
   Person A validation handoff.
+
+## Phase 4
+
+- `phase-4-wiki-construction-engine.md`: main Phase 4 wiki construction plan,
+  including the active Phase 4.1 page-routing scope.

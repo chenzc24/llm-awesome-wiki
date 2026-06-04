@@ -36,6 +36,7 @@ The default index is document-corpus oriented:
 - Sources Or Decks
 - Chapters
 - Reports And Review
+- Optional Synthesis
 
 These are index sections, not mandatory folders. Domain workspaces may rename
 or add sections, but should preserve a clear navigation route from source
@@ -55,12 +56,33 @@ These sections are optional. They should be introduced when they improve
 long-term reuse, cross-source synthesis, or review, not merely because a term
 appears in a source.
 
+## Reading-Surface Rules
+
+The index should make the default reading path obvious:
+
+```text
+overview
+-> chapters
+-> source notes
+-> active reports or review queues
+```
+
+Index accepted pages and important active reports. Do not index every raw file,
+every source packet anchor, every evidence row, or every claim row. Those
+belong in inventories, source packets, claim/evidence maps, or reports.
+
+Source or deck pages should be grouped separately from chapter pages because
+they serve different readers. Source pages explain what a source is and where
+its packet and chapters are. Chapter pages carry the main distilled knowledge.
+
 ## Validation Targets
 
 - every indexed page exists
 - every non-special wiki page appears in the index
 - index links are not broken
 - source or deck summary pages are grouped separately from chapter pages
+- claim/evidence reports are linked only when they are active review or
+  validation surfaces
 - stale entries are removed when pages are deleted
 
 ## Special Pages

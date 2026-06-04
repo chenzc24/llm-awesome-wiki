@@ -399,3 +399,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   submodule status` confirmed `MinerU/` and `llm_wiki/` remained pinned.
 - Commit: completed on `main` as `4465b0a Define phase three evidence claim
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase four wiki page routing
+
+- Target: start Person B Phase 4.1 by defining wiki page routing and the
+  default reading surface before source/chapter template hardening.
+- Changed areas: added
+  `docs/phase-plans/phase-4-wiki-construction-engine.md` and
+  `rules/wiki-page-routing.md`; updated `docs/phase-plans/README.md`,
+  `rules/README.md`, `rules/source-packet-to-wiki.md`,
+  `rules/wiki-index-contract.md`, and workspace wiki index/overview/source
+  and chapter guidance; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-4-1-wiki-page-routing/`.
+- Design review: Phase 4.1 keeps `wiki/chapters/*` as the primary distilled
+  knowledge surface, keeps `wiki/sources/*` as short source notes rather than
+  second source packets, keeps claim/evidence maps in reports, and keeps
+  optional synthesis/research pages deferred unless the corpus needs them.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Wiki Page Routing, source page, chapter page, overview, index,
+  claim/evidence, not a second source packet, Optional Synthesis, optional
+  research, and Phase 4.1 language; `git submodule status` confirmed
+  `MinerU/` and `llm_wiki/` remained pinned.
+- Commit: pending.

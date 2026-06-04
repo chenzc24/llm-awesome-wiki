@@ -5,7 +5,17 @@ scope, the evidence/claim layer. It does not start directly from raw files. The
 wiki is a maintained synthesis layer; it must remain traceable to source
 packets and evidence records.
 
-## Two-Stage Flow
+Before writing page prose, apply `wiki-page-routing.md`.
+
+## Routing And Two-Stage Flow
+
+0. Routing stage:
+   - read `wiki-page-routing.md`
+   - read `wiki/index.md`, `wiki/overview.md`, and existing source/chapter
+     pages
+   - decide whether the input belongs in overview, source page, chapter page,
+     report/review, optional synthesis, or optional research page
+   - record the reason when routing is not obvious
 
 1. Analysis stage:
    - read the source packet and existing `wiki/index.md`
@@ -23,7 +33,19 @@ packets and evidence records.
    - emit review/report items instead of silently resolving uncertain claims
 
 Do not collapse these stages. A raw source should not be turned directly into
-final wiki pages without a source packet and an analysis pass.
+final wiki pages without a source packet, routing decision, and analysis pass.
+
+## Routing Output
+
+The routing stage should record:
+
+- source packets and claim/evidence maps inspected
+- existing wiki pages inspected
+- target page type
+- target path or page to update
+- whether a new page is needed or an existing page should be updated
+- review/report output needed instead of page prose
+- reason for optional synthesis or research pages, when used
 
 ## Analysis Output
 
@@ -61,9 +83,14 @@ Every generated wiki page should include:
 - relevant cross-links using the workspace's link convention
 - explicit uncertainty or conflict notes when needed
 
+Source pages should remain short source notes. Chapter pages should carry the
+main distilled knowledge. Claim/evidence maps should support page writing but
+should not become page bodies.
+
 ## Agent Rules
 
 - Prefer updating existing pages over creating duplicate pages.
+- Apply page routing before writing page prose.
 - Do not remove sourced claims unless the reason is recorded.
 - Do not create important wiki claims without source packet anchors, evidence
   references, or review items.
@@ -82,6 +109,8 @@ broken links, contradictions, omissions, and review queue status.
 
 - every new or changed wiki page cites at least one source identity when it
   contains sourced knowledge
+- every wiki update has a routing decision or an obvious route from the round
+  plan
 - index and log are updated in the same round
 - unresolved semantic judgment appears in review output
 - generation does not fragment one source chapter into unnecessary object pages

@@ -26,6 +26,9 @@ required dependency.
   claims while preserving source/chapter readability.
 - `claim-review-routing.md`: route unsupported, generated-derived, contested,
   or judgment-heavy claims to explicit review.
+- `wiki-page-routing.md`: decide whether source packet knowledge belongs in
+  overview, index, source pages, chapter pages, reports, optional synthesis, or
+  optional research pages.
 - `source-packet-to-wiki.md`: distill source packets into maintained wiki
   pages.
 - `wiki-index-contract.md`: maintain `wiki/index.md` as the navigation entry.

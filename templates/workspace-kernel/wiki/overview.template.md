@@ -10,6 +10,9 @@ updated: YYYY-MM-DD
 
 # Workspace Overview
 
+This page is a concise corpus map. It is not the final synthesis, not a source
+packet, and not a claim/evidence report.
+
 ## Corpus Purpose
 
 Summarize what this workspace is trying to preserve, distill, and make
@@ -24,6 +27,8 @@ List the major documents, PPT decks, or source groups and what each contributes.
 Describe the initial chapter or section structure. Preserve source order unless
 there is a deliberate reason to reorganize it.
 
+Link the main reading path through `wiki/chapters/`.
+
 ## Current Coverage
 
 - Sources packeted:
@@ -36,3 +41,5 @@ there is a deliberate reason to reorganize it.
 - Extraction gaps:
 - Ambiguous claims:
 - Human decisions:
+
+Link active review reports instead of copying their full contents.
