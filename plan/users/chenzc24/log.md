@@ -1048,4 +1048,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   `wiki construction analysis`, `compare gate not enabled`, `close-pass`,
   `needs-review`, and `review item`; the six edited rule files were reduced by
   424 net lines.
-- Commit: pending.
+- Commit: completed on `main` as
+  `1f0408e Slim duplicate rules prose`; finalized by the follow-up
+  maintenance-status commit.

@@ -1171,4 +1171,6 @@
   `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
   required distillation-flow terms; the six edited rule files were reduced by
   424 net lines.
-- Commit: pending.
+- Commit: completed on `main` as
+  `1f0408e Slim duplicate rules prose`; finalized by the follow-up
+  maintenance-status commit.
