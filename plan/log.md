@@ -577,3 +577,24 @@
   --short --branch` showed only the intended terminology and maintenance files.
 - Commit: completed on `main` as `56ffa30 Clarify protocol and contract
   ownership`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define generated fields review routing
+
+- Target: advance Person B Phase 2.5 by defining trust boundaries, packet
+  marking, review triggers, and later claim/wiki handoff rules for generated
+  or model-assisted source packet content.
+- Changed areas: added
+  `docs/phase-plans/phase-2.5-generated-fields-review-routing.md` and
+  `rules/generated-fields-review-routing.md`; updated
+  `docs/phase-plans/phase-2-raw-resource-conversion.md` and
+  `rules/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-5-generated-fields-review-routing/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Generated Fields And Review Routing, source-equivalent, `ocr_text`,
+  `image_caption`, `chart_summary`, `table_repair`, `formula_recognition`,
+  `inferred_reading_order`, `review_required`, `review_reason`, `known_gaps`,
+  generated content, Person A Handoff, and Non-Goals language; `git submodule
+  status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
+  --short --branch` showed only the intended Person B Phase 2.5 files.
+- Commit: planned for `main` as `Define generated fields review routing`.

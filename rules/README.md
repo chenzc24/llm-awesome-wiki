@@ -17,6 +17,9 @@ required dependency.
   workspace owners.
 - `source-type-packet-profiles.md`: define minimum source packet expectations
   for PDF, PPTX, DOCX, image, table/dataset, and mixed media sources.
+- `generated-fields-review-routing.md`: mark generated or model-assisted
+  packet content and route important uncertainty to review before claim/wiki
+  handoff.
 - `source-packet-to-wiki.md`: distill source packets into maintained wiki
   pages.
 - `wiki-index-contract.md`: maintain `wiki/index.md` as the navigation entry.

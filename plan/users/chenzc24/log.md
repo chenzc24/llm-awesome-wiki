@@ -304,3 +304,24 @@ Repository-wide merged or integration-level maintenance history belongs in
   --short --branch` showed only the intended terminology and maintenance files.
 - Commit: completed on `main` as `56ffa30 Clarify protocol and contract
   ownership`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define generated fields review routing
+
+- Target: define Person B Phase 2.5 generated-content trust boundaries so OCR,
+  captions, chart summaries, table repairs, formula recognition, inferred
+  structure, normalized values, and agent notes cannot silently become
+  source-equivalent knowledge.
+- Changed areas: `docs/phase-plans/phase-2.5-generated-fields-review-routing.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `rules/generated-fields-review-routing.md`, `rules/README.md`,
+  `plan/log.md`, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-5-generated-fields-review-routing/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Generated Fields And Review Routing, source-equivalent, `ocr_text`,
+  `image_caption`, `chart_summary`, `table_repair`, `formula_recognition`,
+  `inferred_reading_order`, `review_required`, `review_reason`, `known_gaps`,
+  generated content, Person A Handoff, and Non-Goals language; `git submodule
+  status` confirmed both reference submodules stayed pinned; `git status
+  --short --branch` showed only the intended Person B Phase 2.5 files.
+- Commit: planned for `main` as `Define generated fields review routing`.

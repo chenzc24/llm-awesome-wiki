@@ -242,7 +242,7 @@ Do not implement adapter code in this planning phase.
 
 ### Phase 2.4 Source-Type Packet Profiles
 
-Status: current target.
+Status: complete.
 
 Define source-type minimum requirements for packet outputs. These are not
 parser implementations.
@@ -285,6 +285,8 @@ Image/table/mixed-media profile:
   source text
 
 ### Phase 2.5 Generated Fields And Review Routing
+
+Status: current target.
 
 Define how the workflow distinguishes source-derived content from generated or
 model-assisted content.
@@ -402,18 +404,17 @@ Phase 2 is complete when:
 
 ## Immediate Next Step
 
-Phase 2.1, Phase 2.2, and Phase 2.3 are complete. The next useful target is
-Phase 2.4:
+Phase 2.1, Phase 2.2, Phase 2.3, and Phase 2.4 are complete. The next useful
+target is Phase 2.5:
 
 ```text
-define source-type packet profiles
--> add source-type packet profile rule
--> specify PDF, PPTX, DOCX, image, table/dataset, and mixed media expectations
--> specify source-type anchors, derived artifacts, known gaps, and review
-   routing
--> keep parser implementation, generated-field policy expansion, and CLI specs
-   deferred
+define generated fields and review routing
+-> add generated-fields review routing rule
+-> define generated field kinds and trust levels
+-> specify packet marking and review triggers
+-> specify claim/wiki handoff boundaries
+-> keep schema, claim extraction, compare gates, and CLI specs deferred
 ```
 
 Do not jump straight into PDF parser, MinerU execution, MCP integration work,
-Phase 2.5 generated-field policy expansion, or Phase 2.6 CLI README specs.
+claim schema work, compare gates, or Phase 2.6 CLI README specs.
