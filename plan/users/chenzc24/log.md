@@ -503,4 +503,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   stale entries, not a final synthesis, not knowledge prose, no-change reason,
   and refresh reason language; `git submodule status` confirmed `MinerU/` and
   `llm_wiki/` remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `02e0fbb Define phase four overview index
+  log maintenance`; finalized by the follow-up maintenance-status commit.

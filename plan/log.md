@@ -736,4 +736,5 @@
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 4.4 overview/index/log maintenance language; `git submodule status`
   confirmed reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `02e0fbb Define phase four overview index
+  log maintenance`; finalized by the follow-up maintenance-status commit.
