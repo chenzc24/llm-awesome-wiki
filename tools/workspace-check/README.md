@@ -69,7 +69,18 @@ It validates source inventory rows and existing source packet outputs. It does
 not create packets, run extractors, parse raw document content, or generate wiki
 pages.
 
-`-Mode all` currently runs schema and source checks, then reports later
+In Phase 6.3, `-Mode all` began running schema and source checks before
+reporting later validator families as `not-implemented`.
+
+## Phase 6.4 Behavior
+
+`-Mode wiki` invokes `tools/wiki-lint/wiki-lint.ps1`.
+
+It validates existing wiki frontmatter, links, index membership, overview
+sections, and log maintenance headings. It does not generate pages or rewrite
+links.
+
+`-Mode all` currently runs schema, source, and wiki checks, then reports later
 validator families as `not-implemented`.
 
 ## Non-Goals

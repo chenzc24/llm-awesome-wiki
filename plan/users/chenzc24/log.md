@@ -772,3 +772,24 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `30f7cf1 Add phase six source artifact checkers`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Add phase six wiki lint checker
+
+- Target: implement Phase 6.4 wiki lint and navigation validation for existing
+  workspace wiki artifacts.
+- Changed areas: added
+  `docs/phase-plans/phase-6.4-wiki-lint-navigation.md`; implemented
+  `tools/wiki-lint/wiki-lint.ps1`; integrated wiki lint into
+  `workspace-check -Mode wiki`; updated Phase 6 docs, tool READMEs,
+  `validate-kernel`, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-4-wiki-lint-navigation/`.
+- Design review: Phase 6.4 validates special wiki files, frontmatter, links,
+  index membership, overview sections, and log dated headings. It does not
+  generate pages, rewrite links, run compare gates, or resolve semantic review.
+- Validation: temporary smoke workspace under the OS temp directory passed
+  `wiki-lint.ps1` and `workspace-check.ps1 -Mode wiki`; `git diff --check`
+  passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 6.4, wiki-lint, Mode wiki, index membership, broken links,
+  no-page-generation, no-link-rewrite, and semantic-review language.
+- Commit: pending.

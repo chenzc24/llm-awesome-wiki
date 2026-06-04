@@ -175,6 +175,23 @@ Phase 6.3 validates existing workspace artifacts. It does not scan raw content
 into packets, run extractor backends, parse PDF/PPTX/DOCX/image content,
 generate wiki pages, validate compare reports, or change schemas.
 
+## Phase 6.4 Active Scope
+
+Phase 6.4 adds wiki lint and navigation validation:
+
+- `wiki-lint.ps1`
+- `workspace-check -Mode wiki` integration
+- special file checks for `wiki/index.md`, `wiki/overview.md`, and
+  `wiki/log.md`
+- content page frontmatter checks
+- wikilink and local Markdown link resolution
+- index membership and stale index link checks
+- overview and log maintenance-surface checks
+
+Phase 6.4 validates existing wiki artifacts. It does not generate pages,
+rewrite links, run compare gates, validate report semantics, or resolve
+semantic review.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.

@@ -8,7 +8,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $toolName = "workspace-check"
-$toolPhase = "Phase 6.3 runtime with schema and source artifact integration"
+$toolPhase = "Phase 6.4 runtime with schema, source artifact, and wiki lint integration"
 $started = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
 $checksRun = New-Object System.Collections.Generic.List[string]
 $checksNotImplemented = New-Object System.Collections.Generic.List[string]
@@ -122,8 +122,23 @@ if ($exitCode -eq 0) {
         }
     }
 
+    if ($Mode -in @("wiki", "all")) {
+        $wikiLintScript = Join-Path $PSScriptRoot "..\wiki-lint\wiki-lint.ps1"
+        $wikiLintReportPath = Join-Path $reportDir "wiki-lint-report.md"
+
+        if (-not (Test-Path -LiteralPath $wikiLintScript)) {
+            $status = "error"
+            $exitCode = 3
+            $findings.Add("Missing wiki-lint script: $wikiLintScript")
+        }
+        else {
+            & powershell -NoProfile -ExecutionPolicy Bypass -File $wikiLintScript -Workspace $workspacePath -Report $wikiLintReportPath | Out-Host
+            $wikiLintExitCode = $LASTEXITCODE
+            Merge-ChildResult "wiki lint and navigation validation" $wikiLintExitCode $wikiLintReportPath
+        }
+    }
+
     if ($Mode -eq "smoke") {
-        Add-NotImplemented "wiki lint"
         Add-NotImplemented "claim audit"
         Add-NotImplemented "compare report check"
         Add-NotImplemented "review queue check"
@@ -132,14 +147,13 @@ if ($exitCode -eq 0) {
         $nextActions.Add("Run workspace-check with -Mode schemas or -Mode source for implemented Phase 6 validators.")
     }
     elseif ($Mode -eq "all") {
-        Add-NotImplemented "wiki lint"
         Add-NotImplemented "claim audit"
         Add-NotImplemented "compare report check"
         Add-NotImplemented "review queue check"
         Add-NotImplemented "round closure check"
         Add-NotImplemented "fixture runner"
     }
-    elseif ($Mode -notin @("schemas", "source")) {
+    elseif ($Mode -notin @("schemas", "source", "wiki")) {
         Add-NotImplemented "$Mode check"
     }
 

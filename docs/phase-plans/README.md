@@ -79,3 +79,5 @@ Rules:
   enums.
 - `phase-6.3-source-artifact-checkers.md`: Phase 6.3 source inventory and
   source packet output checkers for workspace artifacts.
+- `phase-6.4-wiki-lint-navigation.md`: Phase 6.4 wiki frontmatter, link,
+  index, overview, and log navigation checker.

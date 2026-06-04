@@ -123,6 +123,23 @@ These checks inspect source inventory rows and source packet outputs. They do
 not create inventory rows, generate packets, parse raw binary sources, or run
 extractor backends.
 
+Phase 6.4 adds wiki lint:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/wiki-lint/wiki-lint.ps1 `
+  -Workspace . `
+  -Report wiki-lint-report.md
+
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode wiki `
+  -Report workspace-wiki-lint-report.md
+```
+
+`wiki-lint` validates existing wiki frontmatter, links, index membership,
+overview sections, and log maintenance headings. It does not generate pages or
+rewrite links.
+
 ## Phase 3 Tool Surface
 
 Phase 3 adds behavior prose for:
