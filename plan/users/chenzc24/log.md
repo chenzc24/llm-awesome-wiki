@@ -746,4 +746,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 6.2, schema-check, structured-field, source-packet-output,
   not-a-JSON-Schema-engine, does-not-validate-workspace-instances, and
   does-not-run-extractors language; reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `b3e2c37 Add phase six schema checker`;
+  finalized by the follow-up maintenance-status commit.

@@ -925,4 +925,5 @@
   `tools/validate-kernel/validate-kernel.ps1` passed; `schema-check.ps1` and
   `workspace-check.ps1 -Mode schemas` smoke runs passed; temporary reports were
   removed; targeted `rg` confirmed Phase 6.2 schema checker language.
-- Commit: pending.
+- Commit: completed on `main` as `b3e2c37 Add phase six schema checker`;
+  finalized by the follow-up maintenance-status commit.
