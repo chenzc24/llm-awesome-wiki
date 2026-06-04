@@ -907,4 +907,5 @@
   `tools/validate-kernel/validate-kernel.ps1` passed; `workspace-check.ps1`
   smoke run passed; temporary reports were removed; targeted `rg` confirmed
   Phase 6.1 runtime skeleton language.
-- Commit: pending.
+- Commit: completed on `main` as `990f384 Add phase six tool runtime
+  skeleton`; finalized by the follow-up maintenance-status commit.

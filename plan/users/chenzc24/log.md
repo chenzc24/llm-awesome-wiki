@@ -720,4 +720,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   with exit code `3`; targeted `rg` confirmed Phase 6.1, workspace-check,
   report-conventions, exit-code, not-implemented, does-not-run-extractors, and
   checker language.
-- Commit: pending.
+- Commit: completed on `main` as `990f384 Add phase six tool runtime
+  skeleton`; finalized by the follow-up maintenance-status commit.
