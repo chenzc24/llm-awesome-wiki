@@ -1022,3 +1022,18 @@
 - Commit: completed on `main` as
   `b3962af Add phase six fixture runner`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Close phase six validation tooling
+
+- Target: complete Phase 6 closure review and record the boundary to Phase 7.
+- Changed areas: added the Phase 6 closure review; updated the Phase 6 main
+  plan, phase-plan index, tool README, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-8-closure-review/`.
+- Design review: Phase 6 is closed as validation/checker tooling, not as an
+  extractor harness, wiki generator, semantic reviewer, or downstream
+  `skill + tool` generator.
+- Validation: `git diff --check`, `validate-kernel`, `schema-check`,
+  `fixture-runner`, and `workspace-check -Mode fixtures` passed; generated
+  smoke reports were removed; targeted `rg` confirmed closure and Phase 7
+  boundary language.
+- Commit: pending.

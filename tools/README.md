@@ -191,6 +191,30 @@ powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.p
 that tools return expected status and exit codes. It does not run extractors or
 resolve semantic review.
 
+Phase 6 closure uses these system-repo validation commands:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/validate-kernel/validate-kernel.ps1
+
+powershell -ExecutionPolicy Bypass -File tools/schema-check/schema-check.ps1 `
+  -Workspace . `
+  -Report phase6-schema-check-smoke.md
+
+powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 `
+  -FixtureRoot tests/fixtures/phase6 `
+  -Report phase6-fixture-runner-smoke.md
+
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode fixtures `
+  -Report phase6-workspace-fixtures-smoke.md
+```
+
+`workspace-check -Mode all` is for an instantiated knowledge workspace with
+live `raw/`, `wiki/`, `reports/`, and source packet outputs. The system repo
+intentionally lacks those live workspace artifacts, so Phase 6 closure validates
+the system repo with kernel/schema checks and fixture workspaces.
+
 ## Phase 3 Tool Surface
 
 Phase 3 adds behavior prose for:

@@ -88,3 +88,5 @@ Rules:
   wiki log.
 - `phase-6.7-fixture-runner.md`: Phase 6.7 scenario fixture runner and minimum
   pass/fail/needs-review checker scenarios.
+- `phase-6-closure-review.md`: Phase 6 closure review, final checker-surface
+  summary, validation boundary, remaining risks, and Phase 7 boundary.

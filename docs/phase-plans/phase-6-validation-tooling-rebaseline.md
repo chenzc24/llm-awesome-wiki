@@ -237,6 +237,24 @@ Phase 6.7 validates checker behavior on small fixture workspaces. It does not
 run extractors, parse raw binary documents, generate source packets, generate
 wiki pages, resolve semantic review, or provide exhaustive test coverage.
 
+## Phase 6.8 Closure Scope
+
+Phase 6.8 closes the validation/checker tooling phase by reviewing the
+implemented surface from Phase 6.0 through Phase 6.7.
+
+It owns:
+
+- Phase 6 closure review
+- final checker-surface summary
+- validation boundary between the system repo and instantiated knowledge
+  workspaces
+- remaining risk statement
+- Phase 7 boundary
+
+Phase 6.8 does not add new validators, mutate workspace artifacts, run
+extractors, expand fixture coverage, or start downstream `skill + tool`
+generation.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.
@@ -259,3 +277,11 @@ Phase 6.0 is complete when:
 - collaboration docs align Person A and Person B responsibilities with the
   checker-first Phase 6 direction
 - Phase 7 remains the later downstream knowledge-to-`skill + tool` mainline
+
+Phase 6 as a full phase is complete when:
+
+- Phase 6.1 through Phase 6.7 checker artifacts exist
+- `workspace-check` exposes the implemented checker modes
+- minimum Phase 6 fixtures prove pass/fail/needs-review behavior
+- the final closure review records validation evidence and remaining risks
+- no Phase 6 document reintroduces extractor harness ownership

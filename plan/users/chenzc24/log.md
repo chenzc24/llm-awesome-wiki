@@ -773,6 +773,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   `30f7cf1 Add phase six source artifact checkers`; finalized by the follow-up
   maintenance-status commit.
 
+## 2026-06-04 - Close phase six validation tooling
+
+- Target: close Phase 6 with a final checker-surface review and Phase 7
+  boundary statement.
+- Changed areas: added `docs/phase-plans/phase-6-closure-review.md`; updated
+  the Phase 6 main plan, phase-plan index, tool README, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-8-closure-review/`.
+- Design review: Phase 6 is closed as a checker-first maintenance layer. It
+  validates existing workspace artifacts and fixture scenarios; it does not
+  run extractors, parse raw binary documents, generate source packets or wiki
+  pages, resolve semantic review, or start downstream `skill + tool` work.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `tools/validate-kernel/validate-kernel.ps1` passed;
+  `schema-check.ps1` passed; `fixture-runner.ps1` passed the Phase 6 fixture
+  scenarios; `workspace-check.ps1 -Mode fixtures` passed and invoked fixture
+  validation; generated smoke reports were removed; targeted `rg` confirmed
+  closure, checker-first, no-extractor-harness, no-semantic-review,
+  system-repo, fixture-runner, and Phase 7 boundary language.
+- Commit: pending.
+
 ## 2026-06-04 - Add phase six wiki lint checker
 
 - Target: implement Phase 6.4 wiki lint and navigation validation for existing
