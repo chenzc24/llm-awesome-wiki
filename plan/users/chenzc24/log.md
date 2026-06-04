@@ -505,3 +505,24 @@ Repository-wide merged or integration-level maintenance history belongs in
   `llm_wiki/` remained pinned.
 - Commit: completed on `main` as `02e0fbb Define phase four overview index
   log maintenance`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Close phase four wiki construction workflow
+
+- Target: execute Person B Phase 4.5 by closing the Phase 4 wiki construction
+  workflow surface and recording the Person A validation handoff.
+- Changed areas: added
+  `docs/phase-plans/phase-4-closure-review.md`; updated
+  `docs/phase-plans/phase-4-wiki-construction-engine.md` and
+  `docs/phase-plans/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-4-5-closure-review/`.
+- Design review: Phase 4 is complete from the Person B workflow-surface side:
+  source/chapter-oriented wiki construction now has routing, construction
+  analysis, page create/update/merge decisions, overview/index/log
+  maintenance, validation note expectations, and explicit Person A handoff for
+  deterministic validation.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4 Closure, Person A Handoff, complete from the Person B
+  workflow-surface side, wiki construction, overview, index, log, frontmatter,
+  broken link, and Phase 5 language.
+- Commit: pending.

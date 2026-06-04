@@ -42,3 +42,5 @@ Rules:
   pages, updating index/log, and recording validation.
 - `phase-4.4-overview-index-log-maintenance.md`: Phase 4.4 overview, index,
   and wiki log maintenance rules.
+- `phase-4-closure-review.md`: Phase 4 closure review, design confirmation,
+  and Person A validation handoff.

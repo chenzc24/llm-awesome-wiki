@@ -113,7 +113,9 @@ It answers:
 Phase 4.3 still does not implement a generator, validator, compare gate,
 fixture, or wiki-lint command.
 
-## Phase 4.4 Active Scope
+## Phase 4.4 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 4.4 defines overview, index, and log maintenance.
 
@@ -127,6 +129,24 @@ It answers:
 
 Phase 4.4 still does not implement a wiki-lint tool, compare gate, validator,
 fixture, or link checker.
+
+## Phase 4.5 Closure Status
+
+Status: complete from the Person B workflow-surface side.
+
+Phase 4.5 reviews Phase 4 against the core design principles and records the
+Person A handoff for deterministic validation.
+
+It confirms:
+
+- the default wiki surface is source/chapter-oriented
+- wiki construction uses routing and construction analysis before page prose
+- claim/evidence maps remain audit support rather than the primary wiki
+- overview, index, and log maintenance is part of round closure
+- schema, validator, fixture, link check, and wiki-lint needs are handed to
+  Person A or later implementation work
+
+See `phase-4-closure-review.md` for the closure review and handoff details.
 
 ## Required Construction Flow
 
@@ -168,6 +188,12 @@ Potential Person A validation needs:
 - optional `claim_ids` and review item references
 - index entry validation
 - broken link checks between overview, index, source pages, and chapter pages
+- overview refresh validation
+- wiki log parseability
+- validation note checks for overview, index, log, compare-gate status, stale
+  entries, and unresolved review
+
+The full Phase 4 handoff is recorded in `phase-4-closure-review.md`.
 
 ## Non-Goals
 
@@ -227,10 +253,22 @@ Phase 4.4 is complete when:
 - source-packet-to-wiki and distillation rounds mention overview/index/log
   closure requirements
 
-## Next Subphase
+## Phase 4.5 Completion Criteria
 
-After Phase 4.4, the next useful target is Phase 4.5: Phase 4 closure review
-and Person A handoff.
+Phase 4.5 is complete when:
 
-Phase 4.5 should review Phase 4 against the core design principles and hand
-frontmatter, index, link, overview, and log validation needs to Person A.
+- Phase 4 closure review exists
+- completed workflow surfaces from Phase 4.1 through Phase 4.4 are summarized
+- design review confirms alignment with core principles
+- Person A handoff lists schema, validator, fixture, and lint needs
+- next phase boundary is Phase 5 compare gates and review workflow
+
+## Next Phase Boundary
+
+After Phase 4 closure, the next useful target is Phase 5: compare gates and
+review workflow.
+
+Phase 5 should define pass/fail/needs-review behavior for source coverage,
+claim coverage, broken links, stale index entries, omissions, contradictions,
+unresolved judgment, and round advancement. It should not start downstream
+`skill + tool` work.
