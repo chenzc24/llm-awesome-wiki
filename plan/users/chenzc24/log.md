@@ -1071,4 +1071,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   the deleted stub paths are no longer referenced by current rules, tools,
   skills, templates, agent guidance, README, or collaboration docs; `Test-Path`
   confirmed all six stub files are absent.
-- Commit: pending.
+- Commit: completed on `main` as
+  `6e4d03a Remove obsolete rule compatibility stubs`; finalized by the
+  follow-up maintenance-status commit.

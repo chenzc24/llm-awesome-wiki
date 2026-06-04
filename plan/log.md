@@ -1190,4 +1190,6 @@
   `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
   the deleted stub paths are gone from current-facing entrypoints; `Test-Path`
   confirmed all six stub files are absent.
-- Commit: pending.
+- Commit: completed on `main` as
+  `6e4d03a Remove obsolete rule compatibility stubs`; finalized by the
+  follow-up maintenance-status commit.
