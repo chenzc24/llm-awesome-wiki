@@ -36,8 +36,8 @@ without relying on model memory or self-evaluation.
 ## Phase Thesis
 
 The system should make raw resources auditable before wiki writing begins,
-while avoiding audit artifacts that make the later readable wiki harder to
-maintain.
+while avoiding audit artifacts that make the later agent-readable wiki harder
+to maintain.
 
 A source packet is not just extracted text. It is a traceable bridge that says:
 
@@ -56,8 +56,8 @@ deterministic tools to audit what happened.
 Artifact economy applies here. A source packet is the source of truth for
 anchors, extraction methods, generated fields, and extraction gaps; it is not a
 second wiki article. Later wiki pages should cite packet anchors instead of
-copying raw hashes, backend metadata, and extraction logs into the readable
-knowledge surface.
+copying raw hashes, backend metadata, and extraction logs into the
+agent-readable knowledge surface.
 
 ## What MinerU Contributes
 
@@ -354,7 +354,7 @@ Likely schema or validator needs:
 - `review_reason`
 - `derived_artifacts`
 - wiki citation fields should be able to reference packet anchors without
-  copying raw hash or extraction metadata into readable pages
+  copying raw hash or extraction metadata into agent-readable pages
 
 Person B should describe the workflow need for each field instead of editing
 schema files directly.
@@ -386,7 +386,7 @@ Phase 2 is complete when:
 - source-type packet profiles exist for PDF, PPTX, DOCX, images, tables, and
   mixed media
 - Phase 2 artifacts make future raw-wiki alignment reports possible without
-  making source packets the human reading surface
+  making source packets the wiki knowledge surface
 - tool README specs explain the future CLI surfaces without overpromising
   implementation
 - Person A has a clear schema/validator handoff list

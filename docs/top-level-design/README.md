@@ -28,5 +28,6 @@ execution plans.
   responsibility boundaries, quality gates, and the limited reference role of
   `llm_wiki`.
 - `artifact-economy-and-raw-wiki-alignment.md`: cross-cutting design principle
-  for keeping readable wiki output aligned with raw sources without creating
-  duplicate truth sources or verbose default artifacts.
+  for keeping agent-readable, human-reviewable wiki output aligned with raw
+  sources without creating duplicate truth sources or verbose default
+  artifacts.

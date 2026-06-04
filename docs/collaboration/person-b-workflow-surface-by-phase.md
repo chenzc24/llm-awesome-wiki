@@ -6,10 +6,10 @@ In the current team, Person B is `chenzc24`. Person B owns the parts that make
 the system understandable and executable by humans and agents: rules, templates,
 phase plans, and tool behavior prose.
 
-Person B also owns the readable output surface. The workflow should keep
-construction audit artifacts separate from human-readable wiki pages and should
-avoid templates that make agents repeat the same operational facts across many
-files.
+Person B also owns the wiki output surface. The workflow should keep
+construction audit artifacts separate from agent-readable, human-reviewable
+wiki pages and should avoid templates that make agents repeat the same
+operational facts across many files.
 
 ## Background
 
@@ -410,7 +410,7 @@ visible, and keep humans and agents from guessing.
 Person B should make sure every default artifact has a primary audience:
 
 - source packets are for anchors, extraction gaps, and audit handoff
-- wiki chapters are for readable distilled knowledge
+- wiki chapters are for agent-readable, human-reviewable distilled knowledge
 - reports are for validation results, blockers, coverage, and review queues
 - logs are for events, not knowledge summaries
 

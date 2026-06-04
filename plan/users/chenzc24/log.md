@@ -187,6 +187,22 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `945104b
   Reframe phase two as packet protocol`.
 
+## 2026-06-04 - Clarify agent-readable wiki layer
+
+- Target: make wiki readability mean agent-readable first and human-reviewable
+  second across top-level design and workspace templates.
+- Changed areas: `docs/top-level-design/`, `docs/core-philosophy.md`,
+  `docs/knowledge-to-executable.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `docs/collaboration/`, `templates/workspace-kernel/wiki/`, and the target
+  plan under
+  `plan/users/chenzc24/2026-06-04-clarify-agent-readable-wiki-layer/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  agent-readable, human-reviewable, and agent scanability language; `git
+  submodule status` confirmed both reference submodules stayed pinned.
+- Commit: pending.
+
 ## 2026-06-04 - Align top-level Phase 2 protocol wording
 
 - Target: make the top-level system architecture match the protocol-first

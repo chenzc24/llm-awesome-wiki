@@ -21,8 +21,9 @@ updated: YYYY-MM-DD
 
 ## What This Source Contains
 
-Summarize the source or deck in human-readable form. This page should help a
-reader decide whether to open the packet or chapter pages.
+Summarize the source or deck in a compact, agent-readable form. This page
+should help an agent or human reviewer decide whether to open the packet or
+chapter pages.
 
 ## Structure
 

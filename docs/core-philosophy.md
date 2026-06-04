@@ -112,6 +112,6 @@ knowledge and executable artifacts.
 - Prefer VSCode and CLI ergonomics over Obsidian-specific affordances.
 - Prefer reusable templates and scripts over one-off chat instructions.
 - Prefer source traceability over polished summaries with unclear provenance.
-- Prefer source and chapter structure as the default reading surface; promote
-  concepts, entities, comparisons, queries, and synthesis to optional profiles
-  when the corpus actually needs them.
+- Prefer source and chapter structure as the default agent-readable wiki
+  surface; promote concepts, entities, comparisons, queries, and synthesis to
+  optional profiles when the corpus actually needs them.

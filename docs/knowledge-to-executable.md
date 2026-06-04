@@ -16,7 +16,7 @@ knowledge-to-code path. Do not attempt to implement both layers in one pass.
 ```text
 raw source
 -> source packet
--> source-anchored readable wiki
+-> source-anchored agent-readable wiki
 -> raw-wiki alignment reports
 -> construction executable layer
 -> structured knowledge units
@@ -99,10 +99,11 @@ Expected future artifacts:
 - optional research-profile areas such as `wiki/concepts/`,
   `wiki/entities/`, `wiki/comparisons/`, and `wiki/queries/`
 
-The readable wiki layer should not consume or repeat every audit artifact.
-Important claims should cite source packet anchors, but operational facts such
-as raw hashes, extraction versions, and full packet metadata should remain in
-the audit layer unless they are directly relevant to the reader.
+The wiki layer should be agent-readable first and human-reviewable second. It
+should not consume or repeat every audit artifact. Important claims should cite
+source packet anchors, but operational facts such as raw hashes, extraction
+versions, and full packet metadata should remain in the audit layer unless they
+are directly relevant to agent use or human review.
 
 ## Layer 3: Structured Knowledge Units
 
@@ -153,7 +154,7 @@ This layer should be designed after the distillation workflow is stable enough
 to provide reliable inputs, and after the construction executable layer is in
 place.
 
-Downstream skill and tool work should consume stable readable knowledge,
+Downstream skill and tool work should consume stable agent-readable knowledge,
 source-backed claims, and executable specs. It should not directly consume the
 full raw audit layer as its normal input, because that would turn construction
 noise into implementation noise.
@@ -208,7 +209,7 @@ Only after that should the downstream knowledge-to-code mainline begin:
 ## First Principles
 
 - A wiki page is not finished until its important claims can be traced.
-- A readable wiki page is not improved by repeating every audit field.
+- An agent-readable wiki page is not improved by repeating every audit field.
 - One fact should have one source of truth, with references instead of
   competing copies.
 - A plan is not ready until it can drive execution.

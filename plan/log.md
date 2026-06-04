@@ -455,6 +455,25 @@
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `945104b
   Reframe phase two as packet protocol`.
 
+## 2026-06-04 - Clarify agent-readable wiki layer
+
+- Target: refine the artifact-economy language so the wiki layer is
+  agent-readable first and human-reviewable second, rather than
+  human-readable-first prose.
+- Changed areas: updated top-level design language, core philosophy,
+  knowledge-to-executable guidance, Phase 2 wording, Person A/B collaboration
+  guidance, and workspace-kernel wiki page templates; added the target plan
+  under
+  `plan/users/chenzc24/2026-06-04-clarify-agent-readable-wiki-layer/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  agent-readable, human-reviewable, agent-readable/human-reviewable, and agent
+  scanability language; old human-readable wiki wording was removed from the
+  wiki-layer context; `git submodule status` confirmed `MinerU/` and
+  `llm_wiki/` remained pinned; `git status --short --branch` showed only the
+  intended terminology and template files.
+- Commit: pending `Clarify agent-readable wiki layer`.
+
 ## 2026-06-04 - Align top-level phase two protocol wording
 
 - Target: align top-level architecture wording with the protocol-first Phase 2

@@ -15,9 +15,9 @@ quality gates, and execution path.
 
 LLM Awesome Wiki is a Git-first knowledge engineering system for agents and
 humans working in VSCode and CLI environments. Its default profile is
-document/PPT corpus distillation: preserve source structure, rebuild readable
-chapter-oriented knowledge, and keep coverage auditable. It should support the
-full path:
+document/PPT corpus distillation: preserve source structure, rebuild
+agent-readable chapter-oriented knowledge that humans can review, and keep
+coverage auditable. It should support the full path:
 
 ```text
 raw resources
@@ -32,8 +32,8 @@ raw resources
 -> validation feedback into the knowledge base
 ```
 
-The system is not only a reading surface. It is an engineering workflow for
-making knowledge traceable, reviewable, and eventually executable.
+The system is not only a wiki surface. It is an engineering workflow for making
+knowledge traceable, reviewable, and eventually executable.
 
 The first quality axis is **raw-wiki alignment**: important wiki knowledge
 should remain traceable to raw source material through stable source identity,
@@ -75,7 +75,7 @@ background service, or external wrapper as the source of truth.
   generation into one large pass.
 - Do not let LLMs be the parser of record for binary documents, hashes, paths,
   file identity, or final validation.
-- Do not treat verbose audit artifacts as the default human reading surface.
+- Do not treat verbose audit artifacts as the default wiki surface.
 - Do not create duplicate truth sources for the same operational fact across
   inventory, metadata, packets, wiki pages, reports, and logs.
 
@@ -91,22 +91,23 @@ The core construction path is:
 raw source
 -> stable source identity
 -> source packet anchors
--> readable wiki references
+-> agent-readable wiki references
 -> alignment reports
 -> review or correction
 ```
 
-The system succeeds when a reader can use the wiki and a reviewer can still
-trace important claims back to source anchors without reading every audit file
-manually.
+The system succeeds when an agent can scan and use the wiki, and a human
+reviewer can still trace important claims back to source anchors without
+reading every audit file manually.
 
 ### Artifact Economy
 
 Every artifact should have a primary audience and a clear source-of-truth role.
-Audit files may be verbose, but the readable wiki layer should stay concise.
-Logs record events, reports record decisions and blockers, and packets record
-source anchors. Repeating the same fields everywhere is a system risk because
-it increases model burden and makes validators chase conflicting copies.
+Audit files may be verbose, but the wiki layer should stay concise,
+agent-readable, and human-reviewable. Logs record events, reports record
+decisions and blockers, and packets record source anchors. Repeating the same
+fields everywhere is a system risk because it increases model burden and makes
+validators chase conflicting copies.
 
 For the full principle, see
 `docs/top-level-design/artifact-economy-and-raw-wiki-alignment.md`.
@@ -148,8 +149,8 @@ Generated workspace directory contract:
 ```text
 raw/sources/              # immutable source files
 raw/derived/              # generated packets, metadata, extracted text, media
-wiki/                     # maintained readable distilled knowledge
-wiki/chapters/            # primary human-readable chapter layer
+wiki/                     # maintained agent-readable distilled knowledge
+wiki/chapters/            # primary agent-readable chapter layer
 wiki/sources/             # optional short source notes
 wiki/synthesis/           # optional cross-source conclusions
 reports/alignment/        # raw-wiki alignment checks
@@ -223,13 +224,13 @@ This layer is what lets the system move from a wiki to executable specs later.
 
 ### Layer 4: Wiki Construction
 
-The wiki is the maintained human-readable layer. It should summarize, connect,
-and organize knowledge while preserving traceability back to source packets and
-evidence records.
+The wiki is the maintained agent-readable, human-reviewable knowledge layer. It
+should summarize, connect, and organize knowledge while preserving traceability
+back to source packets and evidence records.
 
 The wiki should not duplicate the audit layer. It should reference source
-anchors for important claims while staying readable enough for humans and
-agents to use as the default knowledge surface.
+anchors for important claims while staying structured enough for agents to scan
+and clear enough for humans to review.
 
 Expected outputs:
 

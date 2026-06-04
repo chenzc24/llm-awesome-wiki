@@ -18,8 +18,9 @@ covers.
 
 ## Key Points
 
-Write the distilled content for human reading. Keep the chapter readable before
-creating optional research-profile pages.
+Write structured distilled knowledge for agent scanning and human review. Keep
+the chapter compact and source-anchored before creating optional
+research-profile pages.
 
 ## Source-Backed Details
 
