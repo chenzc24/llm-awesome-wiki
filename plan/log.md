@@ -639,4 +639,5 @@
   language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
   remained pinned; `git status --short --branch` showed only the intended Phase
   2 closure files.
-- Commit: planned for `main` as `Close phase two raw-to-packet workflow`.
+- Commit: completed on `main` as `a6801fd Close phase two raw-to-packet
+  workflow`; finalized by the follow-up maintenance-status commit.
