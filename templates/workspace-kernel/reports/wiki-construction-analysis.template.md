@@ -5,6 +5,7 @@
 - Plan:
 - Date:
 - Status: `draft`, `ready-for-generation`, `needs-review`, or `blocked`
+- Distillation depth: `full-round`, `selective`, or `overview-only`
 
 ## Inputs Read
 
@@ -15,6 +16,18 @@
 - Existing index:
 - Existing source pages:
 - Existing chapter pages:
+
+## Source Outline Or Coverage Plan
+
+Required before final prose for document/PPT rounds unless the round is
+explicitly `overview-only`.
+
+| source_ref_or_range | location | topic_or_content | content_kind | importance | intended_wiki_target | planned_disposition | reason_or_next_action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| source-id#anchor-id or source-id#p001-p003 | slide/page/section | Replace this row. | text/chart/table/image/formula/diagram | core/supporting/reference/decorative/unknown | wiki/chapters/replace-me.md | cover/defer/omit/review/block |  |
+
+Broad page or slide ranges should name the important topics inside the range.
+Do not use a broad range as a substitute for core source coverage.
 
 ## Routing Decisions
 
@@ -76,3 +89,5 @@ State whether generation may proceed, must wait for review, or is blocked.
 - `wiki/log.md` update needed:
 - Validation note path:
 - Compare status:
+- Knowledge coverage status:
+- Modality review status:

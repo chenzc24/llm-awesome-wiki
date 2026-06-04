@@ -6,12 +6,14 @@
 - Date:
 - Status: `pass`, `needs-review`, or `fail`
 - Closure decision: `close-pass`, `close-with-review`, or `do-not-close`
+- Distillation depth: `full-round`, `selective`, or `overview-only`
 
 ## Checks Performed
 
 - Git status before work:
 - Source inventory reviewed:
 - Source packets reviewed:
+- Source outline or coverage plan reviewed:
 - Claim/evidence map reviewed:
 - Wiki construction analysis reviewed:
 - Generated evidence marked:
@@ -33,6 +35,8 @@
 
 - Compare report:
 - Compare status: `pass`, `needs-review`, `fail`, or `compare gate not enabled`
+- Knowledge coverage status: `pass`, `needs-review`, or `fail`
+- Modality review status: `pass`, `needs-review`, or `fail`
 
 Use `compare gate not enabled` exactly when no deterministic, manual-protocol,
 or human-reviewed compare gate has been run. Do not convert it into `pass`.
@@ -50,6 +54,8 @@ If a compare report exists, link it here and summarize its final status.
 - Required fixes before closure:
 - Next round or next action:
 - Compare report status supports closure: yes/no
+- Knowledge coverage supports closure: yes/no
+- Modality review supports closure: yes/no
 - Review queue status supports closure: yes/no
 - Index status supports closure: yes/no
 - Overview status supports closure: yes/no
@@ -60,6 +66,7 @@ If a compare report exists, link it here and summarize its final status.
 - Sources covered:
 - Source packets in scope:
 - Source range in scope:
+- Broad source ranges used:
 - Core anchors covered:
 - Core anchors weak:
 - Core anchors omitted:
@@ -76,7 +83,22 @@ If a compare report exists, link it here and summarize its final status.
 - Important claims contested:
 - Generated-derived claims:
 - Reviewed-generated claims:
+
+## Knowledge Coverage Review
+
+- Source outline or coverage plan:
+- Anchor disposition table:
+- Core material represented at right detail:
+- Core material only broadly summarized:
+- Core material missing from wiki:
+- Weak coverage blocks closure: yes/no
+- Overview-only or selective deferrals:
+
+## Modality Review
+
 - Modality issues:
+- Modality issues block knowledge acceptance: yes/no
+- Nonblocking modality review carried forward:
 - Contradictions:
 
 ## Page Decisions

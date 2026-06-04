@@ -1171,3 +1171,29 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `b762b2e Refresh README and archive old concept note`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Harden wiki coverage gate
+
+- Target: strengthen source-packet-to-wiki and compare/closure behavior after
+  the ADCtoolbox ch3 review showed that structurally valid output could still
+  be far too shallow.
+- Changed areas: updated wiki-round and quality-gate skills; hardened
+  `rules/wiki/source-wiki-coverage-protocol.md`; added source outline,
+  distillation depth, knowledge coverage, modality review, and anchor
+  disposition fields to workspace report templates; extended `report-check`
+  to require source coverage, anchor disposition, and wiki page coverage in
+  compare reports; added pass/fail report-check fixtures for anchor
+  disposition.
+- Design review: this does not add an extractor or a wiki generator. It makes
+  existing workflow artifacts coverage-aware so a full-round document/PPT
+  distillation cannot pass only by citing broad page ranges or writing a clean
+  summary.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m py_compile llm_wiki_tools/cli.py
+  llm_wiki_tools/__main__.py` passed; `python -m llm_wiki_tools
+  validate-kernel` passed; `python -m llm_wiki_tools fixture-runner` passed;
+  `python -m llm_wiki_tools workspace-check --mode fixtures` passed. The
+  ignored ADCtoolbox ch2-ch4 workspace now fails `workspace-check --mode all`
+  at `report-check` because its old compare report lacks `Source Coverage`,
+  `Anchor Disposition`, and `Wiki Page Coverage`.
+- Commit: pending.

@@ -16,10 +16,11 @@ Detailed rules are loaded only when needed:
 
 - `rules/wiki/wiki-surface-workflow.md` for page routing, source/chapter
   surface, overview, index, and wiki log edge cases
+- `rules/wiki/source-wiki-coverage-protocol.md` for document/PPT rounds,
+  broad source ranges, source outline, coverage planning, omission, or anchor
+  disposition
 - `rules/claims/evidence-claim-workflow.md` when important claims need explicit
   support, conflict tracking, or review routing
-- `rules/wiki/source-wiki-coverage-protocol.md` when coverage, omission, or
-  anchor disposition needs a detailed table
 
 ## Inputs
 
@@ -39,18 +40,30 @@ Detailed rules are loaded only when needed:
      needs-review
    - default to source/chapter pages for document and PPT corpora
    - create optional synthesis pages only when the plan explains why
-5. Write visible wiki construction analysis before page generation. It should
-   record packets read, existing pages inspected, page decisions, important
-   claims, supporting anchors, contradictions, and review items.
-6. Generate accepted artifacts only after analysis:
+5. Set `distillation_depth` before page generation:
+   - `full-round`: the fixed source scope is expected to be distilled at the
+     right level of detail.
+   - `selective`: only named source units are in scope; deferrals are explicit.
+   - `overview-only`: the round creates a navigation map or first-pass summary
+     and must not claim full distillation.
+6. For document/PPT corpora, write a source outline or coverage plan before
+   final prose. It should list source units or grouped anchors, importance,
+   intended wiki target, planned disposition, and reason or next action.
+   Broad ranges such as `p002-p020` are only acceptable when the covered topics
+   inside the range are named or the round is explicitly `overview-only`.
+7. Write visible wiki construction analysis before page generation. It should
+   record packets read, existing pages inspected, source outline or coverage
+   plan, page decisions, important claims, supporting anchors, contradictions,
+   and review items.
+8. Generate accepted artifacts only after analysis:
    - source page or chapter page creates/updates
    - overview refresh or no-change reason
    - index update when accepted pages change
    - wiki log entry
    - review item or claim/evidence update when needed
-7. Keep source pages short and source-facing. Put distilled readable knowledge
+9. Keep source pages short and source-facing. Put distilled readable knowledge
    in chapter pages.
-8. Preserve uncertainty. Do not silently resolve conflicts or unsupported
+10. Preserve uncertainty. Do not silently resolve conflicts or unsupported
    claims inside polished prose.
 
 ## Boundaries
@@ -85,6 +98,10 @@ Minimum manual checks:
 - every new or changed wiki page cites source identity or packet anchors when
   it contains sourced knowledge
 - construction analysis exists before accepted page prose
+- document/PPT rounds record `distillation_depth` and a source outline or
+  coverage plan
+- full-round document/PPT closure does not rely on broad source ranges without
+  topic-level or anchor-level disposition
 - index, overview, and log status is explicit
 - unresolved judgment appears in review output
 - one source chapter has not been fragmented into unnecessary object pages

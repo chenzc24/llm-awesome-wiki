@@ -1360,9 +1360,27 @@ def cmd_report_check(args: argparse.Namespace) -> int:
     valid_review_statuses = {"open", "in-review", "resolved", "dismissed", "carried-forward", "blocked", "stale"}
     valid_blocking_levels = {"blocking", "nonblocking", "informational"}
     valid_queue_statuses = {"active", "needs-review", "blocked", "closed"}
+    valid_coverage_dispositions = {"covered", "weak", "deferred", "omitted", "out-of-scope", "review", "blocked"}
+    valid_anchor_importance = {"core", "supporting", "reference", "decorative", "unknown"}
+    valid_status_impacts = {"pass", "needs-review", "fail", "none"}
+    valid_wiki_page_dispositions = {"covered", "weak", "review", "blocked"}
 
     def check_compare(label: str, content: str, tables: list[dict[str, Any]]) -> None:
-        require_sections(label, content, ["Round Scope", "Status Summary", "Input Artifacts", "Check Matrix", "Decision And Next Actions"], failures)
+        require_sections(
+            label,
+            content,
+            [
+                "Round Scope",
+                "Status Summary",
+                "Input Artifacts",
+                "Check Matrix",
+                "Source Coverage",
+                "Anchor Disposition",
+                "Wiki Page Coverage",
+                "Decision And Next Actions",
+            ],
+            failures,
+        )
         status = normalize_enum(get_field_value(content, "Status"))
         if status not in valid_round_statuses:
             failures.append(f"{label}: compare report Status must be pass/fail/needs-review.")
@@ -1391,6 +1409,130 @@ def cmd_report_check(args: argparse.Namespace) -> int:
                 failures.append(f"{label}: report status pass conflicts with check '{check}' result '{result}'.")
             if status == "pass" and blocking == "yes":
                 failures.append(f"{label}: report status pass conflicts with blocking check '{check}'.")
+        source_coverage = find_table(
+            tables,
+            ["source_id", "packet_path", "source_scope", "coverage_unit", "wiki_coverage", "disposition", "reason", "status_impact"],
+        )
+        if source_coverage is None:
+            failures.append(f"{label}: missing Source Coverage table.")
+        else:
+            real_rows = 0
+            for row in source_coverage["rows"]:
+                source_id = get_cell(row, "source_id")
+                disposition = normalize_enum(get_cell(row, "disposition"))
+                reason = get_cell(row, "reason")
+                impact = normalize_enum(get_cell(row, "status_impact"))
+                line = get_cell(row, "line_number")
+                if placeholder_value(source_id):
+                    review_findings.append(f"{label}: source coverage row {line} still looks like a placeholder.")
+                    continue
+                real_rows += 1
+                if disposition not in valid_coverage_dispositions:
+                    failures.append(f"{label}: source coverage row {line} has invalid disposition '{disposition}'.")
+                if impact not in valid_status_impacts:
+                    failures.append(f"{label}: source coverage row {line} has invalid status_impact '{impact}'.")
+                if disposition != "covered" and placeholder_value(reason):
+                    failures.append(f"{label}: source coverage row {line} needs a reason for non-covered disposition.")
+                if status == "pass" and disposition in {"weak", "review", "blocked"}:
+                    failures.append(f"{label}: report status pass conflicts with source coverage disposition '{disposition}' on row {line}.")
+                if status == "pass" and impact in {"needs-review", "fail"}:
+                    failures.append(f"{label}: report status pass conflicts with source coverage status_impact '{impact}' on row {line}.")
+            if status == "pass" and real_rows == 0:
+                failures.append(f"{label}: pass compare report needs at least one non-placeholder Source Coverage row.")
+        anchor_coverage = find_table(
+            tables,
+            [
+                "source_ref",
+                "location",
+                "content_kind",
+                "importance",
+                "disposition",
+                "wiki_target",
+                "report_or_review_target",
+                "reason",
+                "status_impact",
+            ],
+        )
+        if anchor_coverage is None:
+            failures.append(f"{label}: missing Anchor Disposition table.")
+        else:
+            real_rows = 0
+            for row in anchor_coverage["rows"]:
+                source_ref = get_cell(row, "source_ref")
+                importance = normalize_enum(get_cell(row, "importance"))
+                disposition = normalize_enum(get_cell(row, "disposition"))
+                wiki_target = get_cell(row, "wiki_target")
+                review_target = get_cell(row, "report_or_review_target")
+                reason = get_cell(row, "reason")
+                impact = normalize_enum(get_cell(row, "status_impact"))
+                line = get_cell(row, "line_number")
+                if placeholder_value(source_ref):
+                    review_findings.append(f"{label}: anchor disposition row {line} still looks like a placeholder.")
+                    continue
+                real_rows += 1
+                if not source_ref_list(source_ref):
+                    failures.append(f"{label}: anchor disposition row {line} source_ref must use <source_id>#<anchor_id> form.")
+                if importance not in valid_anchor_importance:
+                    failures.append(f"{label}: anchor disposition row {line} has invalid importance '{importance}'.")
+                if disposition not in valid_coverage_dispositions:
+                    failures.append(f"{label}: anchor disposition row {line} has invalid disposition '{disposition}'.")
+                if impact not in valid_status_impacts:
+                    failures.append(f"{label}: anchor disposition row {line} has invalid status_impact '{impact}'.")
+                if disposition == "covered" and placeholder_value(wiki_target):
+                    failures.append(f"{label}: covered anchor disposition row {line} needs a wiki_target.")
+                if disposition != "covered" and placeholder_value(reason):
+                    failures.append(f"{label}: anchor disposition row {line} needs a reason for non-covered disposition.")
+                if disposition != "covered" and importance in {"core", "unknown"} and impact not in {"needs-review", "fail"}:
+                    failures.append(
+                        f"{label}: non-covered {importance} anchor row {line} must have status_impact needs-review or fail."
+                    )
+                if disposition != "covered" and placeholder_value(review_target) and impact in {"needs-review", "fail"}:
+                    review_findings.append(f"{label}: anchor disposition row {line} should name report_or_review_target for unresolved coverage.")
+                if status == "pass" and importance in {"core", "unknown"} and disposition != "covered":
+                    failures.append(f"{label}: report status pass conflicts with non-covered {importance} anchor row {line}.")
+                if status == "pass" and impact in {"needs-review", "fail"}:
+                    failures.append(f"{label}: report status pass conflicts with anchor status_impact '{impact}' on row {line}.")
+                anchor_id = source_ref.split("#", 1)[1] if "#" in source_ref else ""
+                if (
+                    disposition == "covered"
+                    and importance in {"core", "supporting"}
+                    and re.search(r"(?i)(?:p|page|slide|s)?\d+\s*-\s*(?:p|page|slide|s)?\d+", anchor_id)
+                ):
+                    review_findings.append(
+                        f"{label}: anchor disposition row {line} covers a broad range; confirm topic-level detail is recorded."
+                    )
+            if status == "pass" and real_rows == 0:
+                failures.append(f"{label}: pass compare report needs at least one non-placeholder Anchor Disposition row.")
+        wiki_coverage = find_table(
+            tables,
+            ["wiki_page", "page_type", "declared_source_scope", "actual_source_refs", "coverage_gaps", "disposition", "status_impact"],
+        )
+        if wiki_coverage is None:
+            failures.append(f"{label}: missing Wiki Page Coverage table.")
+        else:
+            real_rows = 0
+            for row in wiki_coverage["rows"]:
+                wiki_page = get_cell(row, "wiki_page")
+                source_refs = get_cell(row, "actual_source_refs")
+                disposition = normalize_enum(get_cell(row, "disposition"))
+                impact = normalize_enum(get_cell(row, "status_impact"))
+                line = get_cell(row, "line_number")
+                if placeholder_value(wiki_page):
+                    review_findings.append(f"{label}: wiki page coverage row {line} still looks like a placeholder.")
+                    continue
+                real_rows += 1
+                if disposition not in valid_wiki_page_dispositions:
+                    failures.append(f"{label}: wiki page coverage row {line} has invalid disposition '{disposition}'.")
+                if impact not in valid_status_impacts:
+                    failures.append(f"{label}: wiki page coverage row {line} has invalid status_impact '{impact}'.")
+                if disposition == "covered" and not source_ref_list(source_refs):
+                    failures.append(f"{label}: covered wiki page row {line} needs actual_source_refs.")
+                if status == "pass" and disposition in {"weak", "review", "blocked"}:
+                    failures.append(f"{label}: report status pass conflicts with wiki page coverage disposition '{disposition}' on row {line}.")
+                if status == "pass" and impact in {"needs-review", "fail"}:
+                    failures.append(f"{label}: report status pass conflicts with wiki page status_impact '{impact}' on row {line}.")
+            if status == "pass" and real_rows == 0:
+                failures.append(f"{label}: pass compare report needs at least one non-placeholder Wiki Page Coverage row.")
 
     def check_claim(label: str, content: str, tables: list[dict[str, Any]]) -> None:
         require_sections(label, content, ["Evidence Map", "Claim Map", "Review Handoff", "Result"], failures)

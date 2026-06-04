@@ -28,6 +28,7 @@ Detailed rules are loaded only when needed:
 - round plan and fixed scope
 - source inventory and source packets in scope
 - wiki construction analysis when wiki pages changed
+- source outline or coverage plan for document/PPT wiki rounds
 - changed or inspected wiki pages
 - `wiki/overview.md`, `wiki/index.md`, and `wiki/log.md`
 - claim/evidence records when important claims are in scope
@@ -42,7 +43,10 @@ pass.
 1. Run available validators for the touched artifact family.
 2. Write or inspect a compare report. It should answer:
    - what was in scope
+   - whether the round was `full-round`, `selective`, or `overview-only`
    - which source packets and anchors were checked
+   - whether core source units are covered at the right detail level, weak,
+     deferred, omitted, or routed to review
    - which wiki pages changed or were inspected
    - whether important claims have source, evidence, accepted review, or review
      routing
@@ -59,14 +63,16 @@ pass.
 5. Write or inspect the validation note.
 6. Decide closure:
    - `close-pass`: compare is `pass`, validation exists, no blocking review
-     remains, generated evidence is marked or reviewed, navigation/log state is
-     acceptable
+     remains, knowledge coverage is pass, generated evidence is marked or
+     reviewed, navigation/log state is acceptable
    - `close-with-review`: compare is `needs-review`, artifacts are structurally
      reviewable, and carried-forward review has reason, next action, target
-     round or condition, and blocking level
+     round or condition, and blocking level. This can carry nonblocking
+     modality review or explicit overview/selective deferrals, but not a
+     full-round core coverage hole.
    - `do-not-close`: compare is `fail`, required artifacts are missing,
-     blocking review remains, or index/overview/log/claim/source coverage is
-     materially stale
+     blocking review remains, full-round core knowledge coverage is weak or
+     missing, or index/overview/log/claim/source coverage is materially stale
 7. Update workspace logs and commit only accepted `close-pass` or explicitly
    allowed `close-with-review` state.
 
@@ -99,6 +105,9 @@ Minimum manual checks:
 - accepted wiki changes remain discoverable from index/log/overview state
 - important claims have source anchors, evidence, accepted review, or review
   routing
+- core document/PPT source units have anchor disposition or explicit
+  overview/selective deferral
+- knowledge coverage review is separate from modality review
 - generated evidence is visible and not treated as source-derived truth by
   default
 - unresolved review is carried forward with reason and next action

@@ -1278,3 +1278,21 @@
 - Commit: completed on `main` as
   `b762b2e Refresh README and archive old concept note`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Harden wiki coverage gate
+
+- Target: make document/PPT wiki construction closure coverage-aware after the
+  ADCtoolbox ch3 dry run exposed overly shallow but structurally valid
+  distillation.
+- Changed areas: updated the wiki-round and quality-gate runtime skills,
+  `rules/wiki/source-wiki-coverage-protocol.md`, report templates, the
+  `report-check` checker, and Phase 6 report-check fixtures.
+- Design review: skills remain the runtime entrypoint and rules remain the
+  detailed semantic reference. The new check is mechanical: compare reports
+  must expose source coverage, anchor disposition, and wiki page coverage; it
+  still does not pretend to judge semantic truth or generate wiki prose.
+- Validation: `git diff --check`, `py_compile`, `validate-kernel`,
+  `fixture-runner`, and `workspace-check --mode fixtures` passed. The ignored
+  ADCtoolbox ch2-ch4 workspace now fails at report-check because the old
+  compare report lacks the required coverage tables.
+- Commit: pending.

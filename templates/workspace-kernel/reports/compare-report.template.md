@@ -6,6 +6,7 @@
 - Date:
 - Compare report id:
 - Status: `pass`, `needs-review`, or `fail`
+- Distillation depth: `full-round`, `selective`, or `overview-only`
 - Scope statement:
 - Source packets in scope:
 - Source range in scope:
@@ -17,6 +18,8 @@
 - Decision:
 - Blocking findings:
 - Needs human review:
+- Knowledge coverage status:
+- Modality review status:
 - Carried forward:
 - Closure handoff:
 - Next action:
@@ -78,7 +81,7 @@ Disposition values:
 - `blocked`: cannot be judged because required input, extraction, anchor, or
   context is missing.
 
-## Source Packet And Anchor Coverage
+## Anchor Disposition
 
 Use `<source_id>#<anchor_id>` references.
 
@@ -89,6 +92,9 @@ Use `<source_id>#<anchor_id>` references.
 For large PPT or document sources, decorative or repeated anchors may be
 grouped. Core chart, table, formula, diagram, or claim-bearing anchors should
 not be hidden inside a group without a reason.
+
+For `full-round` document/PPT distillation, core material that is only covered
+by a broad range summary should be marked `weak` or `review`, not `covered`.
 
 ## Wiki Page Coverage
 
@@ -190,6 +196,8 @@ review needs a reason and next action before the round may advance.
 
 - Suggested closure decision: `close-pass`, `close-with-review`, or `do-not-close`
 - Validation note:
+- Knowledge coverage supports closure: yes/no
+- Modality review supports closure: yes/no
 - Index update or no-change reason:
 - Overview update or no-change reason:
 - Wiki log entry:

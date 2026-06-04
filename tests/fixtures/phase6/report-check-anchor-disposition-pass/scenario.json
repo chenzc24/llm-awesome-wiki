@@ -1,0 +1,7 @@
+{
+  "name": "report-check-anchor-disposition-pass",
+  "description": "report-check should pass a compare report with explicit source, anchor, and wiki page coverage.",
+  "tool": "report-check",
+  "expected_exit_code": 0,
+  "expected_status": "pass"
+}

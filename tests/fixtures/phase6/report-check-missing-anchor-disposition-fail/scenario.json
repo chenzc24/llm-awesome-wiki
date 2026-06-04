@@ -1,0 +1,7 @@
+{
+  "name": "report-check-missing-anchor-disposition-fail",
+  "description": "report-check should fail a pass compare report that omits anchor disposition.",
+  "tool": "report-check",
+  "expected_exit_code": 1,
+  "expected_status": "fail"
+}
