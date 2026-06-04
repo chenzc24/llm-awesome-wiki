@@ -1233,4 +1233,6 @@
   progressive-disclosure language in skills and rules; `rules/workflow`
   references are limited to migration review/historical wording, and the local
   `rules/workflow` directory is absent.
-- Commit: pending.
+- Commit: completed on `main` as
+  `eef4fc6 Consolidate workflow runtime into skills`; finalized by the
+  follow-up maintenance-status commit.

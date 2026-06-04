@@ -1121,4 +1121,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   `close-pass`, and detailed rule references; `rules/workflow` references are
   limited to the migration review and historical wording, and the local
   `rules/workflow` directory is absent.
-- Commit: pending.
+- Commit: completed on `main` as
+  `eef4fc6 Consolidate workflow runtime into skills`; finalized by the
+  follow-up maintenance-status commit.
