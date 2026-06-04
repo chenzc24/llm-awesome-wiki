@@ -525,4 +525,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 4 Closure, Person A Handoff, complete from the Person B
   workflow-surface side, wiki construction, overview, index, log, frontmatter,
   broken link, and Phase 5 language.
-- Commit: pending.
+- Commit: completed on `main` as `460f014 Close phase four wiki construction
+  workflow`; finalized by the follow-up maintenance-status commit.

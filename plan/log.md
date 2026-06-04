@@ -753,4 +753,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 4 closure and Phase 5 boundary language.
-- Commit: pending.
+- Commit: completed on `main` as `460f014 Close phase four wiki construction
+  workflow`; finalized by the follow-up maintenance-status commit.
