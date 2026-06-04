@@ -509,4 +509,5 @@
   handoff, and review routing language; `git submodule status` confirmed
   `MinerU/` and `llm_wiki/` remained pinned; `git status --short --branch`
   showed only the intended Person B Phase 2.2 files.
-- Commit: planned for `main` as `Define source packet protocol`.
+- Commit: completed on `main` as `a7d89dc Define source packet protocol`;
+  finalized by the follow-up maintenance-status commit.
