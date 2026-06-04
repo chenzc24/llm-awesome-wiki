@@ -1295,4 +1295,5 @@
   `fixture-runner`, and `workspace-check --mode fixtures` passed. The ignored
   ADCtoolbox ch2-ch4 workspace now fails at report-check because the old
   compare report lacks the required coverage tables.
-- Commit: pending.
+- Commit: completed on `main` as `c811361 Harden wiki coverage gate`;
+  finalized by the follow-up maintenance-status commit.

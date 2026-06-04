@@ -1196,4 +1196,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   ignored ADCtoolbox ch2-ch4 workspace now fails `workspace-check --mode all`
   at `report-check` because its old compare report lacks `Source Coverage`,
   `Anchor Disposition`, and `Wiki Page Coverage`.
-- Commit: pending.
+- Commit: completed on `main` as `c811361 Harden wiki coverage gate`;
+  finalized by the follow-up maintenance-status commit.
