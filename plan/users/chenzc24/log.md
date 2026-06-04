@@ -164,4 +164,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   targeted `rg` confirmed the cross-phase alignment and artifact economy
   language; `git submodule status` confirmed both reference submodules stayed
   pinned.
-- Commit: pending.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `d8684ff Add
+  artifact economy and raw-wiki alignment design`.

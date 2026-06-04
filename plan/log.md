@@ -432,4 +432,5 @@
   truth language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
   remained pinned; `git status --short --branch` showed only the intended
   design and maintenance files.
-- Commit: pending `Add artifact economy and raw-wiki alignment design`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `d8684ff Add
+  artifact economy and raw-wiki alignment design`.
