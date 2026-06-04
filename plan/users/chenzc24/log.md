@@ -791,7 +791,9 @@ Repository-wide merged or integration-level maintenance history belongs in
   validation; generated smoke reports were removed; targeted `rg` confirmed
   closure, checker-first, no-extractor-harness, no-semantic-review,
   system-repo, fixture-runner, and Phase 7 boundary language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `12baac7 Close phase six validation tooling`; finalized by the follow-up
+  maintenance-status commit.
 
 ## 2026-06-04 - Add phase six wiki lint checker
 

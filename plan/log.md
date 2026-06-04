@@ -1036,4 +1036,6 @@
   `fixture-runner`, and `workspace-check -Mode fixtures` passed; generated
   smoke reports were removed; targeted `rg` confirmed closure and Phase 7
   boundary language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `12baac7 Close phase six validation tooling`; finalized by the follow-up
+  maintenance-status commit.
