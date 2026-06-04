@@ -1254,7 +1254,9 @@
 - Validation: `workspace-check --mode all` passed for the generated workspace;
   schema, source inventory, source packet, wiki lint, report, closure, and
   fixture checks passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `1883a3f Record ADCtoolbox ch2-ch4 distillation test`; finalized by the
+  follow-up maintenance-status commit.
 
 ## 2026-06-04 - Refresh README and archive old concept note
 

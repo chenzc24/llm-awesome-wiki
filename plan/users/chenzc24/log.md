@@ -1147,7 +1147,9 @@ Repository-wide merged or integration-level maintenance history belongs in
   workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/.checks/workspace-check-all.md`
   passed. Schema, source inventory, source packet, wiki lint, report, closure,
   and fixture checks passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `1883a3f Record ADCtoolbox ch2-ch4 distillation test`; finalized by the
+  follow-up maintenance-status commit.
 
 ## 2026-06-04 - Refresh README and archive old concept note
 
