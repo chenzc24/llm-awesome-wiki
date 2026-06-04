@@ -38,6 +38,9 @@ required dependency.
   advancing a distillation round.
 - `source-wiki-coverage-protocol.md`: record source packet, anchor, wiki page,
   omission, deferral, and scope-exclusion coverage in compare reports.
+- `claim-modality-contradiction-review-protocol.md`: record claim support,
+  generated evidence, modality state, unsupported statements, and
+  contradictions in compare reports.
 - `distillation-rounds.md`: run wiki construction in small reviewable rounds.
 - `maintenance-workflow.md`: keep workspace plans, logs, commits, and reports
   disciplined, including per-user plan namespaces and personal logs for

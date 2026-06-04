@@ -51,6 +51,13 @@ If a compare report exists, link it here and summarize its final status.
 - Chapters missing:
 - Important claims supported:
 - Important claims routed to review:
+- Important claims weak:
+- Important claims unsupported:
+- Important claims contested:
+- Generated-derived claims:
+- Reviewed-generated claims:
+- Modality issues:
+- Contradictions:
 
 ## Page Decisions
 
@@ -74,6 +81,8 @@ If a compare report exists, link it here and summarize its final status.
 - Extraction gaps:
 - Unsupported or weak claims:
 - Generated-evidence claims:
+- Modality review:
+- Contradiction review:
 - Human decisions:
 - Carried forward:
 - Carried-forward reason and next action:

@@ -54,3 +54,6 @@ Rules:
 - `phase-5.2-source-wiki-coverage-omission-protocol.md`: Phase 5.2
   source/wiki coverage, anchor disposition, omission, and scope-exclusion
   protocol.
+- `phase-5.3-claim-modality-contradiction-review-protocol.md`: Phase 5.3
+  claim support, generated evidence, modality, unsupported statement, and
+  contradiction review protocol.

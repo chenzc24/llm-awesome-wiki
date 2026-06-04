@@ -15,9 +15,15 @@
 
 ## Generated Evidence Review
 
-| review_item_id | generated_field | source_ref | current_claim | decision_needed | status |
-| --- | --- | --- | --- | --- | --- |
-| rv-002 | ocr_text | source-id#anchor-id | Replace this row. | Confirm OCR text. | open |
+| review_item_id | generated_field | modality | source_ref | current_claim | decision_needed | status |
+| --- | --- | --- | --- | --- | --- | --- |
+| rv-002 | ocr_text/chart_summary/image_caption/table_repair/formula_recognition | text/chart/image/table/formula | source-id#anchor-id | Replace this row. | Confirm generated evidence. | open |
+
+## Contradiction Review
+
+| review_item_id | conflict_type | side_a | side_b | source_refs | decision_needed | status |
+| --- | --- | --- | --- | --- | --- | --- |
+| rv-004 | source-vs-source/source-vs-wiki/claim-vs-claim/wiki-vs-wiki/generated-vs-source/old-review-vs-new-source |  |  | source-id#anchor-id | Replace this row. | open |
 
 ## Resolved This Round
 

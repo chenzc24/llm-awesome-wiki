@@ -95,15 +95,23 @@ not be hidden inside a group without a reason.
 
 ## Claim Coverage
 
-| claim_id | claim summary | evidence_refs | wiki_target | status | notes |
-| --- | --- | --- | --- | --- | --- |
-| cl-001 | Replace this row. | source-id#anchor-id or ev-001 | wiki/chapters/replace-me.md | supported/unsupported/contested/needs-review |  |
+Focus on important claims, not every sentence.
+
+| claim_id | claim_summary | claim_type | evidence_refs | wiki_target | support_status | generated_state | review_item_id | status_impact | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| cl-001 | Replace this row. | definition/design-rule/formula/comparison | source-id#anchor-id or ev-001 | wiki/chapters/replace-me.md | supported/weak/unsupported/contested/generated-derived/reviewed-generated/needs-review/not-in-scope | source-derived/extracted-with-tool/generated/reviewed-generated/unsupported-or-unknown |  | pass/needs-review/fail/none |  |
+
+Do not mark a claim `supported` only because the wiki prose is clean. Evidence
+must support the actual claim wording.
 
 ## Modality Coverage
 
-| source_ref | modality | extraction state | wiki or report handling | generated | review_required | notes |
-| --- | --- | --- | --- | --- | --- | --- |
-| source-id#anchor-id | text/chart/table/image/formula | extracted/generated/skipped/failed | wiki/report/review/deferred | yes/no | yes/no |  |
+| source_ref | modality | modality_state | generated_field | wiki_or_report_handling | related_claims | review_required | status_impact | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| source-id#anchor-id | text/ocr_text/chart/table/image/diagram/formula/code/layout | source-derived/extracted-with-tool/generated/reviewed-generated/skipped/failed/unsupported-or-unknown | chart_summary/image_caption/table_repair/formula_recognition | wiki/report/review/deferred | cl-001 | yes/no | pass/needs-review/fail/none |  |
+
+Generated or model-assisted modality output that supports an important claim
+usually needs review unless an accepted review decision exists.
 
 ## Link, Index, Overview, And Log Checks
 
@@ -133,9 +141,20 @@ Unsafe omissions:
 
 ## Contradictions And Unsupported Statements
 
-| item_id | claim_or_page | source_refs | issue | status | next_action |
-| --- | --- | --- | --- | --- | --- |
-| cmp-001 | cl-001 or wiki page path | source-id#anchor-id | contradiction/unsupported/uncertain | needs-review/fail |  |
+### Unsupported Statements
+
+| item_id | statement_ref | statement_summary | source_refs_checked | support_gap | proposed_action | status_impact |
+| --- | --- | --- | --- | --- | --- | --- |
+| cmp-001 | cl-001 or wiki/chapters/replace-me.md#heading | Replace this row. | source-id#anchor-id | missing/partial/generated-only/stale/contradictory | revise/remove/narrow/review/defer/add-evidence | needs-review/fail/none |
+
+### Contradictions
+
+| issue_id | conflict_type | side_a | side_b | source_refs | wiki_impact | decision_needed | status_impact | next_action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| ctr-001 | source-vs-source/source-vs-wiki/claim-vs-claim/wiki-vs-wiki/generated-vs-source/old-review-vs-new-source |  |  | source-id#anchor-id | wiki/chapters/replace-me.md | Replace this row. | needs-review/fail/none |  |
+
+Do not resolve contradictions by model preference. Use an accepted source
+priority rule or route to review.
 
 ## Review Items
 

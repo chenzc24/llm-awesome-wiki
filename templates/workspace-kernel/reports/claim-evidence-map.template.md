@@ -38,12 +38,22 @@ records.
 - Generated fields involved:
 - Review decisions accepted:
 - Generated-derived claims still open:
+- Reviewed-generated claims:
+- Claims needing modality review:
+
+## Unsupported And Contradicted Claims
+
+| claim_id | issue | source_refs | review_item_id | next_action |
+| --- | --- | --- | --- | --- |
+| cl-001 | unsupported/contested/weak/generated-derived | source-id#anchor-id | rv-001 | review/narrow/add-evidence |
 
 ## Review Handoff
 
 - Unsupported claims:
 - Contested claims:
 - Claims needing human judgment:
+- Claims needing modality interpretation:
+- Contradictions:
 - Review queue path:
 
 ## Result

@@ -578,3 +578,27 @@ Repository-wide merged or integration-level maintenance history belongs in
   not copying, report sprawl, and source-wiki-coverage-protocol language.
 - Commit: completed on `main` as `c7f6070 Define phase five source wiki
   coverage protocol`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five claim modality review protocol
+
+- Target: continue Person B Phase 5.3 by defining claim support, generated
+  evidence, modality coverage, unsupported statement, contradiction, and
+  semantic review semantics for compare reports.
+- Changed areas: added
+  `docs/phase-plans/phase-5.3-claim-modality-contradiction-review-protocol.md`
+  and `rules/claim-modality-contradiction-review-protocol.md`; updated the
+  main Phase 5 plan, phase-plan and rule indexes, `rules/compare-gate-contract.md`,
+  workspace compare report template, claim/evidence map template, review queue
+  template, first-round validation note template, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-3-claim-modality-contradiction-review/`.
+- Design review: Phase 5.3 keeps compare gates from accepting clean prose as
+  proof. Important claims now need support, review, or not-in-scope status;
+  generated evidence and modality interpretations remain visible; unsupported
+  statements and contradictions become compare findings rather than silent wiki
+  edits.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5.3, Claim Modality Contradiction, claim support, generated evidence,
+  modality coverage, unsupported statement, contradiction, source-derived,
+  reviewed-generated, semantic review, and not-a-claim-audit-tool language.
+- Commit: pending.

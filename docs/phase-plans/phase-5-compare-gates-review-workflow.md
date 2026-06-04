@@ -129,7 +129,9 @@ Phase 5.1 does not implement:
 - wiki page rewrites
 - downstream `skill + tool` artifacts
 
-## Phase 5.2 Active Scope
+## Phase 5.2 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 5.2 defines source/wiki coverage and omission semantics.
 
@@ -151,6 +153,35 @@ Phase 5.2 does not implement:
 - contradiction analysis
 - review queue workflow details
 - compare CLI tooling
+- schema or validator changes
+- fixtures
+- wiki page rewrites
+- downstream `skill + tool` artifacts
+
+## Phase 5.3 Active Scope
+
+Phase 5.3 defines claim, modality, contradiction, and unsupported statement
+semantics.
+
+It owns:
+
+- claim support status in compare reports
+- generated evidence handling in compare reports
+- modality coverage review language
+- unsupported statement recording
+- contradiction recording
+- semantic review routing fields needed by compare reports
+- validation-note summary expectations for claim/modality/contradiction findings
+
+Phase 5.3 does not implement:
+
+- claim extraction workflow redesign
+- review queue workflow closure
+- carried-forward review lifecycle details
+- source/wiki coverage semantics from Phase 5.2
+- link or frontmatter lint
+- claim-audit CLI implementation
+- compare CLI implementation
 - schema or validator changes
 - fixtures
 - wiki page rewrites
@@ -188,6 +219,16 @@ Potential Person A validation needs:
 - anchor disposition table validation
 - wiki page coverage table validation
 - claim coverage table validation
+- claim support status enum: `supported`, `weak`, `unsupported`, `contested`,
+  `generated-derived`, `reviewed-generated`, `needs-review`, `not-in-scope`
+- generated evidence state enum: `source-derived`, `extracted-with-tool`,
+  `generated`, `reviewed-generated`, `unsupported-or-unknown`
+- modality state enum: `source-derived`, `extracted-with-tool`, `generated`,
+  `reviewed-generated`, `skipped`, `failed`, `unsupported-or-unknown`
+- contradiction type enum: `source-vs-source`, `source-vs-wiki`,
+  `claim-vs-claim`, `wiki-vs-wiki`, `generated-vs-source`,
+  `old-review-vs-new-source`
+- unsupported statement table validation
 - modality coverage table validation
 - review item linkage and carried-forward requirements
 - link and index report validation
@@ -198,6 +239,9 @@ Potential Person A validation needs:
 - fixture for omitted important chart without reason
 - fixture for unsupported wiki claim
 - fixture for generated chart summary routed to review
+- fixture for reviewed-generated chart claim
+- fixture for source-vs-source contradiction
+- fixture for wiki claim narrowed after weak evidence
 - fixture for stale index link
 
 ## Non-Goals
@@ -239,11 +283,26 @@ Phase 5.2 is complete when:
 - validation note template summarizes coverage and omission findings
 - Person A handoff lists coverage/disposition schema and fixture needs
 
+## Phase 5.3 Completion Criteria
+
+Phase 5.3 is complete when:
+
+- the Phase 5.3 phase plan exists
+- claim/modality/contradiction review rule exists
+- compare gate rule includes claim support, generated evidence, modality, and
+  contradiction semantics
+- compare report template records claim support, modality review, unsupported
+  statement, and contradiction findings
+- claim/evidence map and review queue templates can carry generated evidence
+  and contradiction review handoff
+- validation note template summarizes claim/modality/contradiction findings
+- Phase 5 main plan identifies Phase 5.4 as the next review queue lifecycle
+  target
+
 ## Next Subphase
 
-After Phase 5.2, the next useful target is Phase 5.3: claim, modality, and
-contradiction review protocol.
+After Phase 5.3, the next useful target is Phase 5.4: review queue workflow and
+carried-forward semantics.
 
-Phase 5.3 should define how a compare report records important claim support,
-generated evidence, modality coverage, contradictions, unsupported statements,
-and semantic review routing without requiring full compare CLI implementation.
+Phase 5.4 should define how review items open, resolve, remain blocking, become
+nonblocking carried-forward work, and re-enter later compare rounds.

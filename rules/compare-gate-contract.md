@@ -169,6 +169,10 @@ the workspace explicitly needs them.
 For detailed source/wiki coverage semantics, follow
 `source-wiki-coverage-protocol.md`.
 
+For claim, generated evidence, modality, unsupported statement, and
+contradiction review semantics, follow
+`claim-modality-contradiction-review-protocol.md`.
+
 ## Disposition Values
 
 Use these source/wiki coverage dispositions:
@@ -227,6 +231,63 @@ Carried-forward review items must include:
 Do not silently clear review items.
 
 Do not convert unresolved semantic judgment into `pass`.
+
+## Claim And Modality Rules
+
+Important claims in scope must have support, review routing, or explicit
+not-in-scope status.
+
+Use these claim support statuses:
+
+| status | meaning |
+| --- | --- |
+| `supported` | cited evidence supports the actual claim wording |
+| `weak` | evidence partially supports the claim or wording is too broad |
+| `unsupported` | no cited evidence supports the claim |
+| `contested` | sources, claims, or wiki sections disagree |
+| `generated-derived` | claim depends on generated or model-assisted evidence |
+| `reviewed-generated` | generated evidence was explicitly reviewed and accepted |
+| `needs-review` | human judgment is required before acceptance |
+| `not-in-scope` | outside this compare round |
+
+Use these modality states:
+
+| modality_state | meaning |
+| --- | --- |
+| `source-derived` | source-visible content is represented directly |
+| `extracted-with-tool` | deterministic or named extraction produced the content |
+| `generated` | model-assisted interpretation produced the content |
+| `reviewed-generated` | generated content was reviewed and accepted |
+| `skipped` | modality was intentionally skipped with reason |
+| `failed` | extraction or interpretation failed visibly |
+| `unsupported-or-unknown` | state is unclear or untrusted |
+
+Generated-derived important claims require review routing or accepted review.
+Do not treat generated chart summaries, OCR cleanup, table repairs, formula
+recognition, or image captions as source-derived truth.
+
+## Unsupported And Contradiction Rules
+
+Unsupported statements and contradictions are compare findings, not silent edit
+instructions.
+
+Record unsupported statements when important wiki or claim-map statements lack
+adequate support.
+
+Record contradictions when accepted source anchors, claim records, wiki
+sections, or review decisions cannot all remain true as written.
+
+Contradiction types include:
+
+- `source-vs-source`
+- `source-vs-wiki`
+- `claim-vs-claim`
+- `wiki-vs-wiki`
+- `generated-vs-source`
+- `old-review-vs-new-source`
+
+Do not choose a winner by model preference. Use an accepted source priority
+rule or route to review.
 
 ## Anti-Self-Evaluation Rule
 
