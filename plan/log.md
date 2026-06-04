@@ -1073,4 +1073,6 @@
 - Validation: `git diff --check` passed with only Windows line-ending
   warnings; `python -m llm_wiki_tools validate-kernel` passed; targeted `rg`
   confirmed closure review handoff and boundary language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `c27ee85 Add person B workflow closure review`; finalized by the follow-up
+  maintenance-status commit.

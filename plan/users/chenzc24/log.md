@@ -837,7 +837,9 @@ Repository-wide merged or integration-level maintenance history belongs in
   confirmed source packet profile, wiki construction, Person A handoff,
   extractor-harness, wiki-generator, fixture, validator-hardening, and Person B
   workflow-surface language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `c27ee85 Add person B workflow closure review`; finalized by the follow-up
+  maintenance-status commit.
 
 ## 2026-06-04 - Add phase six wiki lint checker
 
