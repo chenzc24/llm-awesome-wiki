@@ -40,16 +40,21 @@ later rounds can be deliberately scoped.
 2. Plan the round from the staged distillation plan.
 3. Confirm workspace Git status.
 4. Select source packets or wiki areas to process.
-5. Run analysis before generation.
-6. Select evidence and claim candidates when the round contains important
+5. Read `purpose.md`, `schema.md`, `wiki/overview.md`, `wiki/index.md`, and
+   existing relevant wiki pages.
+6. Apply page routing before writing page prose.
+7. Write wiki construction analysis for wiki-facing work.
+8. Select evidence and claim candidates when the round contains important
    sourced knowledge.
-7. Route unsupported, generated-derived, contested, or judgment-heavy claims to
+9. Route unsupported, generated-derived, contested, or judgment-heavy claims to
    review.
-8. Write or update wiki pages from accepted source/chapter knowledge.
-9. Update `wiki/index.md` and `wiki/log.md`.
-10. Run lint and compare checks available for the workspace.
-11. Record review items.
-12. Commit the accepted result.
+10. Create, update, merge, leave unchanged, or defer wiki pages according to
+    the construction analysis.
+11. Update `wiki/index.md` and `wiki/log.md`.
+12. Run lint and compare checks available for the workspace, or record that
+    they are not enabled.
+13. Record review items and validation notes.
+14. Commit the accepted result.
 
 ## Round Plan
 
@@ -59,7 +64,11 @@ The plan should state:
 - fixed input set
 - relationship to the overview and staged distillation plan
 - expected pages, reports, and records
+- expected routing decisions and construction analysis report
+- expected create, update, merge, leave-unchanged, report-only, or needs-review
+  page decisions
 - expected evidence/claim map updates when important claims are in scope
+- expected index and wiki log updates
 - validation commands or manual checks
 - commit intent
 
@@ -88,10 +97,39 @@ for incremental work.
   tiny and the plan says so.
 - Do not begin detailed page generation for a new source set until an overview,
   skeleton index, and staged plan exist.
+- Do not write final wiki prose before page routing and construction analysis.
 - Do not mix raw conversion, wiki distillation, compare gates, and downstream
   code generation into the same round.
 - Do not use a clean-looking generated page as evidence that source coverage is
   sufficient.
+
+## Wiki Construction Round Protocol
+
+A wiki construction round is a specific kind of distillation round.
+
+Required inputs:
+
+- fixed source packet set
+- claim/evidence maps when important claims are in scope
+- review queue or review reports when unresolved judgment exists
+- current `wiki/overview.md`
+- current `wiki/index.md`
+- existing source and chapter pages in the target area
+
+Required outputs:
+
+- wiki construction analysis
+- source or chapter page creates, updates, merges, or deferrals
+- `wiki/index.md` update when accepted pages change
+- `wiki/log.md` entry
+- validation note
+- review queue updates when judgment remains unresolved
+
+The construction analysis should record whether each target is `create`,
+`update`, `merge`, `leave-unchanged`, `report-only`, or `needs-review`.
+
+If a compare gate or wiki-lint tool is not enabled, record that explicitly in
+the validation note. Do not convert a missing gate into a pass.
 
 ## Round Log
 
@@ -100,6 +138,8 @@ Each round should leave a short log entry with:
 - date
 - target
 - source packets, deck notes, chapter pages, or optional research pages touched
+- construction analysis path when wiki pages are created or updated
+- page decisions: created, updated, merged, deferred, or left unchanged
 - evidence and claim map updates when used
 - overview or staged-plan changes
 - reports produced
@@ -112,6 +152,7 @@ Each round should leave a short log entry with:
 Each round should leave at least one report or explicit validation note:
 
 - source inventory or packet status for raw-facing work
+- construction analysis status for wiki-facing work
 - claim/evidence map status when important source-backed claims are created or
   updated
 - lint or index status for wiki-facing work
@@ -122,6 +163,10 @@ Each round should leave at least one report or explicit validation note:
 
 A round is complete when all intended files are updated, validation is recorded,
 review items are visible, and the accepted diff is committed.
+
+For wiki construction rounds, completion also requires construction analysis,
+index/log updates for accepted page changes, and a validation note that records
+page decisions and review carry-forward.
 
 For rounds that create or update important claims, completion also requires
 evidence references or review routing. A clean-looking wiki page is not proof

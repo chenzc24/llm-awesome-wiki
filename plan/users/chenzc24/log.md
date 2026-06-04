@@ -451,3 +451,30 @@ Repository-wide merged or integration-level maintenance history belongs in
   `llm_wiki/` remained pinned.
 - Commit: completed on `main` as `dd490d4 Harden phase four source chapter
   templates`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase four wiki construction round protocol
+
+- Target: execute Person B Phase 4.3 by defining the repeatable wiki
+  construction round protocol for fixed inputs, routing, construction analysis,
+  page create/update/merge decisions, index/log updates, validation notes, and
+  review carry-forward.
+- Changed areas: added
+  `docs/phase-plans/phase-4.3-wiki-construction-round-protocol.md`; updated
+  `docs/phase-plans/phase-4-wiki-construction-engine.md`,
+  `docs/phase-plans/README.md`, `rules/distillation-rounds.md`,
+  `rules/source-packet-to-wiki.md`, workspace README and AGENTS guidance,
+  first-round plan and validation note templates, wiki construction analysis
+  template, and `wiki/log.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-4-3-wiki-construction-round-protocol/`.
+- Design review: Phase 4.3 keeps wiki construction incremental and auditable:
+  rounds must fix inputs, route pages, write construction analysis before
+  generation, update index/log for accepted page changes, and carry unresolved
+  review forward without treating a missing compare gate as pass.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4.3, wiki construction round, fixed input set, routing decision,
+  construction analysis, create/update/merge, index/log, validation note,
+  review carry-forward, carried forward, and `compare gate not enabled`
+  language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
+  remained pinned.
+- Commit: pending.

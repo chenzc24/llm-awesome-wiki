@@ -76,7 +76,9 @@ It answers:
 Phase 4.1 intentionally stops before full source/chapter template hardening.
 That belongs to Phase 4.2.
 
-## Phase 4.2 Active Scope
+## Phase 4.2 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 4.2 hardens source and chapter page templates.
 
@@ -91,6 +93,23 @@ It answers:
 
 Phase 4.2 still does not implement a generator, validator, test fixture, or
 wiki-lint command.
+
+## Phase 4.3 Active Scope
+
+Phase 4.3 defines the wiki construction round protocol.
+
+It answers:
+
+- how does a round choose a fixed input set?
+- when must construction analysis be written?
+- how are create, update, merge, leave-unchanged, report-only, and
+  needs-review decisions recorded?
+- when must `wiki/index.md` and `wiki/log.md` change?
+- what must a validation note record?
+- how does unresolved review carry forward?
+
+Phase 4.3 still does not implement a generator, validator, compare gate,
+fixture, or wiki-lint command.
 
 ## Required Construction Flow
 
@@ -120,7 +139,8 @@ Do not skip directly from source packet to final page prose.
 
 ## Person A Handoff
 
-Person B should not edit `contracts/schemas/**` in Phase 4.1.
+Person B should not edit `contracts/schemas/**` during Phase 4 workflow-surface
+work unless a later target explicitly assigns that responsibility.
 
 Potential Person A validation needs:
 
@@ -134,7 +154,7 @@ Potential Person A validation needs:
 
 ## Non-Goals
 
-Phase 4.1 does not:
+Current Phase 4 workflow-surface targets do not:
 
 - generate wiki pages from real source packets
 - harden all page templates
@@ -144,7 +164,7 @@ Phase 4.1 does not:
 - make Obsidian required
 - start downstream executable `skill + tool` work
 
-## Completion Criteria
+## Phase 4.1 Completion Criteria
 
 Phase 4.1 is complete when:
 
@@ -156,11 +176,33 @@ Phase 4.1 is complete when:
   claim/evidence-map duplication
 - logs record validation and commit status
 
+## Phase 4.2 Completion Criteria
+
+Phase 4.2 is complete when:
+
+- source page template is clear, short, and anti-duplication oriented
+- chapter page template is source-backed and readable
+- construction analysis template exists before page generation
+- report and schema guidance mention wiki construction analysis
+- rules point agents to construction analysis after routing
+- Phase 4.1 routing boundaries remain intact
+
+## Phase 4.3 Completion Criteria
+
+Phase 4.3 is complete when:
+
+- wiki construction round protocol is documented
+- `distillation-rounds.md` describes construction analysis and page
+  create/update/merge decisions
+- first-round plan and validation note templates require construction analysis
+- workspace README, AGENTS, and wiki log guidance reflect the round rhythm
+- compare status remains explicit when compare gates are not enabled
+
 ## Next Subphase
 
-After Phase 4.2, the next useful target is Phase 4.3: wiki construction round
-protocol.
+After Phase 4.3, the next useful target is Phase 4.4: overview, index, and log
+maintenance.
 
-Phase 4.3 should define the round rhythm for selecting packets, reading
-claim/evidence context, writing construction analysis, creating or merging
-pages, updating index/log, and recording validation.
+Phase 4.4 should focus on long-term maintenance rules for overview refresh,
+index integrity, log entries, and how wiki construction rounds leave the
+workspace navigable.

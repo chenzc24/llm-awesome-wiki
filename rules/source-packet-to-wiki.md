@@ -6,6 +6,7 @@ wiki is a maintained synthesis layer; it must remain traceable to source
 packets and evidence records.
 
 Before writing page prose, apply `wiki-page-routing.md`.
+For round-level sequencing, also follow `distillation-rounds.md`.
 
 ## Routing And Two-Stage Flow
 
@@ -118,6 +119,9 @@ and avoid adding audit fields that already belong in source packets or reports.
 
 The next step is a compare gate: source coverage, claim coverage, index health,
 broken links, contradictions, omissions, and review queue status.
+
+If the compare gate is not enabled, the validation note should say
+`compare gate not enabled`. Do not record that as `pass`.
 
 ## Acceptance Criteria
 

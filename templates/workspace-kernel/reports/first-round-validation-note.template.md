@@ -12,7 +12,10 @@
 - Source inventory reviewed:
 - Source packets reviewed:
 - Claim/evidence map reviewed:
+- Wiki construction analysis reviewed:
 - Generated evidence marked:
+- Page routing decisions recorded:
+- Page create/update/merge decisions recorded:
 - Wiki index links checked:
 - Overview updated:
 - Wiki log updated:
@@ -34,12 +37,22 @@ been run. Do not convert it into `pass`.
 - Important claims supported:
 - Important claims routed to review:
 
+## Page Decisions
+
+- Created:
+- Updated:
+- Merged:
+- Deferred:
+- Left unchanged:
+- Report-only:
+
 ## Review Items
 
 - Extraction gaps:
 - Unsupported or weak claims:
 - Generated-evidence claims:
 - Human decisions:
+- Carried forward:
 
 ## Result
 

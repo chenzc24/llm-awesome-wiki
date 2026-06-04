@@ -701,3 +701,20 @@
   submodule status` confirmed reference submodules remained pinned.
 - Commit: completed on `main` as `dd490d4 Harden phase four source chapter
   templates`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase four wiki construction round protocol
+
+- Target: continue Phase 4.3 from the Person B workflow-surface side by
+  defining a repeatable wiki construction round protocol.
+- Changed areas: added the Phase 4.3 plan; updated the main Phase 4 plan,
+  phase-plan index, distillation round rule, source-packet-to-wiki rule,
+  workspace README/AGENTS guidance, first-round plan, validation note,
+  construction analysis template, and wiki log template.
+- Design review: aligned with artifact economy by requiring fixed inputs,
+  routing, construction analysis, page decision records, index/log updates,
+  validation notes, and review carry-forward before a round can close.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4.3 wiki construction round protocol language; `git submodule status`
+  confirmed reference submodules remained pinned.
+- Commit: pending.

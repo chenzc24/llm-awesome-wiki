@@ -52,6 +52,7 @@ Actions may include `create`, `update`, `merge`, `leave-unchanged`,
 - Unsupported or contested claims:
 - Page scope questions:
 - Review queue updates needed:
+- Review items carried forward:
 
 ## Generation Instructions
 
@@ -63,3 +64,15 @@ Actions may include `create`, `update`, `merge`, `leave-unchanged`,
 ## Result
 
 State whether generation may proceed, must wait for review, or is blocked.
+
+## Round Closure Checklist
+
+- Wiki pages created:
+- Wiki pages updated:
+- Wiki pages merged:
+- Wiki pages deferred:
+- Wiki pages left unchanged:
+- `wiki/index.md` update needed:
+- `wiki/log.md` update needed:
+- Validation note path:
+- Compare status:

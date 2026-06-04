@@ -22,10 +22,12 @@ workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
    map before treating a claim as supported.
 6. Keep generated evidence, such as OCR, captions, chart summaries, table
    repairs, formula recognition, and agent notes, visibly marked.
-7. Keep wiki claims traceable to source packet anchors, evidence records, or
+7. Apply page routing and write construction analysis before creating or
+   updating wiki pages.
+8. Keep wiki claims traceable to source packet anchors, evidence records, or
    review items.
-8. Put uncertain semantic judgment into review items or reports.
-9. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
+9. Put uncertain semantic judgment into review items or reports.
+10. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
 
 ## After Work
 

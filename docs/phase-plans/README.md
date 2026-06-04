@@ -37,3 +37,6 @@ Rules:
   including the active Phase 4.1 page-routing scope.
 - `phase-4.2-source-chapter-template-hardening.md`: Phase 4.2 source/chapter
   page template hardening and wiki construction analysis plan.
+- `phase-4.3-wiki-construction-round-protocol.md`: Phase 4.3 round protocol
+  for selecting inputs, writing construction analysis, generating or merging
+  pages, updating index/log, and recording validation.

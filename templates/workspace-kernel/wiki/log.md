@@ -7,9 +7,12 @@ tools.
 
 - Sources:
 - Source packets:
+- Construction analysis:
 - Wiki pages:
+- Page decisions:
 - Reports:
 - Review items:
+- Review carried forward:
 - Validation:
 - Commit:
 - Push:

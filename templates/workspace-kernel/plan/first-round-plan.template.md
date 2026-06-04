@@ -16,6 +16,7 @@ The goal should be small enough to finish and commit.
 - Source inventory:
 - Source packets:
 - Claim/evidence map:
+- Wiki construction analysis:
 - Wiki overview or overview update:
 - Source pages:
 - Chapter pages:
@@ -32,12 +33,16 @@ The goal should be small enough to finish and commit.
    scope.
 7. Route generated-derived, unsupported, contested, or judgment-heavy claims to
    review.
-8. Create or update `wiki/overview.md` and `wiki/index.md`.
-9. Write source and chapter pages from source packets and accepted
+8. Apply page routing for overview, source pages, chapter pages, reports, and
+   optional synthesis/research pages.
+9. Write wiki construction analysis with create/update/merge/report-only
+   decisions.
+10. Create or update `wiki/overview.md` and `wiki/index.md`.
+11. Write source and chapter pages from source packets and accepted
    claim/evidence context.
-10. Record validation in `reports/`.
-11. Update `wiki/log.md` and `plan/log.md`.
-12. Commit the accepted round.
+12. Record validation in `reports/`.
+13. Update `wiki/log.md` and `plan/log.md`.
+14. Commit the accepted round.
 
 ## Validation
 
@@ -45,9 +50,11 @@ The goal should be small enough to finish and commit.
 - Each processed source has a source packet or an explicit extraction gap.
 - Important claims cite source packet anchors in `<source_id>#<anchor_id>` form
   or appear in the review queue.
+- Wiki construction analysis records routing decisions and target page actions.
 - Wiki pages cite source packet anchors, evidence records, or review items when
   they contain source-backed claims.
 - `wiki/index.md` links every accepted page.
+- `wiki/log.md` records created, updated, merged, deferred, or unchanged pages.
 - Compare status is recorded as `compare gate not enabled` unless a real
   compare check exists.
 
