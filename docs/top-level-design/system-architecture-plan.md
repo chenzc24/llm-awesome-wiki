@@ -180,9 +180,9 @@ System repository directories:
 ```text
 contracts/                # reusable machine contracts, including JSON Schema
 docs/                     # architecture, phase plans, and project guidance
+llm_wiki_tools/           # runnable Python checker CLI and command index
 plan/                     # target plans and maintenance log
 rules/                    # workspace workflow rules and index/gate contracts
-tools/                    # validation/checker tool source and entrypoints
 templates/                # reusable workspace, page, report, and spec templates
 tests/                    # validation for tools, templates, and schemas
 examples/                 # small generated-workspace fixtures only
@@ -637,7 +637,7 @@ Validation:
 Goal: implement deterministic and semi-deterministic validation tooling for
 the workspace kernel.
 
-These tools operationalize source inventory checks, source packet output
+The `llm_wiki_tools/` CLI operationalizes source inventory checks, source packet output
 validation, wiki lint, compare report validation, review queue validation, and
 round closure checks. They are not the downstream domain `skill + tool`
 codebase, and they are not a project-owned extractor harness.

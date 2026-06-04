@@ -32,7 +32,6 @@ validation.
 Person A may edit:
 
 - `contracts/schemas/**`
-- `tools/validate-kernel/**`
 - `llm_wiki_tools/**` validator and checker implementation
 - `tests/**`
 - `tests/fixtures/**`
@@ -41,7 +40,6 @@ Person A may read, but should not directly edit without coordination:
 
 - `rules/**`
 - `templates/workspace-kernel/**`
-- `tools/*/README.md`
 - `docs/phase-plans/**`
 - `docs/top-level-design/**`
 - `docs/collaboration/**`
@@ -52,7 +50,7 @@ instead of patching Person B's owned files directly.
 
 Person A owns checker implementation, but not checker product prose. If a
 validator behavior change requires user-facing command semantics, coordinate
-with Person B so `tools/*/README.md` and workflow rules stay aligned.
+with Person B so `llm_wiki_tools/README.md` and workflow rules stay aligned.
 
 ## Protocol And Contract Boundary
 
@@ -308,7 +306,7 @@ Goal: operationalize validation with deterministic and semi-deterministic
 checker tooling.
 
 Person A owns validator implementation, tests, and fixtures. Early work may
-extend `tools/validate-kernel/**`, but Phase 6 should not be limited to root
+extend `llm_wiki_tools/**`, but Phase 6 should not be limited to root
 kernel checks once workspace artifact validation begins.
 
 Initial tool checks should cover:
@@ -331,9 +329,9 @@ internal execution.
 
 Person B dependency:
 
-- Person B owns `tools/*/README.md` CLI behavior prose. Use those READMEs as the
-  interface contract, and report mismatches when implementation and prose
-  diverge.
+- Person B owns workflow prose under `rules/**`. Use those rules and the
+  concise `llm_wiki_tools/README.md` command index as the interface contract,
+  and report mismatches when implementation and prose diverge.
 
 ## Phase 7: Downstream Executable Artifacts
 

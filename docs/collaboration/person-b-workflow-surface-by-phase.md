@@ -29,14 +29,13 @@ Person B may edit:
 
 - `rules/**`
 - `templates/workspace-kernel/**`
-- `tools/*/README.md`
 - `docs/phase-plans/**`
 - assigned files under `docs/collaboration/**`
 
 Person B may read, but should not directly edit without coordination:
 
 - `contracts/schemas/**`
-- `tools/validate-kernel/**`
+- `llm_wiki_tools/**`
 - `tests/**`
 - `tests/fixtures/**`
 - `docs/top-level-design/**`
@@ -324,11 +323,12 @@ Person A dependency:
 
 ## Phase 6: Validation And Checker Tooling
 
-Goal: describe future checker CLI behavior before or alongside implementation.
+Goal: describe checker workflow intent before or alongside implementation.
 
-Person B owns `tools/*/README.md` behavior specs.
+Person B owns workflow behavior prose under `rules/**`. The current checker
+command index lives in `llm_wiki_tools/README.md`.
 
-Each tool README should specify:
+Workflow rules should specify:
 
 - command purpose
 - inputs
@@ -360,7 +360,7 @@ for running MinerU, MCP extractors, OCR/VLM, or local parsing backends.
 
 Person A dependency:
 
-- Person A implements validator behavior and tests. Person B should keep README
+- Person A implements validator behavior and tests. Person B should keep rule
   language aligned with the implemented or planned validator surface.
 
 ## Phase 7: Downstream Executable Artifacts
@@ -427,8 +427,8 @@ Person A is:
 2. Update workflow prose only where terms are clearly inconsistent.
 3. Write a short handoff list of fields the raw-to-source-packet workflow needs.
 4. Keep `docs/phase-plans/**` focused on phase deliverables, not schema detail.
-5. Expand `tools/*/README.md` only after the workflow names and schema fields
-   are stable enough.
+5. Update `llm_wiki_tools/README.md` only when implemented checker commands or
+   command names change.
 
 Person B's main job is clarity: make the path understandable, make ambiguity
 visible, and keep humans and agents from guessing.

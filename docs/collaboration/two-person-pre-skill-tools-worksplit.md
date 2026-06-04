@@ -80,7 +80,6 @@ review item, or compare report is structurally valid.
 Owned files:
 
 - `contracts/schemas/**`
-- `tools/validate-kernel/**`
 - `llm_wiki_tools/**` validator and checker implementation
 - `tests/**`
 - `tests/fixtures/**`
@@ -102,16 +101,15 @@ What Person A should not own by default:
 
 - prose workflow rules under `rules/**`
 - workspace templates under `templates/workspace-kernel/**`
-- tool README and CLI behavior prose under `tools/*/README.md`
+- workflow semantics and checker intent prose under `rules/**`
 - phase-plan prose under `docs/phase-plans/**`
 
 Person A can read those files, but should submit notes or proposals when the
 change belongs to Person B's owned area.
 
-Person A may change checker implementation under `llm_wiki_tools/**`. Person B
-keeps ownership of checker-facing prose and intended command behavior in
-`tools/*/README.md`; implementation changes that alter behavior should be
-coordinated through an explicit handoff.
+Person A may change checker implementation under `llm_wiki_tools/**`.
+Implementation changes that alter workflow semantics should be coordinated with
+Person B through the relevant `rules/**` protocol.
 
 ### Person B: Workflow + Tool Surface Owner
 
@@ -126,7 +124,6 @@ Owned files:
 
 - `rules/**`
 - `templates/workspace-kernel/**`
-- `tools/*/README.md`
 - `docs/phase-plans/**`
 
 Primary responsibilities:
@@ -137,14 +134,13 @@ Primary responsibilities:
 - maintain distillation round rules
 - maintain compare gate prose and review workflow
 - keep workspace kernel templates useful
-- describe CLI inputs, outputs, failure modes, and reports in tool READMEs
+- keep workflow inputs, outputs, failure modes, and reports clear in rules
 - break phase plans into clear deliverables
 - report missing schema fields or validation needs to Person A
 
 What Person B should not own by default:
 
 - JSON Schemas under `contracts/schemas/**`
-- validator implementation under `tools/validate-kernel/**`
 - Python checker implementation under `llm_wiki_tools/**`
 - test fixtures under `tests/**`
 
@@ -251,12 +247,12 @@ Default ownership:
 | Area | Owner |
 | --- | --- |
 | `contracts/schemas/**` | Person A |
-| `tools/validate-kernel/**` | Person A |
+| `llm_wiki_tools/**` | Person A |
 | `tests/**` | Person A |
 | `tests/fixtures/**` | Person A |
 | `rules/**` | Person B |
 | `templates/workspace-kernel/**` | Person B |
-| `tools/*/README.md` | Person B |
+| `rules/**` checker intent and workflow prose | Person B |
 | `docs/phase-plans/**` | Person B, unless Coordinator reserves a file |
 | `docs/top-level-design/**` | Coordinator |
 | `plan/log.md` | merge owner or Coordinator |
@@ -291,8 +287,8 @@ Person A:
 
 Person B:
 
-- `tools/*/README.md` explains checker CLI inputs, outputs, reports, fixtures,
-  and failure modes
+- `rules/**` explains checker intent, workflow inputs, outputs, reports,
+  fixtures, and failure modes
 
 Acceptance:
 

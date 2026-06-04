@@ -12,8 +12,8 @@ generator, semantic reviewer, or downstream `skill + tool` generator.
 | Phase | Result | Main artifacts |
 | --- | --- | --- |
 | 6.0 | Rebaseline to checker-first tooling. | `phase-6-validation-tooling-rebaseline.md` |
-| 6.1 | Runtime skeleton and report conventions. | `tools/workspace-check/`, `tools/shared/` |
-| 6.2 | Reusable schema and enum checks. | `tools/schema-check/` |
+| 6.1 | Runtime skeleton and report conventions. | `python -m llm_wiki_tools workspace-check` |
+| 6.2 | Reusable schema and enum checks. | `python -m llm_wiki_tools schema-check` |
 | 6.3 | Source inventory and source packet output checks. | `python -m llm_wiki_tools source-inventory-check`, `python -m llm_wiki_tools source-packet-lint` |
 | 6.4 | Wiki frontmatter, link, index, overview, and log checks. | `python -m llm_wiki_tools wiki-lint` |
 | 6.5 | Compare, claim/evidence, review queue, and validation-note report checks. | `python -m llm_wiki_tools report-check` |

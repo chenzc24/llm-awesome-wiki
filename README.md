@@ -44,8 +44,8 @@ The repository has completed its bootstrap stage:
 - Core philosophy and architecture documents live under `docs/`.
 - `llm_wiki/` is pinned as a reference submodule.
 - Planning and maintenance records live under `plan/`.
-- `tools/` and `templates/` are now the homes for future construction tooling
-  and reusable workspace-kernel artifacts.
+- `llm_wiki_tools/` contains the runnable checker CLI and command index.
+- `templates/` contains reusable workspace-kernel artifacts.
 
 The current implementation target is **Phase 1.3: Workspace Kernel Golden
 Path**.
@@ -112,12 +112,12 @@ Current system repository areas:
 AGENTS.md                  # required rules for agents working in this repo
 contracts/                 # reusable machine contracts, including JSON Schema
 docs/                      # philosophy, architecture, and phase design docs
+llm_wiki_tools/            # runnable Python checker CLI and command index
 llm-wiki.md                # original LLM Wiki concept note
 llm_wiki/                  # pinned reference submodule
 plan/                      # target plans and maintenance log
 rules/                     # repo-native workflow rules and contracts
 tests/                     # validation guidance and future scenario fixtures
-tools/                     # future construction tools
 templates/                 # future reusable workflow templates
 ```
 
@@ -164,6 +164,7 @@ projects, examples, or fixtures.
   modules.
 - `contracts/schemas/`: reusable JSON Schema contracts.
 - `templates/workspace-kernel/`: copyable repo-local workspace substrate.
+- `llm_wiki_tools/README.md`: current checker command index.
 - `plan/log.md`: maintenance history.
 
 ## Working Rules

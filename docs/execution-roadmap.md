@@ -22,7 +22,7 @@ Deliverables:
 - `docs/knowledge-to-executable.md`
 - `plan/README.md`
 - `plan/log.md`
-- `tools/README.md`
+- `llm_wiki_tools/README.md`
 - `templates/README.md`
 
 Acceptance:

@@ -296,6 +296,7 @@ def cmd_validate_kernel(args: argparse.Namespace) -> int:
         "README.md",
         "AGENTS.md",
         "pyproject.toml",
+        "llm_wiki_tools/README.md",
         "llm_wiki_tools/__init__.py",
         "llm_wiki_tools/__main__.py",
         "llm_wiki_tools/cli.py",
@@ -353,20 +354,6 @@ def cmd_validate_kernel(args: argparse.Namespace) -> int:
         "templates/workspace-kernel/reports/first-round-validation-note.template.md",
         "templates/workspace-kernel/tools/README.md",
         "templates/workspace-kernel/contracts/README.md",
-        "tools/validate-kernel/README.md",
-        "tools/shared/README.md",
-        "tools/shared/report-conventions.md",
-        "tools/workspace-check/README.md",
-        "tools/schema-check/README.md",
-        "tools/source-inventory/README.md",
-        "tools/source-packet-lint/README.md",
-        "tools/wiki-lint/README.md",
-        "tools/report-check/README.md",
-        "tools/round-closure-check/README.md",
-        "tools/fixture-runner/README.md",
-        "tools/compare-gate/README.md",
-        "tools/claim-audit/README.md",
-        "tools/scaffold-workspace/README.md",
         "tests/README.md",
         "tests/fixtures/README.md",
     ]
@@ -379,9 +366,8 @@ def cmd_validate_kernel(args: argparse.Namespace) -> int:
         if (root / root_only).exists():
             failures.append(f"Root repository must not contain active workspace path: {root_only}")
 
-    ps1_files = [p for p in (root / "tools").rglob("*.ps1") if p.is_file()]
-    for ps1 in ps1_files:
-        failures.append(f"PowerShell tool implementation is no longer allowed: {workspace_relative(root, ps1)}")
+    if (root / "tools").exists():
+        failures.append("Root repository must not contain standalone tools/: use llm_wiki_tools/ for runnable tooling.")
 
     schema_dir = root / "contracts" / "schemas"
     if schema_dir.exists():

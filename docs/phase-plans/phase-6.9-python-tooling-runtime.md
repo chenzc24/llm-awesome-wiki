@@ -32,6 +32,7 @@ Phase 6.9 owns:
 
 - `pyproject.toml`
 - `llm_wiki_tools/`
+- `llm_wiki_tools/README.md`
 - Python CLI command dispatch
 - Python implementations of the existing Phase 6 checker commands
 - deletion of implemented `.ps1` tool scripts
@@ -87,7 +88,7 @@ CLI options use lowercase long names such as `--workspace`, `--report`,
 
 Phase 6.9 is complete when:
 
-- no `.ps1` tool implementation remains under `tools/`
+- no standalone root-level `tools/` directory remains
 - `python -m py_compile llm_wiki_tools/cli.py llm_wiki_tools/__main__.py`
   passes
 - `python -m llm_wiki_tools validate-kernel` passes

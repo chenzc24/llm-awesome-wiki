@@ -1136,3 +1136,19 @@
 - Commit: completed on `main` as
   `845ce1a Clarify person A validation handoff`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Collapse tool docs into Python package
+
+- Target: remove root-level `tools/` as a standalone documentation directory
+  and put the current checker command index beside the runnable Python CLI.
+- Changed areas: added `llm_wiki_tools/README.md`; updated
+  `llm_wiki_tools/cli.py` kernel validation; removed obsolete root-level
+  `tools/**` README/spec files; updated current README, top-level architecture,
+  execution-roadmap, collaboration, and Phase 6 closure references.
+- Design review: workflow semantics remain in `rules/**`; historical phase
+  planning remains in `docs/phase-plans/**`; runnable checker implementation
+  and concise command usage now live under `llm_wiki_tools/**`.
+- Validation: `python -m py_compile llm_wiki_tools/cli.py
+  llm_wiki_tools/__main__.py` passed; `python -m llm_wiki_tools
+  validate-kernel` passed; root-level `tools/` no longer exists.
+- Commit: pending.

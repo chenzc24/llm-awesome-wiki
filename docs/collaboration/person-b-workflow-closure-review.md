@@ -149,7 +149,7 @@ to:
 
 - add a concrete source packet example to templates only if Person A needs one
 - tighten wording where a validator exposes ambiguous terms
-- update `tools/*/README.md` if implemented command behavior changes
+- update `llm_wiki_tools/README.md` if implemented command behavior changes
 - clarify construction-analysis template fields if fixtures show mismatch
 
 Person B should not:

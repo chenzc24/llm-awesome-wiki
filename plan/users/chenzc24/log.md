@@ -1008,3 +1008,19 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `845ce1a Clarify person A validation handoff`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Collapse tool docs into Python package
+
+- Target: remove root-level `tools/` as a standalone documentation directory
+  and move the concise checker command index into `llm_wiki_tools/README.md`.
+- Changed areas: added `llm_wiki_tools/README.md`; updated kernel validation in
+  `llm_wiki_tools/cli.py`; removed root-level `tools/**` README/spec files;
+  updated current-facing repository, architecture, collaboration, and Phase 6
+  references.
+- Design review: the runnable implementation and command index now share the
+  same package. `rules/**` continues to own workflow semantics, while
+  `docs/phase-plans/**` remains historical planning rather than tool manuals.
+- Validation: `python -m py_compile llm_wiki_tools/cli.py
+  llm_wiki_tools/__main__.py` passed; `python -m llm_wiki_tools
+  validate-kernel` passed; root-level `tools/` no longer exists.
+- Commit: pending.
