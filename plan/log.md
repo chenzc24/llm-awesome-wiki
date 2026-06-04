@@ -597,4 +597,5 @@
   generated content, Person A Handoff, and Non-Goals language; `git submodule
   status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
   --short --branch` showed only the intended Person B Phase 2.5 files.
-- Commit: planned for `main` as `Define generated fields review routing`.
+- Commit: completed on `main` as `ba90966 Define generated fields review
+  routing`; finalized by the follow-up maintenance-status commit.
