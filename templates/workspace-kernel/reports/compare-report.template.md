@@ -7,7 +7,10 @@
 - Compare report id:
 - Status: `pass`, `needs-review`, or `fail`
 - Scope statement:
+- Source packets in scope:
+- Source range in scope:
 - Out of scope:
+- Scope exclusion reason:
 
 ## Status Summary
 
@@ -51,23 +54,44 @@ Categories:
 
 ## Source Coverage
 
-| source_id | packet_path | source scope | wiki coverage | status | notes |
-| --- | --- | --- | --- | --- | --- |
-| source-id | raw/derived/source-id/source.md | slides/pages/sections | wiki/chapters/replace-me.md | covered/deferred/omitted/needs-review/fail |  |
+Coverage is not copying. Use this section to explain the disposition of source
+material, not to force every paragraph, slide, or table into wiki prose.
+
+| source_id | packet_path | source_scope | coverage_unit | wiki_coverage | disposition | reason | status_impact | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| source-id | raw/derived/source-id/source.md | slides/pages/sections | slide/page/group | wiki/chapters/replace-me.md | covered/weak/deferred/omitted/out-of-scope/review/blocked |  | pass/needs-review/fail/none |  |
+
+Disposition values:
+
+- `covered`: represented in accepted wiki pages or reports at the right level
+  of detail.
+- `weak`: represented, but too shallow, overgeneralized, poorly sourced, or
+  risky.
+- `deferred`: intentionally left for a later planned round.
+- `omitted`: intentionally excluded from wiki construction for a recorded
+  reason.
+- `out-of-scope`: outside the round's fixed input or workspace purpose.
+- `review`: routed to human review before wiki acceptance.
+- `blocked`: cannot be judged because required input, extraction, anchor, or
+  context is missing.
 
 ## Source Packet And Anchor Coverage
 
 Use `<source_id>#<anchor_id>` references.
 
-| source_ref | source location | content kind | wiki target or disposition | status | notes |
-| --- | --- | --- | --- | --- | --- |
-| source-id#anchor-id | slide/page/section | text/chart/table/image | wiki/chapters/replace-me.md | covered/deferred/omitted/needs-review/fail |  |
+| source_ref | location | content_kind | importance | disposition | wiki_target | report_or_review_target | reason | status_impact | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| source-id#anchor-id | slide/page/section | text/chart/table/image | core/supporting/reference/decorative/unknown | covered/weak/deferred/omitted/out-of-scope/review/blocked | wiki/chapters/replace-me.md | reports/review/review-queue.md |  | pass/needs-review/fail/none |  |
+
+For large PPT or document sources, decorative or repeated anchors may be
+grouped. Core chart, table, formula, diagram, or claim-bearing anchors should
+not be hidden inside a group without a reason.
 
 ## Wiki Page Coverage
 
-| wiki_page | page_type | source_refs | claim_refs | status | notes |
-| --- | --- | --- | --- | --- | --- |
-| wiki/chapters/replace-me.md | chapter | source-id#anchor-id | cl-001 | covered/weak/unsupported/needs-review |  |
+| wiki_page | page_type | declared_source_scope | actual_source_refs | coverage_gaps | disposition | status_impact | notes |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| wiki/chapters/replace-me.md | chapter | source-id slides/pages/anchors | source-id#anchor-id |  | covered/weak/review/blocked | pass/needs-review/fail/none |  |
 
 ## Claim Coverage
 
@@ -93,9 +117,19 @@ Use `<source_id>#<anchor_id>` references.
 
 ## Omissions And Weak Coverage
 
-| source_ref | issue | why it matters | disposition | blocking |
-| --- | --- | --- | --- | --- |
-| source-id#anchor-id | omitted/weak/deferred | Replace this row. | fix/review/carry-forward/not-in-scope | yes/no |
+Acceptable omission reasons include `decorative`, `duplicate`,
+`out-of-scope`, `low-value`, `deferred`, `blocked`, and `superseded`.
+
+| source_ref | issue | importance | omission_reason | why_it_matters | disposition | status_impact | next_action |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| source-id#anchor-id | omitted/weak/deferred/out-of-scope | core/supporting/reference/decorative/unknown | decorative/duplicate/out-of-scope/low-value/deferred/blocked/superseded | Replace this row. | fix/review/carry-forward/not-in-scope | pass/needs-review/fail/none |  |
+
+Unsafe omissions:
+
+- no reason recorded
+- core or unknown source material omitted without review
+- generated interpretation kept while the source anchor is omitted
+- omitted material contradicts accepted wiki prose
 
 ## Contradictions And Unsupported Statements
 

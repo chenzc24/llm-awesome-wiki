@@ -51,3 +51,6 @@ Rules:
   review workflow plan.
 - `phase-5.1-compare-report-foundation.md`: Phase 5.1 compare report
   foundation, status semantics, and report-template scope.
+- `phase-5.2-source-wiki-coverage-omission-protocol.md`: Phase 5.2
+  source/wiki coverage, anchor disposition, omission, and scope-exclusion
+  protocol.

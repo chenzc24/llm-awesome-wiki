@@ -553,3 +553,27 @@ Repository-wide merged or integration-level maintenance history belongs in
   self-evaluation, carried forward, and wiki rewrite boundary language.
 - Commit: completed on `main` as `2233f28 Define phase five compare report
   foundation`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five source wiki coverage protocol
+
+- Target: continue Person B Phase 5.2 by defining source/wiki coverage,
+  anchor disposition, omission, deferral, weak coverage, and scope-exclusion
+  semantics for compare reports.
+- Changed areas: added
+  `docs/phase-plans/phase-5.2-source-wiki-coverage-omission-protocol.md` and
+  `rules/source-wiki-coverage-protocol.md`; updated the main Phase 5 plan,
+  phase-plan and rule indexes, `rules/compare-gate-contract.md`, workspace
+  reports README, compare report template, first-round validation note
+  template, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-2-source-wiki-coverage-omission/`.
+- Design review: Phase 5.2 keeps coverage as source disposition rather than
+  source copying. Compare reports can now record `covered`, `weak`,
+  `deferred`, `omitted`, `out-of-scope`, `review`, and `blocked` states for
+  source packets, anchors, and wiki pages while preserving the default
+  source/chapter wiki surface and avoiding default report sprawl.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5.2, Source Wiki Coverage, source/wiki coverage, anchor disposition,
+  covered, weak, omitted, deferred, out-of-scope, scope exclusion, Coverage is
+  not copying, report sprawl, and source-wiki-coverage-protocol language.
+- Commit: pending.

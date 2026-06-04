@@ -36,6 +36,8 @@ required dependency.
   concise, current, and distinct from reports or source packets.
 - `compare-gate-contract.md`: compare source coverage and claim coverage before
   advancing a distillation round.
+- `source-wiki-coverage-protocol.md`: record source packet, anchor, wiki page,
+  omission, deferral, and scope-exclusion coverage in compare reports.
 - `distillation-rounds.md`: run wiki construction in small reviewable rounds.
 - `maintenance-workflow.md`: keep workspace plans, logs, commits, and reports
   disciplined, including per-user plan namespaces and personal logs for

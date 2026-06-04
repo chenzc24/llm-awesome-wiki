@@ -775,3 +775,21 @@
   Phase 5 compare report foundation language.
 - Commit: completed on `main` as `2233f28 Define phase five compare report
   foundation`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five source wiki coverage protocol
+
+- Target: continue Phase 5 from the Person B workflow-surface side by defining
+  source/wiki coverage and omission semantics for compare reports.
+- Changed areas: added the Phase 5.2 plan and source/wiki coverage rule;
+  updated the main Phase 5 plan, phase-plan and rule indexes, compare gate
+  rule, workspace reports README, compare report template, first-round
+  validation note template, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-2-source-wiki-coverage-omission/`.
+- Design review: aligned with raw-wiki alignment and artifact economy by
+  treating coverage as source disposition, not copying. The default compare
+  report now carries coverage, weak coverage, omissions, deferrals, review
+  routing, and scope exclusions without creating default report sprawl.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5.2 coverage and omission protocol language.
+- Commit: pending.

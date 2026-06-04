@@ -61,8 +61,10 @@ The report should include:
 - source coverage
 - source packet and anchor coverage
 - wiki page coverage
+- anchor disposition
 - claim coverage
 - modality coverage
+- scope exclusions
 - link, index, overview, and log checks
 - omissions and weak coverage
 - contradictions and unsupported statements
@@ -163,6 +165,52 @@ Coverage means the report can explain what happened to source material:
 For document and PPT corpora, preserve the source/chapter default. Do not use
 compare findings as a reason to create fragmented concept/entity pages unless
 the workspace explicitly needs them.
+
+For detailed source/wiki coverage semantics, follow
+`source-wiki-coverage-protocol.md`.
+
+## Disposition Values
+
+Use these source/wiki coverage dispositions:
+
+| disposition | meaning |
+| --- | --- |
+| `covered` | represented in accepted wiki pages or reports at the right level of detail |
+| `weak` | represented, but too shallow, overgeneralized, poorly sourced, or risky |
+| `deferred` | intentionally left for a later planned round |
+| `omitted` | intentionally excluded from wiki construction for a recorded reason |
+| `out-of-scope` | outside the round's fixed input or workspace purpose |
+| `review` | routed to human review before wiki acceptance |
+| `blocked` | cannot be judged because required input, extraction, anchor, or context is missing |
+
+Do not use `covered` merely because content exists in `source.md`. The compare
+gate checks source-to-wiki alignment, not packet existence alone.
+
+## Omission And Scope Rules
+
+An omitted or out-of-scope source unit needs a reason.
+
+Acceptable omission reasons include:
+
+- `decorative`
+- `duplicate`
+- `out-of-scope`
+- `low-value`
+- `deferred`
+- `blocked`
+- `superseded`
+
+Unsafe omissions include:
+
+- important source content omitted without reason
+- source content omitted because the agent skipped it
+- omitted chart, table, formula, or visual material that supports an accepted
+  wiki claim
+- generated interpretation kept while the source anchor is omitted
+- omitted material that contradicts accepted wiki prose without review routing
+
+Scope exclusions are allowed only when the round plan, workspace purpose, or
+compare report says why the material is out of scope.
 
 ## Review Rules
 

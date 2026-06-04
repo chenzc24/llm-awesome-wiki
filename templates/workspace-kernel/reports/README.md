@@ -34,6 +34,21 @@ lint, claim-audit, or review reports only when the workspace needs more depth.
 The compare report is not a wiki rewrite instruction and not a final synthesis
 page.
 
+For source/wiki coverage, prefer recording disposition rows in the compare
+report itself:
+
+- `covered`
+- `weak`
+- `deferred`
+- `omitted`
+- `out-of-scope`
+- `review`
+- `blocked`
+
+Create a separate `reports/coverage/` report only when the coverage matrix is
+too large for a concise compare report or a future deterministic tool produces
+the detailed matrix.
+
 ## Claim And Evidence Reports
 
 Use `reports/review/claim-evidence-map.md` or a similarly named report when a

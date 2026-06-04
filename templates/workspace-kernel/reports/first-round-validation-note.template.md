@@ -38,6 +38,14 @@ If a compare report exists, link it here and summarize its final status.
 ## Coverage Notes
 
 - Sources covered:
+- Source packets in scope:
+- Source range in scope:
+- Core anchors covered:
+- Core anchors weak:
+- Core anchors omitted:
+- Core anchors deferred:
+- Core anchors routed to review:
+- Scope exclusions:
 - Sources deferred:
 - Chapters drafted:
 - Chapters missing:

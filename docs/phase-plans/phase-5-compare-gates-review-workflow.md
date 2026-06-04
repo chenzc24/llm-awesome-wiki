@@ -104,7 +104,9 @@ Phase 5 can classify checks as:
 
 The report must distinguish these categories instead of hiding uncertainty.
 
-## Phase 5.1 Active Scope
+## Phase 5.1 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 5.1 defines the compare report foundation.
 
@@ -124,6 +126,33 @@ Phase 5.1 does not implement:
 - fixtures
 - source coverage algorithms
 - link checking code
+- wiki page rewrites
+- downstream `skill + tool` artifacts
+
+## Phase 5.2 Active Scope
+
+Phase 5.2 defines source/wiki coverage and omission semantics.
+
+It owns:
+
+- source packet coverage status
+- anchor disposition language
+- wiki page coverage status
+- weak coverage and omission recording
+- intentional scope exclusions
+- source-to-wiki traceability tables
+- validation-note coverage summary expectations
+
+Phase 5.2 does not implement:
+
+- source coverage algorithms
+- claim coverage algorithms
+- modality coverage algorithms
+- contradiction analysis
+- review queue workflow details
+- compare CLI tooling
+- schema or validator changes
+- fixtures
 - wiki page rewrites
 - downstream `skill + tool` artifacts
 
@@ -149,13 +178,24 @@ Potential Person A validation needs:
 - compare report schema
 - compare status enum: `pass`, `fail`, `needs-review`
 - check category enum: `deterministic`, `manual-protocol`, `human-review`
+- coverage disposition enum: `covered`, `weak`, `deferred`, `omitted`,
+  `out-of-scope`, `review`, `blocked`
+- source importance enum: `core`, `supporting`, `reference`, `decorative`,
+  `unknown`
+- omission reason enum: `decorative`, `duplicate`, `out-of-scope`,
+  `low-value`, `deferred`, `blocked`, `superseded`
 - source coverage table validation
+- anchor disposition table validation
+- wiki page coverage table validation
 - claim coverage table validation
 - modality coverage table validation
 - review item linkage and carried-forward requirements
 - link and index report validation
 - fixture for a passing round
 - fixture for missing source coverage
+- fixture for a 30-slide PPT with grouped slide coverage
+- fixture for omitted decorative content
+- fixture for omitted important chart without reason
 - fixture for unsupported wiki claim
 - fixture for generated chart summary routed to review
 - fixture for stale index link
@@ -186,11 +226,24 @@ Phase 5.1 is complete when:
 - Person A handoff remains schema/validator/tool oriented and read-only from
   Person B
 
+## Phase 5.2 Completion Criteria
+
+Phase 5.2 is complete when:
+
+- the Phase 5.2 phase plan exists
+- source/wiki coverage rule exists
+- compare gate rule includes disposition, omission, and scope-exclusion
+  semantics
+- compare report template records source coverage, anchor disposition, wiki
+  page coverage, weak coverage, omissions, and scope exclusions
+- validation note template summarizes coverage and omission findings
+- Person A handoff lists coverage/disposition schema and fixture needs
+
 ## Next Subphase
 
-After Phase 5.1, the next useful target is Phase 5.2: source/wiki coverage and
-omission protocol.
+After Phase 5.2, the next useful target is Phase 5.3: claim, modality, and
+contradiction review protocol.
 
-Phase 5.2 should define how a compare report records source packet coverage,
-anchor coverage, wiki page coverage, omitted material, weak coverage, and
-scope exclusions without requiring a full compare CLI implementation.
+Phase 5.3 should define how a compare report records important claim support,
+generated evidence, modality coverage, contradictions, unsupported statements,
+and semantic review routing without requiring full compare CLI implementation.
