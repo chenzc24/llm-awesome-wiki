@@ -944,4 +944,6 @@
   workspace passed `source-inventory-check.ps1`, `source-packet-lint.ps1`, and
   `workspace-check.ps1 -Mode source`; targeted `rg` confirmed Phase 6.3 source
   artifact checker language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `30f7cf1 Add phase six source artifact checkers`; finalized by the follow-up
+  maintenance-status commit.

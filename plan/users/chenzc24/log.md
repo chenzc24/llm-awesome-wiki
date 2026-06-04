@@ -769,4 +769,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   `source-packet-lint.ps1`, and `workspace-check.ps1 -Mode source`; targeted
   `rg` confirmed Phase 6.3, source-inventory-check, source-packet-lint,
   no-extractor, and source artifact language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `30f7cf1 Add phase six source artifact checkers`; finalized by the follow-up
+  maintenance-status commit.
