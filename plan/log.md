@@ -1019,4 +1019,6 @@
   `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 6.7 fixture validation language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `b3962af Add phase six fixture runner`; finalized by the follow-up
+  maintenance-status commit.

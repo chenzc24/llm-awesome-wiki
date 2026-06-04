@@ -865,4 +865,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 6.7, fixture-runner, Mode fixtures, pass/fail/needs-review,
   no-extractor, no-semantic-review, and scenario language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `b3962af Add phase six fixture runner`; finalized by the follow-up
+  maintenance-status commit.
