@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki Wiki Round"
+  short_description: "Route source packets into wiki construction rounds."
+  default_prompt: "Run the wiki construction round workflow for this workspace."

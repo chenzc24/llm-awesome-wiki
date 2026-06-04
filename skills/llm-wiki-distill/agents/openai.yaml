@@ -1,0 +1,4 @@
+interface:
+  display_name: "LLM Wiki Distill"
+  short_description: "Route an end-to-end LLM Wiki distillation round."
+  default_prompt: "Run an end-to-end LLM Wiki distillation round for this workspace."

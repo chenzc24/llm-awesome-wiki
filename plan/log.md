@@ -1099,6 +1099,23 @@
   `e4b6da2 Consolidate rules progressive disclosure`; finalized by the
   follow-up maintenance-status commit.
 
+## 2026-06-04 - Add agent skill entrypoints
+
+- Target: add Agent-facing skill entrypoints for end-to-end LLM Wiki
+  distillation.
+- Changed areas: updated `AGENTS.md`; added four repo-local skills for
+  end-to-end distillation, source packet workflow, wiki construction rounds,
+  and quality gates; updated Python kernel validation; added the target plan
+  under `plan/users/chenzc24/2026-06-04-agent-skill-entrypoints/`.
+- Design review: operational workflow entry is now `skills/` plus `rules/`,
+  not a new `docs/` runbook. Skills are process routers; rules remain the
+  semantic source of truth.
+- Validation: skill quick validation passed for all four skills; targeted `rg`
+  confirmed skill names, docs/rules/skills boundary language, and no TODO
+  placeholders; `git diff --check` passed with only Windows line-ending
+  warnings; `python -m llm_wiki_tools validate-kernel` passed.
+- Commit: pending.
+
 ## 2026-06-04 - Prepare Person A dry-run v2 handoff
 
 - Target: provide Person A with a current-system local dry-run workspace and

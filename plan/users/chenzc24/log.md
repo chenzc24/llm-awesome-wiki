@@ -964,6 +964,25 @@ Repository-wide merged or integration-level maintenance history belongs in
   `e4b6da2 Consolidate rules progressive disclosure`; finalized by the
   follow-up maintenance-status commit.
 
+## 2026-06-04 - Add agent skill entrypoints
+
+- Target: add Agent-facing workflow entrypoints and define the boundary between
+  docs, rules, and skills.
+- Changed areas: updated `AGENTS.md` to state that `docs/` are maintenance and
+  design records, `rules/` are the semantic source of truth, and `skills/` are
+  the Agent routing layer; added `llm-wiki-distill`, `llm-wiki-source-packet`,
+  `llm-wiki-wiki-round`, and `llm-wiki-quality-gate` skills; updated
+  `llm_wiki_tools` kernel validation; added the target plan under
+  `plan/users/chenzc24/2026-06-04-agent-skill-entrypoints/`.
+- Design review: the end-to-end workflow is now exposed as a skill entrypoint
+  instead of a `docs/` workflow page. Skills route agents to rules and
+  subskills without copying rule semantics.
+- Validation: skill quick validation passed for all four skills; targeted `rg`
+  confirmed no TODO placeholders and confirmed docs/rules/skills boundary
+  language; `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed.
+- Commit: pending.
+
 ## 2026-06-04 - Prepare Person A dry-run v2 handoff
 
 - Target: create a current-system local `adctoolbox-ch1-dry-run-v2` workspace

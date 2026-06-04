@@ -117,3 +117,18 @@ When the target is verified:
   queues where judgment is required.
 - Keep `llm_wiki/` as reference material for structure and product ideas. The
   root repository defines the portable workflow.
+
+## Agent Entrypoint Boundary
+
+- `docs/` contains system design, phase planning, collaboration notes, and
+  maintenance history. Do not treat `docs/` as the operational entrypoint for a
+  distillation round.
+- `rules/` is the semantic source of truth for workflow behavior. Rules define
+  statuses, lifecycle meanings, routing requirements, acceptance criteria, and
+  forbidden shortcuts.
+- `skills/` is the agent-facing entrypoint layer. Skills should route agents
+  through the workflow and point to the relevant rules. Skills should not copy
+  or redefine rule semantics.
+- For end-to-end distillation, start from
+  `skills/llm-wiki-distill/SKILL.md`, then load only the subskill needed for
+  the active stage.
