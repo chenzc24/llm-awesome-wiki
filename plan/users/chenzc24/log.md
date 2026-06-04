@@ -302,4 +302,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   `rules/*-contract.md`, and `contracts/schemas/**` language; `git submodule
   status` confirmed both reference submodules stayed pinned; `git status
   --short --branch` showed only the intended terminology and maintenance files.
-- Commit: planned for `main` as `Clarify protocol and contract ownership`.
+- Commit: completed on `main` as `56ffa30 Clarify protocol and contract
+  ownership`; finalized by the follow-up maintenance-status commit.

@@ -575,4 +575,5 @@
   `rules/*-contract.md`, and `contracts/schemas/**` language; `git submodule
   status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
   --short --branch` showed only the intended terminology and maintenance files.
-- Commit: planned for `main` as `Clarify protocol and contract ownership`.
+- Commit: completed on `main` as `56ffa30 Clarify protocol and contract
+  ownership`; finalized by the follow-up maintenance-status commit.
