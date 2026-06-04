@@ -472,7 +472,8 @@
   wiki-layer context; `git submodule status` confirmed `MinerU/` and
   `llm_wiki/` remained pinned; `git status --short --branch` showed only the
   intended terminology and template files.
-- Commit: pending `Clarify agent-readable wiki layer`.
+- Commit: completed and pushed to `origin/main` as `fb20ded Clarify
+  agent-readable wiki layer`.
 
 ## 2026-06-04 - Align top-level phase two protocol wording
 

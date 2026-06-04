@@ -201,7 +201,8 @@ Repository-wide merged or integration-level maintenance history belongs in
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   agent-readable, human-reviewable, and agent scanability language; `git
   submodule status` confirmed both reference submodules stayed pinned.
-- Commit: pending.
+- Commit: completed and pushed to `origin/main` as `fb20ded Clarify
+  agent-readable wiki layer`.
 
 ## 2026-06-04 - Align top-level Phase 2 protocol wording
 
