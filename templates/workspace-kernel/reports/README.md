@@ -31,3 +31,14 @@ content.
 
 Use `reports/review/review-queue.md` when unresolved judgment must carry across
 rounds.
+
+## Wiki Construction Reports
+
+Use `reports/wiki-construction-analysis.md` or a similarly named report before
+creating or updating wiki pages from source packets.
+
+The construction analysis records routing decisions, existing pages inspected,
+target pages, merge decisions, and review handoff. It is the visible bridge
+between routing and page generation.
+
+It should not be a polished wiki page or a duplicate source packet.

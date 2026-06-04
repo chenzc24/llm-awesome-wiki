@@ -57,7 +57,9 @@ a fragmented concept/entity graph or by claim/evidence audit artifacts.
 | optional synthesis pages | Cross-source conclusions after source/chapter pages are stable. |
 | optional research pages | Concepts, entities, comparisons, or queries only when needed. |
 
-## Phase 4.1 Active Scope
+## Phase 4.1 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 4.1 defines page routing and reading-surface rules.
 
@@ -73,6 +75,22 @@ It answers:
 
 Phase 4.1 intentionally stops before full source/chapter template hardening.
 That belongs to Phase 4.2.
+
+## Phase 4.2 Active Scope
+
+Phase 4.2 hardens source and chapter page templates.
+
+It answers:
+
+- what should a source page contain?
+- what must a source page avoid duplicating?
+- what should a chapter page contain?
+- how should chapter pages use source packet anchors and claim/evidence maps?
+- what construction analysis must be visible before generation?
+- what review handoff remains outside wiki prose?
+
+Phase 4.2 still does not implement a generator, validator, test fixture, or
+wiki-lint command.
 
 ## Required Construction Flow
 
@@ -140,8 +158,9 @@ Phase 4.1 is complete when:
 
 ## Next Subphase
 
-After Phase 4.1, the next useful target is Phase 4.2: source/chapter page
-template hardening.
+After Phase 4.2, the next useful target is Phase 4.3: wiki construction round
+protocol.
 
-Phase 4.2 should strengthen page templates and construction analysis reports,
-but should keep the Phase 4.1 routing boundaries intact.
+Phase 4.3 should define the round rhythm for selecting packets, reading
+claim/evidence context, writing construction analysis, creating or merging
+pages, updating index/log, and recording validation.

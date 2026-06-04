@@ -11,37 +11,59 @@ updated: YYYY-MM-DD
 
 # Source Title
 
+This page is a short source note. It helps agents and humans decide whether to
+open the source packet or related chapter pages.
+
+Do not turn this page into a second source packet.
+
 ## Source Identity
 
 - Source ID:
-- Raw path:
-- Packet path:
 - Source kind:
+- Packet path:
 - Extraction status:
+- Primary chapter pages:
 
 ## What This Source Contains
 
-Summarize the source or deck in a compact, agent-readable form. This page
-should help an agent or human reviewer decide whether to open the packet or
-chapter pages.
+Summarize the source or deck in a compact, agent-readable paragraph.
+
+Focus on what the source contributes to the workspace. Do not repeat full
+extracted text, full packet metadata, or every packet anchor.
 
 ## Structure
 
-List the chapters, sections, slide ranges, or other source anchors.
+List the source's main chapters, sections, slide ranges, or page ranges.
 
-## Important Anchors
+| range | label | wiki target | notes |
+| --- | --- | --- | --- |
+| slides/pages replace-me | Replace this row. | wiki/chapters/replace-me.md |  |
 
-| anchor_id | location | reason it matters |
-| --- | --- | --- |
-| s001 | slide 1 | Replace this row. |
+## Navigation Anchors
+
+List only anchors that help navigation or review. Full anchor indexes belong
+in the source packet.
+
+| source_ref | location | reason it matters | target |
+| --- | --- | --- | --- |
+| source-id#anchor-id | slide/page replace-me | Replace this row. | wiki/chapters/replace-me.md |
 
 ## Linked Wiki Pages
 
+- Overview:
 - Chapter pages:
-- Related overview or synthesis pages:
+- Active review or validation reports:
 
-## Review Notes
+## Coverage And Review
 
 - Extraction gaps:
-- Unsupported claims:
+- Generated-evidence warnings:
+- Unsupported or contested claims:
 - Human review needed:
+
+## Not Included Here
+
+- Full extracted text:
+- Full packet metadata:
+- Complete claim/evidence map:
+- Detailed validation logs:

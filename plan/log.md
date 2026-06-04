@@ -682,3 +682,21 @@
   confirmed reference submodules remained pinned.
 - Commit: completed on `main` as `ee450aa Define phase four wiki page
   routing`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Harden phase four source chapter templates
+
+- Target: continue Phase 4.2 from the Person B workflow-surface side by
+  hardening source/chapter page templates and adding a wiki construction
+  analysis template.
+- Changed areas: added the Phase 4.2 plan and construction analysis template;
+  updated the main Phase 4 plan, phase-plan index, source-packet-to-wiki and
+  page-routing rules, workspace report/schema guidance, and source/chapter wiki
+  templates.
+- Design review: aligned with artifact economy by keeping source pages short,
+  keeping chapters readable and source-backed, requiring construction analysis
+  before generation, and keeping claim/evidence support in reports.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4.2 template-hardening and wiki construction analysis language; `git
+  submodule status` confirmed reference submodules remained pinned.
+- Commit: pending.

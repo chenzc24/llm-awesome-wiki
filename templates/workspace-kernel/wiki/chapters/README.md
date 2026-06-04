@@ -25,3 +25,7 @@ Chapter pages should not:
 - become a table of every evidence row or claim row
 - hide generated-evidence uncertainty
 - split one source chapter into unnecessary object pages
+
+Use `chapter-page.template.md` after a wiki construction analysis has routed a
+source section, slide range, page range, or cross-source teachable unit into a
+chapter page.

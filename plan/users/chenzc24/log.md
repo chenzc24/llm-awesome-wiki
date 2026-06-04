@@ -423,3 +423,30 @@ Repository-wide merged or integration-level maintenance history belongs in
   `MinerU/` and `llm_wiki/` remained pinned.
 - Commit: completed on `main` as `ee450aa Define phase four wiki page
   routing`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Harden phase four source chapter templates
+
+- Target: execute Person B Phase 4.2 by hardening source and chapter page
+  templates and adding a wiki construction analysis surface between routing and
+  page generation.
+- Changed areas: added
+  `docs/phase-plans/phase-4.2-source-chapter-template-hardening.md` and
+  `templates/workspace-kernel/reports/wiki-construction-analysis.template.md`;
+  updated `docs/phase-plans/phase-4-wiki-construction-engine.md`,
+  `docs/phase-plans/README.md`, `rules/source-packet-to-wiki.md`,
+  `rules/wiki-page-routing.md`, workspace reports/schema guidance, source and
+  chapter README files, and source/chapter page templates; added the target
+  plan under
+  `plan/users/chenzc24/2026-06-04-phase-4-2-source-chapter-template-hardening/`.
+- Design review: source pages remain short source notes, chapter pages remain
+  the primary distilled knowledge surface, construction analysis records
+  routing/merge/review decisions before generation, and claim/evidence maps
+  stay in reports rather than page bodies.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4.2, wiki construction analysis, source page, chapter page, packet
+  reference, claim/evidence, review handoff, not a source packet, not a
+  claim/evidence table, Construction Inputs, and Generated Or Uncertain
+  Evidence language; `git submodule status` confirmed `MinerU/` and
+  `llm_wiki/` remained pinned.
+- Commit: pending.

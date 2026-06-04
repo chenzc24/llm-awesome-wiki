@@ -35,3 +35,5 @@ Rules:
 
 - `phase-4-wiki-construction-engine.md`: main Phase 4 wiki construction plan,
   including the active Phase 4.1 page-routing scope.
+- `phase-4.2-source-chapter-template-hardening.md`: Phase 4.2 source/chapter
+  page template hardening and wiki construction analysis plan.

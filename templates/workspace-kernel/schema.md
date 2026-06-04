@@ -68,6 +68,8 @@ Use one link style consistently. The default is wikilink syntax:
   commits.
 - `reports/` contains claim/evidence maps, compare, lint, coverage, and review
   outputs.
+- Wiki construction analysis reports belong under `reports/` or a configured
+  validation/review report path before page generation begins.
 - A distillation round should not advance without a recorded validation result.
 
 ## Source Packet Minimum
@@ -95,6 +97,20 @@ The map should preserve:
 
 Do not use the claim/evidence map as the primary reading surface. Keep readable
 knowledge in `wiki/chapters/` by default.
+
+## Wiki Construction Analysis Minimum
+
+Before writing or updating wiki pages from source packets, record construction
+analysis in a visible report or plan note.
+
+The analysis should preserve:
+
+- source packets and claim/evidence maps read
+- existing wiki pages inspected
+- routing decisions
+- target pages to create, update, merge, or leave unchanged
+- review handoff for unsupported, contested, generated-derived, or
+  judgment-heavy claims
 
 ## Round Status
 

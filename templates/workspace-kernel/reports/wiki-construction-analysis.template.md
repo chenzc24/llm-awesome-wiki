@@ -1,0 +1,65 @@
+# Wiki Construction Analysis
+
+## Round
+
+- Plan:
+- Date:
+- Status: `draft`, `ready-for-generation`, `needs-review`, or `blocked`
+
+## Inputs Read
+
+- Source packets:
+- Claim/evidence maps:
+- Review queues:
+- Existing overview:
+- Existing index:
+- Existing source pages:
+- Existing chapter pages:
+
+## Routing Decisions
+
+| input | route | target_path | action | reason |
+| --- | --- | --- | --- | --- |
+| source-id#anchor-id or source packet | chapter page | wiki/chapters/replace-me.md | create/update | Replace this row. |
+
+Actions may include `create`, `update`, `merge`, `leave-unchanged`,
+`report-only`, or `needs-review`.
+
+## Page Plans
+
+### Source Pages
+
+| page | action | source_ids | packet_refs | notes |
+| --- | --- | --- | --- | --- |
+| wiki/sources/replace-me.md | create/update | source-id | raw/derived/source-id/source.md |  |
+
+### Chapter Pages
+
+| page | action | source_refs | claim_or_evidence_refs | notes |
+| --- | --- | --- | --- | --- |
+| wiki/chapters/replace-me.md | create/update | source-id#anchor-id | cl-001 or ev-001 |  |
+
+## Merge And Duplicate Check
+
+- Existing pages searched:
+- Pages to update instead of duplicate:
+- New pages justified:
+- Pages intentionally left unchanged:
+
+## Review Handoff
+
+- Generated-evidence claims:
+- Unsupported or contested claims:
+- Page scope questions:
+- Review queue updates needed:
+
+## Generation Instructions
+
+- Source pages should remain short source notes.
+- Chapter pages should carry the main distilled knowledge.
+- Claim/evidence maps support page writing but should not become page bodies.
+- Unresolved judgment should remain visible in review sections or reports.
+
+## Result
+
+State whether generation may proceed, must wait for review, or is blocked.

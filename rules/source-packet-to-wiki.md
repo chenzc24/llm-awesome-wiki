@@ -63,6 +63,16 @@ The analysis stage should record:
 The analysis output may be a report, a plan entry, or a structured note. It
 must be visible in the workspace diff.
 
+Preferred report shape:
+
+```text
+reports/wiki-construction-analysis.md
+```
+
+Generated workspaces may use
+`templates/workspace-kernel/reports/wiki-construction-analysis.template.md` as
+the starting point.
+
 ## Generation Output
 
 The generation stage should produce only accepted workspace artifacts:
@@ -86,6 +96,10 @@ Every generated wiki page should include:
 Source pages should remain short source notes. Chapter pages should carry the
 main distilled knowledge. Claim/evidence maps should support page writing but
 should not become page bodies.
+
+Source and chapter page templates should be treated as page-writing contracts:
+fill the useful sections, leave irrelevant sections empty only with a reason,
+and avoid adding audit fields that already belong in source packets or reports.
 
 ## Agent Rules
 

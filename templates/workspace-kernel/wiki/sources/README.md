@@ -25,3 +25,6 @@ Source pages should not:
 - repeat full packet metadata
 - list every anchor unless it helps navigation
 - become a polished copy of `raw/derived/<source-id>/source.md`
+
+Use `source-page.template.md` after a wiki construction analysis has decided
+that a source note should be created or updated.

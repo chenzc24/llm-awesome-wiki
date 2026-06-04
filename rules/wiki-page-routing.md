@@ -174,5 +174,6 @@ Route content to review instead of wiki prose when:
 - source pages remain short source notes
 - chapter pages remain the primary distilled knowledge surface
 - claim/evidence maps remain reports, not page bodies
+- construction analysis records create/update/merge/report-only decisions
 - optional synthesis or research pages have recorded reasons
 - index entries make the default reading path visible
