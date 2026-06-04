@@ -1114,7 +1114,9 @@
   confirmed skill names, docs/rules/skills boundary language, and no TODO
   placeholders; `git diff --check` passed with only Windows line-ending
   warnings; `python -m llm_wiki_tools validate-kernel` passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `d8860b7 Add agent skill entrypoints`; finalized by the follow-up
+  maintenance-status commit.
 
 ## 2026-06-04 - Prepare Person A dry-run v2 handoff
 

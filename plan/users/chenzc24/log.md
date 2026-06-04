@@ -981,7 +981,9 @@ Repository-wide merged or integration-level maintenance history belongs in
   confirmed no TODO placeholders and confirmed docs/rules/skills boundary
   language; `git diff --check` passed with only Windows line-ending warnings;
   `python -m llm_wiki_tools validate-kernel` passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `d8860b7 Add agent skill entrypoints`; finalized by the follow-up
+  maintenance-status commit.
 
 ## 2026-06-04 - Prepare Person A dry-run v2 handoff
 
