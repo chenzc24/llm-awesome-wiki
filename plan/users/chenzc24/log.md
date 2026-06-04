@@ -347,4 +347,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   `review_required`, `known_gaps`, and Non-Goals language; `git submodule
   status` confirmed both reference submodules stayed pinned; `git status
   --short --branch` showed only the intended Person B Phase 2.6 files.
-- Commit: planned for `main` as `Define phase two tool surface specs`.
+- Commit: completed on `main` as `512126b Define phase two tool surface
+  specs`; finalized by the follow-up maintenance-status commit.
