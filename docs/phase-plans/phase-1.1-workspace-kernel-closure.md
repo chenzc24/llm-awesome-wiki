@@ -50,10 +50,11 @@ Phase 1.1 is complete when:
 
 ## Why Not Phase 2 Yet
 
-Phase 2 is the raw-resource conversion subsystem. Starting it before the kernel
-is closed would risk building tools whose outputs are not yet governed by clear
-workspace rules. Phase 1.1 keeps the next implementation step smaller: make the
-workflow contract clear before writing converters.
+Phase 2 is the raw-resource-to-source-packet protocol layer. Starting it before
+the kernel is closed would risk building tools whose outputs are not yet
+governed by clear workspace rules. Phase 1.1 keeps the next implementation step
+smaller: make the workflow contract clear before writing converters or extractor
+harnesses.
 
 ## Non-Goals
 

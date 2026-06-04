@@ -56,7 +56,7 @@ instead of patching Person B's owned files directly.
 | Phase 0 | Read-only context. Confirm the system is not an `llm_wiki` clone. | No edits unless explicitly assigned. |
 | Phase 1 | Stabilize the minimum workspace-kernel schemas. | Valid JSON Schemas and small fixtures. |
 | Phase 1.1 | Harden the rough first draft contracts from Person B. | Aligned field names, required fields, validator coverage. |
-| Phase 2 | Define source inventory and source packet contracts for multimodal raw resources. | Schemas that can represent PDF, PPTX, DOCX, image, table, and OCR outputs. |
+| Phase 2 | Validate the raw-resource-to-source-packet protocol. | Schemas and fixtures for inventory rows, packet metadata, anchors, generated fields, gaps, and review routing. |
 | Phase 3 | Define evidence, claim, and review contracts. | Traceable evidence and claim records with generated-field markers. |
 | Phase 4 | Define wiki construction contracts. | Page/index frontmatter schemas and linkable source references. |
 | Phase 5 | Define compare and review report contracts. | Pass/fail/needs-review report schema and fixture examples. |
@@ -141,12 +141,13 @@ Acceptance:
   packets, wiki pages, reports, and logs
 - Phase 2 remains explicitly not started until the closure pass is stable
 
-## Phase 2: Raw Resource Conversion Subsystem
+## Phase 2: Raw Resource To Source Packet Protocol
 
-Goal: define the contracts for converting raw resources into source packets.
+Goal: define the contracts that validate source packet protocol artifacts.
 
-Person A does not need to implement a full converter first. Instead, define the
-artifact shapes that a converter must eventually produce.
+Person A does not need to implement a full converter, parser harness, or
+extractor adapter first. Instead, define the artifact shapes that any human,
+agent, MCP, local CLI, or optional extractor backend must eventually produce.
 
 Required contract concerns:
 
@@ -154,7 +155,8 @@ Required contract concerns:
 - raw path
 - raw hash
 - source kind
-- extraction tool version
+- extraction backend or adapter identity
+- extraction method and version
 - extraction status
 - page, slide, section, or timestamp anchors
 - extracted text
@@ -164,16 +166,18 @@ Required contract concerns:
 - extraction gaps and known failures
 - generated-field markers
 
-Multimodal requirements:
+Source-type packet profile requirements:
 
-- PDF: page text, rendered page references, OCR uncertainty, figure or chart
-  references
-- PPTX: slide anchors, slide text, speaker notes, media references, rendered
-  slide references
-- DOCX: heading hierarchy, paragraphs, lists, tables, comments or unsupported
-  structures when relevant
-- Images: extracted media identity, caption status, review status
-- Tables: inline Markdown table when small, companion CSV/TSV link when large
+- PDF packets can represent page anchors, rendered page references, OCR
+  uncertainty, figure or chart references, and page-level gaps.
+- PPTX packets can represent slide anchors, slide text, speaker notes, media
+  references, rendered slide references, and uncertain media mapping.
+- DOCX packets can represent heading anchors, hierarchy, paragraphs, lists,
+  tables, comments, and unsupported structures when relevant.
+- Image packets can represent extracted media identity, caption status, and
+  review status.
+- Table packets can represent inline Markdown tables when small and companion
+  CSV/TSV links when large.
 
 Model boundary:
 
@@ -181,12 +185,16 @@ Model boundary:
 - The LLM should not be the authority for hashes, file identity, path
   normalization, page order, slide order, binary parsing, or final coverage
   checks.
+- Optional extractors such as MinerU, Claude Code MCPs, Codex local tools,
+  Poppler, LibreOffice, or custom scripts are adapter inputs. Person A validates
+  their source packet outputs rather than implementing their internal harness.
 
 Person B dependency:
 
-- Person B owns `rules/raw-to-source-packet.md` and the human workflow. If the
-  workflow needs a field that is missing from the schema, add it deliberately or
-  record why it is deferred.
+- Person B owns `rules/raw-to-source-packet.md`, source packet protocol prose,
+  adapter protocol prose, and source-type packet profiles. If the workflow
+  needs a field that is missing from the schema, add it deliberately or record
+  why it is deferred.
 
 ## Phase 3: Evidence And Claim Layer
 

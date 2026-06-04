@@ -52,7 +52,7 @@ Person B should propose schema changes to Person A instead of directly changing
 | Phase 0 | Preserve completed architecture boundaries. | No routine edits; only Coordinator-level changes. |
 | Phase 1 | Make the workspace kernel usable by humans and agents. | Rules, templates, phase plans, and first-use guidance. |
 | Phase 1.1 | Close workflow ambiguity while Person A hardens contracts. | Term alignment notes, template cleanup, workflow corrections. |
-| Phase 2 | Describe raw-resource-to-source-packet workflow. | PDF/PPTX/DOCX/image/table handling rules and handoff expectations. |
+| Phase 2 | Describe raw-resource-to-source-packet protocol. | Source inventory rules, packet protocol, extractor adapter protocol, source-type packet profiles, and handoff expectations. |
 | Phase 3 | Describe source-packet-to-evidence/claim workflow. | Claim extraction, review routing, and generated-evidence rules. |
 | Phase 4 | Describe source-packet-to-wiki workflow. | Page routing, source/chapter templates, index and overview rules. |
 | Phase 5 | Describe compare gate and review workflow. | Pass/fail/needs-review prose and review handoff rules. |
@@ -137,14 +137,16 @@ Acceptance:
   packets, wiki pages, reports, and logs
 - Person A's validator expectations do not contradict Person B's workflow prose
 
-## Phase 2: Raw Resource Conversion Subsystem
+## Phase 2: Raw Resource To Source Packet Protocol
 
-Goal: describe how raw resources become source packets.
+Goal: describe the protocol that any human, agent, MCP, local CLI, or optional
+extractor backend must follow when raw resources become source packets.
 
-Person B owns the human/agent workflow. The main rule is:
+Person B owns the human/agent workflow and tool-surface protocol. The main rule
+is:
 
 ```text
-raw resource -> source packet -> evidence/claims -> wiki
+raw resource -> source inventory -> source packet -> evidence/claims -> wiki
 ```
 
 Do not describe this as:
@@ -153,41 +155,57 @@ Do not describe this as:
 raw resource -> final wiki page
 ```
 
-Person B should define workflow for:
+Also do not describe Phase 2 as:
+
+```text
+raw resource -> project-owned PDF/PPTX/DOCX parsing harness
+```
+
+Person B should define protocol for:
 
 - source intake and inventory
 - raw path conventions
 - when to hash raw files
-- what counts as successful extraction
-- how partial extraction is recorded
+- what a valid source packet must contain
+- how optional extractors/adapters declare backend, method, and version
+- how backend-specific outputs map into workspace packet anchors
+- how partial packet output is recorded
 - how generated OCR or VLM captions are marked
 - how unsupported modalities are routed to review
 
-For PDF:
+Person B does not own the internal implementation of MinerU, Claude Code MCPs,
+Codex tools, Poppler, LibreOffice, or custom parsers. Those are optional
+extractor backends. Person B defines what they must leave behind in the
+workspace.
+
+Source-type packet profiles should define minimum packet expectations, not
+parser implementations.
+
+For PDF packets:
 
 - require page-level anchors
-- require text extraction before model analysis
-- require rendered pages for visual-heavy material
+- require text extraction result or an explicit text-extraction gap
+- require rendered page references for visual-heavy material when available
 - record scanned, password-protected, empty, or extraction-failed pages
 - state when OCR or VLM captioning may be used
 
-For PPTX:
+For PPTX packets:
 
 - require slide-level anchors
 - preserve slide order
-- extract slide text and speaker notes when possible
-- render slide screenshots for layout-heavy slides
+- record slide text and speaker notes when possible
+- record rendered slide references for layout-heavy slides when available
 - record uncertain media-to-slide mapping
 
-For DOCX:
+For DOCX packets:
 
 - preserve heading hierarchy
 - keep paragraphs, lists, tables, and footnote/comment notes when relevant
 - convert small tables to Markdown
 - link large tables as companion CSV/TSV files
-- extract and caption meaningful images
+- extract, reference, or route meaningful images to review
 
-For images and tables:
+For image and table packets:
 
 - distinguish extracted data from model-generated captions
 - avoid treating captions as source-equivalent unless review accepts them
@@ -197,7 +215,8 @@ Person A dependency:
 
 - Person A owns the schema fields. Person B should maintain a handoff list of
   required fields, for example `source_kind`, `raw_sha256`, `extraction_status`,
-  `modalities`, `anchors`, `generated_fields`, and `known_gaps`.
+  `extraction_backend`, `adapter`, `modalities`, `anchors`,
+  `generated_fields`, `known_gaps`, and `review_required`.
 
 ## Phase 3: Evidence And Claim Layer
 
@@ -303,7 +322,7 @@ Each tool README should specify:
 Construction tools are for building the LLM Awesome Wiki workflow itself:
 
 - inventory command
-- raw-resource conversion command
+- packet conversion or adapter command
 - packet validation command
 - link/frontmatter lint command
 - compare gate command

@@ -412,8 +412,8 @@
   handoff, and unsupported-source language; `git submodule status` confirmed
   `MinerU/` and `llm_wiki/` remained pinned; `git status --short --branch`
   showed only the intended Phase 2.1 files.
-- Commit: planned for `co-work/czc_personB` as `Define source intake inventory
-  workflow`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `43c7c8d
+  Define source intake inventory workflow`.
 
 ## 2026-06-04 - Add artifact economy and raw-wiki alignment design
 
@@ -434,3 +434,23 @@
   design and maintenance files.
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `d8684ff Add
   artifact economy and raw-wiki alignment design`.
+
+## 2026-06-04 - Reframe phase two as packet protocol
+
+- Target: adjust Phase 2 and collaboration guidance so Phase 2 is understood as
+  a raw-resource-to-source-packet protocol layer, not a project-owned
+  PDF/PPTX/DOCX parser harness or MinerU-style conversion engine.
+- Changed areas: updated `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `docs/phase-plans/phase-1.1-workspace-kernel-closure.md`,
+  `docs/collaboration/person-a-contracts-validation-by-phase.md`,
+  `docs/collaboration/person-b-workflow-surface-by-phase.md`, and
+  `docs/collaboration/two-person-pre-skill-tools-worksplit.md`; added the
+  target plan under
+  `plan/users/chenzc24/2026-06-04-reframe-phase-2-protocol-first/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed protocol-first, source packet protocol, extractor
+  adapter, no-harness, and stable Person A/B ownership language; `git submodule
+  status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
+  --short --branch` showed only the intended protocol-reframing files.
+- Commit: planned for `co-work/czc_personB` as `Reframe phase two as packet
+  protocol`.

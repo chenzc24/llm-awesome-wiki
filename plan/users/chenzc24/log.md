@@ -149,8 +149,8 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 2.1 and source-inventory workflow language; `git submodule status`
   confirmed both reference submodules stayed pinned; `git status
   --short --branch` showed only the intended Phase 2.1 files.
-- Commit: planned for `co-work/czc_personB` as `Define source intake inventory
-  workflow`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `43c7c8d
+  Define source intake inventory workflow`.
 
 ## 2026-06-04 - Add artifact economy and raw-wiki alignment design
 
@@ -166,3 +166,23 @@ Repository-wide merged or integration-level maintenance history belongs in
   pinned.
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `d8684ff Add
   artifact economy and raw-wiki alignment design`.
+
+## 2026-06-04 - Reframe Phase 2 as packet protocol
+
+- Target: adjust Phase 2 wording and Person A/B guidance so Phase 2 is
+  protocol-first: optional agents, MCPs, local CLIs, MinerU, or custom
+  extractors may be used, but they must produce the workspace source packet
+  protocol rather than owning the workflow.
+- Changed areas: `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `docs/phase-plans/phase-1.1-workspace-kernel-closure.md`,
+  `docs/collaboration/person-a-contracts-validation-by-phase.md`,
+  `docs/collaboration/person-b-workflow-surface-by-phase.md`,
+  `docs/collaboration/two-person-pre-skill-tools-worksplit.md`, `plan/log.md`,
+  and `plan/users/chenzc24/2026-06-04-reframe-phase-2-protocol-first/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed protocol-first, source packet protocol, extractor
+  adapter, no-harness, and stable ownership language; `git submodule status`
+  confirmed both reference submodules stayed pinned; `git status
+  --short --branch` showed only the intended protocol-reframing files.
+- Commit: planned for `co-work/czc_personB` as `Reframe phase two as packet
+  protocol`.

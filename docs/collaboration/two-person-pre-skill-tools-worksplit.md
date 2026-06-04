@@ -13,6 +13,7 @@ The system should eventually support this path:
 
 ```text
 raw resources
+-> source inventory
 -> source packets
 -> evidence and claim records
 -> wiki pages
@@ -29,6 +30,7 @@ repository needs reliable foundations:
 - source packet and claim schemas
 - workflow rules that humans and agents can follow
 - workspace templates
+- source packet protocols that optional extractors can satisfy
 - validation commands
 - compare and review report formats
 
@@ -101,6 +103,7 @@ Owned files:
 Primary responsibilities:
 
 - explain the `raw-to-source-packet` workflow
+- define source packet protocol and extractor adapter expectations
 - explain the `source-packet-to-wiki` workflow
 - maintain distillation round rules
 - maintain compare gate prose and review workflow
@@ -160,11 +163,13 @@ Useful questions for Person A:
 Person B should simultaneously stabilize the minimum workflow:
 
 - `raw-to-source-packet`
+- source packet protocol
 - `source-packet-to-wiki`
 - `compare-gate-contract`
 
-The goal is a clear paper path from raw resources to wiki-ready material, not a
-fully automated converter.
+The goal is a clear paper path from raw resources to wiki-ready material, and a
+source packet protocol that optional extractors can satisfy. It is not a fully
+automated converter or project-owned parser harness.
 
 Useful questions for Person B:
 
@@ -289,7 +294,8 @@ Avoid these failure modes:
 
 - both people editing architecture documents at the same time
 - both people editing schemas at the same time
-- writing complex converters before the source packet contract is stable
+- writing complex converters or extractor harnesses before the source packet
+  protocol is stable
 - writing tool implementations before the CLI behavior is described
 - using `llm_wiki/` as an implementation dependency
 - letting agent names become user namespaces
