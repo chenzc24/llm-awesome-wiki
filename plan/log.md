@@ -1297,3 +1297,22 @@
   compare report lacks the required coverage tables.
 - Commit: completed on `main` as `c811361 Harden wiki coverage gate`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Run ADCtoolbox ch2-ch4 hardened redistillation
+
+- Target: test the hardened coverage gate by redistilling the three ADCtoolbox
+  PDF decks in a fresh ignored local workspace.
+- Changed areas: generated
+  `workspace/local/adctoolbox-ch2-ch4-hardened-redistill/` with copied raw
+  PDFs, source packets, source/chapter wiki pages, construction analysis,
+  compare report, review queue, validation note, and checker reports. Added
+  the target plan under
+  `plan/users/chenzc24/2026-06-04-adctoolbox-ch2-ch4-hardened-redistill/`.
+- Design review: the new workspace demonstrates the intended strengthened
+  loop. The compare report now includes source coverage, page-level anchor
+  disposition, and wiki page coverage, so the earlier ch3 shallow-summary
+  failure mode is no longer invisible.
+- Validation: `workspace-check --mode all` passed for the generated workspace;
+  schema, source inventory, source packet, wiki lint, report, closure, and
+  fixture checks passed.
+- Commit: pending.

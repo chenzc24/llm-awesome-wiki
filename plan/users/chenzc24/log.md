@@ -1198,3 +1198,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   `Anchor Disposition`, and `Wiki Page Coverage`.
 - Commit: completed on `main` as `c811361 Harden wiki coverage gate`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Run ADCtoolbox ch2-ch4 hardened redistillation
+
+- Target: create a fresh ignored local workspace and redistill ADCtoolbox
+  `ch2.pdf`, `ch3.pdf`, and `ch4.pdf` with the strengthened coverage-aware
+  workflow.
+- Changed areas: generated
+  `workspace/local/adctoolbox-ch2-ch4-hardened-redistill/` with copied raw
+  PDFs, source inventory, source packets, source/chapter wiki pages, overview,
+  index, wiki log, construction analysis, compare report with source coverage
+  and anchor disposition, review queue, validation note, and `.checks/`
+  reports. Added the system target plan under
+  `plan/users/chenzc24/2026-06-04-adctoolbox-ch2-ch4-hardened-redistill/`.
+- Design review: this pass uses the new coverage gate. The ch3 chapter grows
+  from the earlier dry run's 365 words and 11 page anchors to 1043 words and
+  53 page anchors, with offset/gain, DNL, INL, FFT setup, leakage/windowing,
+  spectral metrics, ERBW, IMD/MTPR, and static-to-dynamic links represented.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-ch2-ch4-hardened-redistill --mode all --report
+  workspace/local/adctoolbox-ch2-ch4-hardened-redistill/.checks/workspace-check-all.md`
+  passed. Schema, source inventory, source packet, wiki lint, report, closure,
+  and fixture checks passed.
+- Commit: pending.
