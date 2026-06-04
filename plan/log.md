@@ -1254,4 +1254,6 @@
   current README entrypoint language; file checks confirmed root `llm-wiki.md`
   is absent, archived `docs/archive/llm-wiki.md` exists, and
   `workspace/human-agent-rule-divergence.md` is deleted.
-- Commit: pending.
+- Commit: completed on `main` as
+  `b762b2e Refresh README and archive old concept note`; finalized by the
+  follow-up maintenance-status commit.
