@@ -672,4 +672,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 5 Closure, Phase 5 is complete, compare gates, review workflow,
   close-pass, close-with-review, do-not-close, Person A handoff, Phase 6, and
   not-implement language; reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `9e3aad0 Close phase five compare gate
+  workflow`; finalized by the follow-up maintenance-status commit.

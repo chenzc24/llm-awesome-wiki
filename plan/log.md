@@ -871,4 +871,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 5 closure and Phase 6 handoff language.
-- Commit: pending.
+- Commit: completed on `main` as `9e3aad0 Close phase five compare gate
+  workflow`; finalized by the follow-up maintenance-status commit.
