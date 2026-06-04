@@ -1,7 +1,9 @@
 # Phase 2 Raw Resource Conversion
 
 Phase 2 defines the workflow surface for converting raw resources into source
-packets.
+packets. It is also the first step of the raw-wiki alignment substrate: the
+source identities, anchors, generated-field markers, and gaps created here are
+what later wiki pages and alignment reports must cite.
 
 The phase is owned by Person B on the workflow/tool-surface line. It uses
 `MinerU/` as read-only reference material for document parsing patterns, but it
@@ -12,23 +14,29 @@ application, or a model-serving platform.
 
 Phase 1 made the workspace kernel copyable and manually usable.
 
-Phase 2 starts the first construction-tool layer:
+Phase 2 starts the first construction-tool layer and establishes the raw side
+of raw-wiki alignment:
 
 ```text
 raw resource
 -> source inventory
 -> source packet
+-> anchor references
+-> future wiki alignment checks
 -> evidence/claims
 -> wiki
 ```
 
-Phase 2 stops at the source packet boundary. It does not build claim
-extraction, wiki generation, compare gates, or downstream `skill + tool`
-artifacts.
+Phase 2 stops before claim extraction and wiki generation. It does not build
+compare gates or downstream `skill + tool` artifacts. But it must define enough
+source identity and anchor discipline that later raw-wiki alignment is
+checkable instead of relying on model memory.
 
 ## Phase Thesis
 
-The system should make raw resources auditable before any wiki writing begins.
+The system should make raw resources auditable before any wiki writing begins,
+while avoiding audit artifacts that make the later readable wiki harder to
+maintain.
 
 A source packet is not just extracted text. It is a traceable bridge that says:
 
@@ -43,6 +51,10 @@ A source packet is not just extracted text. It is a traceable bridge that says:
 This keeps the project Agent-first and Git-first: an agent can reason over
 repo-local files, but the repository still records enough evidence for a human
 or deterministic tool to audit what happened.
+
+Artifact economy applies here: a source packet is the source of truth for
+anchors and extraction gaps, not a second wiki article. Later wiki pages should
+cite packet anchors instead of copying packet metadata and extraction logs.
 
 ## What MinerU Contributes
 
@@ -105,6 +117,8 @@ Expected deliverables:
 - README-level CLI specs for source inventory and raw conversion tools
 - a Person A handoff list for schema and validator needs
 - examples of extraction status, generated fields, anchors, and review routing
+- raw-wiki alignment requirements that future wiki lint, coverage, and compare
+  tools can check
 
 Phase 2 may propose schema changes, but Person B should not directly edit
 `contracts/schemas/**` during coworker work.
@@ -266,6 +280,8 @@ Likely schema or validator needs:
 - `review_required`
 - `review_reason`
 - `derived_artifacts`
+- wiki citation fields should be able to reference packet anchors without
+  copying raw hash or extraction metadata into readable pages
 
 Person B should describe the workflow need for each field instead of editing
 schema files directly.
@@ -291,6 +307,8 @@ Phase 2 is complete when:
 - modality profiles exist for PDF, PPTX, DOCX, images, tables, and mixed media
 - workspace templates show how to record source inventory, packet anchors,
   generated fields, gaps, and review routing
+- Phase 2 artifacts make future raw-wiki alignment reports possible without
+  making source packets the human reading surface
 - tool README specs explain the future CLI surfaces without overpromising
   implementation
 - Person A has a clear schema/validator handoff list

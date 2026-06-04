@@ -35,6 +35,11 @@ raw resources
 The system is not only a reading surface. It is an engineering workflow for
 making knowledge traceable, reviewable, and eventually executable.
 
+The first quality axis is **raw-wiki alignment**: important wiki knowledge
+should remain traceable to raw source material through stable source identity,
+source packet anchors, and alignment reports. Simplicity is not the end goal;
+artifact economy is the discipline that keeps this alignment maintainable.
+
 The research-wiki structure used by `llm_wiki`--entities, concepts, queries,
 comparisons, and synthesis pages--is an optional profile, not the default
 minimum. It is useful when a corpus becomes a long-running research graph, but
@@ -70,6 +75,41 @@ background service, or external wrapper as the source of truth.
   generation into one large pass.
 - Do not let LLMs be the parser of record for binary documents, hashes, paths,
   file identity, or final validation.
+- Do not treat verbose audit artifacts as the default human reading surface.
+- Do not create duplicate truth sources for the same operational fact across
+  inventory, metadata, packets, wiki pages, reports, and logs.
+
+## Cross-Cutting Invariants
+
+These invariants apply across all phases.
+
+### Raw-Wiki Alignment
+
+The core construction path is:
+
+```text
+raw source
+-> stable source identity
+-> source packet anchors
+-> readable wiki references
+-> alignment reports
+-> review or correction
+```
+
+The system succeeds when a reader can use the wiki and a reviewer can still
+trace important claims back to source anchors without reading every audit file
+manually.
+
+### Artifact Economy
+
+Every artifact should have a primary audience and a clear source-of-truth role.
+Audit files may be verbose, but the readable wiki layer should stay concise.
+Logs record events, reports record decisions and blockers, and packets record
+source anchors. Repeating the same fields everywhere is a system risk because
+it increases model burden and makes validators chase conflicting copies.
+
+For the full principle, see
+`docs/top-level-design/artifact-economy-and-raw-wiki-alignment.md`.
 
 ## Architecture Layers
 
@@ -107,9 +147,15 @@ Generated workspace directory contract:
 
 ```text
 raw/sources/              # immutable source files
-raw/derived/              # source packets and extracted media
-wiki/                     # maintained distilled knowledge
-reports/                  # compare, coverage, lint, review outputs
+raw/derived/              # generated packets, metadata, extracted text, media
+wiki/                     # maintained readable distilled knowledge
+wiki/chapters/            # primary human-readable chapter layer
+wiki/sources/             # optional short source notes
+wiki/synthesis/           # optional cross-source conclusions
+reports/alignment/        # raw-wiki alignment checks
+reports/coverage/         # source, anchor, and modality coverage
+reports/review/           # unresolved human judgment
+reports/validation/       # short round outcomes
 contracts/                # copied or referenced schema/config contracts
 tools/                    # deterministic construction tools
 templates/                # reusable plans, pages, reports, specs
@@ -143,6 +189,10 @@ The conversion layer must preserve provenance, page or slide anchors, extracted
 media references, generated captions, OCR status, parsing failures, and
 confidence notes.
 
+The conversion layer is the raw side of raw-wiki alignment. Its job is not to
+produce a beautiful Markdown article. Its job is to create stable source
+identities and anchors that later wiki pages can cite.
+
 ### Layer 3: Evidence And Knowledge IR
 
 The intermediate representation should be more structured than prose. It should
@@ -171,6 +221,10 @@ The wiki is the maintained human-readable layer. It should summarize, connect,
 and organize knowledge while preserving traceability back to source packets and
 evidence records.
 
+The wiki should not duplicate the audit layer. It should reference source
+anchors for important claims while staying readable enough for humans and
+agents to use as the default knowledge surface.
+
 Expected outputs:
 
 - `wiki/index.md`
@@ -190,6 +244,7 @@ skill or tool generation.
 
 Required gate families:
 
+- raw-wiki alignment reports
 - source inventory coverage
 - source packet validity
 - claim-to-source coverage
@@ -332,13 +387,16 @@ Validation:
   research-wiki object extraction
 - Phase 2 remains explicitly not started
 
-### Phase 2: Raw Resource Conversion Subsystem
+### Phase 2: Raw-Wiki Alignment Substrate
 
-Goal: convert raw resources into source packets without losing provenance.
+Goal: create the raw side of the raw-wiki alignment substrate by converting raw
+resources into source packets without losing provenance.
 
 This phase answers the immediate `raw_resource -> .md` question. The answer is:
 do not convert raw resources directly into final wiki pages. First convert each
 resource into a source packet that is faithful, structured, and auditable.
+The packet must expose source identities and anchors that future wiki pages and
+alignment reports can cite.
 
 #### Conversion Contract
 
@@ -482,16 +540,20 @@ Validation:
 
 - generated pages contain parseable frontmatter
 - `sources` fields remain traceable
+- important claims cite source packet anchors
+- readable pages do not repeat packet metadata, hashes, and extraction logs
 - existing pages are merged rather than overwritten
 - cross-links are checked
 
 ### Phase 5: Compare Gates And Review Workflow
 
-Goal: ensure that every round produces checkable quality signals.
+Goal: ensure that every round produces checkable quality signals, especially
+raw-wiki alignment and coverage signals.
 This phase is still part of knowledge-base construction.
 
 Deliverables:
 
+- alignment report template
 - compare report template
 - claim coverage report
 - modality coverage report

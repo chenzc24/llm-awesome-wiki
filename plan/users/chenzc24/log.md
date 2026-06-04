@@ -151,3 +151,17 @@ Repository-wide merged or integration-level maintenance history belongs in
   --short --branch` showed only the intended Phase 2.1 files.
 - Commit: planned for `co-work/czc_personB` as `Define source intake inventory
   workflow`.
+
+## 2026-06-04 - Add artifact economy and raw-wiki alignment design
+
+- Target: make raw-wiki alignment the primary quality axis and artifact economy
+  the cross-phase control against verbose, duplicated, unreadable outputs.
+- Changed areas: `docs/top-level-design/`, `docs/knowledge-to-executable.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `docs/collaboration/`, and the target plan under
+  `plan/users/chenzc24/2026-06-04-add-artifact-economy-raw-wiki-alignment-design/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed the cross-phase alignment and artifact economy
+  language; `git submodule status` confirmed both reference submodules stayed
+  pinned.
+- Commit: pending.

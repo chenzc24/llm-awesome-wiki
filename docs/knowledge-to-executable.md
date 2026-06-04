@@ -16,7 +16,8 @@ knowledge-to-code path. Do not attempt to implement both layers in one pass.
 ```text
 raw source
 -> source packet
--> chapter-oriented distilled wiki
+-> source-anchored readable wiki
+-> raw-wiki alignment reports
 -> construction executable layer
 -> structured knowledge units
 -> executable specs
@@ -98,6 +99,11 @@ Expected future artifacts:
 - optional research-profile areas such as `wiki/concepts/`,
   `wiki/entities/`, `wiki/comparisons/`, and `wiki/queries/`
 
+The readable wiki layer should not consume or repeat every audit artifact.
+Important claims should cite source packet anchors, but operational facts such
+as raw hashes, extraction versions, and full packet metadata should remain in
+the audit layer unless they are directly relevant to the reader.
+
 ## Layer 3: Structured Knowledge Units
 
 Executable work needs more structure than prose. Distilled pages should feed
@@ -146,6 +152,11 @@ Candidate future structure:
 This layer should be designed after the distillation workflow is stable enough
 to provide reliable inputs, and after the construction executable layer is in
 place.
+
+Downstream skill and tool work should consume stable readable knowledge,
+source-backed claims, and executable specs. It should not directly consume the
+full raw audit layer as its normal input, because that would turn construction
+noise into implementation noise.
 
 ## Layer 6: Implementation Artifacts
 
@@ -197,6 +208,9 @@ Only after that should the downstream knowledge-to-code mainline begin:
 ## First Principles
 
 - A wiki page is not finished until its important claims can be traced.
+- A readable wiki page is not improved by repeating every audit field.
+- One fact should have one source of truth, with references instead of
+  competing copies.
 - A plan is not ready until it can drive execution.
 - Generated code is not accepted until it is validated.
 - Validation results should update the knowledge base, not disappear into chat.

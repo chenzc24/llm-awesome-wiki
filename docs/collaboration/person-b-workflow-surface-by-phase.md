@@ -6,6 +6,11 @@ In the current team, Person B is `chenzc24`. Person B owns the parts that make
 the system understandable and executable by humans and agents: rules, templates,
 phase plans, and tool behavior prose.
 
+Person B also owns the readable output surface. The workflow should keep
+construction audit artifacts separate from human-readable wiki pages and should
+avoid templates that make agents repeat the same operational facts across many
+files.
+
 ## Background
 
 LLM Awesome Wiki is being built as a new system. It can learn from `llm_wiki/`,
@@ -380,3 +385,16 @@ Person A is:
 
 Person B's main job is clarity: make the path understandable, make ambiguity
 visible, and keep humans and agents from guessing.
+
+## Artifact Economy Responsibility
+
+Person B should make sure every default artifact has a primary audience:
+
+- source packets are for anchors, extraction gaps, and audit handoff
+- wiki chapters are for readable distilled knowledge
+- reports are for validation results, blockers, coverage, and review queues
+- logs are for events, not knowledge summaries
+
+When a template becomes verbose, Person B should decide whether the content is
+needed for raw-wiki alignment. If it is not, remove it from the default
+workflow or move it to an optional/generated audit artifact.

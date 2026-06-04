@@ -414,3 +414,22 @@
   showed only the intended Phase 2.1 files.
 - Commit: planned for `co-work/czc_personB` as `Define source intake inventory
   workflow`.
+
+## 2026-06-04 - Add artifact economy and raw-wiki alignment design
+
+- Target: promote artifact economy and raw-wiki alignment into top-level
+  architecture constraints that apply across all phases.
+- Changed areas: added
+  `docs/top-level-design/artifact-economy-and-raw-wiki-alignment.md`; updated
+  `docs/top-level-design/system-architecture-plan.md`,
+  `docs/top-level-design/README.md`, `docs/knowledge-to-executable.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`, and Person A/B
+  collaboration guidance; added the target plan under
+  `plan/users/chenzc24/2026-06-04-add-artifact-economy-raw-wiki-alignment-design/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  targeted `rg` confirmed raw-wiki alignment, artifact economy, one fact/one
+  source of truth, readable layer, audit layer, alignment reports, and duplicate
+  truth language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
+  remained pinned; `git status --short --branch` showed only the intended
+  design and maintenance files.
+- Commit: pending `Add artifact economy and raw-wiki alignment design`.

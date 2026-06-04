@@ -26,3 +26,6 @@ execution plans.
   Awesome Wiki, including architecture layers, staged build phases,
   raw-resource conversion as one subsystem, LLM responsibility boundaries,
   quality gates, and the limited reference role of `llm_wiki`.
+- `artifact-economy-and-raw-wiki-alignment.md`: cross-cutting design principle
+  for keeping readable wiki output aligned with raw sources without creating
+  duplicate truth sources or verbose default artifacts.
