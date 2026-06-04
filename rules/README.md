@@ -1,82 +1,81 @@
 # Rules
 
-This directory contains operational rules for generated knowledge workspaces.
-It is organized for progressive disclosure: start from the default path, then
-open specialized modules only when the round needs them.
+This directory contains detailed reference rules for generated knowledge
+workspaces.
 
-These files are human/agent-facing workflow protocols, not machine-readable
+The runtime entrypoints are the Agent skills under `skills/**`. A normal agent
+should start from one active skill, work against the current workspace
+artifacts, and open these rules only when the skill names a specific
+progressive-disclosure trigger.
+
+These files are human/agent-facing reference protocols, not machine-readable
 schemas. Machine-readable contracts live under `contracts/schemas/` and
 validator code.
-
-Files named `*-contract.md` in this directory are operational rules unless
-they live under `contracts/schemas/**` or validator-owned paths.
 
 ## Directory Map
 
 ```text
 rules/
-  workflow/  default round sequence and closure decisions
-  source/    optional extraction handoff, source-type profiles, generated data
-  wiki/      wiki surface and source-to-wiki coverage
-  claims/    evidence, claims, modality, support, contradiction review
-  review/    review queue lifecycle
+  source/  optional extraction handoff, source-type profiles, generated data
+  wiki/    wiki surface and source-to-wiki coverage
+  claims/  evidence, claims, modality, support, contradiction review
+  review/  review queue lifecycle
 ```
 
-## Default Golden Path
+Workflow runtime now lives in:
 
-A normal document/PPT distillation round should start with these six
-entrypoints:
+```text
+skills/llm-wiki-distill/SKILL.md
+skills/llm-wiki-source-packet/SKILL.md
+skills/llm-wiki-wiki-round/SKILL.md
+skills/llm-wiki-quality-gate/SKILL.md
+```
 
-1. `rules/workflow/maintenance-workflow.md`: plan, edit, validate, log,
-   commit, and push.
-2. `rules/workflow/distillation-rounds.md`: keep the round scoped, staged,
-   and reviewable.
-3. `rules/workflow/raw-to-source-packet.md`: turn raw sources into auditable
-   source packets.
-4. `rules/workflow/source-packet-to-wiki.md`: move from packets to wiki construction
-   analysis and accepted wiki updates.
-5. `rules/workflow/compare-gate-contract.md`: record source/wiki, claim,
-   modality, review, and navigation findings before advancement.
-6. `rules/workflow/round-closure-workflow.md`: decide `close-pass`,
-   `close-with-review`, or `do-not-close`.
+## When To Read Rules
 
-This path is enough for the first pass through most document/PPT workspaces.
-It preserves source/chapter readability without forcing every source into a
-research graph.
-
-## When To Read More
-
-Open these modules only when the round needs the extra detail:
+Open these modules only when the active skill needs the extra detail:
 
 | Need | Rule |
 | --- | --- |
 | Use manual, Agent/MCP, MinerU, Poppler, LibreOffice, or custom extraction output | `rules/source/extractor-adapter-protocol.md` |
 | Check PDF, PPTX, DOCX, image, table, dataset, or mixed-media packet shape | `rules/source/source-type-packet-profiles.md` |
 | Mark OCR, captions, chart summaries, table repairs, formula recognition, or inferred structure | `rules/source/generated-fields-review-routing.md` |
-| Select evidence, extract important claims, or route claim uncertainty | `rules/claims/evidence-claim-workflow.md` |
 | Decide page destination, index behavior, overview refresh, or wiki log update | `rules/wiki/wiki-surface-workflow.md` |
 | Explain source-to-wiki coverage, omissions, deferrals, and anchor disposition | `rules/wiki/source-wiki-coverage-protocol.md` |
+| Select evidence, extract important claims, or route claim uncertainty | `rules/claims/evidence-claim-workflow.md` |
 | Review claim support, generated evidence, modality state, unsupported statements, or contradictions | `rules/claims/claim-modality-contradiction-review-protocol.md` |
 | Manage review item lifecycle, blocking level, carry-forward, stale review, or dismissal | `rules/review/review-queue-workflow.md` |
 
+Do not load every rule for a normal round. The intended loading order is:
+
+```text
+active SKILL.md
+-> active workspace artifacts
+-> one detailed rule only when needed
+-> validators/checkers for evidence
+```
+
 ## Semantic Ownership
 
-Each workflow concept should have one owner file. Other rules may reference
-the concept, but should not redefine the full table or lifecycle.
+Each concept should have one owner. Skills own workflow runtime. Detailed rules
+own specialized reference semantics. Schemas and validators own
+machine-checkable contracts.
 
 | Concept | Owner |
 | --- | --- |
-| workspace planning, logs, commits, validation discipline | `rules/workflow/maintenance-workflow.md` |
-| round sequencing, overview-first initialization, staged work packages | `rules/workflow/distillation-rounds.md` |
-| source identity, inventory status, packet metadata, extraction status, anchors | `rules/workflow/raw-to-source-packet.md` |
+| end-to-end round runtime, planning, staged work, log, commit, push | `skills/llm-wiki-distill/SKILL.md` |
+| source packet runtime, inventory, metadata, anchors, gaps, packet review | `skills/llm-wiki-source-packet/SKILL.md` |
 | optional extractor/backend handoff shape | `rules/source/extractor-adapter-protocol.md` |
 | source-type packet minimum profiles | `rules/source/source-type-packet-profiles.md` |
 | generated field kinds, trust levels, and packet review routing | `rules/source/generated-fields-review-routing.md` |
-| evidence selection, claim extraction, claim review routing | `rules/claims/evidence-claim-workflow.md` |
-| packet-to-wiki action flow | `rules/workflow/source-packet-to-wiki.md` |
-| wiki routing, source/chapter surface, index, overview, and wiki log | `rules/wiki/wiki-surface-workflow.md` |
-| compare report decision surface and `pass`/`fail`/`needs-review` semantics | `rules/workflow/compare-gate-contract.md` |
+| wiki construction runtime, construction analysis, source/chapter updates | `skills/llm-wiki-wiki-round/SKILL.md` |
+| wiki routing, source/chapter surface, index, overview, and wiki log edge cases | `rules/wiki/wiki-surface-workflow.md` |
 | source/wiki coverage units, dispositions, importance, omission reasons | `rules/wiki/source-wiki-coverage-protocol.md` |
+| evidence selection, claim extraction, claim review routing | `rules/claims/evidence-claim-workflow.md` |
 | claim support, generated-evidence, modality, unsupported statement, contradiction semantics | `rules/claims/claim-modality-contradiction-review-protocol.md` |
+| compare, validation, review, and closure runtime | `skills/llm-wiki-quality-gate/SKILL.md` |
 | review item lifecycle and blocking levels | `rules/review/review-queue-workflow.md` |
-| round closure decisions and advancement | `rules/workflow/round-closure-workflow.md` |
+| machine-readable field shapes and enum validation | `contracts/schemas/**` and `llm_wiki_tools/**` |
+
+Other files may reference an owner, but should not copy the full lifecycle or
+status table.

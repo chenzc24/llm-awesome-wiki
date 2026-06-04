@@ -1,4 +1,4 @@
 interface:
   display_name: "LLM Wiki Quality Gate"
-  short_description: "Route compare, review, validation, and closure checks."
+  short_description: "Run compare, review, validation, and closure runtime."
   default_prompt: "Run compare, review, validation, and closure workflow for this workspace."

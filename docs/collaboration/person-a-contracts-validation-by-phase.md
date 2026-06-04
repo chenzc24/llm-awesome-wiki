@@ -218,10 +218,10 @@ Model boundary:
 
 Person B dependency:
 
-- Person B owns `rules/workflow/raw-to-source-packet.md`, source packet protocol prose,
-  adapter protocol prose, and source-type packet profiles. If the workflow
-  needs a field that is missing from the schema, add it deliberately or record
-  why it is deferred.
+- Person B owns `skills/llm-wiki-source-packet/SKILL.md`, source packet runtime
+  prose, adapter protocol prose, and source-type packet profiles. If the
+  workflow needs a field that is missing from the schema, add it deliberately
+  or record why it is deferred.
 
 ## Phase 3: Evidence And Claim Layer
 

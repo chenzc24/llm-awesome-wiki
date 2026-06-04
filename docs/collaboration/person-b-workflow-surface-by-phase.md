@@ -103,7 +103,7 @@ Goal: make the workspace kernel understandable and copyable.
 
 Person B owns:
 
-- workflow rules outside `docs/`
+- runtime skills and detailed rules outside `docs/`
 - workspace-kernel templates
 - plan and log templates
 - phase-plan breakdown

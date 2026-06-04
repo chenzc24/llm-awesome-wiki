@@ -1096,3 +1096,29 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `a016187 Group rules by workflow area`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Consolidate workflow runtime into skills
+
+- Target: complete the three-stage skill runtime consolidation: rewrite skills
+  as runtime cards, review parity against `rules/workflow/**`, and remove the
+  old workflow-rule runtime entrypoints after review.
+- Changed areas: expanded the four `skills/**/SKILL.md` runtime cards and
+  OpenAI metadata; added
+  `docs/collaboration/skill-runtime-vs-workflow-rules-review.md`; updated
+  current README, architecture, collaboration docs, `rules/README.md`, and
+  `llm_wiki_tools` kernel validation; deleted `rules/workflow/**`; added the
+  target plan under
+  `plan/users/chenzc24/2026-06-04-skill-runtime-consolidation-stage-3/`.
+- Design review: `skills/` now owns workflow guidance, runtime, and
+  progressive disclosure. `rules/` is a detailed source/wiki/claim/review
+  reference layer, schemas and tools own machine-checkable contracts, and
+  historical plan/log references were left intact.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m py_compile llm_wiki_tools/cli.py
+  llm_wiki_tools/__main__.py` passed; `python -m llm_wiki_tools
+  validate-kernel` passed; targeted `rg` confirmed skill runtime,
+  progressive-disclosure, source packet, wiki construction analysis,
+  `close-pass`, and detailed rule references; `rules/workflow` references are
+  limited to the migration review and historical wording, and the local
+  `rules/workflow` directory is absent.
+- Commit: pending.

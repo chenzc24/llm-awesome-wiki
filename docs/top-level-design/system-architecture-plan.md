@@ -71,9 +71,10 @@ The system uses three related terms with different ownership.
 **Workflow protocol** or **operational rule** means human/agent-facing
 instructions for how work should proceed. A protocol answers: what step happens
 next, what inputs are allowed, what outputs must be produced, what failure must
-look like, and what shortcuts are forbidden. Protocols live primarily in
-`rules/**`, `docs/phase-plans/**`, workspace templates, and tool behavior
-prose. Person B owns this layer.
+look like, and what shortcuts are forbidden. Runtime workflow protocols live
+primarily in `skills/**`. Detailed rule references live in `rules/**`.
+Workspace templates and tool behavior prose support that layer. Person B owns
+this layer.
 
 **Machine-readable contract** means the data shape and checks that can be
 validated by software. A contract answers: which fields are required, which enum
@@ -101,12 +102,12 @@ requiredness, enum values, fixture behavior, and validation checks. Conversely,
 Person A should not invent new workflow requirements in schemas without
 reporting the mismatch back to Person B.
 
-Rules should use progressive disclosure. `rules/README.md` is the first
-entrypoint and should explain the default golden path before specialized
-modules under `rules/workflow/`, `rules/source/`, `rules/wiki/`,
-`rules/claims/`, and `rules/review/`. Each status, enum, lifecycle, and
-workflow concept should have one semantic owner file; other rule files should
-link to that owner instead of copying the full definition.
+Skills should use progressive disclosure. An agent should start from the
+active `skills/**/SKILL.md`, then open detailed `rules/**` only when the skill
+names a specific trigger. `rules/README.md` is a reference index, not the
+default runtime entrypoint. Each status, enum, lifecycle, and workflow concept
+should have one semantic owner; other files should link to that owner instead
+of copying the full definition.
 
 ## System Non-Goals
 
@@ -162,9 +163,9 @@ For the full principle, see
 
 The root repository is the system substrate. It produces a workspace kernel
 that can be copied or scaffolded into independent knowledge workspace
-repositories. It owns architecture documents, workflow rules, reusable machine
-contracts, validation/checker tools, tests, and deterministic validation
-entrypoints.
+repositories. It owns architecture documents, runtime skills, detailed rules,
+reusable machine contracts, validation/checker tools, tests, and deterministic
+validation entrypoints.
 It should not itself become an active knowledge workspace.
 
 Expected responsibilities:
@@ -183,7 +184,8 @@ contracts/                # reusable machine contracts, including JSON Schema
 docs/                     # architecture, phase plans, and project guidance
 llm_wiki_tools/           # runnable Python checker CLI and command index
 plan/                     # target plans and maintenance log
-rules/                    # workspace workflow rules and index/gate contracts
+rules/                    # detailed source, wiki, claim, and review rules
+skills/                   # runtime entrypoints and progressive-disclosure guides
 templates/                # reusable workspace, page, report, and spec templates
 tests/                    # validation for tools, templates, and schemas
 examples/                 # small generated-workspace fixtures only
@@ -205,7 +207,7 @@ reports/validation/       # short round outcomes
 contracts/                # copied or referenced schema/config contracts
 tools/                    # deterministic validation/checker tools
 templates/                # reusable plans, pages, reports, specs
-skills/                   # reserved for downstream domain skills
+skills/                   # runtime guides and optional downstream domain skills
 tests/                    # validation for checker tools and downstream artifacts
 ```
 
@@ -399,14 +401,14 @@ Validation:
 
 ### Phase 1: Workspace Kernel
 
-Goal: create the reusable rules, contracts, templates, and validation substrate
-needed to instantiate generated knowledge workspaces.
+Goal: create the reusable skills, rules, contracts, templates, and validation
+substrate needed to instantiate generated knowledge workspaces.
 
 Deliverables:
 
 - canonical directory map
 - workspace-kernel template
-- workflow rules outside `docs/`
+- runtime skills and detailed rules outside `docs/`
 - source inventory schema
 - source packet schema
 - claim/evidence schema
@@ -440,8 +442,8 @@ Validation:
 
 - a copied workspace kernel has obvious places for plans, raw inputs, derived
   packets, wiki pages, reports, and logs
-- rules and templates use the same terms for source inventory, source packet,
-  compare gate, lint, review, and distillation round
+- skills, rules, and templates use the same terms for source inventory, source
+  packet, compare gate, lint, review, and distillation round
 - the default kernel preserves source/chapter structure before optional
   research-wiki object extraction
 - Phase 2 remains explicitly not started

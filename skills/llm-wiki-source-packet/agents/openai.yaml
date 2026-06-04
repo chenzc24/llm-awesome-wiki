@@ -1,4 +1,4 @@
 interface:
   display_name: "LLM Wiki Source Packet"
-  short_description: "Route raw sources into source packet workflow checks."
-  default_prompt: "Prepare or review source packet workflow for this workspace."
+  short_description: "Run the raw-to-source-packet runtime."
+  default_prompt: "Prepare or review source packets for this workspace."

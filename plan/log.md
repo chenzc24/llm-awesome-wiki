@@ -1212,3 +1212,25 @@
 - Commit: completed on `main` as
   `a016187 Group rules by workflow area`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Consolidate workflow runtime into skills
+
+- Target: complete the Stage 1-3 runtime migration from workflow rules into
+  skills.
+- Changed areas: rewrote the four LLM Wiki skills as runtime cards; added a
+  parity review proving coverage against the old `rules/workflow/**` baseline;
+  removed `rules/workflow/**`; updated the rules index, current README,
+  architecture, collaboration handoff docs, skill metadata, and kernel
+  validator required paths; added the target plan under
+  `plan/users/chenzc24/2026-06-04-skill-runtime-consolidation-stage-3/`.
+- Design review: normal execution now starts from an active skill. Detailed
+  rules remain available for source, wiki, claim, and review edge cases, but
+  no longer act as the default workflow runtime.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m py_compile llm_wiki_tools/cli.py
+  llm_wiki_tools/__main__.py` passed; `python -m llm_wiki_tools
+  validate-kernel` passed; targeted `rg` confirmed runtime and
+  progressive-disclosure language in skills and rules; `rules/workflow`
+  references are limited to migration review/historical wording, and the local
+  `rules/workflow` directory is absent.
+- Commit: pending.

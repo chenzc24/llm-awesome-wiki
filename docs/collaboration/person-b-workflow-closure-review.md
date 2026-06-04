@@ -26,13 +26,13 @@ generation, or full production-readiness of every validator.
 Person B has already defined the source packet and wiki construction surfaces
 at the workflow level.
 
-Key completed rules:
+Key completed runtime and rules:
 
-- `rules/workflow/raw-to-source-packet.md`
+- `skills/llm-wiki-source-packet/SKILL.md`
 - `rules/source/source-type-packet-profiles.md`
-- `rules/workflow/source-packet-to-wiki.md`
+- `skills/llm-wiki-wiki-round/SKILL.md`
 - `rules/wiki/wiki-surface-workflow.md`
-- `rules/workflow/distillation-rounds.md`
+- `skills/llm-wiki-distill/SKILL.md`
 - `rules/wiki/source-wiki-coverage-protocol.md`
 
 Key completed phase plans and reviews:
@@ -81,11 +81,12 @@ Key completed phase plans and reviews:
    page routing, draft or merge wiki pages, update overview/index/log, and then
    run checks.
 
-4. The remaining workflow issue is operational consolidation.
+4. The remaining workflow issue was operational consolidation.
 
-   `rules/workflow/source-packet-to-wiki.md` and Phase 4 already describe the required
-   path. Future Person B edits should be small: tighten templates, add examples,
-   or clarify handoff wording when Person A fixtures expose ambiguity.
+   `skills/llm-wiki-wiki-round/SKILL.md` now owns the required runtime path.
+   Phase 4 remains the historical design record. Future Person B edits should
+   be small: tighten templates, add examples, or clarify handoff wording when
+   Person A fixtures expose ambiguity.
 
 5. The next implementation value is Person A validation.
 

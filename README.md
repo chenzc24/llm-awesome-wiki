@@ -78,7 +78,7 @@ Expected Phase 1 deliverables:
 
 - canonical directory map
 - workspace-kernel template
-- workflow rules outside `docs/`
+- runtime skills and detailed rules outside `docs/`
 - source inventory schema
 - source packet schema
 - claim/evidence schema
@@ -116,7 +116,8 @@ llm_wiki_tools/            # runnable Python checker CLI and command index
 llm-wiki.md                # original LLM Wiki concept note
 llm_wiki/                  # pinned reference submodule
 plan/                      # target plans and maintenance log
-rules/                     # repo-native workflow rules and contracts
+rules/                     # detailed source, wiki, claim, and review rules
+skills/                    # runtime entrypoints and progressive-disclosure guides
 tests/                     # validation guidance and future scenario fixtures
 templates/                 # future reusable workflow templates
 ```
@@ -136,7 +137,7 @@ wiki/                      # maintained source, chapter, and optional synthesis 
 reports/                   # compare, coverage, lint, review outputs
 contracts/                 # copied or referenced schema/config contracts
 tests/                     # validation for construction tools and artifacts
-skills/                    # reserved for downstream domain skills
+skills/                    # runtime guides and optional downstream domain skills
 ```
 
 Do not treat the generated workspace layout as directories that must exist at
@@ -159,9 +160,11 @@ projects, examples, or fixtures.
 - `docs/knowledge-to-executable.md`: construction tools vs downstream
   knowledge-to-code.
 - `docs/llm_wiki-reference.md`: how to use `llm_wiki` as reference material.
-- `rules/`: operational rules for generated workspaces, grouped by workflow
-  area. Start from `rules/README.md`, which exposes the default golden path
-  before specialized modules.
+- `skills/`: runtime entrypoints for generated workspace work. Start from the
+  active `SKILL.md`, then open detailed rules only when the skill names a
+  specific trigger.
+- `rules/`: detailed reference rules for generated workspaces, grouped by
+  source, wiki, claim, and review area.
 - `contracts/schemas/`: reusable JSON Schema contracts.
 - `templates/workspace-kernel/`: copyable repo-local workspace substrate.
 - `llm_wiki_tools/README.md`: current checker command index.
