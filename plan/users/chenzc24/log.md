@@ -819,6 +819,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   `735a4da Migrate phase six tooling to Python CLI`; finalized by the
   follow-up maintenance-status commit.
 
+## 2026-06-04 - Add Person B workflow closure review
+
+- Target: review whether Person B still needs to define source packet profiles
+  or wiki construction workflow, and clarify the Person A handoff.
+- Changed areas: added
+  `docs/collaboration/person-b-workflow-closure-review.md`; updated
+  `docs/collaboration/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-person-b-workflow-closure-review/`.
+- Design review: Person B has already defined the core source packet profile
+  and wiki construction workflow surfaces. The remaining high-value work is
+  Person A source packet fixtures, wiki construction fixtures, validator
+  hardening, and end-to-end scenarios. Extractor harnesses and deterministic
+  wiki generation remain out of scope.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m llm_wiki_tools validate-kernel` passed; targeted `rg`
+  confirmed source packet profile, wiki construction, Person A handoff,
+  extractor-harness, wiki-generator, fixture, validator-hardening, and Person B
+  workflow-surface language.
+- Commit: pending.
+
 ## 2026-06-04 - Add phase six wiki lint checker
 
 - Target: implement Phase 6.4 wiki lint and navigation validation for existing

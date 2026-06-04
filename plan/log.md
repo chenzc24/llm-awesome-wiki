@@ -1058,3 +1058,19 @@
 - Commit: completed on `main` as
   `735a4da Migrate phase six tooling to Python CLI`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Add Person B workflow closure review
+
+- Target: close the Person B workflow-surface question for source packet
+  profiles and wiki construction.
+- Changed areas: added
+  `docs/collaboration/person-b-workflow-closure-review.md`; updated
+  `docs/collaboration/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-person-b-workflow-closure-review/`.
+- Design review: Person B workflow prose is sufficient for Person A to begin
+  fixture and validator hardening; extractor harnesses and deterministic wiki
+  generation remain out of scope.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m llm_wiki_tools validate-kernel` passed; targeted `rg`
+  confirmed closure review handoff and boundary language.
+- Commit: pending.

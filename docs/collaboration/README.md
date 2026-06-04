@@ -14,3 +14,6 @@ Current guides:
   the coworker acting as Contracts + Validation Owner.
 - `person-b-workflow-surface-by-phase.md`: phase-by-phase assignment for
   `chenzc24` as Workflow + Tool Surface Owner.
+- `person-b-workflow-closure-review.md`: closure review confirming that Person
+  B source packet profile and wiki construction workflow surfaces are ready for
+  Person A fixture and validator hardening.
