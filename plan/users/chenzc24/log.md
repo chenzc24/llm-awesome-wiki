@@ -240,3 +240,23 @@ Repository-wide merged or integration-level maintenance history belongs in
   only the intended Person B Phase 2.2 files.
 - Commit: completed on `main` as `a7d89dc Define source packet protocol`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define extractor adapter protocol
+
+- Target: define Person B Phase 2.3 adapter protocol so optional human,
+  Agent/MCP, MinerU/local CLI, or custom extractor paths can produce the same
+  workspace-owned source packet protocol without owning the workspace.
+- Changed areas: `docs/phase-plans/phase-2.3-extractor-adapter-protocol.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `rules/extractor-adapter-protocol.md`, `rules/README.md`, `plan/log.md`, and
+  the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-3-extractor-adapter-protocol/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Extractor Adapter Protocol, optional adapter, workspace owner,
+  `extraction_backend`, backend-local references, workspace anchors, failed
+  visibly behavior, manual, Agent/MCP, MinerU/local CLI, and non-goals
+  language; `git submodule status` confirmed both reference submodules stayed
+  pinned; `git status --short --branch` showed only the intended Person B
+  Phase 2.3 files.
+- Commit: planned for `main` as `Define extractor adapter protocol`.

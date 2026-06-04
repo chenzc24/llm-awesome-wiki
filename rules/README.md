@@ -12,6 +12,9 @@ required dependency.
 ## Rule Files
 
 - `raw-to-source-packet.md`: convert raw material into auditable source packets.
+- `extractor-adapter-protocol.md`: connect optional human, agent, MCP, local
+  CLI, or extractor backends to the source packet protocol without making them
+  workspace owners.
 - `source-packet-to-wiki.md`: distill source packets into maintained wiki
   pages.
 - `wiki-index-contract.md`: maintain `wiki/index.md` as the navigation entry.

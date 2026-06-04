@@ -511,3 +511,24 @@
   showed only the intended Person B Phase 2.2 files.
 - Commit: completed on `main` as `a7d89dc Define source packet protocol`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define extractor adapter protocol
+
+- Target: advance Person B Phase 2.3 by defining how optional human, agent,
+  MCP, local CLI, MinerU/local CLI, or external extractor workflows connect to
+  the workspace and emit valid Phase 2.2 source packets.
+- Changed areas: added
+  `docs/phase-plans/phase-2.3-extractor-adapter-protocol.md` and
+  `rules/extractor-adapter-protocol.md`; updated
+  `docs/phase-plans/phase-2-raw-resource-conversion.md` and
+  `rules/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-3-extractor-adapter-protocol/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Extractor Adapter Protocol, optional adapter, workspace owner,
+  `extraction_backend`, backend-local references, workspace anchors, failed
+  visibly behavior, manual, Agent/MCP, MinerU/local CLI, and non-goals
+  language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
+  remained pinned; `git status --short --branch` showed only the intended
+  Person B Phase 2.3 files.
+- Commit: planned for `main` as `Define extractor adapter protocol`.

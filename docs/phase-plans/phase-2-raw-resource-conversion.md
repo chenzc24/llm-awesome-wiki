@@ -187,6 +187,8 @@ extractor backend is chosen.
 
 ### Phase 2.2 Source Packet Protocol
 
+Status: complete.
+
 Define the minimum packet that every extractor, agent, MCP, or manual workflow
 must produce.
 
@@ -209,6 +211,8 @@ detailed intermediate/debug data. A packet can link to detailed derived
 artifacts without forcing later phases to parse backend-specific files.
 
 ### Phase 2.3 Extractor Adapter Protocol
+
+Status: current target.
 
 Define how optional extractors plug into the workspace without becoming the
 workspace owner.
@@ -396,14 +400,16 @@ Phase 2 is complete when:
 
 ## Immediate Next Step
 
-Phase 2.1 is complete. The next useful target is Phase 2.2:
+Phase 2.1 and Phase 2.2 are complete. The next useful target is Phase 2.3:
 
 ```text
-define source packet protocol
--> update source packet template
--> specify required metadata and anchor fields
--> specify generated fields, known gaps, and review routing
--> record Person A schema/validator handoff notes
+define extractor adapter protocol
+-> add adapter rule
+-> specify required inputs and packet outputs
+-> specify backend declaration and workspace anchor mapping
+-> specify visible failure behavior
+-> include manual, Agent/MCP, and MinerU/local CLI examples
 ```
 
-Do not jump straight into PDF parser, MinerU adapter, or MCP integration work.
+Do not jump straight into PDF parser, MinerU execution, MCP integration work,
+source-type packet profiles, or CLI README specs.
