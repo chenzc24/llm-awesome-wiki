@@ -5,6 +5,26 @@ This log records personal task outcomes for `chenzc24`.
 Repository-wide merged or integration-level maintenance history belongs in
 `plan/log.md`.
 
+## 2026-06-05 - ADCtoolbox ch4 local PDF redistill
+
+- Target: redistill
+  `workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/raw/sources/ADCtoolbox/ADC-basic/ch4.pdf`
+  using the current skill-driven, semantic-first, coverage-aware workflow.
+- Changed areas: ignored local workspace ch4 packet/wiki/report/check outputs
+  under `workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/`, plus the
+  target plan under
+  `plan/users/chenzc24/2026-06-05-adctoolbox-ch4-local-pdf-redistill/`.
+- Design review: the refreshed ch4 pass fixes the old shallow chapter page,
+  records a semantic draft and grounding pass, represents DNL/INL yield,
+  binary/segmented worst-case DNL, finite output impedance, and glitch timing,
+  and carries exact formula/visual authority as nonblocking review.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-ch2-ch4-pdf-distill-test --mode all --report
+  workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/.checks/ch4-redistill-workspace-check-all.md`
+  passed.
+- Commit: planned as local-workspace maintenance; local workspace artifacts are
+  ignored, so only tracked planning/log files are commit candidates.
+
 ## 2026-06-05 - Refactor workflow toward semantic-first grounding
 
 - Target: correct the workflow direction after real ADCtoolbox PPT/PDF tests

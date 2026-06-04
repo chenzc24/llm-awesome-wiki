@@ -1,5 +1,21 @@
 # Maintenance Log
 
+## 2026-06-05 - ADCtoolbox ch4 local PDF redistill
+
+- Target: redistill the local ADCtoolbox ch4 PDF workspace using the current
+  skill-driven, semantic-first, coverage-aware workflow.
+- Changed areas: generated ignored local workspace outputs under
+  `workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/` and added the target
+  plan under
+  `plan/users/chenzc24/2026-06-05-adctoolbox-ch4-local-pdf-redistill/`.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-ch2-ch4-pdf-distill-test --mode all --report
+  workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/.checks/ch4-redistill-workspace-check-all.md`
+  passed; `git diff --check` passed with Windows line-ending warnings only;
+  `git status --short --branch` showed only intended tracked maintenance files
+  and the new target plan.
+- Commit status: ready to commit tracked maintenance files.
+
 ## 2026-06-05 - Refactor workflow toward semantic-first grounding
 
 - Target: change the current system direction after real PPT/PDF distillation
