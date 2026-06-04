@@ -454,3 +454,18 @@
   --short --branch` showed only the intended protocol-reframing files.
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `945104b
   Reframe phase two as packet protocol`.
+
+## 2026-06-04 - Align top-level phase two protocol wording
+
+- Target: align top-level architecture wording with the protocol-first Phase 2
+  decision before planning Person B Phase 2.2.
+- Changed areas: updated `docs/top-level-design/system-architecture-plan.md`
+  and `docs/top-level-design/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-align-top-level-phase-2-protocol/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  source packet protocol, raw-wiki alignment substrate, source-type packet
+  profile, optional extractor, and parser harness non-goal language; `git
+  submodule status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git
+  status --short --branch` showed only the intended top-level wording files.
+- Commit: planned for `main` as `Align top-level phase two protocol wording`.

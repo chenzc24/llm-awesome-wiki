@@ -186,3 +186,18 @@ Repository-wide merged or integration-level maintenance history belongs in
   --short --branch` showed only the intended protocol-reframing files.
 - Commit: completed and pushed to `origin/co-work/czc_personB` as `945104b
   Reframe phase two as packet protocol`.
+
+## 2026-06-04 - Align top-level Phase 2 protocol wording
+
+- Target: make the top-level system architecture match the protocol-first
+  Phase 2 plan before continuing Person B Phase 2.2.
+- Changed areas: `docs/top-level-design/system-architecture-plan.md`,
+  `docs/top-level-design/README.md`, `plan/log.md`, and
+  `plan/users/chenzc24/2026-06-04-align-top-level-phase-2-protocol/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  source packet protocol and packet profile language in the top-level design;
+  `git submodule status` confirmed both reference submodules stayed pinned;
+  `git status --short --branch` showed only the intended top-level wording
+  files.
+- Commit: planned for `main` as `Align top-level phase two protocol wording`.

@@ -21,7 +21,7 @@ full path:
 
 ```text
 raw resources
--> extracted source packets
+-> source inventory and source packets
 -> evidence and claim records
 -> maintained source and chapter pages
 -> construction tools and reports
@@ -71,7 +71,7 @@ background service, or external wrapper as the source of truth.
 - Do not turn this system repository into an active knowledge workspace.
 - Do not treat graph visualization as a quality gate.
 - Do not rely on model self-evaluation as the only acceptance signal.
-- Do not merge source conversion, wiki distillation, and downstream code
+- Do not merge source packet production, wiki distillation, and downstream code
   generation into one large pass.
 - Do not let LLMs be the parser of record for binary documents, hashes, paths,
   file identity, or final validation.
@@ -172,10 +172,11 @@ The first version is copy-first: a developer can copy
 that repository. A future scaffold command may automate the copy and later sync
 kernel updates, but daily use must remain local to the workspace repo.
 
-### Layer 2: Raw Resource Conversion
+### Layer 2: Source Packet Protocol And Raw-Wiki Alignment Substrate
 
-This layer turns heterogeneous source files into accessible, auditable source
-packets. It is one subsystem of LLM Awesome Wiki, not the whole system.
+This layer defines how heterogeneous source files become accessible, auditable
+source packets. It is a protocol and alignment substrate, not a project-owned
+PDF/PPTX/DOCX parser harness.
 
 Key output:
 
@@ -185,13 +186,18 @@ raw/derived/<source-id>/media/
 raw/derived/<source-id>/metadata.yml
 ```
 
-The conversion layer must preserve provenance, page or slide anchors, extracted
-media references, generated captions, OCR status, parsing failures, and
-confidence notes.
+The source packet protocol must preserve provenance, page or slide anchors,
+extracted media references, generated captions, OCR status, parsing failures,
+and confidence notes.
 
-The conversion layer is the raw side of raw-wiki alignment. Its job is not to
-produce a beautiful Markdown article. Its job is to create stable source
-identities and anchors that later wiki pages can cite.
+This layer is the raw side of raw-wiki alignment. Its job is not to produce a
+beautiful Markdown article. Its job is to create stable source identities and
+anchors that later wiki pages can cite.
+
+Optional extractors can satisfy the protocol: local CLI tools, MCPs, MinerU,
+Poppler-style PDF tools, LibreOffice-style office tools, manual extraction, or
+custom scripts. The workspace packet remains the source of truth, not the
+internal output layout of any one extractor.
 
 ### Layer 3: Evidence And Knowledge IR
 
@@ -265,9 +271,9 @@ downstream code artifacts.
 Candidate tools:
 
 - source inventory generator
-- raw-resource converter
-- media extractor
-- OCR and caption runner
+- source packet adapter runner
+- optional media extractor
+- optional OCR and caption runner
 - source packet validator
 - wiki page lint
 - claim coverage reporter
@@ -389,31 +395,36 @@ Validation:
 
 ### Phase 2: Raw-Wiki Alignment Substrate
 
-Goal: create the raw side of the raw-wiki alignment substrate by converting raw
-resources into source packets without losing provenance.
+Goal: create the raw side of the raw-wiki alignment substrate by defining the
+source packet protocol that all raw-resource processing must satisfy.
 
 This phase answers the immediate `raw_resource -> .md` question. The answer is:
-do not convert raw resources directly into final wiki pages. First convert each
-resource into a source packet that is faithful, structured, and auditable.
-The packet must expose source identities and anchors that future wiki pages and
+do not convert raw resources directly into final wiki pages. First produce a
+source packet that is faithful, structured, auditable, and traceable. The
+packet must expose source identities and anchors that future wiki pages and
 alignment reports can cite.
 
-#### Conversion Contract
+Phase 2 does not require this repository to implement a PDF/PPTX/DOCX parser
+harness. It defines what any extractor, MCP, local CLI, manual process, or
+future adapter must leave behind in the workspace.
+
+#### Source Packet Protocol
 
 Each source packet should include:
 
-- source identity
+- source identity inherited from inventory
 - raw path
-- raw hash
-- source type
-- extraction tool version
+- raw hash or hash state
+- source kind
+- extraction backend or adapter identity
+- extraction method and version
 - extraction status
-- page, slide, section, or timestamp anchors
-- extracted text
+- page, slide, heading, section, timestamp, row, or media anchors
+- extracted text or explicit extraction gaps
 - extracted tables or companion data links
 - extracted media references
-- OCR or VLM-generated captions when needed
-- extraction gaps and known failures
+- OCR, VLM, or agent-generated fields when needed
+- known failures and review routing
 
 Suggested source packet frontmatter:
 
@@ -424,59 +435,61 @@ source_id: papers/example-paper
 raw_path: raw/sources/papers/example-paper.pdf
 raw_sha256: "<sha256>"
 source_kind: pdf
-extraction_version: raw-resource-converter-v0
+extraction_backend: optional-adapter-name
+extraction_method: adapter-or-manual-method
+extraction_version: v0
 extraction_status: partial
 modalities: [text, image, table]
 generated_fields: [image_captions]
+review_required: true
 created: 2026-06-03
 ---
 ```
 
-#### PDF Handling
+#### PDF Packet Profile
 
-PDF files need tool-assisted extraction before LLM analysis.
+PDF packet requirements describe packet output, not parser implementation.
 
-Pipeline:
+A PDF source packet should preserve:
 
-1. Extract page-level text and preserve `## Page N` anchors.
-2. Detect scanned or text-poor pages.
-3. Run OCR or page-image captioning on pages without reliable text.
-4. Extract embedded raster images when available.
-5. Render full-page screenshots for vector diagrams, charts, or layout-heavy
-   pages when image extraction is insufficient.
-6. Caption figures and screenshots with a vision model when needed.
-7. Record password protection, empty pages, OCR uncertainty, and extraction
-   failures.
+- page-level anchors
+- page count and page range metadata when available
+- extracted page text or an explicit text-extraction gap
+- scanned, text-poor, password-protected, empty, or failed pages
+- rendered page references for visual-heavy pages when available
+- table, chart, image, and figure anchors when available
+- OCR text, page captions, or chart interpretations as generated fields
+- review notes for important visual content that cannot be verified
+  deterministically
 
-#### PPTX Handling
+#### PPTX Packet Profile
 
-PPTX files should be treated as structured packages, not as opaque files.
+PPTX packet requirements describe packet output, not parser implementation.
 
-Pipeline:
+A PPTX source packet should preserve:
 
-1. Parse slide text from slide XML.
-2. Preserve `## Slide N` anchors.
-3. Extract speaker notes if present.
-4. Extract embedded media and map it to slides when possible.
-5. Render slide screenshots for layout, arrows, charts, and visual hierarchy.
-6. Caption meaningful images or screenshots; skip decorative icons when safe.
-7. Preserve slide order and record uncertain media-to-slide mapping.
+- slide-level anchors
+- slide order
+- slide text or an explicit extraction gap
+- speaker notes when available
+- media references and their slide mapping when available
+- rendered slide references for layout-heavy slides when available
+- generated captions for meaningful visuals when used
+- review notes for uncertain media-to-slide mapping
 
-#### DOCX Handling
+#### DOCX Packet Profile
 
-DOCX files should preserve document structure.
+DOCX packet requirements describe packet output, not parser implementation.
 
-Pipeline:
+A DOCX source packet should preserve:
 
-1. Extract headings, paragraphs, lists, and tables.
-2. Preserve heading hierarchy.
-3. Convert small readable tables to Markdown tables.
-4. Store large tables as companion CSV/TSV files and link them from the source
-   packet.
-5. Extract images from `word/media/*` and caption them when they carry
-   information.
-6. Record footnotes, comments, revisions, or unsupported structures when
-   relevant.
+- heading anchors
+- heading hierarchy
+- paragraphs, lists, and tables when available
+- small readable tables as Markdown when feasible
+- large tables as companion CSV/TSV files or derived artifacts
+- image references and captions when images carry information
+- footnotes, comments, revisions, or unsupported structures when relevant
 
 #### Can The LLM Handle Multimodal Files?
 
@@ -570,13 +583,13 @@ Validation:
 ### Phase 6: Construction Tools
 
 Goal: implement deterministic tooling for the repository workflow.
-These tools operationalize source conversion, maintenance, and compare gates;
-they are not the downstream domain `skill + tool` codebase.
+These tools operationalize source packet production, maintenance, and compare
+gates; they are not the downstream domain `skill + tool` codebase.
 
 Deliverables:
 
 - inventory command
-- raw-resource conversion command
+- source packet adapter command
 - packet validation command
 - link/frontmatter lint command
 - compare gate command
@@ -632,10 +645,11 @@ Validation:
 `raw_resource -> .md` means `raw resource -> source packet`, not `raw resource
 -> final wiki article`.
 
-Conversion rules:
+Protocol rules:
 
 - Keep raw files immutable.
-- Use deterministic parsers before model analysis.
+- Use deterministic extractors or optional adapters before model analysis when
+  available.
 - Preserve page, slide, section, or timestamp anchors.
 - Store extracted media separately and reference it with stable relative paths.
 - Mark OCR, captions, and summaries as generated fields.
@@ -698,8 +712,8 @@ Good execution targets:
 
 - define the source inventory schema
 - create the source packet template
-- design the raw-resource converter interface
-- implement PDF source packet conversion for one fixture class
+- design the source packet adapter protocol
+- define the PDF source packet profile for one fixture class
 - add a claim coverage report template
 - build the first compare gate command
 - define the stable knowledge release criteria
