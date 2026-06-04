@@ -34,7 +34,7 @@ It should make these states visible:
 - wiki pages changed or inspected by the round
 - review queue when unresolved judgment exists
 - generated fields and known gaps from packet metadata
-- source/wiki coverage findings from `source-wiki-coverage-protocol.md`
+- source/wiki coverage findings from `rules/wiki/source-wiki-coverage-protocol.md`
 
 If a claim/evidence map is missing while important claims are in scope, record
 that as a compare finding. Do not infer support from polished wiki prose.

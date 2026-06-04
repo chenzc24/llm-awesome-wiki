@@ -159,9 +159,9 @@ projects, examples, or fixtures.
 - `docs/knowledge-to-executable.md`: construction tools vs downstream
   knowledge-to-code.
 - `docs/llm_wiki-reference.md`: how to use `llm_wiki` as reference material.
-- `rules/`: operational rules for generated workspaces. Start from
-  `rules/README.md`, which exposes the default golden path before specialized
-  modules.
+- `rules/`: operational rules for generated workspaces, grouped by workflow
+  area. Start from `rules/README.md`, which exposes the default golden path
+  before specialized modules.
 - `contracts/schemas/`: reusable JSON Schema contracts.
 - `templates/workspace-kernel/`: copyable repo-local workspace substrate.
 - `llm_wiki_tools/README.md`: current checker command index.

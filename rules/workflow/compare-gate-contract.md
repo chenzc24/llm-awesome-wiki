@@ -10,11 +10,11 @@ This rule owns the compare decision surface and `pass`, `fail`, and
 
 Specialized semantics are delegated to:
 
-- source/wiki coverage: `source-wiki-coverage-protocol.md`
+- source/wiki coverage: `rules/wiki/source-wiki-coverage-protocol.md`
 - claim support, generated evidence, modality, unsupported statements, and
-  contradictions: `claim-modality-contradiction-review-protocol.md`
-- review lifecycle and blocking levels: `review-queue-workflow.md`
-- round closure decisions: `round-closure-workflow.md`
+  contradictions: `rules/claims/claim-modality-contradiction-review-protocol.md`
+- review lifecycle and blocking levels: `rules/review/review-queue-workflow.md`
+- round closure decisions: `rules/workflow/round-closure-workflow.md`
 
 ## Minimum Path
 
@@ -175,7 +175,7 @@ advance as `pass`.
 ## Round Closure Integration
 
 Compare status is an input to closure, not the whole closure decision. Follow
-`round-closure-workflow.md`.
+`rules/workflow/round-closure-workflow.md`.
 
 - compare `pass` can support `close-pass` only when validation note, index,
   overview, wiki log, and review state are acceptable

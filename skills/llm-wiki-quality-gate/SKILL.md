@@ -12,13 +12,13 @@ knowledge-base construction, not downstream `skill + tool` generation.
 
 This skill routes the work. The semantic source of truth is in `rules/`:
 
-- start with `rules/compare-gate-contract.md`
-- use `rules/source-wiki-coverage-protocol.md` for source/wiki coverage
-- use `rules/claim-modality-contradiction-review-protocol.md` for claim
+- start with `rules/workflow/compare-gate-contract.md`
+- use `rules/wiki/source-wiki-coverage-protocol.md` for source/wiki coverage
+- use `rules/claims/claim-modality-contradiction-review-protocol.md` for claim
   support, generated evidence, modality, unsupported statements, and
   contradictions
-- use `rules/review-queue-workflow.md` for review lifecycle and blocking level
-- use `rules/round-closure-workflow.md` for closure and advancement decisions
+- use `rules/review/review-queue-workflow.md` for review lifecycle and blocking level
+- use `rules/workflow/round-closure-workflow.md` for closure and advancement decisions
 
 ## Sequence
 

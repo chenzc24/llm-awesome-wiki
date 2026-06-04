@@ -5,8 +5,8 @@ scope, the evidence/claim layer. It does not start directly from raw files.
 
 This rule owns the action flow from source packet input to construction
 analysis and accepted wiki updates. Page routing, index, overview, and wiki log
-behavior belong to `wiki-surface-workflow.md`; round sequencing belongs to
-`distillation-rounds.md`.
+behavior belong to `rules/wiki/wiki-surface-workflow.md`; round sequencing
+belongs to `rules/workflow/distillation-rounds.md`.
 
 ## Minimum Path
 
@@ -23,7 +23,7 @@ source packet
 
 Before writing page prose:
 
-- read `wiki-surface-workflow.md`
+- read `rules/wiki/wiki-surface-workflow.md`
 - read `wiki/index.md`, `wiki/overview.md`, and relevant existing pages
 - inspect source packets and claim/evidence maps in scope
 - decide target page type and target path

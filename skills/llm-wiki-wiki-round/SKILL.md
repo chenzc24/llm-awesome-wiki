@@ -11,12 +11,12 @@ Use this subskill for source-packet-to-wiki construction rounds.
 
 This skill routes the work. The semantic source of truth is in `rules/`:
 
-- start with `rules/source-packet-to-wiki.md`
-- use `rules/wiki-surface-workflow.md` for routing, source/chapter surface,
+- start with `rules/workflow/source-packet-to-wiki.md`
+- use `rules/wiki/wiki-surface-workflow.md` for routing, source/chapter surface,
   overview, index, and wiki log behavior
-- use `rules/evidence-claim-workflow.md` only when important claims need
+- use `rules/claims/evidence-claim-workflow.md` only when important claims need
   explicit support or review
-- use `rules/distillation-rounds.md` for round sequencing
+- use `rules/workflow/distillation-rounds.md` for round sequencing
 
 ## Sequence
 

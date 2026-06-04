@@ -4,9 +4,9 @@ Knowledge construction should happen in bounded rounds. A round has a fixed
 input set, planned outputs, validation, review state, and a log entry.
 
 This rule owns round sequencing and scope control. Source packet details belong
-to `raw-to-source-packet.md`; wiki surface details belong to
-`wiki-surface-workflow.md`; closure decisions belong to
-`round-closure-workflow.md`.
+to `rules/workflow/raw-to-source-packet.md`; wiki surface details belong to
+`rules/wiki/wiki-surface-workflow.md`; closure decisions belong to
+`rules/workflow/round-closure-workflow.md`.
 
 ## Minimum Path
 

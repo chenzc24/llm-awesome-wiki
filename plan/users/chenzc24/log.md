@@ -1074,3 +1074,23 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `6e4d03a Remove obsolete rule compatibility stubs`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Group rules by workflow area
+
+- Target: restructure `rules/` from a flat list into progressive-disclosure
+  subdirectories without changing rule semantics.
+- Changed areas: moved owner rules into `rules/workflow/`, `rules/source/`,
+  `rules/wiki/`, `rules/claims/`, and `rules/review/`; updated
+  `rules/README.md`, repo README, top-level rules guidance, current
+  collaboration references, Agent skills, and `llm_wiki_tools` kernel
+  validation; added the target plan under
+  `plan/users/chenzc24/2026-06-04-rules-directory-restructure/`.
+- Design review: the default golden path now lives visibly under
+  `rules/workflow/`, while optional source, wiki, claim, and review modules
+  are separated by audience and use. Historical phase plans and old plan/log
+  references were left as historical records.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  current-facing files no longer reference old flat rule paths or bare old rule
+  filenames; `rg --files rules` confirmed the new grouped layout.
+- Commit: pending.

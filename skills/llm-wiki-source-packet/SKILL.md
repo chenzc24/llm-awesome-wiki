@@ -11,11 +11,11 @@ Use this subskill for the raw-to-source-packet stage only.
 
 This skill routes the work. The semantic source of truth is in `rules/`:
 
-- start with `rules/raw-to-source-packet.md`
-- read `rules/extractor-adapter-protocol.md` only when an optional manual,
+- start with `rules/workflow/raw-to-source-packet.md`
+- read `rules/source/extractor-adapter-protocol.md` only when an optional manual,
   Agent/MCP, local CLI, MinerU-like, or custom extraction backend is involved
-- read `rules/source-type-packet-profiles.md` when source kind matters
-- read `rules/generated-fields-review-routing.md` when OCR, captions, chart
+- read `rules/source/source-type-packet-profiles.md` when source kind matters
+- read `rules/source/generated-fields-review-routing.md` when OCR, captions, chart
   summaries, table repairs, formula recognition, or inferred structure appear
 
 ## Sequence

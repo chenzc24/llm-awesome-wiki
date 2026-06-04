@@ -103,9 +103,10 @@ reporting the mismatch back to Person B.
 
 Rules should use progressive disclosure. `rules/README.md` is the first
 entrypoint and should explain the default golden path before specialized
-modules. Each status, enum, lifecycle, and workflow concept should have one
-semantic owner file; other rule files should link to that owner instead of
-copying the full definition.
+modules under `rules/workflow/`, `rules/source/`, `rules/wiki/`,
+`rules/claims/`, and `rules/review/`. Each status, enum, lifecycle, and
+workflow concept should have one semantic owner file; other rule files should
+link to that owner instead of copying the full definition.
 
 ## System Non-Goals
 

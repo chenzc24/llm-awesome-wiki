@@ -188,8 +188,8 @@ is labeled. Examples include OCR text, image captions, chart summaries, table
 repairs, formula recognition, inferred reading order, and agent extraction
 notes.
 
-Follow `generated-fields-review-routing.md` for generated field kinds and trust
-levels.
+Follow `rules/source/generated-fields-review-routing.md` for generated field
+kinds and trust levels.
 
 Set `review_required` when:
 

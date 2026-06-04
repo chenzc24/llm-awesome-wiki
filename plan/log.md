@@ -1193,3 +1193,20 @@
 - Commit: completed on `main` as
   `6e4d03a Remove obsolete rule compatibility stubs`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Group rules by workflow area
+
+- Target: make `rules/` structurally match progressive disclosure by grouping
+  rule owner files into workflow, source, wiki, claims, and review directories.
+- Changed areas: moved the active rule files into grouped subdirectories;
+  updated `rules/README.md`, Agent skill references, current docs, and kernel
+  validation required paths; added the target plan under
+  `plan/users/chenzc24/2026-06-04-rules-directory-restructure/`.
+- Design review: this is a navigation and path cleanup, not a semantic change.
+  `rules/README.md` remains the first rule entrypoint and now shows the
+  directory map before the golden path and semantic ownership map.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  current-facing references use grouped rule paths; `rg --files rules`
+  confirmed the grouped layout.
+- Commit: pending.

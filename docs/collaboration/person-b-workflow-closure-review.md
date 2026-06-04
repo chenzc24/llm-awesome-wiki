@@ -28,12 +28,12 @@ at the workflow level.
 
 Key completed rules:
 
-- `rules/raw-to-source-packet.md`
-- `rules/source-type-packet-profiles.md`
-- `rules/source-packet-to-wiki.md`
-- `rules/wiki-surface-workflow.md`
-- `rules/distillation-rounds.md`
-- `rules/source-wiki-coverage-protocol.md`
+- `rules/workflow/raw-to-source-packet.md`
+- `rules/source/source-type-packet-profiles.md`
+- `rules/workflow/source-packet-to-wiki.md`
+- `rules/wiki/wiki-surface-workflow.md`
+- `rules/workflow/distillation-rounds.md`
+- `rules/wiki/source-wiki-coverage-protocol.md`
 
 Key completed phase plans and reviews:
 
@@ -51,7 +51,7 @@ Key completed phase plans and reviews:
 
 | Question | Review result |
 | --- | --- |
-| Are PPT/PDF source packet profiles defined? | Yes. `source-type-packet-profiles.md` defines PDF page anchors, PPTX slide anchors, rendered artifact references, generated-field markers, known gaps, and review routing. |
+| Are PPT/PDF source packet profiles defined? | Yes. `rules/source/source-type-packet-profiles.md` defines PDF page anchors, PPTX slide anchors, rendered artifact references, generated-field markers, known gaps, and review routing. |
 | Is extractor implementation required by the system? | No. Extractors, MCPs, MinerU, OCR, VLM, LibreOffice, Poppler, manual workflows, and custom scripts are optional inputs. The system validates their packet outputs. |
 | Is wiki construction defined as raw-to-wiki generation? | No. The workflow requires source packet input, routing, construction analysis, page create/update/merge decisions, index/log updates, and validation or review handoff. |
 | Does the workflow require a deterministic wiki generator? | No. Wiki prose still needs human or LLM reading, synthesis, and judgment. The system constrains the process and checks artifacts. |
@@ -83,7 +83,7 @@ Key completed phase plans and reviews:
 
 4. The remaining workflow issue is operational consolidation.
 
-   `rules/source-packet-to-wiki.md` and Phase 4 already describe the required
+   `rules/workflow/source-packet-to-wiki.md` and Phase 4 already describe the required
    path. Future Person B edits should be small: tighten templates, add examples,
    or clarify handoff wording when Person A fixtures expose ambiguity.
 
