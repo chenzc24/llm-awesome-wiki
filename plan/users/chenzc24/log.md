@@ -261,3 +261,22 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 2.3 files.
 - Commit: completed on `main` as `f0be934 Define extractor adapter protocol`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define source-type packet profiles
+
+- Target: define Person B Phase 2.4 source-type packet profiles so common
+  source kinds have minimum anchor, derived artifact, known gap, generated
+  field, and review routing expectations without choosing parser backends.
+- Changed areas: `docs/phase-plans/phase-2.4-source-type-packet-profiles.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `rules/source-type-packet-profiles.md`, `rules/README.md`, `plan/log.md`,
+  and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-4-source-type-packet-profiles/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Source-Type Packet Profiles, PDF, PPTX, DOCX, image, table, mixed media,
+  page-level anchors, slide-level anchors, heading hierarchy, generated
+  captions, review routing, and non-goals language; `git submodule status`
+  confirmed both reference submodules stayed pinned; `git status
+  --short --branch` showed only the intended Person B Phase 2.4 files.
+- Commit: planned for `main` as `Define source-type packet profiles`.

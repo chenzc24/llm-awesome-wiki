@@ -533,3 +533,23 @@
   Person B Phase 2.3 files.
 - Commit: completed on `main` as `f0be934 Define extractor adapter protocol`;
   finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define source-type packet profiles
+
+- Target: advance Person B Phase 2.4 by defining source-type minimum packet
+  expectations for PDF, PPTX, DOCX, image, table/dataset, and mixed media
+  sources without implementing parsers or tool specs.
+- Changed areas: added
+  `docs/phase-plans/phase-2.4-source-type-packet-profiles.md` and
+  `rules/source-type-packet-profiles.md`; updated
+  `docs/phase-plans/phase-2-raw-resource-conversion.md` and
+  `rules/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-4-source-type-packet-profiles/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Source-Type Packet Profiles, PDF, PPTX, DOCX, image, table, mixed media,
+  page-level anchors, slide-level anchors, heading hierarchy, generated
+  captions, review routing, and non-goals language; `git submodule status`
+  confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
+  --short --branch` showed only the intended Person B Phase 2.4 files.
+- Commit: planned for `main` as `Define source-type packet profiles`.

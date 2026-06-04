@@ -212,7 +212,7 @@ artifacts without forcing later phases to parse backend-specific files.
 
 ### Phase 2.3 Extractor Adapter Protocol
 
-Status: current target.
+Status: complete.
 
 Define how optional extractors plug into the workspace without becoming the
 workspace owner.
@@ -241,6 +241,8 @@ Examples of possible adapters:
 Do not implement adapter code in this planning phase.
 
 ### Phase 2.4 Source-Type Packet Profiles
+
+Status: current target.
 
 Define source-type minimum requirements for packet outputs. These are not
 parser implementations.
@@ -400,16 +402,18 @@ Phase 2 is complete when:
 
 ## Immediate Next Step
 
-Phase 2.1 and Phase 2.2 are complete. The next useful target is Phase 2.3:
+Phase 2.1, Phase 2.2, and Phase 2.3 are complete. The next useful target is
+Phase 2.4:
 
 ```text
-define extractor adapter protocol
--> add adapter rule
--> specify required inputs and packet outputs
--> specify backend declaration and workspace anchor mapping
--> specify visible failure behavior
--> include manual, Agent/MCP, and MinerU/local CLI examples
+define source-type packet profiles
+-> add source-type packet profile rule
+-> specify PDF, PPTX, DOCX, image, table/dataset, and mixed media expectations
+-> specify source-type anchors, derived artifacts, known gaps, and review
+   routing
+-> keep parser implementation, generated-field policy expansion, and CLI specs
+   deferred
 ```
 
 Do not jump straight into PDF parser, MinerU execution, MCP integration work,
-source-type packet profiles, or CLI README specs.
+Phase 2.5 generated-field policy expansion, or Phase 2.6 CLI README specs.

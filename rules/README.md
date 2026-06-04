@@ -15,6 +15,8 @@ required dependency.
 - `extractor-adapter-protocol.md`: connect optional human, agent, MCP, local
   CLI, or extractor backends to the source packet protocol without making them
   workspace owners.
+- `source-type-packet-profiles.md`: define minimum source packet expectations
+  for PDF, PPTX, DOCX, image, table/dataset, and mixed media sources.
 - `source-packet-to-wiki.md`: distill source packets into maintained wiki
   pages.
 - `wiki-index-contract.md`: maintain `wiki/index.md` as the navigation entry.
