@@ -680,4 +680,5 @@
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 4.1 routing and reading-surface language; `git submodule status`
   confirmed reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `ee450aa Define phase four wiki page
+  routing`; finalized by the follow-up maintenance-status commit.

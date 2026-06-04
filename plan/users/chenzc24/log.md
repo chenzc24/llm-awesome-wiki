@@ -421,4 +421,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   claim/evidence, not a second source packet, Optional Synthesis, optional
   research, and Phase 4.1 language; `git submodule status` confirmed
   `MinerU/` and `llm_wiki/` remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `ee450aa Define phase four wiki page
+  routing`; finalized by the follow-up maintenance-status commit.
