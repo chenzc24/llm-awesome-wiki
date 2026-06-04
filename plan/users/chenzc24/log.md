@@ -1220,4 +1220,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   workspace/local/adctoolbox-ch2-ch4-hardened-redistill/.checks/workspace-check-all.md`
   passed. Schema, source inventory, source packet, wiki lint, report, closure,
   and fixture checks passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `8c10dba Record ADCtoolbox hardened redistillation`; finalized by the
+  follow-up maintenance-status commit.

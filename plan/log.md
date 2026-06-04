@@ -1315,4 +1315,6 @@
 - Validation: `workspace-check --mode all` passed for the generated workspace;
   schema, source inventory, source packet, wiki lint, report, closure, and
   fixture checks passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `8c10dba Record ADCtoolbox hardened redistillation`; finalized by the
+  follow-up maintenance-status commit.
