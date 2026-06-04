@@ -1,0 +1,7 @@
+{
+  "name": "report-check-no-reports-needs-review",
+  "description": "report-check should return needs-review when no relevant report files exist.",
+  "tool": "report-check",
+  "expected_exit_code": 2,
+  "expected_status": "needs-review"
+}

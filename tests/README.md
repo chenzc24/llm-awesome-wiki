@@ -45,3 +45,11 @@ Run the Phase 1 workspace-kernel validator from the repository root:
 ```powershell
 powershell -ExecutionPolicy Bypass -File tools/validate-kernel/validate-kernel.ps1
 ```
+
+Phase 6.7 adds scenario fixture validation:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 `
+  -FixtureRoot tests/fixtures/phase6 `
+  -Report fixture-runner-report.md
+```

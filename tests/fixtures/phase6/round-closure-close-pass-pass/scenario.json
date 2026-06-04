@@ -1,0 +1,7 @@
+{
+  "name": "round-closure-close-pass-pass",
+  "description": "round-closure-check should pass a consistent close-pass closure packet.",
+  "tool": "round-closure-check",
+  "expected_exit_code": 0,
+  "expected_status": "pass"
+}

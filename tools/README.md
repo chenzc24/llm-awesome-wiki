@@ -174,6 +174,23 @@ powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.p
 notes, compare/review state, index, overview, and wiki log. It does not close
 rounds or resolve review.
 
+Phase 6.7 adds scenario fixtures:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 `
+  -FixtureRoot tests/fixtures/phase6 `
+  -Report fixture-runner-report.md
+
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode fixtures `
+  -Report workspace-fixtures-report.md
+```
+
+`fixture-runner` copies small scenario workspaces to a temp directory and checks
+that tools return expected status and exit codes. It does not run extractors or
+resolve semantic review.
+
 ## Phase 3 Tool Surface
 
 Phase 3 adds behavior prose for:

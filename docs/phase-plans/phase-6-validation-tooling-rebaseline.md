@@ -222,6 +222,21 @@ Phase 6.6 validates recorded closure decisions. It does not close rounds,
 rewrite validation notes, resolve review items, decide semantic truth, generate
 reports, or generate wiki pages.
 
+## Phase 6.7 Active Scope
+
+Phase 6.7 adds scenario fixture validation:
+
+- `fixture-runner.ps1`
+- `workspace-check -Mode fixtures` integration
+- minimum scenario contract using `scenario.json` plus `workspace/`
+- one passing scenario
+- one deterministic failing scenario
+- one `needs-review` scenario
+
+Phase 6.7 validates checker behavior on small fixture workspaces. It does not
+run extractors, parse raw binary documents, generate source packets, generate
+wiki pages, resolve semantic review, or provide exhaustive test coverage.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.

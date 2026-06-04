@@ -87,6 +87,8 @@ $requiredPaths = @(
     "tools\report-check\report-check.ps1",
     "tools\round-closure-check\README.md",
     "tools\round-closure-check\round-closure-check.ps1",
+    "tools\fixture-runner\README.md",
+    "tools\fixture-runner\fixture-runner.ps1",
     "tools\compare-gate\README.md",
     "tools\claim-audit\README.md",
     "tools\scaffold-workspace\README.md",

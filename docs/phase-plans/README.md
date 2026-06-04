@@ -86,3 +86,5 @@ Rules:
 - `phase-6.6-round-closure-checker.md`: Phase 6.6 round closure consistency
   checker across validation notes, compare/review state, index, overview, and
   wiki log.
+- `phase-6.7-fixture-runner.md`: Phase 6.7 scenario fixture runner and minimum
+  pass/fail/needs-review checker scenarios.

@@ -1,0 +1,7 @@
+{
+  "name": "wiki-lint-broken-link-fail",
+  "description": "wiki-lint should fail when a content page contains a broken wikilink.",
+  "tool": "wiki-lint",
+  "expected_exit_code": 1,
+  "expected_status": "fail"
+}

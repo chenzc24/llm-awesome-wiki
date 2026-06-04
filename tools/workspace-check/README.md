@@ -104,8 +104,18 @@ It validates recorded closure decisions across validation notes, compare/review
 state, index, overview, and wiki log. It does not close rounds or resolve
 review.
 
-`-Mode all` currently runs schema, source, wiki, report, and closure checks,
-then reports fixture validation as `not-implemented`.
+In Phase 6.6, `-Mode all` began running schema, source, wiki, report, and
+closure checks before reporting fixture validation as `not-implemented`.
+
+## Phase 6.7 Behavior
+
+`-Mode fixtures` invokes `tools/fixture-runner/fixture-runner.ps1`.
+
+It runs small scenario workspaces and checks expected exit codes and report
+statuses. It does not run extractors or resolve semantic review.
+
+`-Mode all` currently runs schema, source, wiki, report, closure, and fixture
+checks.
 
 ## Non-Goals
 

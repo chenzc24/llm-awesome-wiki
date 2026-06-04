@@ -8,7 +8,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $toolName = "workspace-check"
-$toolPhase = "Phase 6.6 runtime with schema, source, wiki, report, and closure checks"
+$toolPhase = "Phase 6.7 runtime with schema, source, wiki, report, closure, and fixture checks"
 $started = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
 $checksRun = New-Object System.Collections.Generic.List[string]
 $checksNotImplemented = New-Object System.Collections.Generic.List[string]
@@ -170,14 +170,28 @@ if ($exitCode -eq 0) {
         }
     }
 
+    if ($Mode -in @("fixtures", "all")) {
+        $fixtureRunnerScript = Join-Path $PSScriptRoot "..\fixture-runner\fixture-runner.ps1"
+        $fixtureRunnerReportPath = Join-Path $reportDir "fixture-runner-report.md"
+
+        if (-not (Test-Path -LiteralPath $fixtureRunnerScript)) {
+            $status = "error"
+            $exitCode = 3
+            $findings.Add("Missing fixture-runner script: $fixtureRunnerScript")
+        }
+        else {
+            & powershell -NoProfile -ExecutionPolicy Bypass -File $fixtureRunnerScript -Report $fixtureRunnerReportPath | Out-Host
+            $fixtureRunnerExitCode = $LASTEXITCODE
+            Merge-ChildResult "fixture runner validation" $fixtureRunnerExitCode $fixtureRunnerReportPath
+        }
+    }
+
     if ($Mode -eq "smoke") {
-        Add-NotImplemented "fixture runner"
         $nextActions.Add("Run workspace-check with -Mode schemas or -Mode source for implemented Phase 6 validators.")
     }
     elseif ($Mode -eq "all") {
-        Add-NotImplemented "fixture runner"
     }
-    elseif ($Mode -notin @("schemas", "source", "wiki", "reports", "closure")) {
+    elseif ($Mode -notin @("schemas", "source", "wiki", "reports", "closure", "fixtures")) {
         Add-NotImplemented "$Mode check"
     }
 

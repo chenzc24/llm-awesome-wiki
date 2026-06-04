@@ -1002,3 +1002,21 @@
 - Commit: completed on `main` as
   `5878219 Add phase six round closure checker`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Add phase six fixture runner
+
+- Target: implement Phase 6.7 scenario fixture runner and minimum checker
+  scenarios.
+- Changed areas: added the Phase 6.7 plan; implemented `fixture-runner`; added
+  `tests/fixtures/phase6/` pass/fail/needs-review scenarios; integrated
+  `workspace-check -Mode fixtures`; updated `validate-kernel`, Phase 6 docs,
+  tool READMEs, test docs, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-7-fixture-runner/`.
+- Design review: Phase 6.7 tests checker status and exit behavior without
+  running extractors, generating artifacts, or resolving semantic review.
+- Validation: `fixture-runner.ps1` passed; `workspace-check.ps1 -Mode fixtures`
+  passed and invoked the fixture runner; generated smoke reports were removed;
+  `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 6.7 fixture validation language.
+- Commit: pending.
