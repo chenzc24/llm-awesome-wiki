@@ -792,4 +792,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 5.2 coverage and omission protocol language.
-- Commit: pending.
+- Commit: completed on `main` as `c7f6070 Define phase five source wiki
+  coverage protocol`; finalized by the follow-up maintenance-status commit.

@@ -576,4 +576,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 5.2, Source Wiki Coverage, source/wiki coverage, anchor disposition,
   covered, weak, omitted, deferred, out-of-scope, scope exclusion, Coverage is
   not copying, report sprawl, and source-wiki-coverage-protocol language.
-- Commit: pending.
+- Commit: completed on `main` as `c7f6070 Define phase five source wiki
+  coverage protocol`; finalized by the follow-up maintenance-status commit.
