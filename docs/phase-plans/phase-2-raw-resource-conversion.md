@@ -286,7 +286,7 @@ Image/table/mixed-media profile:
 
 ### Phase 2.5 Generated Fields And Review Routing
 
-Status: current target.
+Status: complete.
 
 Define how the workflow distinguishes source-derived content from generated or
 model-assisted content.
@@ -314,13 +314,15 @@ must not let model output silently become trusted source text.
 
 ### Phase 2.6 Tool Surface Specs
 
+Status: current target.
+
 Update README-level tool specifications before implementation.
 
 Candidate tools:
 
 - `source-inventory`: scan `raw/sources/` and write inventory rows or reports
-- `raw-resource-convert`: run an adapter or manual workflow and emit a source
-  packet
+- `source-packet-convert`: run or coordinate an adapter or manual workflow and
+  emit a source packet
 - `source-packet-lint`: check anchors, metadata, generated fields, gaps, and
   review routing
 
@@ -404,17 +406,18 @@ Phase 2 is complete when:
 
 ## Immediate Next Step
 
-Phase 2.1, Phase 2.2, Phase 2.3, and Phase 2.4 are complete. The next useful
-target is Phase 2.5:
+Phase 2.1 through Phase 2.5 are complete. The next useful target is Phase 2.6:
 
 ```text
-define generated fields and review routing
--> add generated-fields review routing rule
--> define generated field kinds and trust levels
--> specify packet marking and review triggers
--> specify claim/wiki handoff boundaries
--> keep schema, claim extraction, compare gates, and CLI specs deferred
+define tool surface specs
+-> align source-inventory README
+-> add source-packet-convert README
+-> add source-packet-lint README
+-> define inputs, outputs, reports, failure modes, deterministic behavior, and
+   exit-code expectations
+-> keep tool implementation, schemas, tests, claim extraction, and compare
+   gates deferred
 ```
 
 Do not jump straight into PDF parser, MinerU execution, MCP integration work,
-claim schema work, compare gates, or Phase 2.6 CLI README specs.
+claim schema work, compare gates, or downstream `skill + tool` work.

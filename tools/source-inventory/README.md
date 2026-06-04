@@ -4,6 +4,8 @@ Future tool family for scanning workspace `raw/sources/` files and maintaining
 the source inventory used before source-packet writing.
 
 Phase 2.1 defines the behavior surface only. It does not implement the command.
+Phase 2.6 keeps this as one member of the Phase 2 tool trio:
+`source-inventory`, `source-packet-convert`, and `source-packet-lint`.
 
 ## Purpose
 
@@ -52,6 +54,10 @@ Expected modes:
 
 The tool should never modify raw source files.
 
+The tool should also not write source packets. `packet_path` may point to the
+intended or existing packet, but packet creation belongs to
+`source-packet-convert`.
+
 ## Inventory Row Fields
 
 Minimum fields:
@@ -90,6 +96,9 @@ The tool should deterministically:
 
 The tool may propose source IDs, but a human or agent may revise them before
 the inventory becomes the source namespace.
+
+The tool should separate deterministic intake checks from human or
+agent-assisted source ID decisions.
 
 ## Failure Modes
 

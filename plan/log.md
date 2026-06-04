@@ -599,3 +599,25 @@
   --short --branch` showed only the intended Person B Phase 2.5 files.
 - Commit: completed on `main` as `ba90966 Define generated fields review
   routing`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase two tool surface specs
+
+- Target: advance Person B Phase 2.6 by defining README-level behavior specs
+  for the Phase 2 construction tool trio: `source-inventory`,
+  `source-packet-convert`, and `source-packet-lint`.
+- Changed areas: added
+  `docs/phase-plans/phase-2.6-tool-surface-specs.md`,
+  `tools/source-packet-convert/README.md`, and
+  `tools/source-packet-lint/README.md`; updated
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `tools/source-inventory/README.md`, and `tools/README.md`; added the target
+  plan under `plan/users/chenzc24/2026-06-04-phase-2-6-tool-surface-specs/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Tool Surface Specs, `source-inventory`, `source-packet-convert`,
+  `source-packet-lint`, inputs, outputs, failure modes, exit codes,
+  deterministic behavior, adapter boundaries, `generated_fields`,
+  `review_required`, `known_gaps`, and Non-Goals language; `git submodule
+  status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
+  --short --branch` showed only the intended Person B Phase 2.6 files.
+- Commit: planned for `main` as `Define phase two tool surface specs`.

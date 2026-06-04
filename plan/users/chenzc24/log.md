@@ -326,3 +326,25 @@ Repository-wide merged or integration-level maintenance history belongs in
   --short --branch` showed only the intended Person B Phase 2.5 files.
 - Commit: completed on `main` as `ba90966 Define generated fields review
   routing`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase two tool surface specs
+
+- Target: define Person B Phase 2.6 tool behavior specs so Phase 2 protocols
+  have future CLI surfaces for inventory, packet conversion, and packet lint
+  without implementing the tools.
+- Changed areas: `docs/phase-plans/phase-2.6-tool-surface-specs.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `tools/source-inventory/README.md`,
+  `tools/source-packet-convert/README.md`,
+  `tools/source-packet-lint/README.md`, `tools/README.md`, `plan/log.md`, and
+  the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-6-tool-surface-specs/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Tool Surface Specs, `source-inventory`, `source-packet-convert`,
+  `source-packet-lint`, inputs, outputs, failure modes, exit codes,
+  deterministic behavior, adapter boundaries, `generated_fields`,
+  `review_required`, `known_gaps`, and Non-Goals language; `git submodule
+  status` confirmed both reference submodules stayed pinned; `git status
+  --short --branch` showed only the intended Person B Phase 2.6 files.
+- Commit: planned for `main` as `Define phase two tool surface specs`.

@@ -15,6 +15,10 @@ audit toolchain.
   rather than live workspace output.
 - `source-inventory`: scan raw sources, record path/hash/type/status, and
   identify unprocessed or changed material.
+- `source-packet-convert`: coordinate manual, agent, MCP, local CLI, or
+  extractor-backed workflows that produce source packets.
+- `source-packet-lint`: check packet metadata, anchors, generated fields, known
+  gaps, review routing, and source-type expectations.
 - `wiki-lint`: check frontmatter, broken links, orphan pages, missing index
   entries, and required maintenance files.
 - `compare-gate`: compare raw source inventory against distilled wiki
@@ -26,6 +30,19 @@ audit toolchain.
 - `todo-sync`: consolidate compare, lint, and review outputs into actionable
   plan or todo files.
 - `scaffold-workspace`: future copy/sync helper for workspace kernels.
+
+## Phase 2 Tool Surface
+
+The Phase 2 construction tool trio is:
+
+```text
+source-inventory
+-> source-packet-convert
+-> source-packet-lint
+```
+
+These tool specs define behavior only. They do not implement commands, run
+extractors, update schemas, or create fixtures.
 
 ## Tool Principles
 
