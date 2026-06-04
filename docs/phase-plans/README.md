@@ -44,3 +44,10 @@ Rules:
   and wiki log maintenance rules.
 - `phase-4-closure-review.md`: Phase 4 closure review, design confirmation,
   and Person A validation handoff.
+
+## Phase 5
+
+- `phase-5-compare-gates-review-workflow.md`: main Phase 5 compare gates and
+  review workflow plan.
+- `phase-5.1-compare-report-foundation.md`: Phase 5.1 compare report
+  foundation, status semantics, and report-template scope.

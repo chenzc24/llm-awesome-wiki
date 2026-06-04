@@ -755,3 +755,22 @@
   Phase 4 closure and Phase 5 boundary language.
 - Commit: completed on `main` as `460f014 Close phase four wiki construction
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five compare report foundation
+
+- Target: start Phase 5 from the Person B workflow-surface side by defining
+  the compare report foundation for round quality gates.
+- Changed areas: added the main Phase 5 plan, Phase 5.1 report-foundation
+  plan, and workspace compare report template; expanded the compare gate rule;
+  updated the phase-plan index, reports README, review queue template, first
+  round validation note template, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-1-compare-report-foundation/`.
+- Design review: aligned with raw-wiki alignment and artifact economy by
+  making one concise compare report the default decision surface for source
+  coverage, claim coverage, modality coverage, link/index checks, omissions,
+  contradictions, review items, carried-forward review, and
+  `pass`/`fail`/`needs-review` status.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5 compare report foundation language.
+- Commit: pending.

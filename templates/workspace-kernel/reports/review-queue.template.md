@@ -5,12 +5,13 @@
 - Round plan:
 - Date:
 - Owner:
+- Related compare report:
 
 ## Open Review Items
 
-| review_item_id | type | claim_id | source_refs | status | decision_needed | next_action |
-| --- | --- | --- | --- | --- | --- | --- |
-| rv-001 | confirm | cl-001 | source-id#anchor-id | open | Replace this row. | Human review. |
+| review_item_id | type | claim_id | source_refs | affected_target | status | blocking_level | decision_needed | next_action |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rv-001 | confirm | cl-001 | source-id#anchor-id | wiki/chapters/replace-me.md | open | blocking/nonblocking | Replace this row. | Human review. |
 
 ## Generated Evidence Review
 
@@ -26,9 +27,14 @@
 
 ## Carried Forward
 
-- 
+| review_item_id | reason | blocking_level | owner_or_next_action | target_round_or_condition |
+| --- | --- | --- | --- | --- |
+| rv-001 | Replace this row. | blocking/nonblocking |  |  |
 
 ## Notes
 
 Keep this queue short. Put readable explanations in wiki chapters and detailed
 support relationships in the claim/evidence map.
+
+Do not clear a review item just because the wiki prose looks complete. A
+carried-forward item needs a reason and next action.

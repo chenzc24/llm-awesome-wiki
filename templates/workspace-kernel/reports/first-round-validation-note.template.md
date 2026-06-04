@@ -27,10 +27,13 @@
 
 ## Compare Status
 
-`compare gate not enabled`
+- Compare report:
+- Compare status: `pass`, `needs-review`, `fail`, or `compare gate not enabled`
 
-Use this exact status when no deterministic or human-reviewed compare gate has
-been run. Do not convert it into `pass`.
+Use `compare gate not enabled` exactly when no deterministic, manual-protocol,
+or human-reviewed compare gate has been run. Do not convert it into `pass`.
+
+If a compare report exists, link it here and summarize its final status.
 
 ## Coverage Notes
 
@@ -65,6 +68,7 @@ been run. Do not convert it into `pass`.
 - Generated-evidence claims:
 - Human decisions:
 - Carried forward:
+- Carried-forward reason and next action:
 
 ## Result
 

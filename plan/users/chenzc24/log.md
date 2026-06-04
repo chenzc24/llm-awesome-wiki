@@ -527,3 +527,28 @@ Repository-wide merged or integration-level maintenance history belongs in
   broken link, and Phase 5 language.
 - Commit: completed on `main` as `460f014 Close phase four wiki construction
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five compare report foundation
+
+- Target: start Person B Phase 5.1 by defining the compare gate report
+  foundation for raw-wiki alignment and round advancement decisions.
+- Changed areas: added
+  `docs/phase-plans/phase-5-compare-gates-review-workflow.md`,
+  `docs/phase-plans/phase-5.1-compare-report-foundation.md`, and
+  `templates/workspace-kernel/reports/compare-report.template.md`; expanded
+  `rules/compare-gate-contract.md`; updated `docs/phase-plans/README.md`,
+  workspace reports README, review queue template, first-round validation note
+  template, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-1-compare-report-foundation/`.
+- Design review: Phase 5.1 keeps compare gates report-centered and
+  anti-self-evaluation oriented: one default compare report records source
+  coverage, claim coverage, modality coverage, link/index/overview/log checks,
+  omissions, contradictions, review items, carried-forward review, and
+  `pass`/`fail`/`needs-review` status without rewriting wiki pages or starting
+  downstream `skill + tool` work.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5, Compare Gate, Compare Report, raw-wiki alignment, source coverage,
+  claim coverage, modality coverage, pass, fail, needs-review, model
+  self-evaluation, carried forward, and wiki rewrite boundary language.
+- Commit: pending.

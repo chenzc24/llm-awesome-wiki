@@ -17,6 +17,23 @@ reports/
 Reports should state `pass`, `fail`, or `needs-review` when they gate a
 distillation round.
 
+## Compare Reports
+
+Use `reports/compare/<round-id>-compare-report.md` when a round needs a quality
+gate before advancing.
+
+The compare report is the default round decision surface. It should record
+source coverage, source packet and anchor coverage, wiki page coverage, claim
+coverage, modality coverage, link/index/overview/log checks, omissions,
+contradictions, review items, carried-forward review, and final
+`pass`/`fail`/`needs-review` status.
+
+Keep one concise compare report as the default. Link to detailed coverage,
+lint, claim-audit, or review reports only when the workspace needs more depth.
+
+The compare report is not a wiki rewrite instruction and not a final synthesis
+page.
+
 ## Claim And Evidence Reports
 
 Use `reports/review/claim-evidence-map.md` or a similarly named report when a
