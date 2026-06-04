@@ -94,7 +94,9 @@ It answers:
 Phase 4.2 still does not implement a generator, validator, test fixture, or
 wiki-lint command.
 
-## Phase 4.3 Active Scope
+## Phase 4.3 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 4.3 defines the wiki construction round protocol.
 
@@ -110,6 +112,21 @@ It answers:
 
 Phase 4.3 still does not implement a generator, validator, compare gate,
 fixture, or wiki-lint command.
+
+## Phase 4.4 Active Scope
+
+Phase 4.4 defines overview, index, and log maintenance.
+
+It answers:
+
+- when must `wiki/overview.md` refresh?
+- how does `wiki/index.md` remain the navigation contract?
+- what belongs in `wiki/log.md`?
+- how are stale index entries and active reports handled?
+- what overview/index/log status must validation notes record?
+
+Phase 4.4 still does not implement a wiki-lint tool, compare gate, validator,
+fixture, or link checker.
 
 ## Required Construction Flow
 
@@ -198,11 +215,22 @@ Phase 4.3 is complete when:
 - workspace README, AGENTS, and wiki log guidance reflect the round rhythm
 - compare status remains explicit when compare gates are not enabled
 
+## Phase 4.4 Completion Criteria
+
+Phase 4.4 is complete when:
+
+- overview refresh triggers are documented
+- index integrity rules are documented
+- wiki log entry expectations are documented
+- overview/index/log templates reflect their maintenance roles
+- validation notes check overview/index/log status
+- source-packet-to-wiki and distillation rounds mention overview/index/log
+  closure requirements
+
 ## Next Subphase
 
-After Phase 4.3, the next useful target is Phase 4.4: overview, index, and log
-maintenance.
+After Phase 4.4, the next useful target is Phase 4.5: Phase 4 closure review
+and Person A handoff.
 
-Phase 4.4 should focus on long-term maintenance rules for overview refresh,
-index integrity, log entries, and how wiki construction rounds leave the
-workspace navigable.
+Phase 4.5 should review Phase 4 against the core design principles and hand
+frontmatter, index, link, overview, and log validation needs to Person A.

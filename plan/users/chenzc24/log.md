@@ -479,3 +479,28 @@ Repository-wide merged or integration-level maintenance history belongs in
   remained pinned.
 - Commit: completed on `main` as `41cb2b5 Define phase four wiki construction
   round protocol`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase four overview index log maintenance
+
+- Target: continue Person B Phase 4.4 by defining how wiki overview, index,
+  and log artifacts stay synchronized across wiki construction rounds.
+- Changed areas: added
+  `docs/phase-plans/phase-4.4-overview-index-log-maintenance.md` and
+  `rules/wiki-overview-log-contract.md`; updated the main Phase 4 plan,
+  phase-plan and rule indexes, `distillation-rounds`,
+  `source-packet-to-wiki`, `wiki-index-contract`, workspace AGENTS guidance,
+  overview/index/log templates, overview template, and first-round validation
+  note template; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-4-4-overview-index-log-maintenance/`.
+- Design review: Phase 4.4 keeps `wiki/overview.md` as the current corpus map
+  and reading path, `wiki/index.md` as a navigation contract, and
+  `wiki/log.md` as a short chronological event record. Overview/index/log
+  maintenance is required during wiki construction, but these files do not
+  become final synthesis, claim/evidence maps, or validation reports.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4.4, overview refresh, index integrity, wiki log, navigation contract,
+  stale entries, not a final synthesis, not knowledge prose, no-change reason,
+  and refresh reason language; `git submodule status` confirmed `MinerU/` and
+  `llm_wiki/` remained pinned.
+- Commit: pending.

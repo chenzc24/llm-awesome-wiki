@@ -50,11 +50,13 @@ later rounds can be deliberately scoped.
    review.
 10. Create, update, merge, leave unchanged, or defer wiki pages according to
     the construction analysis.
-11. Update `wiki/index.md` and `wiki/log.md`.
-12. Run lint and compare checks available for the workspace, or record that
+11. Refresh `wiki/overview.md` when corpus map, coverage, or chapter structure
+    changed.
+12. Update `wiki/index.md` and `wiki/log.md`.
+13. Run lint and compare checks available for the workspace, or record that
     they are not enabled.
-13. Record review items and validation notes.
-14. Commit the accepted result.
+14. Record review items and validation notes.
+15. Commit the accepted result.
 
 ## Round Plan
 
@@ -69,6 +71,7 @@ The plan should state:
   page decisions
 - expected evidence/claim map updates when important claims are in scope
 - expected index and wiki log updates
+- expected overview refresh decision
 - validation commands or manual checks
 - commit intent
 
@@ -120,6 +123,7 @@ Required outputs:
 
 - wiki construction analysis
 - source or chapter page creates, updates, merges, or deferrals
+- overview refresh or recorded no-change reason
 - `wiki/index.md` update when accepted pages change
 - `wiki/log.md` entry
 - validation note
@@ -141,7 +145,8 @@ Each round should leave a short log entry with:
 - construction analysis path when wiki pages are created or updated
 - page decisions: created, updated, merged, deferred, or left unchanged
 - evidence and claim map updates when used
-- overview or staged-plan changes
+- overview/index/log changes or no-change reasons
+- stale index entries found or cleared
 - reports produced
 - review items created or resolved
 - validation run
@@ -153,6 +158,7 @@ Each round should leave at least one report or explicit validation note:
 
 - source inventory or packet status for raw-facing work
 - construction analysis status for wiki-facing work
+- overview, index, and log status for wiki-facing work
 - claim/evidence map status when important source-backed claims are created or
   updated
 - lint or index status for wiki-facing work
@@ -165,8 +171,8 @@ A round is complete when all intended files are updated, validation is recorded,
 review items are visible, and the accepted diff is committed.
 
 For wiki construction rounds, completion also requires construction analysis,
-index/log updates for accepted page changes, and a validation note that records
-page decisions and review carry-forward.
+overview/index/log status, index/log updates for accepted page changes, and a
+validation note that records page decisions and review carry-forward.
 
 For rounds that create or update important claims, completion also requires
 evidence references or review routing. A clean-looking wiki page is not proof

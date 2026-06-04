@@ -27,7 +27,11 @@ workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
 8. Keep wiki claims traceable to source packet anchors, evidence records, or
    review items.
 9. Put uncertain semantic judgment into review items or reports.
-10. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
+10. Refresh `wiki/overview.md` when corpus map, coverage, or chapter structure
+    changes.
+11. Update `wiki/index.md` and `wiki/log.md` after accepted wiki changes.
+12. Record why overview or index did not change when a wiki construction round
+    inspected them but left them unchanged.
 
 ## After Work
 

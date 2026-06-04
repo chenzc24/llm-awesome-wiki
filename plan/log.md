@@ -719,3 +719,21 @@
   confirmed reference submodules remained pinned.
 - Commit: completed on `main` as `41cb2b5 Define phase four wiki construction
   round protocol`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase four overview index log maintenance
+
+- Target: continue Phase 4.4 from the Person B workflow-surface side by
+  defining overview, index, and log maintenance rules for wiki construction
+  rounds.
+- Changed areas: added the Phase 4.4 plan and overview/log contract; updated
+  the main Phase 4 plan, phase-plan and rule indexes, distillation and
+  source-to-wiki rules, wiki index contract, workspace AGENTS guidance,
+  overview/index/log templates, and first-round validation note template.
+- Design review: aligned with artifact economy by keeping overview as a
+  current corpus map, index as a navigation contract, and log as a short
+  chronological event record, with explicit stale-entry and no-change checks.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 4.4 overview/index/log maintenance language; `git submodule status`
+  confirmed reference submodules remained pinned.
+- Commit: pending.

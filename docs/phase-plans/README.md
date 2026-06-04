@@ -40,3 +40,5 @@ Rules:
 - `phase-4.3-wiki-construction-round-protocol.md`: Phase 4.3 round protocol
   for selecting inputs, writing construction analysis, generating or merging
   pages, updating index/log, and recording validation.
+- `phase-4.4-overview-index-log-maintenance.md`: Phase 4.4 overview, index,
+  and wiki log maintenance rules.

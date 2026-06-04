@@ -31,6 +31,8 @@ For round-level sequencing, also follow `distillation-rounds.md`.
    - write or update wiki pages
    - update `wiki/index.md`
    - update `wiki/log.md`
+   - refresh `wiki/overview.md` when corpus map, coverage, or chapter
+     structure changed
    - emit review/report items instead of silently resolving uncertain claims
 
 Do not collapse these stages. A raw source should not be turned directly into
@@ -79,6 +81,7 @@ the starting point.
 The generation stage should produce only accepted workspace artifacts:
 
 - wiki page creates or updates
+- `wiki/overview.md` update when scope, coverage, or chapter structure changed
 - `wiki/index.md` update
 - `wiki/log.md` update
 - review item or report updates
@@ -123,13 +126,19 @@ broken links, contradictions, omissions, and review queue status.
 If the compare gate is not enabled, the validation note should say
 `compare gate not enabled`. Do not record that as `pass`.
 
+The validation note should also record overview, index, and log status. If no
+overview or index update was needed, record why.
+
 ## Acceptance Criteria
 
 - every new or changed wiki page cites at least one source identity when it
   contains sourced knowledge
 - every wiki update has a routing decision or an obvious route from the round
   plan
+- overview refresh is recorded when corpus map, coverage, or chapter structure
+  changed
 - index and log are updated in the same round
+- validation records overview/index/log status
 - unresolved semantic judgment appears in review output
 - generation does not fragment one source chapter into unnecessary object pages
 - a compare or lint report records whether the round may advance

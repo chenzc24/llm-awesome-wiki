@@ -9,9 +9,12 @@ content-oriented, not chronological. The chronological record belongs in
 - Read `wiki/index.md` before answering questions or modifying wiki pages.
 - Update `wiki/index.md` after every accepted wiki page creation, deletion, or
   major retitle.
+- Inspect `wiki/index.md` during every wiki construction round, even when no
+  update is needed.
 - Group entries by page type or domain-specific category.
 - Keep each entry short enough for quick scanning.
 - Treat missing index entries as lint findings.
+- Treat stale entries as validation findings.
 
 ## Entry Shape
 
@@ -80,6 +83,7 @@ its packet and chapters are. Chapter pages carry the main distilled knowledge.
 - every indexed page exists
 - every non-special wiki page appears in the index
 - index links are not broken
+- accepted page creates, deletes, merges, moves, and retitles are reflected
 - source or deck summary pages are grouped separately from chapter pages
 - claim/evidence reports are linked only when they are active review or
   validation surfaces
@@ -106,3 +110,5 @@ The index passes the minimum contract when:
 - section names match the workspace schema
 - source/deck pages, chapter pages, reports, and optional research-profile
   pages are not mixed into the wrong section without a recorded reason
+- the validation note records whether index changes were made or why no index
+  change was needed

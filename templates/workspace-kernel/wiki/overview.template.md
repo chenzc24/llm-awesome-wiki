@@ -22,6 +22,8 @@ actionable.
 
 List the major documents, PPT decks, or source groups and what each contributes.
 
+Keep this section at source-group level. Do not copy the source inventory.
+
 ## Chapter Map
 
 Describe the initial chapter or section structure. Preserve source order unless
@@ -43,3 +45,12 @@ Link the main reading path through `wiki/chapters/`.
 - Human decisions:
 
 Link active review reports instead of copying their full contents.
+
+## Maintenance
+
+- Last refreshed:
+- Refresh reason:
+- Related validation note:
+
+Refresh when corpus scope, source groups, chapter structure, coverage, or
+high-level review themes change.

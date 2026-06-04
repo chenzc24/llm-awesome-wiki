@@ -18,6 +18,10 @@
 - Page create/update/merge decisions recorded:
 - Wiki index links checked:
 - Overview updated:
+- Overview no-change reason:
+- Index updated:
+- Index no-change reason:
+- Stale index entries checked:
 - Wiki log updated:
 - Plan log updated:
 
@@ -45,6 +49,14 @@ been run. Do not convert it into `pass`.
 - Deferred:
 - Left unchanged:
 - Report-only:
+
+## Navigation And Maintenance
+
+- Overview refresh status:
+- Index integrity status:
+- Wiki log status:
+- Active reports linked from index:
+- Stale entries removed:
 
 ## Review Items
 

@@ -3,6 +3,9 @@
 This is the navigation entry for the workspace. Update it after accepted wiki
 page changes.
 
+Do not use this file as a raw inventory, source packet anchor index, or
+claim/evidence table.
+
 Default reading path:
 
 ```text
@@ -32,6 +35,7 @@ overview
 - Link active validation, claim/evidence, compare, lint, coverage, and review
   reports here.
 - Do not index every evidence row or claim row.
+- Remove stale report links when reports are no longer active.
 
 ## Optional Synthesis
 
@@ -42,3 +46,11 @@ overview
 
 - Add concept, entity, comparison, or query pages only when the corpus needs
   them for reuse, review, or downstream work.
+
+## Maintenance Checks
+
+- Every accepted content page has one index entry.
+- Every index link resolves.
+- Deleted, merged, moved, or retitled pages do not leave stale entries.
+- Source pages, chapter pages, active reports, and optional pages stay in the
+  right section.

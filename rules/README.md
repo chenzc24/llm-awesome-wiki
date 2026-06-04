@@ -32,6 +32,8 @@ required dependency.
 - `source-packet-to-wiki.md`: distill source packets into maintained wiki
   pages.
 - `wiki-index-contract.md`: maintain `wiki/index.md` as the navigation entry.
+- `wiki-overview-log-contract.md`: keep `wiki/overview.md` and `wiki/log.md`
+  concise, current, and distinct from reports or source packets.
 - `compare-gate-contract.md`: compare source coverage and claim coverage before
   advancing a distillation round.
 - `distillation-rounds.md`: run wiki construction in small reviewable rounds.
