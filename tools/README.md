@@ -13,6 +13,9 @@ audit toolchain.
 
 - `validate-kernel`: verify that this system repo contains a reusable kernel
   rather than live workspace output.
+- `workspace-check`: Phase 6 checker orchestrator skeleton for validating
+  workspace artifacts and emitting summary reports.
+- `shared`: shared report and exit-code conventions for Phase 6 checker tools.
 - `source-inventory`: scan raw sources, record path/hash/type/status, and
   identify unprocessed or changed material.
 - `source-packet-convert`: Phase 2 behavior spec for planning or checking
@@ -68,6 +71,18 @@ workspace-check
 These tools inspect workspace artifacts and emit validation reports. They are
 not a PDF/PPTX/DOCX parser harness, MinerU wrapper, OCR/VLM runner, or MCP
 extractor wrapper.
+
+Phase 6.1 implements only the runtime skeleton:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode smoke `
+  -Report reports-validation-smoke.md
+```
+
+Business validators are intentionally reported as `not-implemented` until later
+Phase 6 subphases add them.
 
 ## Phase 3 Tool Surface
 

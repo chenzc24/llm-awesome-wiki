@@ -698,3 +698,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   reference submodules remained pinned.
 - Commit: completed on `main` as `0e68250 Rebaseline phase six as validation
   tooling`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six tool runtime skeleton
+
+- Target: start Phase 6.1 by adding a checker-first runtime skeleton and
+  shared report/exit-code conventions for future workspace validators.
+- Changed areas: added `docs/phase-plans/phase-6.1-tool-runtime-skeleton.md`,
+  `tools/shared/README.md`, `tools/shared/report-conventions.md`,
+  `tools/workspace-check/README.md`, `tools/workspace-check/workspace-check.ps1`,
+  and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-1-tool-runtime-skeleton/`; updated
+  the Phase 6 rebaseline plan, phase-plan index, and tools README.
+- Design review: Phase 6.1 establishes the runnable checker shell without
+  implementing business validators. `workspace-check` validates runtime inputs,
+  emits a stable Markdown report, reports future validators as
+  `not-implemented`, and does not run extractors or parse raw binaries.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; `workspace-check.ps1`
+  smoke run against `.` passed and generated a temporary report that was
+  removed; direct missing-workspace smoke produced an internal error report
+  with exit code `3`; targeted `rg` confirmed Phase 6.1, workspace-check,
+  report-conventions, exit-code, not-implemented, does-not-run-extractors, and
+  checker language.
+- Commit: pending.

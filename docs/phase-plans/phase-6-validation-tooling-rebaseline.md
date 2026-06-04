@@ -130,6 +130,20 @@ Recommended sequence:
 7. Phase 6.7: scenario fixtures and fixture runner.
 8. Phase 6.8: Phase 6 closure review and Phase 7 boundary.
 
+## Phase 6.1 Active Scope
+
+Phase 6.1 adds the first checker runtime skeleton:
+
+- shared report conventions
+- shared exit-code semantics
+- `workspace-check` README
+- `workspace-check.ps1` smoke-run entrypoint
+- explicit `not-implemented` slots for later validators
+
+Phase 6.1 does not implement schema validation, source packet checks, wiki
+lint, report validation, round closure validation, fixtures, extractor
+execution, or downstream `skill + tool` work.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.

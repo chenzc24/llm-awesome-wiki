@@ -71,3 +71,6 @@ Rules:
 - `phase-6-validation-tooling-rebaseline.md`: Phase 6.0 rebaseline that
   reframes Phase 6 as workspace validation and checker tooling rather than an
   extractor harness.
+- `phase-6.1-tool-runtime-skeleton.md`: Phase 6.1 checker runtime skeleton,
+  shared report conventions, exit-code semantics, and `workspace-check`
+  smoke-run entrypoint.

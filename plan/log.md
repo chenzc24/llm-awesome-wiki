@@ -891,3 +891,20 @@
   Phase 6.0 rebaseline language.
 - Commit: completed on `main` as `0e68250 Rebaseline phase six as validation
   tooling`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Add phase six tool runtime skeleton
+
+- Target: start Phase 6.1 by adding the checker runtime skeleton and shared
+  report/exit-code conventions for future workspace validators.
+- Changed areas: added the Phase 6.1 plan, shared tool conventions,
+  `workspace-check` README and PowerShell skeleton, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-1-tool-runtime-skeleton/`; updated
+  the Phase 6 rebaseline plan, phase-plan index, and tools README.
+- Design review: Phase 6 now has a runnable checker shell that emits stable
+  Markdown reports and marks future business validators as `not-implemented`
+  without running extractors or parsing raw binaries.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; `workspace-check.ps1`
+  smoke run passed; temporary reports were removed; targeted `rg` confirmed
+  Phase 6.1 runtime skeleton language.
+- Commit: pending.
