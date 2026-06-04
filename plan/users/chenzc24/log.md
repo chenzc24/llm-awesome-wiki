@@ -217,4 +217,25 @@ Repository-wide merged or integration-level maintenance history belongs in
   `git submodule status` confirmed both reference submodules stayed pinned;
   `git status --short --branch` showed only the intended top-level wording
   files.
-- Commit: planned for `main` as `Align top-level phase two protocol wording`.
+- Commit: completed and pushed to `origin/main` as `386c94f Align top-level
+  phase two protocol wording`.
+
+## 2026-06-04 - Define source packet protocol
+
+- Target: define Person B Phase 2.2 source packet protocol so any human,
+  agent, MCP, local CLI, optional extractor, or manual workflow leaves the same
+  auditable packet shape after source inventory.
+- Changed areas: `docs/phase-plans/phase-2.2-source-packet-protocol.md`,
+  `rules/raw-to-source-packet.md`,
+  `templates/workspace-kernel/raw/source-packet.template.md`,
+  `templates/workspace-kernel/raw/derived/README.md`, `plan/log.md`, and the
+  target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-2-source-packet-protocol/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 2.2, source packet protocol, audit layer, agent-readable wiki,
+  metadata source of truth, anchors, generated fields, known gaps, Person A
+  handoff, and review routing language; `git submodule status` confirmed both
+  reference submodules stayed pinned; `git status --short --branch` showed
+  only the intended Person B Phase 2.2 files.
+- Commit: planned for `main` as `Define source packet protocol`.

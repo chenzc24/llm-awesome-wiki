@@ -9,6 +9,10 @@ distillation.
 Create a faithful, auditable packet before wiki writing begins. The packet is
 the bridge between heterogeneous raw files and later claim/evidence records.
 
+The packet belongs to the audit layer. It should preserve source order,
+anchors, extraction facts, generated fields, and known gaps. It should not
+become a polished wiki article or a second knowledge surface.
+
 ## Phase 2.1 Intake Gate
 
 Source intake happens before packet writing.
@@ -108,10 +112,27 @@ should normally have packet paths. A `processed` row must point to a packet.
 Each processed source should produce a derived packet under
 `raw/derived/<source-id>/`:
 
-- `source.md`: readable extracted content with anchors
-- `metadata.json` or `metadata.yml`: source identity, hash, extraction status,
-  tool version, modalities, and known gaps
-- optional `media/`: extracted images, tables, charts, or attachments
+- `metadata.json` or `metadata.yml`: metadata source of truth for identity,
+  hash, extraction status, tool/backend version, modalities, generated fields,
+  derived artifacts, review routing, and known gaps
+- `source.md`: readable extracted/audit content with stable anchors
+- optional `media/`: extracted images, page renders, slide renders, tables,
+  charts, attachments, or other derived artifacts
+- optional `review.md` or `gaps.md`: larger review notes that do not fit as
+  concise packet notes
+
+Recommended packet shape:
+
+```text
+raw/derived/<source-id>/
+  metadata.yml
+  source.md
+  media/
+  review.md optional
+```
+
+Optional backend-specific files may be stored under the packet directory, but
+they do not become source identity. Reference them from metadata or anchors.
 
 ## Packet Eligibility
 
@@ -131,12 +152,34 @@ the uncertainty and creates a review item or report entry.
 
 `metadata.json` or `metadata.yml` must include:
 
-- source identity fields
-- extraction tool and version, or `manual` if produced by an agent
-- extraction status: `complete`, `partial`, `failed`, or `manual-review`
-- modalities present in the source
-- generated fields, such as OCR text or image captions
-- extraction gaps and failure notes
+- `type`: `source-packet`
+- `source_id`: stable workspace identifier inherited from inventory
+- `raw_path`: workspace-relative path under `raw/sources/`
+- `raw_sha256`: source hash or recorded hash state
+- `source_kind`: source kind inherited from inventory
+- `inventory_status_at_extraction`: inventory status when packet writing began
+- `extraction_backend`: executor or adapter family, such as `manual`,
+  `poppler`, `libreoffice`, `mineru`, `claude-mcp`, `codex-local`, or a
+  custom script name
+- `extraction_method`: specific method, such as `manual-notes`, `pdftotext`,
+  `rendered-pages`, `office-xml`, or `adapter-output`
+- `extraction_version`: backend, adapter, prompt, or manual protocol version
+- `extraction_status`: `complete`, `partial`, `failed`, or `manual-review`
+- `modalities`: source modalities seen or expected
+- `generated_fields`: generated or model-assisted field kinds used in the
+  packet
+- `known_gaps`: compact list of failed, skipped, uncertain, or unsupported
+  extraction areas
+- `review_required`: boolean or `yes`/`no`
+- `review_reason`: what a reviewer must decide when review is required
+- `derived_artifacts`: files such as rendered pages, slide images, table CSVs,
+  debug output, or backend output bundles
+- `created`: packet creation date
+- `updated`: last packet update date
+
+Metadata is the source of truth for operational packet facts. `source.md` may
+mirror a few identity fields for readability, but later wiki pages should cite
+packet anchors instead of copying hashes, backend details, or extraction logs.
 
 ## Anchor Contract
 
@@ -145,12 +188,81 @@ the uncertainty and creates a review item or report entry.
 Minimum anchor fields:
 
 - `anchor_id`
-- human-readable label
-- location, such as page, slide, section, timestamp, row, or filename
-- extracted text or media reference when available
+- `location`, such as page, slide, heading, section, timestamp, row, or
+  filename
+- human-readable `label`
+- `content_kind`, such as text, title, table, chart, image, formula, code,
+  list, note, or mixed
+- whether the content is directly source-derived
+- whether the anchor includes generated or model-assisted content
+- media or derived artifact reference when available
+- concise notes
 
 Anchors should be stable across re-runs when the underlying source has not
 changed.
+
+Preferred reference form for later evidence, claims, wiki pages, and alignment
+reports:
+
+```text
+<source_id>#<anchor_id>
+```
+
+Anchor ID rules:
+
+- Use page, slide, heading, row, timestamp, or file-based prefixes when useful.
+- Avoid backend-specific IDs as the only stable anchor name.
+- Do not include local absolute paths.
+- Split anchors when one location contains separate text, table, image, chart,
+  or formula content that may need independent citation.
+
+Minimum block shape in `source.md`:
+
+```markdown
+### p001 - Opening Definition
+
+- Location: page 1
+- Content kind: text
+- Source-derived: yes
+- Generated: no
+- Media references:
+
+Extracted text goes here.
+```
+
+For tables, charts, images, and formulas, distinguish direct source material
+from generated interpretation.
+
+## Generated Fields And Review Routing
+
+Generated or model-assisted content is allowed inside source packets, but it
+must be labeled.
+
+Examples of generated fields:
+
+- OCR text
+- image captions
+- chart summaries
+- table repairs
+- formula recognition
+- inferred reading order
+- agent-written extraction notes
+
+Generated content is not source-equivalent by default. Claims based on
+generated content should later carry a generated-evidence marker or route to
+review.
+
+Set `review_required` when:
+
+- extraction is `partial`, `failed`, or `manual-review`
+- generated content affects important knowledge
+- visual interpretation is important but not deterministic
+- media mapping is uncertain
+- anchor coverage is incomplete
+- a source changed after packet creation
+
+Review notes should say what a reviewer must decide, not merely that the packet
+is imperfect.
 
 ## Unsupported Sources
 
@@ -173,6 +285,11 @@ This keeps later coverage checks from confusing "not seen" with
 - Do not send binary source files directly into wiki writing when a structured
   packet is feasible.
 - Do not write a packet for a source that has no inventory row.
+- Do not perform one-step raw-to-wiki writing when the source requires packet
+  anchors.
+- Do not turn `source.md` into a final wiki page or polished chapter summary.
+- Keep metadata as the source of truth for backend, status, generated fields,
+  and known gaps.
 - Preserve page, slide, section, timestamp, or filename anchors.
 - Mark extraction gaps explicitly instead of hiding them.
 - Separate extracted facts from generated captions, OCR text, and inferred
@@ -182,9 +299,15 @@ This keeps later coverage checks from confusing "not seen" with
 
 ## Handoff
 
-The next stage may use only source packets and their metadata as the direct
-input for wiki construction. If a later round needs the raw file again, it must
-record why in the workspace log or compare report.
+The next stage should use source packets, metadata, and anchor references as
+the direct input for evidence, claim, wiki, and alignment work. If a later
+round needs the raw file again, it must record why in the workspace log,
+review note, or alignment report.
+
+Wiki pages should cite packet anchors for important claims while remaining
+agent-readable and human-reviewable. They should not duplicate packet hashes,
+backend details, or full extraction logs unless that operational fact directly
+affects knowledge confidence.
 
 ## Acceptance Criteria
 
@@ -195,3 +318,5 @@ record why in the workspace log or compare report.
 - extraction gaps are explicit
 - generated captions, OCR, and inferences are distinguishable from source text
 - failed or partial packets create review items or report entries
+- packet handoff gives later stages usable `<source_id>#<anchor_id>` citations
+  without making source packets the wiki knowledge layer

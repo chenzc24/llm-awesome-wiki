@@ -488,4 +488,25 @@
   profile, optional extractor, and parser harness non-goal language; `git
   submodule status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git
   status --short --branch` showed only the intended top-level wording files.
-- Commit: planned for `main` as `Align top-level phase two protocol wording`.
+- Commit: completed and pushed to `origin/main` as `386c94f Align top-level
+  phase two protocol wording`.
+
+## 2026-06-04 - Define source packet protocol
+
+- Target: advance Person B Phase 2.2 by defining the minimum source packet
+  protocol after a source inventory row becomes ready.
+- Changed areas: added
+  `docs/phase-plans/phase-2.2-source-packet-protocol.md`; updated
+  `rules/raw-to-source-packet.md`,
+  `templates/workspace-kernel/raw/source-packet.template.md`, and
+  `templates/workspace-kernel/raw/derived/README.md`; added the target plan
+  under
+  `plan/users/chenzc24/2026-06-04-phase-2-2-source-packet-protocol/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 2.2, source packet protocol, audit layer, agent-readable wiki,
+  metadata source of truth, anchors, generated fields, known gaps, Person A
+  handoff, and review routing language; `git submodule status` confirmed
+  `MinerU/` and `llm_wiki/` remained pinned; `git status --short --branch`
+  showed only the intended Person B Phase 2.2 files.
+- Commit: planned for `main` as `Define source packet protocol`.
