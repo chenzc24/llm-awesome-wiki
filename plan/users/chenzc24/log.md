@@ -1240,4 +1240,6 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Validation: `git diff --check` passed with only Windows line-ending
   warnings; `python -m llm_wiki_tools validate-kernel` passed;
   `python -m llm_wiki_tools fixture-runner` passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `5fd8ff3 Clarify formula derivation coverage semantics`; finalized by the
+  follow-up maintenance-status commit.

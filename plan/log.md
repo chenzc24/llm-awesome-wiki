@@ -1333,4 +1333,6 @@
   while still claiming knowledge coverage pass.
 - Validation: `git diff --check`, `validate-kernel`, and `fixture-runner`
   passed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `5fd8ff3 Clarify formula derivation coverage semantics`; finalized by the
+  follow-up maintenance-status commit.
