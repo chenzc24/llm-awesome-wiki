@@ -815,7 +815,9 @@ Repository-wide merged or integration-level maintenance history belongs in
   `fixture-runner` passed the Phase 6 fixtures; `workspace-check --mode
   fixtures` passed; generated smoke reports were removed; `rg` confirmed no
   `.ps1` tool files remain and active command docs use Python CLI commands.
-- Commit: pending.
+- Commit: completed on `main` as
+  `735a4da Migrate phase six tooling to Python CLI`; finalized by the
+  follow-up maintenance-status commit.
 
 ## 2026-06-04 - Add phase six wiki lint checker
 
