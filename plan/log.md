@@ -1151,4 +1151,6 @@
 - Validation: `python -m py_compile llm_wiki_tools/cli.py
   llm_wiki_tools/__main__.py` passed; `python -m llm_wiki_tools
   validate-kernel` passed; root-level `tools/` no longer exists.
-- Commit: pending.
+- Commit: completed on `main` as
+  `d480ae2 Collapse tool docs into Python package`; finalized by the follow-up
+  maintenance-status commit.
