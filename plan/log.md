@@ -1154,3 +1154,21 @@
 - Commit: completed on `main` as
   `d480ae2 Collapse tool docs into Python package`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Slim duplicate rules prose
+
+- Target: compact the largest rule owner documents after progressive
+  disclosure consolidation.
+- Changed areas: slimmed the raw-to-source-packet, distillation-round,
+  source-packet-to-wiki, wiki-surface, evidence/claim, and compare-gate rules;
+  added the target plan under
+  `plan/users/chenzc24/2026-06-04-rules-slimming-pass/`.
+- Design review: no rule path was removed and no schema or checker behavior was
+  changed. Duplicate explanations were collapsed into owner-rule references
+  while preserving the workflow-critical fields, statuses, review triggers,
+  and acceptance criteria.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  required distillation-flow terms; the six edited rule files were reduced by
+  424 net lines.
+- Commit: pending.

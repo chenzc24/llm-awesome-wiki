@@ -1026,3 +1026,26 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `d480ae2 Collapse tool docs into Python package`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Slim duplicate rules prose
+
+- Target: reduce duplicated explanatory prose in the largest rule owner
+  documents while preserving the distillation workflow, safety gates, and
+  compatibility paths.
+- Changed areas: rewrote
+  `rules/raw-to-source-packet.md`, `rules/distillation-rounds.md`,
+  `rules/source-packet-to-wiki.md`, `rules/wiki-surface-workflow.md`,
+  `rules/evidence-claim-workflow.md`, and `rules/compare-gate-contract.md`;
+  added the target plan under
+  `plan/users/chenzc24/2026-06-04-rules-slimming-pass/`.
+- Design review: the rules now emphasize minimum path, semantic ownership, and
+  handoff boundaries. Repeated page-surface, closure, review, and coverage
+  explanations were replaced with owner-rule references; required fields,
+  statuses, forbidden shortcuts, and acceptance criteria remain present.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  `source inventory`, `<source_id>#<anchor_id>`,
+  `wiki construction analysis`, `compare gate not enabled`, `close-pass`,
+  `needs-review`, and `review item`; the six edited rule files were reduced by
+  424 net lines.
+- Commit: pending.
