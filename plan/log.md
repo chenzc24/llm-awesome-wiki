@@ -813,4 +813,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 5.3 claim/modality/contradiction protocol language.
-- Commit: pending.
+- Commit: completed on `main` as `8d2958b Define phase five claim modality
+  review protocol`; finalized by the follow-up maintenance-status commit.

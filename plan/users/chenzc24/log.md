@@ -601,4 +601,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 5.3, Claim Modality Contradiction, claim support, generated evidence,
   modality coverage, unsupported statement, contradiction, source-derived,
   reviewed-generated, semantic review, and not-a-claim-audit-tool language.
-- Commit: pending.
+- Commit: completed on `main` as `8d2958b Define phase five claim modality
+  review protocol`; finalized by the follow-up maintenance-status commit.
