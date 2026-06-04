@@ -26,7 +26,7 @@ research-profile pages.
 
 | point | source anchor | confidence | notes |
 | --- | --- | --- | --- |
-| Replace this row. | source-id:s001 | high | Cite packet anchors. |
+| Replace this row. | source-id#s001 | high | Cite packet anchors. |
 
 ## Practical Implications
 

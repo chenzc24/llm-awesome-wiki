@@ -1,7 +1,8 @@
 # Workspace Schema
 
 This file defines how the workspace is structured and how agents should write
-source packets, chapter-oriented wiki pages, reports, and review items.
+source packets, claim/evidence maps, chapter-oriented wiki pages, reports, and
+review items.
 
 ## Directory Contract
 
@@ -9,7 +10,7 @@ source packets, chapter-oriented wiki pages, reports, and review items.
 raw/sources/      immutable source files
 raw/derived/      source packets and extracted media
 wiki/             maintained distilled knowledge
-reports/          lint, compare, coverage, and review outputs
+reports/          claim/evidence maps, lint, compare, coverage, and review outputs
 contracts/        copied or referenced machine contracts
 plan/             target plans and maintenance log
 tools/            workspace-local construction tools
@@ -65,7 +66,8 @@ Use one link style consistently. The default is wikilink syntax:
 - `wiki/log.md` is the chronological maintenance log.
 - `plan/log.md` is the workspace maintenance log for targets, validation, and
   commits.
-- `reports/` contains compare, lint, coverage, and review outputs.
+- `reports/` contains claim/evidence maps, compare, lint, coverage, and review
+  outputs.
 - A distillation round should not advance without a recorded validation result.
 
 ## Source Packet Minimum
@@ -77,6 +79,22 @@ Each packet under `raw/derived/<source-id>/` should include:
 - stable anchors
 - extraction gaps when present
 - generated fields clearly marked
+
+## Claim And Evidence Minimum
+
+When a round creates important source-backed claims, record a concise
+claim/evidence map under `reports/review/` or another configured review path.
+
+The map should preserve:
+
+- evidence references in `<source_id>#<anchor_id>` form
+- claim status
+- generated-evidence state when relevant
+- unsupported, contested, stale, or needs-review claims
+- review item references when human judgment is required
+
+Do not use the claim/evidence map as the primary reading surface. Keep readable
+knowledge in `wiki/chapters/` by default.
 
 ## Round Status
 

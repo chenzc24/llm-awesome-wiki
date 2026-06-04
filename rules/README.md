@@ -3,7 +3,7 @@
 This directory contains operational contracts for generated knowledge
 workspaces. These are not top-level philosophy documents. They are the rules an
 agent follows inside a workspace repo when moving from raw source material to
-source packets, wiki pages, reports, and maintenance logs.
+source packets, evidence and claims, wiki pages, reports, and maintenance logs.
 
 The rules are designed for VSCode, Git, CLI tools, and repo-local agents. They
 may use Markdown conventions that also work in Obsidian, but Obsidian is not a
@@ -20,6 +20,12 @@ required dependency.
 - `generated-fields-review-routing.md`: mark generated or model-assisted
   packet content and route important uncertainty to review before claim/wiki
   handoff.
+- `source-packet-to-evidence.md`: select compact evidence from packet anchors
+  without turning the packet into a second wiki.
+- `evidence-to-claim.md`: turn selected evidence into reusable, checkable
+  claims while preserving source/chapter readability.
+- `claim-review-routing.md`: route unsupported, generated-derived, contested,
+  or judgment-heavy claims to explicit review.
 - `source-packet-to-wiki.md`: distill source packets into maintained wiki
   pages.
 - `wiki-index-contract.md`: maintain `wiki/index.md` as the navigation entry.

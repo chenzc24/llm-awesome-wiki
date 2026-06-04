@@ -370,3 +370,31 @@ Repository-wide merged or integration-level maintenance history belongs in
   closure files.
 - Commit: completed on `main` as `a6801fd Close phase two raw-to-packet
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase three evidence claim workflow
+
+- Target: execute and review Person B Phase 3 by defining the
+  source-packet-to-evidence and evidence-to-claim workflow surface, including
+  generated-evidence review routing and artifact-economy boundaries.
+- Changed areas: added
+  `docs/phase-plans/phase-3-evidence-claim-workflow.md`,
+  `docs/phase-plans/phase-3-closure-review.md`,
+  `rules/source-packet-to-evidence.md`, `rules/evidence-to-claim.md`,
+  `rules/claim-review-routing.md`,
+  `templates/workspace-kernel/reports/claim-evidence-map.template.md`, and
+  `templates/workspace-kernel/reports/review-queue.template.md`; updated
+  Phase 2/3 phase-plan indexes, Phase 3 handoff rules, workspace kernel
+  templates, and `tools/claim-audit/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-3-evidence-claim-workflow/`.
+- Design review: Phase 3 keeps claim/evidence as an audit and review layer,
+  preserves source/chapter-oriented wiki readability, avoids model
+  self-evaluation, preserves generated-evidence visibility, and leaves
+  `contracts/schemas/**` to Person A.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; all
+  `contracts/schemas/*.schema.json` parsed with `ConvertFrom-Json`; targeted
+  `rg` confirmed Source Packet To Evidence, Evidence To Claim, Claim Review
+  Routing, generated evidence, review item, artifact economy,
+  source/chapter, claim-audit, not a wiki page, and Phase 3 language; `git
+  submodule status` confirmed `MinerU/` and `llm_wiki/` remained pinned.
+- Commit: pending.

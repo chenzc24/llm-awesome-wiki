@@ -416,18 +416,18 @@ implement tools, parsers, schemas, validators, fixtures, source packet
 generation, claim extraction, wiki generation, compare gates, or downstream
 `skill + tool` work.
 
-## Immediate Next Step
+## Next Phase Boundary
 
-Phase 2.1 through Phase 2.6 are complete. The next useful target is Phase 2
-closure review and Person A validation handoff:
+Phase 2.1 through Phase 2.6 are complete, and Phase 2 closure review has been
+recorded. The next workflow boundary is Phase 3:
 
 ```text
-review Phase 2 closure
--> confirm raw-to-source-packet workflow surface is complete
--> hand schema, validator, fixture, and report needs to Person A
--> keep tool implementation, claim extraction, wiki generation, compare gates,
-   and downstream skill/tool work deferred
+source packet
+-> evidence selection
+-> claim extraction and review routing
+-> wiki construction handoff
 ```
 
-Do not jump straight into PDF parser, MinerU execution, MCP integration work,
-claim schema work, compare gates, or downstream `skill + tool` work.
+Phase 3 should consume valid source packets. It should not reopen raw
+conversion, PDF parser, MinerU execution, MCP integration, schema hardening,
+compare gates, or downstream `skill + tool` work as its main task.

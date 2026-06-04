@@ -641,3 +641,24 @@
   2 closure files.
 - Commit: completed on `main` as `a6801fd Close phase two raw-to-packet
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase three evidence claim workflow
+
+- Target: execute and review all Person B Phase 3 workflow-surface work so
+  Phase 2 source packet anchors can become evidence, claims, review items, and
+  later wiki/compare handoff artifacts without becoming a second wiki.
+- Changed areas: added Phase 3 phase-plan and closure-review documents; added
+  `rules/source-packet-to-evidence.md`, `rules/evidence-to-claim.md`, and
+  `rules/claim-review-routing.md`; added claim/evidence map and review queue
+  workspace templates; updated Phase 2/3 plan indexes, distillation and wiki
+  rules, workspace kernel templates, and `tools/claim-audit/README.md`.
+- Design review: aligned with VSCode/Git-first, Agent-first, artifact economy,
+  raw-wiki alignment, generated-evidence visibility, and Person A/B ownership
+  boundaries. The default wiki surface remains source/chapter-oriented rather
+  than a fragmented claim/entity graph.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; all
+  `contracts/schemas/*.schema.json` parsed with `ConvertFrom-Json`; targeted
+  `rg` confirmed Phase 3 rule, template, review, and tool-surface language;
+  `git submodule status` confirmed reference submodules remained pinned.
+- Commit: pending.

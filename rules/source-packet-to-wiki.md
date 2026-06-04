@@ -1,13 +1,15 @@
 # Source Packet To Wiki
 
-Wiki writing starts from source packets, not directly from raw files. The wiki
-is a maintained synthesis layer; it must remain traceable to source packets and
-evidence records.
+Wiki writing starts from source packets and, when important claims are in
+scope, the evidence/claim layer. It does not start directly from raw files. The
+wiki is a maintained synthesis layer; it must remain traceable to source
+packets and evidence records.
 
 ## Two-Stage Flow
 
 1. Analysis stage:
    - read the source packet and existing `wiki/index.md`
+   - read the claim/evidence map and review queue when they exist
    - identify source structure, chapters, claims, contradictions, and open
      review points
    - decide which existing pages need updates and which new pages are needed
@@ -28,6 +30,7 @@ final wiki pages without a source packet and an analysis pass.
 The analysis stage should record:
 
 - source packets read
+- evidence and claim records or maps read when available
 - candidate source/deck notes, chapter updates, and optional synthesis updates
 - claims worth preserving as claim records
 - evidence anchors that support important claims
@@ -62,6 +65,10 @@ Every generated wiki page should include:
 
 - Prefer updating existing pages over creating duplicate pages.
 - Do not remove sourced claims unless the reason is recorded.
+- Do not create important wiki claims without source packet anchors, evidence
+  references, or review items.
+- Do not use claim/evidence records as a replacement for readable
+  source/chapter pages.
 - Do not rely on the model's self-assessment as the final quality gate.
 - Do not advance a distillation round until compare and lint checks are recorded.
 - Put unresolved semantic judgment into review items.

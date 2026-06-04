@@ -41,11 +41,15 @@ later rounds can be deliberately scoped.
 3. Confirm workspace Git status.
 4. Select source packets or wiki areas to process.
 5. Run analysis before generation.
-6. Write or update wiki pages.
-7. Update `wiki/index.md` and `wiki/log.md`.
-8. Run lint and compare checks available for the workspace.
-9. Record review items.
-10. Commit the accepted result.
+6. Select evidence and claim candidates when the round contains important
+   sourced knowledge.
+7. Route unsupported, generated-derived, contested, or judgment-heavy claims to
+   review.
+8. Write or update wiki pages from accepted source/chapter knowledge.
+9. Update `wiki/index.md` and `wiki/log.md`.
+10. Run lint and compare checks available for the workspace.
+11. Record review items.
+12. Commit the accepted result.
 
 ## Round Plan
 
@@ -55,6 +59,7 @@ The plan should state:
 - fixed input set
 - relationship to the overview and staged distillation plan
 - expected pages, reports, and records
+- expected evidence/claim map updates when important claims are in scope
 - validation commands or manual checks
 - commit intent
 
@@ -95,6 +100,7 @@ Each round should leave a short log entry with:
 - date
 - target
 - source packets, deck notes, chapter pages, or optional research pages touched
+- evidence and claim map updates when used
 - overview or staged-plan changes
 - reports produced
 - review items created or resolved
@@ -106,6 +112,8 @@ Each round should leave a short log entry with:
 Each round should leave at least one report or explicit validation note:
 
 - source inventory or packet status for raw-facing work
+- claim/evidence map status when important source-backed claims are created or
+  updated
 - lint or index status for wiki-facing work
 - compare status before advancing to the next round
 - review queue status when judgment is unresolved
@@ -114,6 +122,10 @@ Each round should leave at least one report or explicit validation note:
 
 A round is complete when all intended files are updated, validation is recorded,
 review items are visible, and the accepted diff is committed.
+
+For rounds that create or update important claims, completion also requires
+evidence references or review routing. A clean-looking wiki page is not proof
+that claim support is sufficient.
 
 For the initialization pass, completion also requires `wiki/overview.md`,
 `wiki/index.md`, and the staged distillation plan to exist and be linked from

@@ -23,3 +23,10 @@ Rules:
   protocol plan.
 - `phase-2-closure-handoff.md`: Phase 2 closure summary and Person A
   validation handoff.
+
+## Phase 3
+
+- `phase-3-evidence-claim-workflow.md`: main Phase 3
+  source-packet-to-evidence-and-claim workflow plan.
+- `phase-3-closure-review.md`: Phase 3 design review, closure summary, and
+  Person A validation handoff.

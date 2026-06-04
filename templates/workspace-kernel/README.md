@@ -22,11 +22,13 @@ synthesis are optional extensions.
    file under `raw/derived/` or `reports/inventory/`.
 7. Copy `raw/source-packet.template.md` into
    `raw/derived/<source-id>/source.md` for each processed source.
-8. Use the wiki templates to create `wiki/overview.md`, source pages, and
+8. Copy `reports/claim-evidence-map.template.md` into `reports/review/` when
+   the round creates important source-backed claims.
+9. Use the wiki templates to create `wiki/overview.md`, source pages, and
    chapter pages.
-9. Copy `reports/first-round-validation-note.template.md` into `reports/` and
+10. Copy `reports/first-round-validation-note.template.md` into `reports/` and
    record what was checked.
-10. Update `wiki/index.md`, `wiki/log.md`, and `plan/log.md`, then commit.
+11. Update `wiki/index.md`, `wiki/log.md`, and `plan/log.md`, then commit.
 
 ## Golden Path
 
@@ -35,6 +37,7 @@ configure purpose/schema
 -> add raw sources
 -> write source inventory
 -> write source packet
+-> map important claims to evidence
 -> create overview and index skeleton
 -> create source and chapter pages
 -> record validation note
@@ -48,6 +51,8 @@ configure purpose/schema
   packet is feasible.
 - Do not split a document/PPT corpus into research-style object pages by
   default.
+- Do not turn every sentence into a claim record; map only important,
+  source-backed claims that affect wiki, review, compare, or downstream use.
 - Do not mark compare as passed unless a real compare check exists.
 - Record `compare gate not enabled` when compare is deferred.
 - Do not generate downstream skills, tools, or executable code in the first
@@ -60,6 +65,7 @@ raw/sources/       original source files
 raw/derived/       inventories, source packets, extracted media
 wiki/sources/      source or deck summary pages
 wiki/chapters/     distilled chapter or section pages
-reports/           validation notes, lint, coverage, compare, review
+reports/           validation notes, claim/evidence maps, lint, coverage,
+                   compare, review
 plan/              target plans and maintenance log
 ```

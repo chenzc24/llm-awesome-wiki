@@ -11,6 +11,8 @@
 - Git status before work:
 - Source inventory reviewed:
 - Source packets reviewed:
+- Claim/evidence map reviewed:
+- Generated evidence marked:
 - Wiki index links checked:
 - Overview updated:
 - Wiki log updated:
@@ -29,11 +31,14 @@ been run. Do not convert it into `pass`.
 - Sources deferred:
 - Chapters drafted:
 - Chapters missing:
+- Important claims supported:
+- Important claims routed to review:
 
 ## Review Items
 
 - Extraction gaps:
 - Unsupported or weak claims:
+- Generated-evidence claims:
 - Human decisions:
 
 ## Result

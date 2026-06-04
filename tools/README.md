@@ -44,6 +44,19 @@ source-inventory
 These tool specs define behavior only. They do not implement commands, run
 extractors, update schemas, or create fixtures.
 
+## Phase 3 Tool Surface
+
+Phase 3 adds behavior prose for:
+
+```text
+claim-audit
+```
+
+This tool surface checks whether important claims are supported by evidence
+references, whether generated-evidence claims need review, and whether
+unsupported or contested claims remain visible. It does not implement the tool
+or generate wiki pages.
+
 ## Tool Principles
 
 - Tools should run from the repository root.
