@@ -651,4 +651,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 5.5, Round Closure, round can close, close with review, must not
   close, advance with review, closure packet, validation note, index,
   overview, wiki log, and not-a-validator-implementation language.
-- Commit: pending.
+- Commit: completed on `main` as `32aff4f Define phase five round closure
+  workflow`; finalized by the follow-up maintenance-status commit.

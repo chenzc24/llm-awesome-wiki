@@ -853,4 +853,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 5.5 round closure workflow language.
-- Commit: pending.
+- Commit: completed on `main` as `32aff4f Define phase five round closure
+  workflow`; finalized by the follow-up maintenance-status commit.
