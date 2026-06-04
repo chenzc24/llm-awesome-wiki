@@ -1125,6 +1125,30 @@ Repository-wide merged or integration-level maintenance history belongs in
   `eef4fc6 Consolidate workflow runtime into skills`; finalized by the
   follow-up maintenance-status commit.
 
+## 2026-06-04 - Run ADCtoolbox ch2-ch4 PDF distillation test
+
+- Target: create a new ignored local workspace for ADCtoolbox ch2, ch3, and
+  ch4 PDF course decks and test the current source-packet, wiki, report, and
+  closure workflow.
+- Changed areas: generated local workspace
+  `workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/`; copied `ch2.pdf`,
+  `ch3.pdf`, and `ch4.pdf`; created source inventory, three source packets,
+  source/chapter wiki pages, overview, index, wiki log, construction analysis,
+  compare report, review queue, validation note, and checker reports under
+  `.checks/`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-adctoolbox-ch2-ch4-pdf-distill-test/`.
+- Design review: the workflow can handle real PDF lecture decks as an ignored
+  local workspace. Text extraction with `pypdf` is enough for first-pass
+  source packets and chapter wiki pages, but the round correctly closes as
+  `close-with-review` because plots, equations, circuits, and slide layout
+  still require visual review before final technical use.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-ch2-ch4-pdf-distill-test --mode all --report
+  workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/.checks/workspace-check-all.md`
+  passed. Schema, source inventory, source packet, wiki lint, report, closure,
+  and fixture checks passed.
+- Commit: pending.
+
 ## 2026-06-04 - Refresh README and archive old concept note
 
 - Target: update the root README as the current Person B-facing system

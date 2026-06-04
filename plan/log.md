@@ -1237,6 +1237,25 @@
   `eef4fc6 Consolidate workflow runtime into skills`; finalized by the
   follow-up maintenance-status commit.
 
+## 2026-06-04 - Run ADCtoolbox ch2-ch4 PDF distillation test
+
+- Target: test the current workflow on three real ADCtoolbox PDF lecture decks
+  in an ignored local workspace.
+- Changed areas: generated
+  `workspace/local/adctoolbox-ch2-ch4-pdf-distill-test/` with copied raw PDFs,
+  source inventory, source packets, source/chapter wiki pages, overview, index,
+  wiki log, construction analysis, compare report, review queue, validation
+  note, and `.checks/` reports; added the target plan under
+  `plan/users/chenzc24/2026-06-04-adctoolbox-ch2-ch4-pdf-distill-test/`.
+- Design review: the real-PDF dry run exercised the intended path from raw
+  source copies to source packets, wiki construction, reports, and closure. The
+  output is a first-pass text-based distillation and intentionally carries
+  visual/equation review forward as `close-with-review`.
+- Validation: `workspace-check --mode all` passed for the generated workspace;
+  schema, source inventory, source packet, wiki lint, report, closure, and
+  fixture checks passed.
+- Commit: pending.
+
 ## 2026-06-04 - Refresh README and archive old concept note
 
 - Target: update the root README as the current Person B-facing system
