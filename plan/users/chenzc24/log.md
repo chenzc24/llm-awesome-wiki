@@ -259,4 +259,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   language; `git submodule status` confirmed both reference submodules stayed
   pinned; `git status --short --branch` showed only the intended Person B
   Phase 2.3 files.
-- Commit: planned for `main` as `Define extractor adapter protocol`.
+- Commit: completed on `main` as `f0be934 Define extractor adapter protocol`;
+  finalized by the follow-up maintenance-status commit.

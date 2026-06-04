@@ -531,4 +531,5 @@
   language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
   remained pinned; `git status --short --branch` showed only the intended
   Person B Phase 2.3 files.
-- Commit: planned for `main` as `Define extractor adapter protocol`.
+- Commit: completed on `main` as `f0be934 Define extractor adapter protocol`;
+  finalized by the follow-up maintenance-status commit.
