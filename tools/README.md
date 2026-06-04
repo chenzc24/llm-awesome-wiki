@@ -157,6 +157,23 @@ powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.p
 and validation notes. It does not extract claims, decide semantic truth, rewrite
 reports, or close rounds.
 
+Phase 6.6 adds round closure checks:
+
+```powershell
+powershell -ExecutionPolicy Bypass -File tools/round-closure-check/round-closure-check.ps1 `
+  -Workspace . `
+  -Report round-closure-check-report.md
+
+powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
+  -Workspace . `
+  -Mode closure `
+  -Report workspace-closure-check-report.md
+```
+
+`round-closure-check` validates recorded closure decisions across validation
+notes, compare/review state, index, overview, and wiki log. It does not close
+rounds or resolve review.
+
 ## Phase 3 Tool Surface
 
 Phase 3 adds behavior prose for:

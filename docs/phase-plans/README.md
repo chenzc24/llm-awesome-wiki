@@ -83,3 +83,6 @@ Rules:
   index, overview, and log navigation checker.
 - `phase-6.5-report-surface-checker.md`: Phase 6.5 compare, claim/evidence,
   review queue, and validation-note report surface checker.
+- `phase-6.6-round-closure-checker.md`: Phase 6.6 round closure consistency
+  checker across validation notes, compare/review state, index, overview, and
+  wiki log.

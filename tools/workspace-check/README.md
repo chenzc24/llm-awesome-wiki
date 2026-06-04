@@ -91,8 +91,21 @@ It validates compare reports, claim/evidence maps, review queues, and
 validation notes. It does not extract claims, decide semantic truth, rewrite
 reports, or close rounds.
 
-`-Mode all` currently runs schema, source, wiki, and report checks, then
-reports round closure and fixture validation as `not-implemented`.
+In Phase 6.5, `-Mode all` began running schema, source, wiki, and report
+checks before reporting round closure and fixture validation as
+`not-implemented`.
+
+## Phase 6.6 Behavior
+
+`-Mode closure` invokes
+`tools/round-closure-check/round-closure-check.ps1`.
+
+It validates recorded closure decisions across validation notes, compare/review
+state, index, overview, and wiki log. It does not close rounds or resolve
+review.
+
+`-Mode all` currently runs schema, source, wiki, report, and closure checks,
+then reports fixture validation as `not-implemented`.
 
 ## Non-Goals
 

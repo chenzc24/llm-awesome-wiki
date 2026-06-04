@@ -85,6 +85,8 @@ $requiredPaths = @(
     "tools\wiki-lint\wiki-lint.ps1",
     "tools\report-check\README.md",
     "tools\report-check\report-check.ps1",
+    "tools\round-closure-check\README.md",
+    "tools\round-closure-check\round-closure-check.ps1",
     "tools\compare-gate\README.md",
     "tools\claim-audit\README.md",
     "tools\scaffold-workspace\README.md",

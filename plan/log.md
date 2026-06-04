@@ -984,3 +984,19 @@
 - Commit: completed on `main` as
   `6151b30 Add phase six report surface checker`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Add phase six round closure checker
+
+- Target: implement Phase 6.6 round closure consistency validation.
+- Changed areas: added the Phase 6.6 plan; implemented
+  `round-closure-check`; integrated `workspace-check -Mode closure`; updated
+  `validate-kernel`, Phase 6 docs, tool READMEs, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-6-round-closure-checker/`.
+- Design review: Phase 6.6 checks closure decisions against validation note,
+  compare/review state, index/log visibility, and active report
+  discoverability without closing rounds or resolving semantic truth.
+- Validation: temporary smoke workspace passed `round-closure-check.ps1` and
+  `workspace-check.ps1 -Mode closure`; `git diff --check` passed with only
+  Windows line-ending warnings; `tools/validate-kernel/validate-kernel.ps1`
+  passed; targeted `rg` confirmed Phase 6.6 closure checker language.
+- Commit: pending.

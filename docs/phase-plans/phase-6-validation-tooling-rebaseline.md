@@ -207,6 +207,21 @@ Phase 6.5 validates existing Markdown reports. It does not extract claims,
 decide semantic truth, generate compare reports, resolve review items, generate
 wiki pages, or close rounds.
 
+## Phase 6.6 Active Scope
+
+Phase 6.6 adds round closure validation:
+
+- `round-closure-check.ps1`
+- `workspace-check -Mode closure` integration
+- validation note closure-field checks
+- `close-pass`, `close-with-review`, and `do-not-close` consistency checks
+- referenced compare and review report path checks
+- wiki log visibility and active report discoverability checks
+
+Phase 6.6 validates recorded closure decisions. It does not close rounds,
+rewrite validation notes, resolve review items, decide semantic truth, generate
+reports, or generate wiki pages.
+
 ## Person A / Person B Boundary
 
 Person A owns machine-readable schemas, validators, tests, and fixtures.

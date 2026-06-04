@@ -8,7 +8,7 @@ param(
 $ErrorActionPreference = "Stop"
 
 $toolName = "workspace-check"
-$toolPhase = "Phase 6.5 runtime with schema, source, wiki, and report checks"
+$toolPhase = "Phase 6.6 runtime with schema, source, wiki, report, and closure checks"
 $started = (Get-Date).ToUniversalTime().ToString("yyyy-MM-ddTHH:mm:ssZ")
 $checksRun = New-Object System.Collections.Generic.List[string]
 $checksNotImplemented = New-Object System.Collections.Generic.List[string]
@@ -154,16 +154,30 @@ if ($exitCode -eq 0) {
         }
     }
 
+    if ($Mode -in @("closure", "all")) {
+        $closureScript = Join-Path $PSScriptRoot "..\round-closure-check\round-closure-check.ps1"
+        $closureReportPath = Join-Path $reportDir "round-closure-check-report.md"
+
+        if (-not (Test-Path -LiteralPath $closureScript)) {
+            $status = "error"
+            $exitCode = 3
+            $findings.Add("Missing round-closure-check script: $closureScript")
+        }
+        else {
+            & powershell -NoProfile -ExecutionPolicy Bypass -File $closureScript -Workspace $workspacePath -Report $closureReportPath | Out-Host
+            $closureExitCode = $LASTEXITCODE
+            Merge-ChildResult "round closure validation" $closureExitCode $closureReportPath
+        }
+    }
+
     if ($Mode -eq "smoke") {
-        Add-NotImplemented "round closure check"
         Add-NotImplemented "fixture runner"
         $nextActions.Add("Run workspace-check with -Mode schemas or -Mode source for implemented Phase 6 validators.")
     }
     elseif ($Mode -eq "all") {
-        Add-NotImplemented "round closure check"
         Add-NotImplemented "fixture runner"
     }
-    elseif ($Mode -notin @("schemas", "source", "wiki", "reports")) {
+    elseif ($Mode -notin @("schemas", "source", "wiki", "reports", "closure")) {
         Add-NotImplemented "$Mode check"
     }
 
