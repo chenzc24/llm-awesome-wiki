@@ -397,4 +397,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Routing, generated evidence, review item, artifact economy,
   source/chapter, claim-audit, not a wiki page, and Phase 3 language; `git
   submodule status` confirmed `MinerU/` and `llm_wiki/` remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `4465b0a Define phase three evidence claim
+  workflow`; finalized by the follow-up maintenance-status commit.

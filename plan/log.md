@@ -661,4 +661,5 @@
   `contracts/schemas/*.schema.json` parsed with `ConvertFrom-Json`; targeted
   `rg` confirmed Phase 3 rule, template, review, and tool-surface language;
   `git submodule status` confirmed reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `4465b0a Define phase three evidence claim
+  workflow`; finalized by the follow-up maintenance-status commit.
