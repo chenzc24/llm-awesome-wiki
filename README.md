@@ -1,131 +1,73 @@
 # LLM Awesome Wiki
 
-LLM Awesome Wiki is a Git-first knowledge engineering system for humans and
-agents working in VSCode and CLI environments.
+LLM Awesome Wiki is a VSCode-native, Git-first knowledge distillation system
+for humans and agents.
 
-The project is not an Obsidian vault and is not a wrapper around the
-`llm_wiki` desktop app. Its default profile is a document/PPT corpus workflow:
-preserve source structure, distill into chapter-oriented knowledge, and keep
-coverage auditable. Research-wiki object types such as concepts, entities,
-queries, comparisons, and synthesis pages are optional extensions, not the
-default minimum structure.
+It is not an Obsidian vault, not the `llm_wiki` desktop app, and not a
+PDF/PPTX extractor harness. The system repository defines the reusable
+workflow: skills, rules, templates, schemas, checker tools, fixtures, and
+maintenance discipline for creating independent knowledge workspace repos.
 
-## Thesis
+## What This System Does
 
-The system should support this path:
+The default workflow is:
 
 ```text
 raw resources
--> extracted source packets
+-> source packets
 -> evidence and claim records
--> maintained source and chapter pages
--> construction tools and reports
-   (inventory, lint, compare, review, claim audit)
+-> source/chapter wiki pages
+-> compare, review, lint, and closure reports
 -> stable knowledge release
--> downstream executable specs
--> domain skills, domain tools, tests, templates, and code artifacts
--> validation feedback into the knowledge base
+-> later downstream specs, skills, tools, tests, and code
 ```
 
-The important separation is:
+Two execution layers stay separate:
 
-- **Construction executable layer**: tools and reports that maintain, compare,
-  lint, and validate the knowledge base itself.
-- **Downstream knowledge-to-code layer**: later `skill + tool` or code artifacts
-  derived from stable, traceable knowledge.
+- **Knowledge-construction layer**: checks and maintains the wiki workflow
+  itself with source inventory, source packet lint, wiki lint, reports, review
+  queues, and closure checks.
+- **Downstream knowledge-to-code layer**: later `skill + tool` or code
+  artifacts derived from a stable, traceable knowledge release.
 
-Do not collapse these into one implementation pass.
+Do not collapse these into one pass.
 
 ## Current Status
 
-The repository has completed its bootstrap stage:
+The repository has completed the first major system pass:
 
-- Agent working rules are defined in `AGENTS.md`.
-- Core philosophy and architecture documents live under `docs/`.
-- `llm_wiki/` is pinned as a reference submodule.
-- Planning and maintenance records live under `plan/`.
-- `llm_wiki_tools/` contains the runnable checker CLI and command index.
-- `templates/` contains reusable workspace-kernel artifacts.
+- Phase 1 defined a copyable workspace kernel.
+- Phases 2 through 5 defined source packet, evidence/claim, wiki construction,
+  compare, review, and closure protocols.
+- Phase 6 implemented the checker-first Python CLI under `llm_wiki_tools/`.
+- Runtime workflow entrypoints now live under `skills/`.
+- Detailed workflow semantics live under `rules/`.
+- Historical plans and design records live under `docs/`.
 
-The current implementation target is **Phase 1.3: Workspace Kernel Golden
-Path**.
+The old root `llm-wiki.md` concept note has been archived at
+`docs/archive/llm-wiki.md`. It is background material, not the current runtime
+entrypoint.
 
-## Phase 1: Workspace Kernel
-
-Phase 1 establishes a copyable workspace kernel for generated knowledge
-workspaces. The substrate has been committed and pushed. Phase 1.1 closed the
-loop by aligning workflow rules, templates, contracts, and validation
-entrypoints. Phase 1.2 made the default kernel document-corpus first instead of
-research-wiki first. Phase 1.3 adds the golden path for a first manual
-document/PPT distillation round. It is not a raw-resource converter and not a
-wiki-generation engine.
-
-The system repository is not the place where day-to-day knowledge distillation
-happens. The intended use pattern is:
-
-```text
-system repo
--> copy or scaffold workspace kernel
--> independent knowledge workspace repo
--> VSCode + Git + CLI + Agent maintenance inside that repo
-```
-
-This keeps the workflow repo-local. The user opens the knowledge workspace
-directly in VSCode; there is no required Obsidian vault, desktop application,
-background service, or external tool wrapper.
-
-Expected Phase 1 deliverables:
-
-- canonical directory map
-- workspace-kernel template
-- runtime skills and detailed rules outside `docs/`
-- source inventory schema
-- source packet schema
-- claim/evidence schema
-- report schema
-- plan and log templates
-- first-round golden-path templates
-- clear validation entrypoints for the workspace kernel
-
-Phase 2 has not started. The next boundary is a closed workspace-kernel
-workflow, not raw-resource conversion.
-
-Phase 1 should not:
-
-- turn this repository into an active knowledge workspace
-- create live root-level `raw/`, `wiki/`, or `reports/` instance content
-- convert PDFs, PPTX files, DOCX files, or other raw resources
-- generate final wiki pages
-- implement compare gate tooling
-- create domain skills
-- start downstream knowledge-to-code work
+Phase 7, downstream knowledge-to-`skill + tool`, is not active until the
+knowledge-construction loop is proven on real workspace fixtures.
 
 ## Repository Layout
 
-This repository is the **system repository**. It should contain the architecture,
-templates, construction tools, tests, and reusable contracts used to create or
-maintain other knowledge workspaces.
-
-Current system repository areas:
+This is the **system repository**, not an active knowledge workspace.
 
 ```text
 AGENTS.md                  # required rules for agents working in this repo
-contracts/                 # reusable machine contracts, including JSON Schema
-docs/                      # philosophy, architecture, and phase design docs
+contracts/                 # reusable machine-readable schema contracts
+docs/                      # design records, phase plans, collaboration notes
+docs/archive/              # archived concept/background documents
+llm_wiki/                  # pinned reference submodule, read-only by default
 llm_wiki_tools/            # runnable Python checker CLI and command index
-llm-wiki.md                # original LLM Wiki concept note
-llm_wiki/                  # pinned reference submodule
-plan/                      # target plans and maintenance log
+MinerU/                    # pinned optional extractor reference submodule
+plan/                      # target plans and maintenance logs
 rules/                     # detailed source, wiki, claim, and review rules
-skills/                    # runtime entrypoints and progressive-disclosure guides
-tests/                     # validation guidance and future scenario fixtures
-templates/                 # future reusable workflow templates
-```
-
-Potential future system repository areas:
-
-```text
-examples/                  # small fixture workspaces, never active project data
+skills/                    # runtime agent entrypoints
+templates/                 # copyable workspace kernel and artifact templates
+tests/                     # fixture and checker validation material
 ```
 
 A generated knowledge workspace may contain:
@@ -133,75 +75,94 @@ A generated knowledge workspace may contain:
 ```text
 raw/sources/               # immutable source files
 raw/derived/               # source packets and extracted media
-wiki/                      # maintained source, chapter, and optional synthesis pages
-reports/                   # compare, coverage, lint, review outputs
+wiki/                      # maintained source/chapter knowledge pages
+reports/                   # compare, coverage, lint, review, closure outputs
 contracts/                 # copied or referenced schema/config contracts
-tests/                     # validation for construction tools and artifacts
-skills/                    # runtime guides and optional downstream domain skills
+skills/                    # runtime guides and optional downstream skills
+tools/                     # workspace-local helpers if a user chooses to add them
+tests/                     # workspace-specific validation and fixtures
 ```
 
-Do not treat the generated workspace layout as directories that must exist at
-the root of this system repository. They should appear only in generated
-projects, examples, or fixtures.
+Do not create live root-level `raw/`, `wiki/`, `reports/`, or `schema.md` in
+this system repo. Workspace data belongs in generated workspace repos,
+examples, fixtures, or ignored local scratch areas.
+
+## Runtime Entrypoints
+
+For agents:
+
+- Start from `skills/llm-wiki-distill/SKILL.md`.
+- Use `skills/llm-wiki-source-packet/SKILL.md` for source packet work.
+- Use `skills/llm-wiki-wiki-round/SKILL.md` for wiki construction rounds.
+- Use `skills/llm-wiki-quality-gate/SKILL.md` for compare, review, validation,
+  and closure.
+
+For detailed semantics:
+
+- Use `rules/README.md` as the rule index.
+- Source packet behavior lives under `rules/source/`.
+- Wiki construction behavior lives under `rules/wiki/`.
+- Evidence and claim behavior lives under `rules/claims/`.
+- Review lifecycle behavior lives under `rules/review/`.
+
+For executable checks:
+
+```bash
+python -m llm_wiki_tools validate-kernel
+python -m llm_wiki_tools workspace-check --workspace . --mode all
+```
+
+See `llm_wiki_tools/README.md` for the current command index.
 
 ## Key Documents
 
-- `AGENTS.md`: required workflow discipline for agents.
-- `docs/top-level-design/system-architecture-plan.md`: top-level system plan.
-- `docs/phase-plans/phase-1-workspace-kernel.md`: Phase 1 implementation
-  target.
-- `docs/phase-plans/phase-1.1-workspace-kernel-closure.md`: Phase 1.1 closure
-  target.
-- `docs/phase-plans/phase-1.2-document-corpus-default.md`: default
-  document/PPT corpus profile correction.
-- `docs/phase-plans/phase-1.3-workspace-kernel-golden-path.md`: first manual
-  workspace round target.
-- `docs/core-philosophy.md`: project principles and two execution layers.
-- `docs/knowledge-to-executable.md`: construction tools vs downstream
-  knowledge-to-code.
-- `docs/llm_wiki-reference.md`: how to use `llm_wiki` as reference material.
-- `skills/`: runtime entrypoints for generated workspace work. Start from the
-  active `SKILL.md`, then open detailed rules only when the skill names a
-  specific trigger.
-- `rules/`: detailed reference rules for generated workspaces, grouped by
-  source, wiki, claim, and review area.
-- `contracts/schemas/`: reusable JSON Schema contracts.
-- `templates/workspace-kernel/`: copyable repo-local workspace substrate.
-- `llm_wiki_tools/README.md`: current checker command index.
-- `plan/log.md`: maintenance history.
+- `AGENTS.md`: repository working rules for agents.
+- `docs/top-level-design/system-architecture-plan.md`: top-level system
+  architecture.
+- `docs/core-philosophy.md`: core design principles.
+- `docs/knowledge-to-executable.md`: construction layer vs downstream
+  knowledge-to-code layer.
+- `docs/llm_wiki-reference.md`: how the `llm_wiki` submodule is used as
+  reference material.
+- `docs/phase-plans/phase-6-closure-review.md`: current checker-layer closure
+  summary.
+- `docs/collaboration/`: Person A / Person B ownership and handoff notes.
+- `docs/archive/llm-wiki.md`: archived original concept note.
+- `plan/log.md`: merged maintenance history.
 
 ## Working Rules
 
 Before modifying the repository:
 
 1. Run `git status --short --branch`.
-2. Confirm the root repository is clean.
-3. Create a target-specific plan under
-   `plan/users/<user>/<date-goal-slug>/plan.md`, or under
-   `plan/shared/integration/<date-goal-slug>/plan.md` for shared integration.
-4. Modify only the files named by the target plan.
+2. Audit dirty state and ownership.
+3. Create a target-specific plan under `plan/users/<user>/<date-goal-slug>/`.
+4. Edit only the files owned by that target plan.
 
 After modifying:
 
-1. Update `plan/log.md`.
-2. Run the validation listed in the plan.
-3. Commit with a clear message.
-4. Push to `origin/main`, unless a different branch is explicitly requested.
+1. Update personal and global maintenance logs as required.
+2. Run the validation listed in the target plan.
+3. Stage only intended files.
+4. Commit with a clear message.
+5. Push to `origin/main`, unless a different branch or remote is explicitly
+   requested.
 
 See `AGENTS.md` for the full rules.
 
-## Relationship To `llm_wiki`
+## Relationship To Reference Repos
 
-`llm_wiki/` is a pinned reference submodule. It is useful for studying:
+`llm_wiki/` is a pinned reference submodule. It is useful for studying source
+identity, ingest, image handling, frontmatter cleanup, review queues, search,
+and graph-derived gap discovery. It is not this repository's runtime or product
+target.
 
-- source identity and ingest cache patterns
-- two-stage source analysis and wiki generation
-- image extraction and caption-first multimodal indexing
-- frontmatter cleanup and source merging
-- link lint, review queues, search, and graph-derived gap discovery
+`MinerU/` is a pinned optional extractor reference submodule. It may inform how
+external extraction backends shape outputs, but this repository does not own a
+MinerU runner or a document parsing harness.
 
-It is not the runtime, architecture, or product target of this repository.
-Do not edit the submodule unless a plan explicitly asks to update the reference.
+Do not edit either submodule unless a target plan explicitly asks to update the
+reference pointer or work inside that submodule.
 
 ## How Developers Should Join
 
@@ -213,12 +174,13 @@ Start here:
 4. Check `plan/log.md` for recent decisions.
 5. For implementation work, create a new target plan before editing files.
 
-Good early contributions are narrow Phase 1 tasks, such as:
+Good current contributions are narrow and evidence-backed:
 
-- tightening workspace rules and acceptance criteria
-- improving workspace kernel templates
-- aligning schema contracts with the rules
-- improving workspace-kernel validation
-- documenting stable knowledge release criteria
+- improve real workspace fixtures
+- harden checker behavior in `llm_wiki_tools/`
+- clarify rule language where validators expose ambiguity
+- improve workspace kernel templates
+- document stable knowledge-release criteria
 
-Avoid broad tasks like "build the whole system" or "generate all wiki pages."
+Avoid broad tasks like "build the whole system", "generate all wiki pages", or
+"turn Phase 7 on" before the construction loop is proven on real examples.

@@ -1236,3 +1236,22 @@
 - Commit: completed on `main` as
   `eef4fc6 Consolidate workflow runtime into skills`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-04 - Refresh README and archive old concept note
+
+- Target: update the root README as the current Person B-facing system
+  entrypoint, archive the old root `llm-wiki.md` concept note, and remove the
+  obsolete root workspace divergence note.
+- Changed areas: rewrote `README.md`; moved `llm-wiki.md` to
+  `docs/archive/llm-wiki.md`; deleted
+  `workspace/human-agent-rule-divergence.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-person-b-readme-archive-cleanup/`.
+- Design review: README now reflects Phase 6 completion, skill runtime
+  entrypoints, rules as detailed references, `llm_wiki_tools/` as the checker
+  CLI, and the system repo as not an active knowledge workspace.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  current README entrypoint language; file checks confirmed root `llm-wiki.md`
+  is absent, archived `docs/archive/llm-wiki.md` exists, and
+  `workspace/human-agent-rule-divergence.md` is deleted.
+- Commit: pending.
