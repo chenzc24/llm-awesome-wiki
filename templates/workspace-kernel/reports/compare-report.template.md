@@ -158,15 +158,30 @@ priority rule or route to review.
 
 ## Review Items
 
-| review_item_id | type | source_refs | affected_target | decision_needed | blocking | next_action |
-| --- | --- | --- | --- | --- | --- | --- |
-| rv-001 | generated-chart-summary | source-id#anchor-id | wiki/chapters/replace-me.md | Replace this row. | yes/no |  |
+| review_item_id | type | origin | source_refs | affected_target | status | blocking_level | decision_needed | owner_or_next_action | target_round_or_condition |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| rv-001 | generated-chart-summary | cmp-001 or this report | source-id#anchor-id | wiki/chapters/replace-me.md | open/in-review/resolved/dismissed/carried-forward/blocked/stale | blocking/nonblocking/informational | Replace this row. |  |  |
+
+## Review Lifecycle Summary
+
+- Open review items:
+- In-review items:
+- Resolved this round:
+- Dismissed this round:
+- Carried-forward blocking:
+- Carried-forward nonblocking:
+- Stale review items:
+- Review items re-entered from earlier rounds:
+- Blocking level changes:
 
 ## Carried-Forward Review
 
-| review_item_id | reason | blocking_level | owner_or_next_action | target_round_or_condition |
-| --- | --- | --- | --- | --- |
-| rv-001 | Replace this row. | blocking/nonblocking |  |  |
+| review_item_id | reason | blocking_level | owner_or_next_action | target_round_or_condition | blocks_pass | affected_artifacts |
+| --- | --- | --- | --- | --- | --- | --- |
+| rv-001 | Replace this row. | blocking/nonblocking/informational |  |  | yes/no |  |
+
+Blocking carried-forward review prevents `pass`. Nonblocking carried-forward
+review needs a reason and next action before the round may advance.
 
 ## Decision And Next Actions
 

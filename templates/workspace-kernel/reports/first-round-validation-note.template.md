@@ -83,6 +83,15 @@ If a compare report exists, link it here and summarize its final status.
 - Generated-evidence claims:
 - Modality review:
 - Contradiction review:
+- Review items opened:
+- Review items in review:
+- Review items resolved:
+- Review items dismissed:
+- Blocking review items:
+- Nonblocking carried-forward review:
+- Blocking carried-forward review:
+- Stale review items:
+- Review items re-entered from earlier rounds:
 - Human decisions:
 - Carried forward:
 - Carried-forward reason and next action:

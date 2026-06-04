@@ -603,3 +603,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   reviewed-generated, semantic review, and not-a-claim-audit-tool language.
 - Commit: completed on `main` as `8d2958b Define phase five claim modality
   review protocol`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five review queue workflow
+
+- Target: continue Person B Phase 5.4 by defining review queue lifecycle,
+  blocking levels, resolution, dismissal, stale, carried-forward, and re-entry
+  semantics for compare rounds.
+- Changed areas: added
+  `docs/phase-plans/phase-5.4-review-queue-carry-forward-workflow.md` and
+  `rules/review-queue-workflow.md`; updated the main Phase 5 plan,
+  phase-plan and rule indexes, `rules/compare-gate-contract.md`, workspace
+  reports README, compare report template, review queue template,
+  first-round validation note template, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-4-review-queue-carry-forward/`.
+- Design review: Phase 5.4 keeps unresolved judgment visible across rounds.
+  Review items now have explicit lifecycle status, blocking level, resolution
+  and dismissal rules, stale detection, and carry-forward requirements instead
+  of disappearing after a single compare report.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5.4, Review Queue, carried-forward, blocking, nonblocking, resolved,
+  dismissed, stale, re-enter, review lifecycle, and not-a-review-export-tool
+  language; reference submodules remained pinned.
+- Commit: pending.

@@ -64,6 +64,11 @@ content.
 Use `reports/review/review-queue.md` when unresolved judgment must carry across
 rounds.
 
+Review queue items should record lifecycle status, blocking level, decision
+needed, owner or next action, and target round or condition. Blocking
+carried-forward review prevents `pass`; nonblocking carried-forward review
+requires a reason and next action.
+
 ## Wiki Construction Reports
 
 Use `reports/wiki-construction-analysis.md` or a similarly named report before

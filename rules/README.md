@@ -41,6 +41,8 @@ required dependency.
 - `claim-modality-contradiction-review-protocol.md`: record claim support,
   generated evidence, modality state, unsupported statements, and
   contradictions in compare reports.
+- `review-queue-workflow.md`: manage review item lifecycle, blocking levels,
+  resolutions, dismissals, stale items, and carried-forward review.
 - `distillation-rounds.md`: run wiki construction in small reviewable rounds.
 - `maintenance-workflow.md`: keep workspace plans, logs, commits, and reports
   disciplined, including per-user plan namespaces and personal logs for

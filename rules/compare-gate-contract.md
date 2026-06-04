@@ -173,6 +173,9 @@ For claim, generated evidence, modality, unsupported statement, and
 contradiction review semantics, follow
 `claim-modality-contradiction-review-protocol.md`.
 
+For review queue lifecycle and carried-forward semantics, follow
+`review-queue-workflow.md`.
+
 ## Disposition Values
 
 Use these source/wiki coverage dispositions:
@@ -218,6 +221,28 @@ compare report says why the material is out of scope.
 
 ## Review Rules
 
+Review items keep unresolved judgment visible across rounds.
+
+Use these lifecycle states:
+
+| status | meaning |
+| --- | --- |
+| `open` | decision still needed |
+| `in-review` | owner or reviewer is actively deciding |
+| `resolved` | decision recorded and affected artifacts updated or scheduled |
+| `dismissed` | concern no longer applies and reason is recorded |
+| `carried-forward` | unresolved but explicitly kept visible for a later round |
+| `blocked` | cannot be resolved until another artifact or review exists |
+| `stale` | previous decision may no longer be valid |
+
+Use these blocking levels:
+
+| blocking_level | meaning |
+| --- | --- |
+| `blocking` | affected round cannot advance as `pass` |
+| `nonblocking` | round may advance only with explicit carry-forward reason and next action |
+| `informational` | tracked context that does not affect advancement |
+
 Carried-forward review items must include:
 
 - review item id
@@ -227,6 +252,13 @@ Carried-forward review items must include:
 - blocking level
 - owner or next action
 - target round or condition for resolution
+
+Resolved review items must include a decision and affected artifacts.
+
+Dismissed review items must include a dismissal reason.
+
+Stale review items must re-enter compare when the affected source packet,
+claim, wiki page, or review decision changes.
 
 Do not silently clear review items.
 
@@ -328,3 +360,5 @@ A distillation round may advance only when:
 
 A round with compare status `fail` must not advance until the blocking findings
 are fixed or the scope is changed and logged.
+
+A round with `blocking` carried-forward review must not advance as `pass`.

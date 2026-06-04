@@ -815,3 +815,21 @@
   Phase 5.3 claim/modality/contradiction protocol language.
 - Commit: completed on `main` as `8d2958b Define phase five claim modality
   review protocol`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Define phase five review queue workflow
+
+- Target: continue Phase 5 from the Person B workflow-surface side by defining
+  review item lifecycle and carried-forward semantics for compare rounds.
+- Changed areas: added the Phase 5.4 plan and review queue workflow rule;
+  updated the main Phase 5 plan, phase-plan and rule indexes, compare gate
+  rule, workspace reports README, compare report template, review queue
+  template, first-round validation note template, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-5-4-review-queue-carry-forward/`.
+- Design review: aligned with raw-wiki alignment and anti-self-evaluation by
+  making unresolved review state durable across rounds. Blocking,
+  nonblocking, resolved, dismissed, stale, carried-forward, and re-entered
+  review states now have explicit report surfaces.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 5.4 review queue workflow language.
+- Commit: pending.

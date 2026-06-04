@@ -57,3 +57,6 @@ Rules:
 - `phase-5.3-claim-modality-contradiction-review-protocol.md`: Phase 5.3
   claim support, generated evidence, modality, unsupported statement, and
   contradiction review protocol.
+- `phase-5.4-review-queue-carry-forward-workflow.md`: Phase 5.4 review item
+  lifecycle, blocking level, resolution, dismissal, stale, and carried-forward
+  workflow.

@@ -158,7 +158,9 @@ Phase 5.2 does not implement:
 - wiki page rewrites
 - downstream `skill + tool` artifacts
 
-## Phase 5.3 Active Scope
+## Phase 5.3 Status
+
+Status: complete from the Person B workflow-surface side.
 
 Phase 5.3 defines claim, modality, contradiction, and unsupported statement
 semantics.
@@ -181,6 +183,33 @@ Phase 5.3 does not implement:
 - source/wiki coverage semantics from Phase 5.2
 - link or frontmatter lint
 - claim-audit CLI implementation
+- compare CLI implementation
+- schema or validator changes
+- fixtures
+- wiki page rewrites
+- downstream `skill + tool` artifacts
+
+## Phase 5.4 Active Scope
+
+Phase 5.4 defines review queue lifecycle and carried-forward semantics.
+
+It owns:
+
+- review item lifecycle states
+- blocking level semantics
+- review item creation from compare findings
+- review resolution and dismissal rules
+- carried-forward review requirements
+- stale review detection
+- re-entry into later compare rounds
+- validation-note summary expectations for review state
+
+Phase 5.4 does not implement:
+
+- source/wiki coverage semantics from Phase 5.2
+- claim/modality/contradiction semantics from Phase 5.3
+- round closure integration with overview, index, log, and validation notes
+- review export CLI implementation
 - compare CLI implementation
 - schema or validator changes
 - fixtures
@@ -230,6 +259,11 @@ Potential Person A validation needs:
   `old-review-vs-new-source`
 - unsupported statement table validation
 - modality coverage table validation
+- review item lifecycle enum: `open`, `in-review`, `resolved`, `dismissed`,
+  `carried-forward`, `blocked`, `stale`
+- blocking level enum: `blocking`, `nonblocking`, `informational`
+- dismissal reason enum: `duplicate`, `out-of-scope`, `incorrect-reference`,
+  `superseded`, `informational-only`, `no-longer-relevant`
 - review item linkage and carried-forward requirements
 - link and index report validation
 - fixture for a passing round
@@ -242,6 +276,10 @@ Potential Person A validation needs:
 - fixture for reviewed-generated chart claim
 - fixture for source-vs-source contradiction
 - fixture for wiki claim narrowed after weak evidence
+- fixture for blocking generated-evidence review
+- fixture for nonblocking carried-forward review
+- fixture for stale review after source packet change
+- fixture for dismissed duplicate review item
 - fixture for stale index link
 
 ## Non-Goals
@@ -299,10 +337,24 @@ Phase 5.3 is complete when:
 - Phase 5 main plan identifies Phase 5.4 as the next review queue lifecycle
   target
 
+## Phase 5.4 Completion Criteria
+
+Phase 5.4 is complete when:
+
+- the Phase 5.4 phase plan exists
+- review queue workflow rule exists
+- compare gate rule includes review lifecycle and carry-forward semantics
+- review queue template records lifecycle state, blocking level, resolution,
+  dismissal, carry-forward, stale, and re-entry information
+- compare report and validation note templates summarize review lifecycle state
+- Phase 5 main plan identifies Phase 5.5 as the next round-closure integration
+  target
+
 ## Next Subphase
 
-After Phase 5.3, the next useful target is Phase 5.4: review queue workflow and
-carried-forward semantics.
+After Phase 5.4, the next useful target is Phase 5.5: round closure
+integration with validation note, index, overview, and log expectations.
 
-Phase 5.4 should define how review items open, resolve, remain blocking, become
-nonblocking carried-forward work, and re-enter later compare rounds.
+Phase 5.5 should define how compare status, review status, validation notes,
+wiki index, overview, and wiki log together decide whether a round can close or
+advance.
