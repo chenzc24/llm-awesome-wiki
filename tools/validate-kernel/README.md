@@ -1,12 +1,12 @@
 # Validate Kernel
 
-`validate-kernel.ps1` checks that the system repository still looks like a
+`validate-kernel` checks that the system repository still looks like a
 workspace-kernel producer rather than an active knowledge workspace.
 
 Run from the repository root:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/validate-kernel/validate-kernel.ps1
+```bash
+python -m llm_wiki_tools validate-kernel
 ```
 
 The validator checks:
@@ -15,3 +15,4 @@ The validator checks:
 - root-level active workspace outputs do not exist
 - JSON Schema files parse as JSON
 - workspace artifact directories appear only inside the template
+- no legacy script implementation remains under `tools/`

@@ -63,5 +63,5 @@ pretending a compare result exists.
 - a copied workspace kernel has enough templates to start a first manual round
 - the first round can preserve document/PPT source and chapter structure
 - compare is represented as an explicit deferred check, not as a fake pass
-- `validate-kernel.ps1` checks the golden-path files
+- `python -m llm_wiki_tools validate-kernel` checks the golden-path files
 - root repository validation stays clean

@@ -74,13 +74,14 @@ These tools inspect workspace artifacts and emit validation reports. They are
 not a PDF/PPTX/DOCX parser harness, MinerU wrapper, OCR/VLM runner, or MCP
 extractor wrapper.
 
-Phase 6.1 implements only the runtime skeleton:
+Phase 6.1 originally introduced the runtime skeleton. After Phase 6.9, the
+supported implementation is the Python CLI:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode smoke `
-  -Report reports-validation-smoke.md
+```bash
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode smoke \
+  --report reports-validation-smoke.md
 ```
 
 Business validators are intentionally reported as `not-implemented` until later
@@ -88,15 +89,15 @@ Phase 6 subphases add them.
 
 Phase 6.2 adds:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/schema-check/schema-check.ps1 `
-  -Workspace . `
-  -Report schema-check-report.md
+```bash
+python -m llm_wiki_tools schema-check \
+  --workspace . \
+  --report schema-check-report.md
 
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode schemas `
-  -Report workspace-schema-check-report.md
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode schemas \
+  --report workspace-schema-check-report.md
 ```
 
 `schema-check` validates reusable schema contracts only. It is not a full JSON
@@ -104,19 +105,19 @@ Schema engine and does not validate workspace artifact instances.
 
 Phase 6.3 adds source artifact checks:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/source-inventory/source-inventory-check.ps1 `
-  -Workspace . `
-  -Report source-inventory-check-report.md
+```bash
+python -m llm_wiki_tools source-inventory-check \
+  --workspace . \
+  --report source-inventory-check-report.md
 
-powershell -ExecutionPolicy Bypass -File tools/source-packet-lint/source-packet-lint.ps1 `
-  -Workspace . `
-  -Report source-packet-lint-report.md
+python -m llm_wiki_tools source-packet-lint \
+  --workspace . \
+  --report source-packet-lint-report.md
 
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode source `
-  -Report workspace-source-check-report.md
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode source \
+  --report workspace-source-check-report.md
 ```
 
 These checks inspect source inventory rows and source packet outputs. They do
@@ -125,15 +126,15 @@ extractor backends.
 
 Phase 6.4 adds wiki lint:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/wiki-lint/wiki-lint.ps1 `
-  -Workspace . `
-  -Report wiki-lint-report.md
+```bash
+python -m llm_wiki_tools wiki-lint \
+  --workspace . \
+  --report wiki-lint-report.md
 
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode wiki `
-  -Report workspace-wiki-lint-report.md
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode wiki \
+  --report workspace-wiki-lint-report.md
 ```
 
 `wiki-lint` validates existing wiki frontmatter, links, index membership,
@@ -142,15 +143,15 @@ rewrite links.
 
 Phase 6.5 adds report surface checks:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/report-check/report-check.ps1 `
-  -Workspace . `
-  -Report report-check-report.md
+```bash
+python -m llm_wiki_tools report-check \
+  --workspace . \
+  --report report-check-report.md
 
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode reports `
-  -Report workspace-report-check-report.md
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode reports \
+  --report workspace-report-check-report.md
 ```
 
 `report-check` validates compare reports, claim/evidence maps, review queues,
@@ -159,15 +160,15 @@ reports, or close rounds.
 
 Phase 6.6 adds round closure checks:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/round-closure-check/round-closure-check.ps1 `
-  -Workspace . `
-  -Report round-closure-check-report.md
+```bash
+python -m llm_wiki_tools round-closure-check \
+  --workspace . \
+  --report round-closure-check-report.md
 
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode closure `
-  -Report workspace-closure-check-report.md
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode closure \
+  --report workspace-closure-check-report.md
 ```
 
 `round-closure-check` validates recorded closure decisions across validation
@@ -176,15 +177,15 @@ rounds or resolve review.
 
 Phase 6.7 adds scenario fixtures:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 `
-  -FixtureRoot tests/fixtures/phase6 `
-  -Report fixture-runner-report.md
+```bash
+python -m llm_wiki_tools fixture-runner \
+  --fixture-root tests/fixtures/phase6 \
+  --report fixture-runner-report.md
 
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode fixtures `
-  -Report workspace-fixtures-report.md
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode fixtures \
+  --report workspace-fixtures-report.md
 ```
 
 `fixture-runner` copies small scenario workspaces to a temp directory and checks
@@ -193,24 +194,24 @@ resolve semantic review.
 
 Phase 6 closure uses these system-repo validation commands:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/validate-kernel/validate-kernel.ps1
+```bash
+python -m llm_wiki_tools validate-kernel
 
-powershell -ExecutionPolicy Bypass -File tools/schema-check/schema-check.ps1 `
-  -Workspace . `
-  -Report phase6-schema-check-smoke.md
+python -m llm_wiki_tools schema-check \
+  --workspace . \
+  --report phase6-schema-check-smoke.md
 
-powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 `
-  -FixtureRoot tests/fixtures/phase6 `
-  -Report phase6-fixture-runner-smoke.md
+python -m llm_wiki_tools fixture-runner \
+  --fixture-root tests/fixtures/phase6 \
+  --report phase6-fixture-runner-smoke.md
 
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode fixtures `
-  -Report phase6-workspace-fixtures-smoke.md
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode fixtures \
+  --report phase6-workspace-fixtures-smoke.md
 ```
 
-`workspace-check -Mode all` is for an instantiated knowledge workspace with
+`workspace-check --mode all` is for an instantiated knowledge workspace with
 live `raw/`, `wiki/`, `reports/`, and source packet outputs. The system repo
 intentionally lacks those live workspace artifacts, so Phase 6 closure validates
 the system repo with kernel/schema checks and fixture workspaces.

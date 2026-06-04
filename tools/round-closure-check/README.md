@@ -4,12 +4,12 @@ Checker for round closure consistency.
 
 Phase 6.6 implements the checker-only validator:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/round-closure-check/round-closure-check.ps1 `
-  -Workspace . `
-  -ReportsDir reports `
-  -WikiDir wiki `
-  -Report reports/round-closure-check-report.md
+```bash
+python -m llm_wiki_tools round-closure-check \
+  --workspace . \
+  --reports-dir reports \
+  --wiki-dir wiki \
+  --report reports/round-closure-check-report.md
 ```
 
 ## Purpose

@@ -14,28 +14,32 @@ generator, semantic reviewer, or downstream `skill + tool` generator.
 | 6.0 | Rebaseline to checker-first tooling. | `phase-6-validation-tooling-rebaseline.md` |
 | 6.1 | Runtime skeleton and report conventions. | `tools/workspace-check/`, `tools/shared/` |
 | 6.2 | Reusable schema and enum checks. | `tools/schema-check/` |
-| 6.3 | Source inventory and source packet output checks. | `tools/source-inventory/source-inventory-check.ps1`, `tools/source-packet-lint/source-packet-lint.ps1` |
-| 6.4 | Wiki frontmatter, link, index, overview, and log checks. | `tools/wiki-lint/wiki-lint.ps1` |
-| 6.5 | Compare, claim/evidence, review queue, and validation-note report checks. | `tools/report-check/report-check.ps1` |
-| 6.6 | Round closure consistency checks. | `tools/round-closure-check/round-closure-check.ps1` |
-| 6.7 | Scenario fixture runner and minimum pass/fail/needs-review scenarios. | `tools/fixture-runner/fixture-runner.ps1`, `tests/fixtures/phase6/` |
+| 6.3 | Source inventory and source packet output checks. | `python -m llm_wiki_tools source-inventory-check`, `python -m llm_wiki_tools source-packet-lint` |
+| 6.4 | Wiki frontmatter, link, index, overview, and log checks. | `python -m llm_wiki_tools wiki-lint` |
+| 6.5 | Compare, claim/evidence, review queue, and validation-note report checks. | `python -m llm_wiki_tools report-check` |
+| 6.6 | Round closure consistency checks. | `python -m llm_wiki_tools round-closure-check` |
+| 6.7 | Scenario fixture runner and minimum pass/fail/needs-review scenarios. | `python -m llm_wiki_tools fixture-runner`, `tests/fixtures/phase6/` |
+| 6.9 | Python runtime migration. | `llm_wiki_tools/`, `pyproject.toml` |
 
-`workspace-check.ps1` now orchestrates:
+`python -m llm_wiki_tools workspace-check` now orchestrates:
 
-- `-Mode smoke`
-- `-Mode schemas`
-- `-Mode source`
-- `-Mode wiki`
-- `-Mode reports`
-- `-Mode closure`
-- `-Mode fixtures`
-- `-Mode all`
+- `--mode smoke`
+- `--mode schemas`
+- `--mode source`
+- `--mode wiki`
+- `--mode reports`
+- `--mode closure`
+- `--mode fixtures`
+- `--mode all`
+
+Phase 6.9 is a runtime refactor of the checker surface. It does not reopen the
+extractor harness question and does not add new checker families.
 
 ## Design Review
 
 | Principle | Phase 6 result |
 | --- | --- |
-| VSCode/Git-first | Tools are PowerShell scripts, Markdown READMEs, Markdown reports, and fixture directories inside the repo. |
+| VSCode/Git-first | Tools are Python CLI commands, Markdown READMEs, Markdown reports, and fixture directories inside the repo. |
 | Agent-first | Reports expose status, findings, next actions, and exit codes an agent can use before deciding whether to continue. |
 | Portable | No Obsidian, desktop app, hosted service, GPU, MinerU run, MCP backend, or binary extractor is required. |
 | Checker-first | Phase 6 validates existing workspace artifacts instead of producing source packets or wiki pages. |
@@ -54,10 +58,10 @@ Therefore final system-repo validation uses:
 - `validate-kernel` to confirm the repo remains a reusable system/kernel repo
 - `schema-check` to validate reusable contracts
 - `fixture-runner` to prove checker behavior on small copied workspaces
-- `workspace-check -Mode fixtures` to confirm orchestrator integration
+- `workspace-check --mode fixtures` to confirm orchestrator integration
 
-`workspace-check -Mode all` is intended for an instantiated knowledge workspace
-that actually contains workspace outputs. Running `-Mode all` on the system repo
+`workspace-check --mode all` is intended for an instantiated knowledge workspace
+that actually contains workspace outputs. Running `--mode all` on the system repo
 is not the final proof that Phase 6 is healthy, because the system repo
 intentionally lacks live workspace artifacts.
 
@@ -66,10 +70,10 @@ intentionally lacks live workspace artifacts.
 Closure validation on 2026-06-04 passed:
 
 - `git diff --check`
-- `powershell -ExecutionPolicy Bypass -File tools/validate-kernel/validate-kernel.ps1`
-- `powershell -ExecutionPolicy Bypass -File tools/schema-check/schema-check.ps1 -Workspace . -Report phase6-schema-check-smoke.md`
-- `powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 -FixtureRoot tests/fixtures/phase6 -Report phase6-fixture-runner-smoke.md`
-- `powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 -Workspace . -Mode fixtures -Report phase6-workspace-fixtures-smoke.md`
+- `python -m llm_wiki_tools validate-kernel`
+- `python -m llm_wiki_tools schema-check --workspace . --report phase6-schema-check-smoke.md`
+- `python -m llm_wiki_tools fixture-runner --fixture-root tests/fixtures/phase6 --report phase6-fixture-runner-smoke.md`
+- `python -m llm_wiki_tools workspace-check --workspace . --mode fixtures --report phase6-workspace-fixtures-smoke.md`
 - targeted `rg` for Phase 6 closure, checker-first, validation/checker,
   extractor harness, semantic review, fixture-runner, system repo, and Phase 7
   boundary language
@@ -80,7 +84,7 @@ Generated smoke reports were removed after validation.
 
 1. Phase 6 matches the no-harness decision.
 
-   The implemented scripts inspect files and reports already present in a
+   The implemented commands inspect files and reports already present in a
    workspace. They do not call MinerU, OCR, VLM captioning, MCP extraction,
    LibreOffice, Poppler, or any document parser.
 
@@ -148,6 +152,6 @@ Phase 6 is closed when:
 - kernel validation passes
 - schema-check smoke validation passes
 - Phase 6 fixture-runner smoke validation passes
-- `workspace-check -Mode fixtures` passes
+- `workspace-check --mode fixtures` passes
 - generated smoke reports are removed
 - `main` is pushed and aligned with `origin/main`

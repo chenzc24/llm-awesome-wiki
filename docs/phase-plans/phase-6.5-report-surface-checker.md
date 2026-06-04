@@ -10,8 +10,8 @@ semantic truth, extract claims, rewrite reports, or close rounds.
 
 Phase 6.5 owns:
 
-- `report-check.ps1`
-- `workspace-check -Mode reports` integration
+- `report-check command`
+- `workspace-check --mode reports` integration
 - compare report section and check-matrix validation
 - claim/evidence map table validation
 - review queue lifecycle and blocking-level validation
@@ -57,13 +57,13 @@ structurally usable but unresolved judgment remains visible:
 
 ## Workspace Integration
 
-`workspace-check -Mode reports` invokes:
+`workspace-check --mode reports` invokes:
 
 ```text
 report-check
 ```
 
-`workspace-check -Mode all` runs schema, source, wiki, and report checks, then
+`workspace-check --mode all` runs schema, source, wiki, and report checks, then
 reports round closure and fixture validation as not implemented until their
 phases land.
 
@@ -72,11 +72,11 @@ phases land.
 Phase 6.5 is complete when:
 
 - the Phase 6.5 phase plan exists
-- `report-check.ps1` exists and emits Phase 6 reports and exit codes
-- `workspace-check -Mode reports` invokes report checking
+- `report-check command` exists and emits Phase 6 reports and exit codes
+- `workspace-check --mode reports` invokes report checking
 - README and Phase 6 docs describe checker-only behavior
 - a temporary smoke workspace with compare, claim/evidence, review queue, and
-  validation-note reports passes `report-check` and `workspace-check -Mode
+  validation-note reports passes `report-check` and `workspace-check --mode
   reports`
 - no claim extraction, semantic truth resolution, or round closure automation is
   introduced

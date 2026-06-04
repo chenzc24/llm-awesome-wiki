@@ -90,3 +90,5 @@ Rules:
   pass/fail/needs-review checker scenarios.
 - `phase-6-closure-review.md`: Phase 6 closure review, final checker-surface
   summary, validation boundary, remaining risks, and Phase 7 boundary.
+- `phase-6.9-python-tooling-runtime.md`: Phase 6.9 migration from PowerShell
+  scripts to the Python CLI runtime.

@@ -4,11 +4,11 @@ Checker for wiki structure and maintenance health.
 
 Phase 6.4 implements the checker-only validator:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/wiki-lint/wiki-lint.ps1 `
-  -Workspace . `
-  -WikiDir wiki `
-  -Report reports/wiki-lint-report.md
+```bash
+python -m llm_wiki_tools wiki-lint \
+  --workspace . \
+  --wiki-dir wiki \
+  --report reports/wiki-lint-report.md
 ```
 
 ## Purpose

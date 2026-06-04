@@ -15,18 +15,18 @@ fields and enum values required by the workflow?
 
 ## Command
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/schema-check/schema-check.ps1 `
-  -Workspace . `
-  -Report schema-check-report.md
+```bash
+python -m llm_wiki_tools schema-check \
+  --workspace . \
+  --report schema-check-report.md
 ```
 
 ## Inputs
 
-- `-Workspace`: repository or workspace root
-- `-SchemaDir`: schema directory relative to the workspace, default
+- `--workspace`: repository or workspace root
+- `--schema-dir`: schema directory relative to the workspace, default
   `contracts/schemas`
-- `-Report`: Markdown report path
+- `--report`: Markdown report path
 
 ## Outputs
 

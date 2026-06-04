@@ -795,6 +795,28 @@ Repository-wide merged or integration-level maintenance history belongs in
   `12baac7 Close phase six validation tooling`; finalized by the follow-up
   maintenance-status commit.
 
+## 2026-06-04 - Migrate phase six tooling to Python CLI
+
+- Target: refactor implemented Phase 6 checker tools from PowerShell scripts
+  to a Python CLI runtime without keeping `.ps1` compatibility wrappers.
+- Changed areas: added `pyproject.toml` and `llm_wiki_tools/`; ported
+  `validate-kernel`, `schema-check`, `source-inventory-check`,
+  `source-packet-lint`, `wiki-lint`, `report-check`, `round-closure-check`,
+  `fixture-runner`, and `workspace-check`; deleted implemented `.ps1` scripts;
+  updated tool READMEs, Phase 6 docs, tests docs, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-9-python-tooling-runtime/`.
+- Design review: the runtime is now portable Python CLI while preserving the
+  checker-first boundary. It still does not run extractors, parse raw binary
+  sources, generate source packets or wiki pages, resolve semantic review, or
+  start downstream `skill + tool` work.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m py_compile` passed for the package entry files;
+  `python -m llm_wiki_tools validate-kernel` passed; `schema-check` passed;
+  `fixture-runner` passed the Phase 6 fixtures; `workspace-check --mode
+  fixtures` passed; generated smoke reports were removed; `rg` confirmed no
+  `.ps1` tool files remain and active command docs use Python CLI commands.
+- Commit: pending.
+
 ## 2026-06-04 - Add phase six wiki lint checker
 
 - Target: implement Phase 6.4 wiki lint and navigation validation for existing

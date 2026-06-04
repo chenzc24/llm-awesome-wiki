@@ -17,7 +17,7 @@ Phase 6.2 owns:
 - required field lists for key schemas
 - enum presence for stable workflow statuses
 - `schema-check` CLI surface
-- `workspace-check -Mode schemas` integration
+- `workspace-check --mode schemas` integration
 
 Phase 6.2 does not own:
 
@@ -79,8 +79,8 @@ Phase 6.2 is complete when:
 
 - the Phase 6.2 phase plan exists
 - key schema contracts expose the minimum structured fields and enums
-- `schema-check.ps1` exists and is runnable
-- `workspace-check -Mode schemas` invokes schema checking
-- `validate-kernel.ps1` requires the new checker paths
+- `schema-check command` exists and is runnable
+- `workspace-check --mode schemas` invokes schema checking
+- `validate-kernel command` requires the new checker paths
 - smoke reports pass and are removed before commit
 - Phase 6.3 is identified as source inventory and source packet checks

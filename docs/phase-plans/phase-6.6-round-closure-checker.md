@@ -11,8 +11,8 @@ referenced report discoverability.
 
 Phase 6.6 owns:
 
-- `round-closure-check.ps1`
-- `workspace-check -Mode closure` integration
+- `round-closure-check command`
+- `workspace-check --mode closure` integration
 - validation note closure-field checks
 - `close-pass`, `close-with-review`, and `do-not-close` consistency checks
 - referenced compare and review report path checks
@@ -57,13 +57,13 @@ The checker should return `needs-review` when:
 
 ## Workspace Integration
 
-`workspace-check -Mode closure` invokes:
+`workspace-check --mode closure` invokes:
 
 ```text
 round-closure-check
 ```
 
-`workspace-check -Mode all` runs schema, source, wiki, report, and closure
+`workspace-check --mode all` runs schema, source, wiki, report, and closure
 checks, then reports fixture validation as not implemented until Phase 6.7.
 
 ## Completion Criteria
@@ -71,12 +71,12 @@ checks, then reports fixture validation as not implemented until Phase 6.7.
 Phase 6.6 is complete when:
 
 - the Phase 6.6 phase plan exists
-- `round-closure-check.ps1` exists and emits Phase 6 reports and exit codes
-- `workspace-check -Mode closure` invokes closure checking
+- `round-closure-check command` exists and emits Phase 6 reports and exit codes
+- `workspace-check --mode closure` invokes closure checking
 - README and Phase 6 docs describe checker-only behavior
 - a temporary smoke workspace with validation note, compare report, review
   queue, index, overview, and log passes `round-closure-check` and
-  `workspace-check -Mode closure`
+  `workspace-check --mode closure`
 - no automatic round closure or semantic review resolution is introduced
 
 ## Next Phase

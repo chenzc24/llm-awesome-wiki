@@ -9,11 +9,11 @@ Phase 2.6 keeps this as one member of the Phase 2 tool trio:
 
 Phase 6.3 implements the checker-only slice:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/source-inventory/source-inventory-check.ps1 `
-  -Workspace . `
-  -Inventory raw/source-inventory.md `
-  -Report reports/source-inventory-check-report.md
+```bash
+python -m llm_wiki_tools source-inventory-check \
+  --workspace . \
+  --inventory raw/source-inventory.md \
+  --report reports/source-inventory-check-report.md
 ```
 
 The checker validates an existing inventory. It does not create or update raw
@@ -35,11 +35,11 @@ sources and report intake decisions.
 
 The exact command name is not final. The intended behavior is:
 
-```powershell
-source-inventory scan `
-  --workspace . `
-  --raw raw/sources `
-  --inventory raw/source-inventory.md `
+```bash
+source-inventory scan \
+  --workspace . \
+  --raw raw/sources \
+  --inventory raw/source-inventory.md \
   --report reports/source-inventory-report.md
 ```
 

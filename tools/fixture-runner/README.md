@@ -4,10 +4,10 @@ Scenario runner for Phase 6 checker fixtures.
 
 Phase 6.7 implements:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 `
-  -FixtureRoot tests/fixtures/phase6 `
-  -Report fixture-runner-report.md
+```bash
+python -m llm_wiki_tools fixture-runner \
+  --fixture-root tests/fixtures/phase6 \
+  --report fixture-runner-report.md
 ```
 
 ## Purpose

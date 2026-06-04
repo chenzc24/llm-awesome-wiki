@@ -10,8 +10,8 @@ and `needs-review` outcomes.
 
 Phase 6.7 owns:
 
-- `fixture-runner.ps1`
-- `workspace-check -Mode fixtures` integration
+- `fixture-runner command`
+- `workspace-check --mode fixtures` integration
 - minimum Phase 6 scenario fixture layout
 - at least one passing scenario
 - at least one deterministic failing scenario
@@ -56,13 +56,13 @@ These cover the three required checker outcomes:
 
 ## Workspace Integration
 
-`workspace-check -Mode fixtures` invokes:
+`workspace-check --mode fixtures` invokes:
 
 ```text
 fixture-runner
 ```
 
-`workspace-check -Mode all` runs schema, source, wiki, report, closure, and
+`workspace-check --mode all` runs schema, source, wiki, report, closure, and
 fixture checks.
 
 ## Completion Criteria
@@ -70,8 +70,8 @@ fixture checks.
 Phase 6.7 is complete when:
 
 - the Phase 6.7 phase plan exists
-- `fixture-runner.ps1` exists and emits Phase 6 reports and exit codes
-- `workspace-check -Mode fixtures` invokes fixture running
+- `fixture-runner command` exists and emits Phase 6 reports and exit codes
+- `workspace-check --mode fixtures` invokes fixture running
 - the minimum three scenarios pass fixture-runner expectations
 - README and tests docs describe the scenario contract
 - no extractor harness, raw parsing, semantic review, or generation behavior is

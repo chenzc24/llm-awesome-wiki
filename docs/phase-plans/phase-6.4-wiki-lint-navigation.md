@@ -10,8 +10,8 @@ without turning the checker into a page generator or semantic reviewer.
 
 Phase 6.4 owns:
 
-- `wiki-lint.ps1`
-- `workspace-check -Mode wiki` integration
+- `wiki-lint command`
+- `workspace-check --mode wiki` integration
 - special file checks for `wiki/index.md`, `wiki/overview.md`, and
   `wiki/log.md`
 - content page frontmatter checks
@@ -69,13 +69,13 @@ These findings are visible but do not require the checker to rewrite pages.
 
 ## Workspace Integration
 
-`workspace-check -Mode wiki` invokes:
+`workspace-check --mode wiki` invokes:
 
 ```text
 wiki-lint
 ```
 
-`workspace-check -Mode all` runs schema, source, and wiki checks, then reports
+`workspace-check --mode all` runs schema, source, and wiki checks, then reports
 later validator families as not implemented until their phases land.
 
 ## Completion Criteria
@@ -83,11 +83,11 @@ later validator families as not implemented until their phases land.
 Phase 6.4 is complete when:
 
 - the Phase 6.4 phase plan exists
-- `wiki-lint.ps1` exists and emits Phase 6 reports and exit codes
-- `workspace-check -Mode wiki` invokes wiki lint
+- `wiki-lint command` exists and emits Phase 6 reports and exit codes
+- `workspace-check --mode wiki` invokes wiki lint
 - README and Phase 6 docs describe checker-only behavior
 - a temporary smoke workspace with index, overview, log, source page, and
-  chapter page passes `wiki-lint` and `workspace-check -Mode wiki`
+  chapter page passes `wiki-lint` and `workspace-check --mode wiki`
 - no page generation or automatic repair is introduced
 
 ## Next Phase

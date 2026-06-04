@@ -139,7 +139,7 @@ validator, fixture, or implementation changes.
 
 Phase 2.6 should not:
 
-- implement `.ps1`, `.py`, shell, MCP, or CLI commands
+- implement Python, shell, MCP, or other CLI commands
 - run MinerU, OCR, VLM, MCP, Poppler, LibreOffice, or other extractors
 - edit `contracts/schemas/**`
 - create tests or fixtures

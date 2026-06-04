@@ -2,9 +2,8 @@
 
 `workspace-check` is the Phase 6 checker orchestrator surface.
 
-It validates workspace artifacts by running selected checker families. In Phase
-6.1, only the runtime skeleton exists. Business validators are listed as future
-slots and reported as `not-implemented`.
+It validates workspace artifacts by running selected checker families. Since
+Phase 6.9, the supported runtime is the Python CLI.
 
 ## Purpose
 
@@ -20,19 +19,19 @@ closure, and fixtures.
 
 ## Command
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/workspace-check/workspace-check.ps1 `
-  -Workspace . `
-  -Mode smoke `
-  -Report reports-validation-smoke.md
+```bash
+python -m llm_wiki_tools workspace-check \
+  --workspace . \
+  --mode smoke \
+  --report reports-validation-smoke.md
 ```
 
 ## Inputs
 
-- `-Workspace`: path to the workspace or system repository being checked
-- `-Mode`: `smoke`, `all`, `schemas`, `source`, `wiki`, `reports`, `closure`,
+- `--workspace`: path to the workspace or system repository being checked
+- `--mode`: `smoke`, `all`, `schemas`, `source`, `wiki`, `reports`, `closure`,
   or `fixtures`
-- `-Report`: Markdown report path
+- `--report`: Markdown report path
 
 ## Outputs
 
@@ -52,7 +51,7 @@ The skeleton reports future validators as `not-implemented`.
 
 ## Phase 6.2 Behavior
 
-`-Mode schemas` invokes `tools/schema-check/schema-check.ps1`.
+`--mode schemas` invokes the `schema-check` command.
 
 It validates reusable schema contract files and writes a `schema-check` report
 next to the workspace-check report. It does not validate actual workspace
@@ -60,61 +59,60 @@ artifact instances.
 
 ## Phase 6.3 Behavior
 
-`-Mode source` invokes:
+`--mode source` invokes:
 
-- `tools/source-inventory/source-inventory-check.ps1`
-- `tools/source-packet-lint/source-packet-lint.ps1`
+- `source-inventory-check`
+- `source-packet-lint`
 
 It validates source inventory rows and existing source packet outputs. It does
 not create packets, run extractors, parse raw document content, or generate wiki
 pages.
 
-In Phase 6.3, `-Mode all` began running schema and source checks before
+In Phase 6.3, `--mode all` began running schema and source checks before
 reporting later validator families as `not-implemented`.
 
 ## Phase 6.4 Behavior
 
-`-Mode wiki` invokes `tools/wiki-lint/wiki-lint.ps1`.
+`--mode wiki` invokes the `wiki-lint` command.
 
 It validates existing wiki frontmatter, links, index membership, overview
 sections, and log maintenance headings. It does not generate pages or rewrite
 links.
 
-In Phase 6.4, `-Mode all` began running schema, source, and wiki checks before
+In Phase 6.4, `--mode all` began running schema, source, and wiki checks before
 reporting later validator families as `not-implemented`.
 
 ## Phase 6.5 Behavior
 
-`-Mode reports` invokes `tools/report-check/report-check.ps1`.
+`--mode reports` invokes the `report-check` command.
 
 It validates compare reports, claim/evidence maps, review queues, and
 validation notes. It does not extract claims, decide semantic truth, rewrite
 reports, or close rounds.
 
-In Phase 6.5, `-Mode all` began running schema, source, wiki, and report
+In Phase 6.5, `--mode all` began running schema, source, wiki, and report
 checks before reporting round closure and fixture validation as
 `not-implemented`.
 
 ## Phase 6.6 Behavior
 
-`-Mode closure` invokes
-`tools/round-closure-check/round-closure-check.ps1`.
+`--mode closure` invokes the `round-closure-check` command.
 
 It validates recorded closure decisions across validation notes, compare/review
 state, index, overview, and wiki log. It does not close rounds or resolve
 review.
 
-In Phase 6.6, `-Mode all` began running schema, source, wiki, report, and
+In Phase 6.6, `--mode all` began running schema, source, wiki, report, and
 closure checks before reporting fixture validation as `not-implemented`.
 
 ## Phase 6.7 Behavior
 
-`-Mode fixtures` invokes `tools/fixture-runner/fixture-runner.ps1`.
+`--mode fixtures` invokes the `fixture-runner` command.
 
 It runs small scenario workspaces and checks expected exit codes and report
 statuses. It does not run extractors or resolve semantic review.
 
-`-Mode all` currently runs schema, source, wiki, report, closure, and fixture
+`--mode all` currently runs schema, source, wiki, report, closure, and fixture
 checks.
 
 ## Non-Goals

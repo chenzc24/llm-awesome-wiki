@@ -129,6 +129,7 @@ Recommended sequence:
 6. Phase 6.6: round closure checker.
 7. Phase 6.7: scenario fixtures and fixture runner.
 8. Phase 6.8: Phase 6 closure review and Phase 7 boundary.
+9. Phase 6.9: Python CLI runtime migration.
 
 ## Phase 6.1 Active Scope
 
@@ -137,7 +138,7 @@ Phase 6.1 adds the first checker runtime skeleton:
 - shared report conventions
 - shared exit-code semantics
 - `workspace-check` README
-- `workspace-check.ps1` smoke-run entrypoint
+- `workspace-check command` smoke-run entrypoint
 - explicit `not-implemented` slots for later validators
 
 Phase 6.1 does not implement schema validation, source packet checks, wiki
@@ -149,11 +150,11 @@ execution, or downstream `skill + tool` work.
 Phase 6.2 adds schema and structured-field validation:
 
 - `schema-check` README
-- `schema-check.ps1`
+- `schema-check command`
 - source inventory schema field and enum alignment
 - source packet schema field and enum alignment
 - claim, compare, and review enum alignment
-- `workspace-check -Mode schemas` integration
+- `workspace-check --mode schemas` integration
 
 Phase 6.2 checks reusable schema contracts only. It does not validate real
 workspace artifact instances, inspect packet directories, run extractors, parse
@@ -163,9 +164,9 @@ raw binaries, perform wiki lint, validate compare semantics, or run fixtures.
 
 Phase 6.3 adds source artifact validation:
 
-- `source-inventory-check.ps1`
-- `source-packet-lint.ps1`
-- `workspace-check -Mode source` integration
+- `source-inventory-check command`
+- `source-packet-lint command`
+- `workspace-check --mode source` integration
 - source inventory path, hash, duplicate ID, status, review, and packet-path
   checks
 - source packet metadata, anchor, generated field, known gap, review routing,
@@ -179,8 +180,8 @@ generate wiki pages, validate compare reports, or change schemas.
 
 Phase 6.4 adds wiki lint and navigation validation:
 
-- `wiki-lint.ps1`
-- `workspace-check -Mode wiki` integration
+- `wiki-lint command`
+- `workspace-check --mode wiki` integration
 - special file checks for `wiki/index.md`, `wiki/overview.md`, and
   `wiki/log.md`
 - content page frontmatter checks
@@ -196,8 +197,8 @@ semantic review.
 
 Phase 6.5 adds report surface validation:
 
-- `report-check.ps1`
-- `workspace-check -Mode reports` integration
+- `report-check command`
+- `workspace-check --mode reports` integration
 - compare report structure and check-matrix consistency
 - claim/evidence map source-ref and support consistency
 - review queue lifecycle and blocking-level consistency
@@ -211,8 +212,8 @@ wiki pages, or close rounds.
 
 Phase 6.6 adds round closure validation:
 
-- `round-closure-check.ps1`
-- `workspace-check -Mode closure` integration
+- `round-closure-check command`
+- `workspace-check --mode closure` integration
 - validation note closure-field checks
 - `close-pass`, `close-with-review`, and `do-not-close` consistency checks
 - referenced compare and review report path checks
@@ -226,8 +227,8 @@ reports, or generate wiki pages.
 
 Phase 6.7 adds scenario fixture validation:
 
-- `fixture-runner.ps1`
-- `workspace-check -Mode fixtures` integration
+- `fixture-runner command`
+- `workspace-check --mode fixtures` integration
 - minimum scenario contract using `scenario.json` plus `workspace/`
 - one passing scenario
 - one deterministic failing scenario
@@ -254,6 +255,19 @@ It owns:
 Phase 6.8 does not add new validators, mutate workspace artifacts, run
 extractors, expand fixture coverage, or start downstream `skill + tool`
 generation.
+
+## Phase 6.9 Runtime Migration Scope
+
+Phase 6.9 migrates implemented checker tools from PowerShell scripts to the
+Python CLI runtime:
+
+```text
+python -m llm_wiki_tools <command>
+```
+
+It does not add new checker families or change the no-harness boundary. It
+removes `.ps1` tool implementations and treats Python commands as the only
+supported runtime surface.
 
 ## Person A / Person B Boundary
 

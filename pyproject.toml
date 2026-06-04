@@ -1,0 +1,12 @@
+[project]
+name = "llm-awesome-wiki-tools"
+version = "0.1.0"
+description = "Repo-local validation tooling for the VSCode-native LLM wiki workflow."
+requires-python = ">=3.10"
+dependencies = []
+
+[project.scripts]
+llm-wiki-tools = "llm_wiki_tools.cli:main"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

@@ -1039,3 +1039,20 @@
 - Commit: completed on `main` as
   `12baac7 Close phase six validation tooling`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-04 - Migrate phase six tooling to Python CLI
+
+- Target: replace implemented Phase 6 PowerShell checker scripts with the
+  Python CLI runtime.
+- Changed areas: added `pyproject.toml` and `llm_wiki_tools/`; deleted
+  implemented `.ps1` tool scripts; updated tool READMEs, Phase 6 docs, tests
+  docs, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-9-python-tooling-runtime/`.
+- Design review: migration improves portability and maintainability without
+  changing Phase 6 into an extractor harness, wiki generator, semantic
+  reviewer, or downstream `skill + tool` generator.
+- Validation: `git diff --check`, Python compile, `validate-kernel`,
+  `schema-check`, `fixture-runner`, and `workspace-check --mode fixtures`
+  passed; generated smoke reports were removed; `rg` confirmed no `.ps1` tool
+  files remain and active command docs use Python CLI commands.
+- Commit: pending.

@@ -33,7 +33,7 @@ Phase 6.1 does not own:
 
 ## Runtime Decision
 
-Add `tools/workspace-check/workspace-check.ps1` as the first Phase 6 runtime
+Add `python -m llm_wiki_tools workspace-check` as the first Phase 6 runtime
 entrypoint.
 
 The entrypoint should:
@@ -86,7 +86,7 @@ source content or rewrite semantic wiki knowledge.
 
 The Phase 6.1 smoke run should prove:
 
-- the script can be invoked from PowerShell
+- the command can be invoked from the Python CLI
 - an existing workspace path returns exit code `0`
 - a missing workspace path returns exit code `3`
 - the generated report lists the future validators as not implemented
@@ -99,7 +99,7 @@ Phase 6.1 is complete when:
 
 - the Phase 6.1 phase plan exists
 - shared report and exit-code conventions exist
-- `workspace-check.ps1` exists and is runnable
+- `workspace-check command` exists and is runnable
 - `workspace-check` README defines inputs, outputs, modes, non-goals, and
   future validator slots
 - smoke run succeeds against the system repository path without leaving

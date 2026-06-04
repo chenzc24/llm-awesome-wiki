@@ -33,12 +33,12 @@ private output.
 
 The exact command name is not final. The intended behavior is:
 
-```powershell
-source-packet-convert plan `
-  --workspace . `
-  --inventory raw/source-inventory.md `
-  --source-id course/module-01 `
-  --packet raw/derived/course/module-01 `
+```bash
+source-packet-convert plan \
+  --workspace . \
+  --inventory raw/source-inventory.md \
+  --source-id course/module-01 \
+  --packet raw/derived/course/module-01 \
   --report reports/source-packet-convert-report.md
 ```
 

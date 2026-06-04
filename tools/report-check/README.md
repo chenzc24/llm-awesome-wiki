@@ -5,11 +5,11 @@ surfaces.
 
 Phase 6.5 implements the checker-only validator:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/report-check/report-check.ps1 `
-  -Workspace . `
-  -ReportsDir reports `
-  -Report reports/report-check-report.md
+```bash
+python -m llm_wiki_tools report-check \
+  --workspace . \
+  --reports-dir reports \
+  --report reports/report-check-report.md
 ```
 
 ## Purpose

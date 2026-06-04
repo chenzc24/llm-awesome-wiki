@@ -42,14 +42,14 @@ Scenarios should assert repository artifacts, not the quality of a chat answer.
 
 Run the Phase 1 workspace-kernel validator from the repository root:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/validate-kernel/validate-kernel.ps1
+```bash
+python -m llm_wiki_tools validate-kernel
 ```
 
 Phase 6.7 adds scenario fixture validation:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/fixture-runner/fixture-runner.ps1 `
-  -FixtureRoot tests/fixtures/phase6 `
-  -Report fixture-runner-report.md
+```bash
+python -m llm_wiki_tools fixture-runner \
+  --fixture-root tests/fixtures/phase6 \
+  --report fixture-runner-report.md
 ```

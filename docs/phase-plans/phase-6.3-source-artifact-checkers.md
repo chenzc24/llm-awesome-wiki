@@ -21,7 +21,7 @@ Phase 6.3 owns:
 
 - `source-inventory-check`
 - `source-packet-lint`
-- `workspace-check -Mode source`
+- `workspace-check --mode source`
 - report output and exit-code integration
 - documentation that keeps these tools checker-only
 
@@ -91,14 +91,14 @@ visible enough for later evidence, wiki, and compare stages.
 
 ## Workspace Integration
 
-`workspace-check -Mode source` runs:
+`workspace-check --mode source` runs:
 
 ```text
 source-inventory-check
 source-packet-lint
 ```
 
-`workspace-check -Mode all` runs the already implemented schema check and these
+`workspace-check --mode all` runs the already implemented schema check and these
 source artifact checks, then reports later validators as not implemented until
 their phases land.
 
@@ -116,7 +116,7 @@ Phase 6.3 is complete when:
 - the Phase 6.3 phase plan exists
 - source inventory check script and README are aligned
 - source packet lint script and README are aligned
-- `workspace-check -Mode source` invokes both source checkers
+- `workspace-check --mode source` invokes both source checkers
 - generated reports follow shared conventions
 - validation smoke runs cover a small workspace with inventory, raw file, and
   source packet artifacts

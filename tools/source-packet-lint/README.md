@@ -5,11 +5,11 @@ Future tool family for checking source packets against Phase 2 protocols.
 Phase 2.6 defined the behavior surface only. Phase 6.3 implements the
 checker-only validator:
 
-```powershell
-powershell -ExecutionPolicy Bypass -File tools/source-packet-lint/source-packet-lint.ps1 `
-  -Workspace . `
-  -Inventory raw/source-inventory.md `
-  -Report reports/source-packet-lint-report.md
+```bash
+python -m llm_wiki_tools source-packet-lint \
+  --workspace . \
+  --inventory raw/source-inventory.md \
+  --report reports/source-packet-lint-report.md
 ```
 
 The checker validates existing packet outputs. It does not run conversion
@@ -35,11 +35,11 @@ raw/derived/<source-id>/
 
 The intended behavior is:
 
-```powershell
-source-packet-lint check `
-  --workspace . `
-  --inventory raw/source-inventory.md `
-  --packet raw/derived/course/module-01 `
+```bash
+source-packet-lint check \
+  --workspace . \
+  --inventory raw/source-inventory.md \
+  --packet raw/derived/course/module-01 \
   --report reports/source-packet-lint-report.md
 ```
 
