@@ -696,4 +696,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   Phase 6.0, Validation Tooling, checker, not-a-harness, does-not-run-extractors,
   source-packet-outputs, workspace-artifacts, and Phase 7 boundary language;
   reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `0e68250 Rebaseline phase six as validation
+  tooling`; finalized by the follow-up maintenance-status commit.

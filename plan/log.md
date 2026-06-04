@@ -889,4 +889,5 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 6.0 rebaseline language.
-- Commit: pending.
+- Commit: completed on `main` as `0e68250 Rebaseline phase six as validation
+  tooling`; finalized by the follow-up maintenance-status commit.
