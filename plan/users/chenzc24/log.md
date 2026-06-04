@@ -792,4 +792,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 6.4, wiki-lint, Mode wiki, index membership, broken links,
   no-page-generation, no-link-rewrite, and semantic-review language.
-- Commit: pending.
+- Commit: completed on `main` as `7541178 Add phase six wiki lint checker`;
+  finalized by the follow-up maintenance-status commit.

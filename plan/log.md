@@ -963,4 +963,5 @@
   `workspace-check.ps1 -Mode wiki`; `git diff --check` passed with only
   Windows line-ending warnings; `tools/validate-kernel/validate-kernel.ps1`
   passed; targeted `rg` confirmed Phase 6.4 wiki lint language.
-- Commit: pending.
+- Commit: completed on `main` as `7541178 Add phase six wiki lint checker`;
+  finalized by the follow-up maintenance-status commit.
