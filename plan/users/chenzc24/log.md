@@ -477,4 +477,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   review carry-forward, carried forward, and `compare gate not enabled`
   language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
   remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `41cb2b5 Define phase four wiki construction
+  round protocol`; finalized by the follow-up maintenance-status commit.

@@ -717,4 +717,5 @@
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 4.3 wiki construction round protocol language; `git submodule status`
   confirmed reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `41cb2b5 Define phase four wiki construction
+  round protocol`; finalized by the follow-up maintenance-status commit.
