@@ -314,7 +314,7 @@ must not let model output silently become trusted source text.
 
 ### Phase 2.6 Tool Surface Specs
 
-Status: current target.
+Status: complete.
 
 Update README-level tool specifications before implementation.
 
@@ -404,19 +404,29 @@ Phase 2 is complete when:
 - optional MinerU or VLM usage is described as backend input, not workflow
   ownership
 
+## Closure Status
+
+Status: complete from the Person B workflow-surface side.
+
+Closure details and Person A validation handoff live in
+`docs/phase-plans/phase-2-closure-handoff.md`.
+
+Phase 2 delivered protocol and README-level tool-surface specs. It did not
+implement tools, parsers, schemas, validators, fixtures, source packet
+generation, claim extraction, wiki generation, compare gates, or downstream
+`skill + tool` work.
+
 ## Immediate Next Step
 
-Phase 2.1 through Phase 2.5 are complete. The next useful target is Phase 2.6:
+Phase 2.1 through Phase 2.6 are complete. The next useful target is Phase 2
+closure review and Person A validation handoff:
 
 ```text
-define tool surface specs
--> align source-inventory README
--> add source-packet-convert README
--> add source-packet-lint README
--> define inputs, outputs, reports, failure modes, deterministic behavior, and
-   exit-code expectations
--> keep tool implementation, schemas, tests, claim extraction, and compare
-   gates deferred
+review Phase 2 closure
+-> confirm raw-to-source-packet workflow surface is complete
+-> hand schema, validator, fixture, and report needs to Person A
+-> keep tool implementation, claim extraction, wiki generation, compare gates,
+   and downstream skill/tool work deferred
 ```
 
 Do not jump straight into PDF parser, MinerU execution, MCP integration work,

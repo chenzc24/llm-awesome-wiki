@@ -349,3 +349,23 @@ Repository-wide merged or integration-level maintenance history belongs in
   --short --branch` showed only the intended Person B Phase 2.6 files.
 - Commit: completed on `main` as `512126b Define phase two tool surface
   specs`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Close phase two raw-to-packet workflow
+
+- Target: mark Phase 2 complete from the Person B workflow-surface side and
+  summarize the Person A validation handoff for inventory, packet metadata,
+  anchors, generated fields, review routing, source-type profiles, and Phase 2
+  tool reports.
+- Changed areas: `docs/phase-plans/phase-2-closure-handoff.md`,
+  `docs/phase-plans/phase-2-raw-resource-conversion.md`,
+  `docs/phase-plans/README.md`, `plan/log.md`, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-closure-handoff/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 2 Closure, Person A Handoff, complete, source inventory, source
+  packet, extractor adapter, source-type packet profiles, generated fields,
+  tool surface specs, schema, validator, fixtures, Phase 3, and Non-Goals
+  language; `git submodule status` confirmed both reference submodules stayed
+  pinned; `git status --short --branch` showed only the intended Phase 2
+  closure files.
+- Commit: planned for `main` as `Close phase two raw-to-packet workflow`.

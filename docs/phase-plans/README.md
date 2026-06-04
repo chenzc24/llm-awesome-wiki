@@ -16,3 +16,10 @@ Rules:
 - Phase plans describe stage boundaries, goals, deliverables, acceptance
   criteria, and sequencing. Day-to-day execution plans belong under
   `plan/users/<user>/` or `plan/shared/integration/`.
+
+## Phase 2
+
+- `phase-2-raw-resource-conversion.md`: main Phase 2 raw-to-source-packet
+  protocol plan.
+- `phase-2-closure-handoff.md`: Phase 2 closure summary and Person A
+  validation handoff.

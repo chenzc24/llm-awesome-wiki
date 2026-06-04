@@ -622,3 +622,21 @@
   --short --branch` showed only the intended Person B Phase 2.6 files.
 - Commit: completed on `main` as `512126b Define phase two tool surface
   specs`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Close phase two raw-to-packet workflow
+
+- Target: close Phase 2 from the Person B workflow-surface side and collect a
+  clear Person A handoff for schemas, validators, fixtures, and report needs.
+- Changed areas: added `docs/phase-plans/phase-2-closure-handoff.md`; updated
+  `docs/phase-plans/phase-2-raw-resource-conversion.md` and
+  `docs/phase-plans/README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-2-closure-handoff/`.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 2 Closure, Person A Handoff, complete, source inventory, source
+  packet, extractor adapter, source-type packet profiles, generated fields,
+  tool surface specs, schema, validator, fixtures, Phase 3, and Non-Goals
+  language; `git submodule status` confirmed `MinerU/` and `llm_wiki/`
+  remained pinned; `git status --short --branch` showed only the intended Phase
+  2 closure files.
+- Commit: planned for `main` as `Close phase two raw-to-packet workflow`.
