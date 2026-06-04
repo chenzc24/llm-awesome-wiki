@@ -699,4 +699,5 @@
   `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
   Phase 4.2 template-hardening and wiki construction analysis language; `git
   submodule status` confirmed reference submodules remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `dd490d4 Harden phase four source chapter
+  templates`; finalized by the follow-up maintenance-status commit.

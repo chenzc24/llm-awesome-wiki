@@ -449,4 +449,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   claim/evidence table, Construction Inputs, and Generated Or Uncertain
   Evidence language; `git submodule status` confirmed `MinerU/` and
   `llm_wiki/` remained pinned.
-- Commit: pending.
+- Commit: completed on `main` as `dd490d4 Harden phase four source chapter
+  templates`; finalized by the follow-up maintenance-status commit.
