@@ -91,33 +91,62 @@ Acceptance:
 - compare reports are treated as part of the knowledge-construction executable
   layer, not as downstream skill/tool generation
 
-## Phase 5: VSCode-Native Workflow And Construction Tools
+## Phase 5: Compare Gates And Review Workflow
 
-Goal: make the repository pleasant to maintain without Obsidian and add the
-first executable tools required by knowledge-base construction.
+Goal: make each distillation round produce checkable quality and review
+signals before the workspace advances.
 
 Planned work:
 
-- recommend VSCode extensions for markdown, YAML, search, and tasks
-- define workspace settings that do not create lock-in
-- provide CLI-friendly search and lint scripts
-- provide source inventory, compare, and claim-audit script templates
-- make construction tools produce reports instead of silently rewriting the wiki
-- keep all authoritative state in files
+- define compare report status semantics
+- record source/wiki coverage, omissions, weak coverage, and scope exclusions
+- record claim, modality, unsupported statement, and contradiction findings
+- keep unresolved judgment in review queues across rounds
+- define round closure as `close-pass`, `close-with-review`, or `do-not-close`
+- avoid model self-evaluation as the only quality signal
 
 Expected outputs:
 
-- `.vscode/` recommendations if needed
-- markdown task conventions
-- local script entrypoints
-- source inventory report template
 - compare gate report template
-- claim audit report template
+- review queue template
+- validation note closure fields
+- source/wiki coverage protocol
+- claim/modality/contradiction review protocol
+- round closure workflow
 
-## Phase 6: Downstream Knowledge-To-Code Mainline Design
+## Phase 6: Validation And Checker Tooling
 
-Goal: design the later mainline from a stable distilled knowledge base to a
-downstream executable `skill + tool` codebase.
+Goal: implement deterministic and semi-deterministic checker tooling for the
+workspace kernel.
+
+Planned work:
+
+- implement schema and structured-field checks
+- implement source inventory and source packet output checks
+- implement wiki frontmatter, link, index, overview, and log lint
+- implement compare, review queue, claim audit, validation note, and closure
+  report checks
+- implement scenario fixtures and a fixture runner
+- emit stable reports and exit codes for agent/human review
+
+Expected outputs:
+
+- workspace checker entrypoint
+- source inventory checker
+- source packet checker
+- wiki lint checker
+- compare report checker
+- review queue checker
+- round closure checker
+- fixture runner
+
+Phase 6 is not an extractor harness. It validates source packet outputs instead
+of running MinerU, MCP extractors, OCR/VLM, or PDF/PPTX/DOCX parsers.
+
+## Phase 7: Downstream Knowledge-To-Code Mainline Design And Foundation
+
+Goal: design and begin the later mainline from a stable distilled knowledge
+base to a downstream executable `skill + tool` codebase.
 
 Planned work:
 
@@ -126,23 +155,6 @@ Planned work:
   classes
 - decide how wiki claims, concepts, decisions, and methods become executable
   specs
-- distinguish construction-maintenance tools from domain skill/tool artifacts
-- create a staged design document before any large implementation
-
-Expected outputs:
-
-- knowledge-to-code design brief
-- proposed `skills/` and `tools/` structure
-- artifact boundary rules
-- first execution target selection
-
-## Phase 7: Downstream Skill + Tool Foundation
-
-Goal: build the first minimal executable capability layer without trying to
-finish the entire knowledge-to-code path.
-
-Planned work:
-
 - define executable spec templates
 - create initial skill templates for agent behavior
 - create initial tool templates for deterministic checks
@@ -153,6 +165,7 @@ Planned work:
 
 Expected outputs:
 
+- knowledge-to-code design brief
 - spec templates
 - skill templates
 - tool templates

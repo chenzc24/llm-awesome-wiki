@@ -84,8 +84,8 @@ or fixture behavior.
 | Phase 3 | Define evidence, claim, and review contracts. | Traceable evidence and claim records with generated-field markers. |
 | Phase 4 | Define wiki construction contracts. | Page/index frontmatter schemas and linkable source references. |
 | Phase 5 | Define compare and review report contracts. | Pass/fail/needs-review report schema and fixture examples. |
-| Phase 6 | Implement validation tooling. | `validate-kernel` checks and tests that run deterministically. |
-| Phase 7 | Support only after construction tooling is stable. | Downstream artifact schema inputs if requested later. |
+| Phase 6 | Implement validation and checker tooling. | Workspace artifact validators, lint checks, closure checks, and scenario fixtures. |
+| Phase 7 | Support only after validation/checker tooling is stable. | Downstream artifact schema inputs if requested later. |
 | Phase 8 | Support operations checks later. | Stale-source or stale-claim validation only after earlier phases stabilize. |
 
 ## Phase 0: System Charter
@@ -96,7 +96,7 @@ Use Phase 0 only to understand boundaries:
 
 - design docs are English-only
 - `llm_wiki/` is reference material, not a runtime dependency
-- construction tooling comes before downstream executable artifacts
+- validation/checker tooling comes before downstream executable artifacts
 - the root repository defines the portable workflow
 
 Do not edit top-level architecture vocabulary unless the Coordinator assigns
@@ -297,11 +297,14 @@ Acceptance:
 - unresolved semantic judgment is visible
 - reports are stable enough to commit and review
 
-## Phase 6: Construction Tools
+## Phase 6: Validation And Checker Tooling
 
-Goal: operationalize validation with deterministic tooling.
+Goal: operationalize validation with deterministic and semi-deterministic
+checker tooling.
 
-Person A owns implementation under `tools/validate-kernel/**` and related tests.
+Person A owns validator implementation, tests, and fixtures. Early work may
+extend `tools/validate-kernel/**`, but Phase 6 should not be limited to root
+kernel checks once workspace artifact validation begins.
 
 Initial tool checks should cover:
 
@@ -311,9 +314,15 @@ Initial tool checks should cover:
 - source packet field consistency
 - compare report status values
 - obvious broken references that can be checked without model judgment
+- review queue lifecycle consistency
+- round closure decision consistency
 
-Do not build downstream domain skills here. Phase 6 tools are construction
-tools for the LLM Awesome Wiki workflow itself.
+Do not build downstream domain skills here. Phase 6 tools are validation tools
+for the LLM Awesome Wiki construction workflow itself.
+
+Do not build a parser harness here. Optional extractors and adapter backends
+are validated through their source packet outputs rather than through their
+internal execution.
 
 Person B dependency:
 

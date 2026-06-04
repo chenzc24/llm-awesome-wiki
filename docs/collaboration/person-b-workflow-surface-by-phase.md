@@ -77,8 +77,8 @@ not "schema owned by Person A."
 | Phase 3 | Describe source-packet-to-evidence/claim workflow. | Claim extraction, review routing, and generated-evidence rules. |
 | Phase 4 | Describe source-packet-to-wiki workflow. | Page routing, source/chapter templates, index and overview rules. |
 | Phase 5 | Describe compare gate and review workflow. | Pass/fail/needs-review prose and review handoff rules. |
-| Phase 6 | Specify construction tool surfaces. | CLI README specs for inputs, outputs, reports, and failure modes. |
-| Phase 7 | Not active until construction reports are stable. | Later downstream skill/tool workflow only after Phase 6. |
+| Phase 6 | Specify validation and checker tool surfaces. | CLI README specs for validators, lint checks, reports, fixtures, and failure modes. |
+| Phase 7 | Not active until validation/checker reports are stable. | Later downstream skill/tool workflow only after Phase 6. |
 | Phase 8 | Later operations workflow. | Maintenance checklist and release/migration prose. |
 
 ## Phase 0: System Charter
@@ -94,7 +94,7 @@ Phase 0 says:
 - docs are English-only
 - `llm_wiki/` is reference material
 - generated workspaces are separate from the root system repository
-- downstream executable artifacts come after construction tooling
+- downstream executable artifacts come after validation/checker tooling
 
 Only update top-level design when acting as Coordinator after team sync.
 
@@ -322,9 +322,9 @@ Person A dependency:
   examples from workflow, especially for skipped modalities, unresolved
   judgments, and source coverage.
 
-## Phase 6: Construction Tools
+## Phase 6: Validation And Checker Tooling
 
-Goal: describe future CLI behavior before or alongside implementation.
+Goal: describe future checker CLI behavior before or alongside implementation.
 
 Person B owns `tools/*/README.md` behavior specs.
 
@@ -340,16 +340,23 @@ Each tool README should specify:
 - what the tool does deterministically
 - what requires model assistance or human review
 
-Construction tools are for building the LLM Awesome Wiki workflow itself:
+Phase 6 tools are for checking the LLM Awesome Wiki workflow itself:
 
-- inventory command
-- packet conversion or adapter command
-- packet validation command
-- link/frontmatter lint command
-- compare gate command
-- review export command
+- workspace validation runner
+- source inventory checker
+- source packet checker
+- link/frontmatter/index lint command
+- claim audit checker
+- compare report checker
+- review queue checker
+- round closure checker
+- scenario fixture runner
 
 They are not downstream domain skills/tools yet.
+
+They are also not a PDF/PPTX/DOCX parser harness. Person B may describe how
+optional adapter outputs are checked, but should not make Phase 6 responsible
+for running MinerU, MCP extractors, OCR/VLM, or local parsing backends.
 
 Person A dependency:
 

@@ -873,3 +873,20 @@
   Phase 5 closure and Phase 6 handoff language.
 - Commit: completed on `main` as `9e3aad0 Close phase five compare gate
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Rebaseline phase six as validation tooling
+
+- Target: rebaseline Phase 6 as workspace validation and checker tooling
+  after the no-harness decision.
+- Changed areas: added the Phase 6.0 rebaseline plan; updated top-level
+  architecture, execution roadmap, phase-plan index, Phase 2 tool surface
+  references, collaboration guidance, tool README, source packet convert
+  README, and target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-0-validation-tooling-rebaseline/`.
+- Design review: Phase 6 is now checker-first. It validates workspace artifacts
+  and source packet outputs, while extractor execution and downstream
+  knowledge-to-`skill + tool` generation remain out of scope.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 6.0 rebaseline language.
+- Commit: pending.

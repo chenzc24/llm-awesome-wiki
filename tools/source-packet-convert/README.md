@@ -1,10 +1,13 @@
-# Source Packet Convert Tool
+# Source Packet Convert Tool Surface
 
-Future tool family for producing workspace source packets from ready inventory
-rows.
+Tool-surface specification for adapter handoff around source packet production.
 
 Phase 2.6 defines the behavior surface only. It does not implement the command,
 run extractors, call models, or write parser code.
+
+After the Phase 6 rebaseline, this is not a default Phase 6 implementation
+target. Phase 6 should validate source packet outputs; it should not own a
+PDF/PPTX/DOCX parser harness or extractor runner.
 
 ## Purpose
 
@@ -14,7 +17,7 @@ The tool should answer:
 How does a ready source become a valid source packet?
 ```
 
-It coordinates or describes conversion from:
+It describes the handoff from:
 
 ```text
 ready inventory row
@@ -42,8 +45,12 @@ source-packet-convert plan `
 Expected modes:
 
 - `plan`: inspect inventory and report what conversion would need
-- `convert`: run or coordinate the selected adapter and write a packet
-- `check-output`: verify that adapter output left the required packet files
+- `check-output`: verify that adapter or manual output left the required packet
+  files
+
+`convert` is intentionally not a Phase 6 default mode. If a future adapter
+project implements conversion orchestration, it should be planned separately
+and its outputs should still pass `source-packet-check`.
 
 ## Inputs
 
@@ -53,7 +60,7 @@ Expected modes:
 - raw source path from inventory
 - raw hash state from inventory
 - source kind from inventory
-- selected adapter or manual workflow, when any
+- selected adapter or manual workflow metadata, when any
 - target packet directory under `raw/derived/<source-id>/`
 - optional adapter configuration
 
@@ -83,20 +90,21 @@ Adapters may create detailed outputs, but backend-local IDs and files must map
 to workspace anchors and packet artifacts. The backend does not own
 `source_id`, packet identity, or final wiki knowledge.
 
-## Deterministic Behavior
+## Deterministic Checking Behavior
 
-The tool should deterministically:
+The checker surface should deterministically:
 
 - read the inventory row for `source_id`
 - reject missing or duplicate source IDs
 - check that `raw_path` stays under `raw/sources/`
 - check that packet output path matches `raw/derived/<source-id>/`
-- check whether required packet files exist after conversion
+- check whether required packet files exist after adapter or manual work
 - report generated field kinds, `known_gaps`, `review_required`, and
   `review_reason`
 
-Adapter execution itself may be manual, model-assisted, or backend-specific.
-The report should separate deterministic checks from adapter-produced content.
+Adapter execution itself may be manual, model-assisted, or backend-specific,
+but that execution is outside this default checker surface. The report should
+separate deterministic checks from adapter-produced content.
 
 ## Failure Modes
 
@@ -132,6 +140,7 @@ These exit codes are proposals until Person A accepts validator behavior.
 The source packet convert tool should not:
 
 - implement PDF, PPTX, DOCX, image, table, or chart parsers
+- run or coordinate extractor backends as Phase 6 core behavior
 - require MinerU, MCP, GPU, hosted APIs, or model servers
 - generate final wiki pages
 - extract claims

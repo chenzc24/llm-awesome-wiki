@@ -321,8 +321,8 @@ Update README-level tool specifications before implementation.
 Candidate tools:
 
 - `source-inventory`: scan `raw/sources/` and write inventory rows or reports
-- `source-packet-convert`: run or coordinate an adapter or manual workflow and
-  emit a source packet
+- `source-packet-convert`: describe or check adapter/manual workflow handoff
+  output without making Phase 6 an extractor harness
 - `source-packet-lint`: check anchors, metadata, generated fields, gaps, and
   review routing
 
@@ -338,6 +338,10 @@ The specs should define:
 - exit-code expectations when known
 
 Do not implement these tools in the planning pass.
+
+Phase 6.0 later narrows implementation priority: validate source packet
+outputs first; do not turn `source-packet-convert` into the default project
+harness for PDF/PPTX/DOCX, MinerU, MCP, OCR, VLM, or local parser execution.
 
 ## Person A Handoff Proposals
 

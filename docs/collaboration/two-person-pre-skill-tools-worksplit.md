@@ -18,7 +18,7 @@ raw resources
 -> evidence and claim records
 -> wiki pages
 -> compare and review gates
--> construction tools and reports
+-> validation/checker tools and reports
 -> stable knowledge release
 -> downstream skills, tools, tests, templates, and code
 ```
@@ -31,7 +31,7 @@ repository needs reliable foundations:
 - workflow rules that humans and agents can follow
 - workspace templates
 - source packet protocols that optional extractors can satisfy
-- validation commands
+- validation and checker commands
 - compare and review report formats
 
 If two people both try to "build the system" broadly, they will edit the same
@@ -274,15 +274,17 @@ Acceptance:
 - workflow prose can point to real schema fields
 - schema fields have enough meaning for a human to use them
 
-### Milestone 2: Validation And Tool Surfaces Exist
+### Milestone 2: Validation And Checker Tool Surfaces Exist
 
 Person A:
 
-- `validate-kernel` can check schema/template basics
+- validators can check schema/template basics and selected workspace artifact
+  states
 
 Person B:
 
-- `tools/*/README.md` explains CLI inputs, outputs, reports, and failure modes
+- `tools/*/README.md` explains checker CLI inputs, outputs, reports, fixtures,
+  and failure modes
 
 Acceptance:
 
@@ -318,6 +320,7 @@ Avoid these failure modes:
 - both people editing schemas at the same time
 - writing complex converters or extractor harnesses before the source packet
   protocol is stable
+- treating Phase 6 checker tools as extractor harnesses
 - writing tool implementations before the CLI behavior is described
 - using `llm_wiki/` as an implementation dependency
 - letting agent names become user namespaces

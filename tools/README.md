@@ -2,8 +2,8 @@
 
 This directory is reserved for repo-local tooling. The first tool layer belongs
 to knowledge-base construction: maintenance, lint, search, compare gates,
-source inventory, and claim audit. These are construction tools, not the later
-downstream domain `skill + tool` codebase.
+source inventory checks, and claim audit. These are validation/checker tools,
+not the later downstream domain `skill + tool` codebase.
 
 Phase 1 and Phase 1.1 provide skeletons and one workspace-kernel validator.
 They do not implement the full raw conversion, wiki lint, compare, or claim
@@ -15,8 +15,8 @@ audit toolchain.
   rather than live workspace output.
 - `source-inventory`: scan raw sources, record path/hash/type/status, and
   identify unprocessed or changed material.
-- `source-packet-convert`: coordinate manual, agent, MCP, local CLI, or
-  extractor-backed workflows that produce source packets.
+- `source-packet-convert`: Phase 2 behavior spec for planning or checking
+  adapter handoff outputs; not a Phase 6 default harness implementation.
 - `source-packet-lint`: check packet metadata, anchors, generated fields, known
   gaps, review routing, and source-type expectations.
 - `wiki-lint`: check frontmatter, broken links, orphan pages, missing index
@@ -33,7 +33,7 @@ audit toolchain.
 
 ## Phase 2 Tool Surface
 
-The Phase 2 construction tool trio is:
+The Phase 2 tool-surface trio is:
 
 ```text
 source-inventory
@@ -43,6 +43,31 @@ source-inventory
 
 These tool specs define behavior only. They do not implement commands, run
 extractors, update schemas, or create fixtures.
+
+After the Phase 6 rebaseline, `source-packet-convert` should be treated as an
+adapter-handoff planning/checking spec, not as the default Phase 6
+implementation target. Phase 6 should validate source packet outputs rather
+than owning extractor execution.
+
+## Phase 6 Tool Surface
+
+Phase 6 should prioritize checker tools:
+
+```text
+workspace-check
+-> source-inventory-check
+-> source-packet-check
+-> wiki-lint
+-> claim-audit
+-> compare-report-check
+-> review-queue-check
+-> round-closure-check
+-> fixture-runner
+```
+
+These tools inspect workspace artifacts and emit validation reports. They are
+not a PDF/PPTX/DOCX parser harness, MinerU wrapper, OCR/VLM runner, or MCP
+extractor wrapper.
 
 ## Phase 3 Tool Surface
 
@@ -62,6 +87,8 @@ or generate wiki pages.
 - Tools should run from the repository root.
 - Outputs should be deterministic where possible.
 - Tools should write explicit reports rather than silently changing wiki pages.
+- Tools should validate source packet outputs rather than owning extractor
+  internals.
 - Any tool that mutates tracked files must be called from a planned target and
   recorded in `plan/log.md`.
 - Tools should support VSCode and CLI workflows without requiring Obsidian.

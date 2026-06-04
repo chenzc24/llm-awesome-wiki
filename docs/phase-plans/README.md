@@ -65,3 +65,9 @@ Rules:
   overview, and wiki log.
 - `phase-5-closure-review.md`: Phase 5 closure review, design confirmation,
   and Person A/Phase 6 validation and tooling handoff.
+
+## Phase 6
+
+- `phase-6-validation-tooling-rebaseline.md`: Phase 6.0 rebaseline that
+  reframes Phase 6 as workspace validation and checker tooling rather than an
+  extractor harness.

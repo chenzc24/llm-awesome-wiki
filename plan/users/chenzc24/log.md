@@ -674,3 +674,26 @@ Repository-wide merged or integration-level maintenance history belongs in
   not-implement language; reference submodules remained pinned.
 - Commit: completed on `main` as `9e3aad0 Close phase five compare gate
   workflow`; finalized by the follow-up maintenance-status commit.
+
+## 2026-06-04 - Rebaseline phase six as validation tooling
+
+- Target: rebaseline Phase 6 after the no-harness decision so it is defined as
+  workspace validation and checker tooling rather than source packet extractor
+  orchestration.
+- Changed areas: added
+  `docs/phase-plans/phase-6-validation-tooling-rebaseline.md`; updated the
+  top-level architecture, execution roadmap, phase-plan index, Phase 2 tool
+  surface references, collaboration guidance, tool README, source packet
+  convert README, and the target plan under
+  `plan/users/chenzc24/2026-06-04-phase-6-0-validation-tooling-rebaseline/`.
+- Design review: Phase 6 now validates workspace artifacts and source packet
+  outputs produced by humans, agents, MCPs, optional extractors, or custom
+  scripts. It does not run MinerU, wrap MCP extractors, run OCR/VLM, implement
+  a PDF/PPTX/DOCX parser harness, or start downstream knowledge-to-`skill +
+  tool` work.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `tools/validate-kernel/validate-kernel.ps1` passed; targeted `rg` confirmed
+  Phase 6.0, Validation Tooling, checker, not-a-harness, does-not-run-extractors,
+  source-packet-outputs, workspace-artifacts, and Phase 7 boundary language;
+  reference submodules remained pinned.
+- Commit: pending.

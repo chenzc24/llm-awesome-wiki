@@ -12,6 +12,11 @@ CLI commands, run extractors, edit schemas, create fixtures, generate wiki
 pages, extract claims, implement compare gates, or start downstream skill/tool
 work.
 
+Phase 6.0 later rebaselines implementation priority: Phase 6 should validate
+source packet outputs rather than implement this repository's own extractor
+harness. Treat `source-packet-convert` as an adapter-handoff planning/checking
+surface unless a separate adapter project is explicitly planned.
+
 ## Position In Phase 2
 
 Phase 2.6 covers the tool surface for:
@@ -24,8 +29,8 @@ raw sources
 -> valid source packet handoff
 ```
 
-These are construction tools for the knowledge workflow. They are not
-downstream domain skills or executable knowledge artifacts.
+These are tool surfaces for the knowledge workflow. They are not downstream
+domain skills or executable knowledge artifacts.
 
 ## Tool Surface Principles
 
@@ -60,26 +65,29 @@ state when possible, detect changed sources, and report intake problems.
 
 It should not parse raw content into packets.
 
-## Source Packet Convert Tool
+## Source Packet Convert Tool Surface
 
-`source-packet-convert` covers the execution surface for Phase 2.2 through
-Phase 2.5.
+`source-packet-convert` covers the adapter handoff surface for Phase 2.2
+through Phase 2.5.
 
 Purpose:
 
 ```text
 ready inventory row
--> optional adapter/manual workflow
+-> optional adapter/manual workflow outside the default checker layer
 -> source packet directory
 -> conversion report
 ```
 
-The tool should define how a future command would invoke or coordinate a manual
-workflow, Agent/MCP workflow, local CLI backend, MinerU-like backend, or custom
-adapter while still leaving the workspace source packet as the durable output.
+The spec should define what a future command or manual process would need to
+record when a manual workflow, Agent/MCP workflow, local CLI backend,
+MinerU-like backend, or custom adapter leaves source packet output behind.
 
 It should not make the backend the workspace owner. Backend-local outputs must
 map to workspace anchors.
+
+After the Phase 6.0 rebaseline, the default Phase 6 implementation should check
+source packet outputs, not run the backend.
 
 ## Source Packet Lint Tool
 
@@ -151,4 +159,5 @@ Phase 2.6 is complete when:
 - tool specs name inputs, outputs, reports, failure modes, deterministic
   behavior, adapter/model/human-assisted boundaries, and exit-code expectations
 - Phase 2 tool specs remain implementation-neutral
+- Phase 2 tool specs do not require Phase 6 to become an extractor harness
 - Phase 2 is ready for closure and Person A validation handoff

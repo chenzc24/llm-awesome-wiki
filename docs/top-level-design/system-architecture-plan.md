@@ -24,8 +24,8 @@ raw resources
 -> source inventory and source packets
 -> evidence and claim records
 -> maintained source and chapter pages
--> construction tools and reports
-   (inventory, lint, compare, review, claim audit)
+-> validation/checker tools and reports
+   (inventory checks, lint, compare, review, claim audit)
 -> stable knowledge release
 -> downstream executable specs
 -> domain skills, domain tools, tests, templates, and code artifacts
@@ -51,7 +51,7 @@ and chapter.
 The system is repo-native rather than app-native. It has three distinct forms:
 
 - **System repo**: this repository. It maintains the philosophy, architecture,
-  rules, contracts, templates, tool source, and tests.
+  rules, contracts, templates, validation/checker tool source, and tests.
 - **Workspace kernel**: the copyable set of local files produced by the system
   repo. It includes workspace `AGENTS.md`, `purpose.md`, `schema.md`, rules,
   contracts, template directories, and construction-tool entrypoints.
@@ -156,7 +156,8 @@ For the full principle, see
 The root repository is the system substrate. It produces a workspace kernel
 that can be copied or scaffolded into independent knowledge workspace
 repositories. It owns architecture documents, workflow rules, reusable machine
-contracts, construction tools, tests, and deterministic validation entrypoints.
+contracts, validation/checker tools, tests, and deterministic validation
+entrypoints.
 It should not itself become an active knowledge workspace.
 
 Expected responsibilities:
@@ -175,7 +176,7 @@ contracts/                # reusable machine contracts, including JSON Schema
 docs/                     # architecture, phase plans, and project guidance
 plan/                     # target plans and maintenance log
 rules/                    # workspace workflow rules and index/gate contracts
-tools/                    # construction tool source and entrypoints
+tools/                    # validation/checker tool source and entrypoints
 templates/                # reusable workspace, page, report, and spec templates
 tests/                    # validation for tools, templates, and schemas
 examples/                 # small generated-workspace fixtures only
@@ -195,10 +196,10 @@ reports/coverage/         # source, anchor, and modality coverage
 reports/review/           # unresolved human judgment
 reports/validation/       # short round outcomes
 contracts/                # copied or referenced schema/config contracts
-tools/                    # deterministic construction tools
+tools/                    # deterministic validation/checker tools
 templates/                # reusable plans, pages, reports, specs
 skills/                   # reserved for downstream domain skills
-tests/                    # validation for construction tools and downstream artifacts
+tests/                    # validation for checker tools and downstream artifacts
 ```
 
 The generated workspace contract is what the system should scaffold for users.
@@ -299,28 +300,34 @@ Required gate families:
 - human review queues
 - stale source and stale claim checks
 
-### Layer 6: Construction Tooling
+### Layer 6: Validation And Checker Tooling
 
-Construction tools support the knowledge-building system itself.
+Validation and checker tools support the knowledge-building system itself.
 This layer belongs to knowledge-base construction and maintenance. Its outputs
-are reports, validations, and low-risk mechanical fixes, not domain skills or
-downstream code artifacts.
+are validation reports, lint reports, fixture results, and low-risk mechanical
+findings, not domain skills or downstream code artifacts.
+
+Layer 6 is checker-first. It validates the workspace artifacts produced by
+Phases 2 through 5. It is not a project-owned PDF/PPTX/DOCX parser harness and
+it should not own extractor backend orchestration as its default job.
 
 Candidate tools:
 
-- source inventory generator
-- source packet adapter runner
-- optional media extractor
-- optional OCR and caption runner
+- workspace validation runner
+- source inventory checker
 - source packet validator
-- wiki page lint
-- claim coverage reporter
-- compare gate reporter
-- review queue exporter
+- wiki page and index lint
+- claim coverage checker
+- compare report validator
+- review queue validator
+- validation note checker
+- round closure checker
+- scenario fixture runner
 
-These tools should generate reports and low-risk mechanical fixes. They should
-not silently rewrite high-value knowledge or resolve semantic judgment without
-review.
+These tools may read raw files for deterministic identity checks such as path
+existence and hashes. They should not parse raw binary content, run OCR/VLM
+captioning, wrap MinerU or MCP extractors, silently rewrite high-value
+knowledge, or resolve semantic judgment without review.
 
 ### Layer 7: Knowledge-To-Executable Pipeline
 
@@ -342,8 +349,9 @@ Candidate outputs:
 - small application prototypes
 
 This is a later mainline. It depends on stable source coverage, claim coverage,
-and review discipline. It should not absorb construction tools such as source
-inventory, wiki lint, compare gates, or claim audit; those belong to Layer 6.
+and review discipline. It should not absorb knowledge-construction checkers
+such as source inventory checks, wiki lint, compare gates, or claim audit;
+those belong to Layer 6.
 
 ### Layer 8: Developer And Agent Experience
 
@@ -379,7 +387,7 @@ Validation:
 
 - design docs are English-only
 - `llm_wiki` is framed as reference material
-- system phases include construction tooling before downstream executable
+- system phases include validation/checker tooling before downstream executable
   artifacts, not only wiki pages
 
 ### Phase 1: Workspace Kernel
@@ -618,31 +626,41 @@ Validation:
 - unresolved semantic judgment is visible
 - skipped modalities are explicitly recorded
 
-### Phase 6: Construction Tools
+### Phase 6: Validation And Checker Tooling
 
-Goal: implement deterministic tooling for the repository workflow.
-These tools operationalize source packet production, maintenance, and compare
-gates; they are not the downstream domain `skill + tool` codebase.
+Goal: implement deterministic and semi-deterministic validation tooling for
+the workspace kernel.
+
+These tools operationalize source inventory checks, source packet output
+validation, wiki lint, compare report validation, review queue validation, and
+round closure checks. They are not the downstream domain `skill + tool`
+codebase, and they are not a project-owned extractor harness.
 
 Deliverables:
 
-- inventory command
-- source packet adapter command
-- packet validation command
-- link/frontmatter lint command
-- compare gate command
-- review export command
+- workspace validation runner
+- source inventory checker
+- source packet checker
+- link/frontmatter/index lint command
+- claim audit checker
+- compare report checker
+- review queue checker
+- round closure checker
+- scenario fixtures and fixture runner
 
 Validation:
 
 - tools are runnable from the CLI
 - tools produce stable outputs
 - reports can be committed and reviewed
+- tools validate source packet outputs instead of owning extractor internals
+- missing deterministic support becomes explicit `fail` or `needs-review`, not
+  model self-evaluation
 
 ### Phase 7: Downstream Executable Artifacts
 
 Goal: turn stable knowledge into executable engineering outputs.
-This phase begins only after the construction tooling and compare gates can
+This phase begins only after the validation/checker tooling and compare gates can
 produce a stable knowledge release.
 
 Deliverables:
