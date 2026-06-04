@@ -184,5 +184,5 @@ Repository-wide merged or integration-level maintenance history belongs in
   adapter, no-harness, and stable ownership language; `git submodule status`
   confirmed both reference submodules stayed pinned; `git status
   --short --branch` showed only the intended protocol-reframing files.
-- Commit: planned for `co-work/czc_personB` as `Reframe phase two as packet
-  protocol`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `945104b
+  Reframe phase two as packet protocol`.

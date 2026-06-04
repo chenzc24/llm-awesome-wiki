@@ -452,5 +452,5 @@
   adapter, no-harness, and stable Person A/B ownership language; `git submodule
   status` confirmed `MinerU/` and `llm_wiki/` remained pinned; `git status
   --short --branch` showed only the intended protocol-reframing files.
-- Commit: planned for `co-work/czc_personB` as `Reframe phase two as packet
-  protocol`.
+- Commit: completed and pushed to `origin/co-work/czc_personB` as `945104b
+  Reframe phase two as packet protocol`.
