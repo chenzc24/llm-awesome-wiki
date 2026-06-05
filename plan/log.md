@@ -1390,4 +1390,6 @@
 - Validation: `git diff --check` passed with only Windows line-ending warnings;
   `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
   the new topology language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `43b83da Define workspace topology contract`; finalized by the follow-up
+  maintenance-status commit.

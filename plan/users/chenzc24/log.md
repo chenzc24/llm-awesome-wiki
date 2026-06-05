@@ -1303,4 +1303,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
   `workspace skeleton`, `kernel bundle`, `knowledge workspace repo`,
   `development tool mode`, `portable tool mode`, and boundary language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `43b83da Define workspace topology contract`; finalized by the follow-up
+  maintenance-status commit.
