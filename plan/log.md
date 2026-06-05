@@ -1465,3 +1465,18 @@
 - Commit: completed on `main` as
   `6201861 Mark repository as failed artifact`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-05 - Clarify README agent workflow value
+
+- Target: update the README top notice so the repository is framed as a failed
+  LLM Wiki attempt with a useful Agent development workflow record.
+- Changed areas: updated the README status, failure explanation, and remaining
+  value sections; added the target plan under
+  `plan/users/chenzc24/2026-06-05-readme-agent-workflow-value/`.
+- Design review: the edit distinguishes the failed distillation product from
+  the reusable development discipline around `AGENTS.md`, `docs/`, `plan/`,
+  validation, logs, and commits.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; targeted `rg` confirmed README status, Agent workflow value, and
+  failure-boundary language.
+- Commit: pending.

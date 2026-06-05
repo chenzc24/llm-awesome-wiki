@@ -1,21 +1,78 @@
 # LLM Awesome Wiki
 
-## Status: Failed Artifact
+## Status: Failed LLM Wiki, Useful Agent Workflow Record
 
-This repository is marked as a failed project.
+This repository failed as an LLM wiki distillation system.
 
 Do not adopt it as a recommended workflow, production system, or foundation for
-new knowledge-base work. The repository remains available as an engineering
-record of an attempted VSCode-native, Git-first LLM wiki distillation workflow:
-what was tried, how the boundaries were drawn, what tooling was built, and
-where the design became too heavy for its intended use.
+new knowledge-base work. The knowledge-distillation workflow became too
+document-heavy, process-heavy, and indirect, and it did not reliably beat
+direct LLM reading and iterative prompting on real PPT/PDF-heavy material.
 
-The main failure is product-level, not that every individual idea is useless.
-The system achieved a coherent internal loop, but the resulting repository is
-too document-heavy, process-heavy, and indirect to serve as a clean default
-workflow for real users.
+The useful residue is the Agent-assisted development workflow around
+`AGENTS.md`, `docs/`, `plan/`, git discipline, scoped ownership, target plans,
+logs, validation, and commit/push hygiene. That workflow is the main artifact
+worth studying here.
 
-The content below is historical context.
+## What Failed
+
+The LLM wiki distillation system failed.
+
+The project could define source packets, wiki construction rules, compare
+reports, review queues, validators, and fixtures, but it could not reliably
+constrain large-scale distillation completeness. A checker can verify that
+fields, links, reports, and references exist; it cannot easily prove that the
+important content in dozens of slides, pages, charts, diagrams, formulas, and
+images survived into the distilled wiki at the right level of detail.
+
+The PDF/PPT/image-to-text layer also remains under-researched. Reliable
+conversion from multimodal classroom or technical material into useful source
+packets is its own serious problem: layout, slide order, charts, formulas,
+tables, screenshots, OCR, image captions, and visual reasoning all need deeper
+investigation. This repository intentionally avoided becoming an extractor
+harness, but without a strong input layer the later workflow could not deliver
+enough value.
+
+There was also a practical capacity constraint: the author was in finals week.
+Continuing responsibly would have required a full research pass on multimodal
+extraction and real corpus evaluation, not another round of workflow
+documents.
+
+## What Remains Useful
+
+The Agent development workflow remains useful.
+
+The strongest part of this repository is not the wiki architecture, but the
+working discipline for humans and coding agents:
+
+```text
+AGENTS.md
+-> target plan
+-> scoped file ownership
+-> implementation
+-> validation
+-> log update
+-> commit
+-> push
+```
+
+This pattern helped keep a complex, fast-moving repository auditable. It is
+worth extracting into a smaller future template for Agent-driven software or
+research projects.
+
+Useful workflow ideas include:
+
+- write repository-level agent rules in `AGENTS.md`
+- require a target-specific plan before edits
+- declare owned files and read-only files
+- audit dirty git state before work
+- keep personal and global maintenance logs
+- run explicit validation commands
+- make small commits with clear status records
+- preserve design history in `docs/`
+- separate working plans from durable architecture notes
+
+The content below is historical context for the failed LLM Wiki attempt.
 
 LLM Awesome Wiki is a VSCode-native, Git-first knowledge distillation system
 for humans and agents.

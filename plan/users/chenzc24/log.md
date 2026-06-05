@@ -1391,3 +1391,19 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `6201861 Mark repository as failed artifact`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-05 - Clarify README agent workflow value
+
+- Target: refine the README failure notice to say that the LLM Wiki product
+  goal failed, while the `AGENTS.md` + `docs/` + `plan/` Agent-assisted
+  development workflow remains the useful artifact.
+- Changed areas: updated the README top section; added the target plan under
+  `plan/users/chenzc24/2026-06-05-readme-agent-workflow-value/`.
+- Design review: this keeps the failed-product warning, but preserves the
+  positive lesson: scoped plans, file ownership, dirty-state audits, logs,
+  validation, and commit/push discipline are worth extracting into a smaller
+  future template.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; targeted `rg` confirmed README status, Agent workflow value, and
+  failure-boundary language.
+- Commit: pending.
