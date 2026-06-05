@@ -57,16 +57,18 @@ and chapter.
 
 ## Product Form
 
-The system is repo-native rather than app-native. It has three distinct forms:
+The system is repo-native rather than app-native. It has four distinct forms:
 
 - **System repo**: this repository. It maintains the philosophy, architecture,
   rules, contracts, templates, validation/checker tool source, and tests.
-- **Workspace kernel**: the copyable set of local files produced by the system
-  repo. It includes workspace `AGENTS.md`, `purpose.md`, `schema.md`, rules,
-  contracts, template directories, and construction-tool entrypoints.
+- **Workspace skeleton**: `templates/workspace-kernel/`. It is the copyable
+  artifact layout for a new workspace, not the complete runtime bundle by
+  itself.
+- **Workspace kernel bundle**: the skeleton plus copied or synchronized
+  `skills/`, `rules/`, `contracts/schemas/`, and checker access.
 - **Knowledge workspace repo**: an independent user repository created from the
-  kernel. This is where `raw/`, `wiki/`, `reports/`, and workspace-local
-  validation live.
+  kernel bundle. This is where `raw/`, `wiki/`, `reports/`, and
+  workspace-local validation live.
 
 The intended usage surface is the knowledge workspace repository itself. Users
 open that repository in VSCode and work with Git, CLI tools, and agents against
@@ -172,11 +174,11 @@ For the full principle, see
 
 ### Layer 1: Workspace Kernel Producer
 
-The root repository is the system substrate. It produces a workspace kernel
-that can be copied or scaffolded into independent knowledge workspace
-repositories. It owns architecture documents, runtime skills, detailed rules,
-reusable machine contracts, validation/checker tools, tests, and deterministic
-validation entrypoints.
+The root repository is the system substrate. It produces a workspace skeleton
+and the reusable assets needed to assemble a complete workspace kernel bundle
+for independent knowledge workspace repositories. It owns architecture
+documents, runtime skills, detailed rules, reusable machine contracts,
+validation/checker tools, tests, and deterministic validation entrypoints.
 It should not itself become an active knowledge workspace.
 
 Expected responsibilities:
@@ -197,14 +199,17 @@ llm_wiki_tools/           # runnable Python checker CLI and command index
 plan/                     # target plans and maintenance log
 rules/                    # detailed source, wiki, claim, and review rules
 skills/                   # runtime entrypoints and progressive-disclosure guides
-templates/                # reusable workspace, page, report, and spec templates
+templates/                # reusable workspace skeleton, page, report, and spec templates
 tests/                    # validation for tools, templates, and schemas
 examples/                 # small generated-workspace fixtures only
 ```
 
-Generated workspace directory contract:
+Knowledge workspace directory contract:
 
 ```text
+skills/                   # runtime guides copied or synchronized from system repo
+rules/                    # detailed references copied or synchronized from system repo
+contracts/schemas/        # copied or pinned machine contracts
 raw/sources/              # immutable source files
 raw/derived/              # generated packets, metadata, extracted text, media
 wiki/                     # maintained agent-readable distilled knowledge
@@ -215,21 +220,33 @@ reports/alignment/        # raw-wiki alignment checks
 reports/coverage/         # source, anchor, and modality coverage
 reports/review/           # unresolved human judgment
 reports/validation/       # short round outcomes
-contracts/                # copied or referenced schema/config contracts
-tools/                    # deterministic validation/checker tools
+tools/                    # deterministic validation/checker access or local helpers
 templates/                # reusable plans, pages, reports, specs
-skills/                   # runtime guides and optional downstream domain skills
 tests/                    # validation for checker tools and downstream artifacts
 ```
 
 The generated workspace contract is what the system should scaffold for users.
 Those directories should not be created at the root of this system repository
-except inside `examples/` or test fixtures.
+except inside `examples/`, test fixtures, or ignored local scratch workspaces.
 
-The first version is copy-first: a developer can copy
-`templates/workspace-kernel/` into a new repository and then work entirely from
-that repository. A future scaffold command may automate the copy and later sync
-kernel updates, but daily use must remain local to the workspace repo.
+The first version is copy-first:
+
+1. Copy the workspace skeleton from `templates/workspace-kernel/` into a new
+   repository.
+2. Copy or synchronize system `skills/` into workspace `skills/`.
+3. Copy or synchronize system `rules/` into workspace `rules/`.
+4. Copy or pin `contracts/schemas/` into workspace `contracts/schemas/`.
+5. Choose checker access:
+   - development tool mode: run this system repo's `llm_wiki_tools` against
+     the workspace path
+   - portable tool mode: install or vendor the checker package into the
+     workspace
+
+A future scaffold command may automate the copy and later sync kernel updates,
+but daily use must remain local to the workspace repo.
+
+The authoritative topology contract is
+`docs/top-level-design/workspace-topology-contract.md`.
 
 ### Layer 2: Source Packet Protocol And Raw-Wiki Alignment Substrate
 
@@ -433,7 +450,8 @@ substrate needed to instantiate generated knowledge workspaces.
 Deliverables:
 
 - canonical directory map
-- workspace-kernel template
+- workspace skeleton template
+- workspace kernel bundle manifest
 - runtime skills and detailed rules outside `docs/`
 - source inventory schema
 - source packet schema
@@ -450,6 +468,8 @@ Validation:
 - the root repository has no live `raw/`, `wiki/`, `reports/`, or `schema.md`
 - root repository docs distinguish system repository files from generated
   workspace files
+- root repository docs distinguish the workspace skeleton from the complete
+  workspace kernel bundle
 
 ### Phase 1.1: Workspace Kernel Closure
 
@@ -466,8 +486,8 @@ Deliverables:
 
 Validation:
 
-- a copied workspace kernel has obvious places for plans, raw inputs, derived
-  packets, wiki pages, reports, and logs
+- a copied workspace skeleton plus kernel bundle has obvious places for plans,
+  raw inputs, derived packets, wiki pages, reports, and logs
 - skills, rules, and templates use the same terms for source inventory, source
   packet, compare gate, lint, review, and distillation round
 - the default kernel preserves source/chapter structure before optional
@@ -667,7 +687,7 @@ Validation:
 ### Phase 6: Validation And Checker Tooling
 
 Goal: implement deterministic and semi-deterministic validation tooling for
-the workspace kernel.
+instantiated knowledge workspaces and copied kernel bundle assets.
 
 The `llm_wiki_tools/` CLI operationalizes source inventory checks, source packet output
 validation, wiki lint, compare report validation, review queue validation, and

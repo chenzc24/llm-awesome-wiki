@@ -132,3 +132,18 @@ When the target is verified:
 - For end-to-end distillation, start from
   `skills/llm-wiki-distill/SKILL.md`, then load only the subskill needed for
   the active stage.
+
+## Repository Topology Boundary
+
+- This repository is the system repo. It owns reusable skills, rules,
+  templates, contracts, checker source, tests, and design records.
+- `templates/workspace-kernel/` is the workspace skeleton, not the complete
+  runtime bundle by itself.
+- A complete workspace kernel bundle is the skeleton plus copied or
+  synchronized `skills/`, `rules/`, `contracts/schemas/`, and checker access.
+- A knowledge workspace repo is an independent Git repo that owns live
+  `raw/`, `wiki/`, `reports/`, `plan/`, `purpose.md`, and `schema.md`.
+- Do not mix system repo asset edits with live knowledge workspace artifact
+  edits in one commit.
+- If a workspace distillation round exposes a missing rule, template, schema,
+  or checker behavior, record it as a separate system repo task.

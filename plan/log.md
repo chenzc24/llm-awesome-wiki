@@ -1372,3 +1372,22 @@
 - Commit: completed on `main` as
   `5fd8ff3 Clarify formula derivation coverage semantics`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-05 - Define workspace topology contract
+
+- Target: close the structural ambiguity between the system repository,
+  workspace skeleton, workspace kernel bundle, and live knowledge workspace
+  repository.
+- Changed areas: added the topology contract and workspace kernel manifest;
+  updated system and workspace entry documents, `llm_wiki_tools` guidance,
+  kernel validation, and the target plan under
+  `plan/users/chenzc24/2026-06-05-workspace-topology-contract/`.
+- Design review: `templates/workspace-kernel/` is now explicitly only the
+  workspace skeleton. A complete kernel bundle also needs `skills/`, `rules/`,
+  `contracts/schemas/`, and checker access. Development tool mode and portable
+  tool mode are both named, with portable mode as the long-term transferable
+  target.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  the new topology language.
+- Commit: pending.

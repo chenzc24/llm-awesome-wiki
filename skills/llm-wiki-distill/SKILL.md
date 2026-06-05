@@ -20,12 +20,17 @@ maintenance and design records for this system repository.
 ## Preflight
 
 1. Run `git status --short --branch`.
-2. Read `AGENTS.md`, `purpose.md`, and `schema.md` when they exist in the
-   active workspace.
-3. Create or update the target plan before editing tracked files. The plan
+2. Identify the active repository:
+   - system repo: reusable skills, rules, templates, contracts, tools, tests,
+     and design records
+   - knowledge workspace repo: live `raw/`, `wiki`, `reports/`, `plan/`,
+     `purpose.md`, and `schema.md`
+3. In a knowledge workspace, read `AGENTS.md`, `purpose.md`, `schema.md`, and
+   `KERNEL-MANIFEST.md` when they exist.
+4. Create or update the target plan before editing tracked files. The plan
    must name the goal, fixed input set, expected outputs, validation, review
    state, and commit intent.
-4. Identify whether this is source intake, wiki construction, quality gate, or
+5. Identify whether this is source intake, wiki construction, quality gate, or
    a multi-stage end-to-end round.
 
 If the workspace is new, do an overview-first initialization before detailed
@@ -61,8 +66,9 @@ to draft semantics before final wiki prose. Accepted wiki knowledge still must
 be grounded to source anchors, evidence, accepted review decisions, or explicit
 review items.
 
-Do not mix generated knowledge updates with system-rule or template edits in
-the same workspace commit unless the plan explicitly selects that scope.
+Do not mix generated knowledge workspace updates with system-rule, skill,
+template, schema, or tool-source edits in the same commit. If the workspace
+round exposes a system asset problem, record it as a separate system repo task.
 
 ## Route Deeper
 

@@ -43,7 +43,8 @@ Do not collapse these into one pass.
 
 The repository has completed the first major system pass:
 
-- Phase 1 defined a copyable workspace kernel.
+- Phase 1 defined a copyable workspace skeleton and the surrounding kernel
+  bundle assets.
 - Phases 2 through 5 defined source packet, evidence/claim, wiki construction,
   compare, review, and closure protocols.
 - Phase 6 implemented the checker-first Python CLI under `llm_wiki_tools/`.
@@ -73,7 +74,7 @@ MinerU/                    # pinned optional extractor reference submodule
 plan/                      # target plans and maintenance logs
 rules/                     # detailed source, wiki, claim, and review rules
 skills/                    # runtime agent entrypoints
-templates/                 # copyable workspace kernel and artifact templates
+templates/                 # copyable workspace skeleton and artifact templates
 tests/                     # fixture and checker validation material
 ```
 
@@ -84,8 +85,9 @@ raw/sources/               # immutable source files
 raw/derived/               # source packets and extracted media
 wiki/                      # maintained source/chapter knowledge pages
 reports/                   # compare, coverage, lint, review, closure outputs
-contracts/                 # copied or referenced schema/config contracts
-skills/                    # runtime guides and optional downstream skills
+contracts/schemas/         # copied or pinned schema/config contracts
+skills/                    # copied or synchronized runtime guides
+rules/                     # copied or synchronized detailed reference rules
 tools/                     # workspace-local helpers if a user chooses to add them
 tests/                     # workspace-specific validation and fixtures
 ```
@@ -93,6 +95,32 @@ tests/                     # workspace-specific validation and fixtures
 Do not create live root-level `raw/`, `wiki/`, `reports/`, or `schema.md` in
 this system repo. Workspace data belongs in generated workspace repos,
 examples, fixtures, or ignored local scratch areas.
+
+## Workspace Topology
+
+The project has four distinct forms:
+
+- **System repo**: this repository. It develops reusable assets.
+- **Workspace skeleton**: `templates/workspace-kernel/`. It creates the
+  starting artifact layout for a new workspace.
+- **Workspace kernel bundle**: the skeleton plus copied or synchronized
+  `skills/`, `rules/`, `contracts/schemas/`, and checker access.
+- **Knowledge workspace repo**: an independent Git repo that owns live
+  `raw/`, `wiki/`, `reports/`, and corpus commits.
+
+`templates/workspace-kernel/` alone is not the complete runtime bundle. A
+portable workspace should know where its skills, rules, contracts, and checker
+tools came from.
+
+Checker access currently supports two modes:
+
+- **Development tool mode**: run this system repo's `llm_wiki_tools` against a
+  workspace path with `--workspace <path>`.
+- **Portable tool mode**: install or vendor the checker package so the
+  workspace can run checks locally.
+
+See `docs/top-level-design/workspace-topology-contract.md` for the full
+contract.
 
 ## Runtime Entrypoints
 
@@ -126,6 +154,8 @@ See `llm_wiki_tools/README.md` for the current command index.
 - `AGENTS.md`: repository working rules for agents.
 - `docs/top-level-design/system-architecture-plan.md`: top-level system
   architecture.
+- `docs/top-level-design/workspace-topology-contract.md`: relationship between
+  the system repo, workspace skeleton, kernel bundle, and knowledge workspace.
 - `docs/core-philosophy.md`: core design principles.
 - `docs/knowledge-to-executable.md`: construction layer vs downstream
   knowledge-to-code layer.
@@ -187,7 +217,7 @@ Good current contributions are narrow and evidence-backed:
 - improve semantic-draft and grounding templates for real document/PPT corpora
 - harden checker behavior in `llm_wiki_tools/`
 - clarify rule language where validators expose ambiguity
-- improve workspace kernel templates
+- improve workspace skeleton and kernel bundle templates
 - document stable knowledge-release criteria
 
 Avoid broad tasks like "build the whole system", "generate all wiki pages", or

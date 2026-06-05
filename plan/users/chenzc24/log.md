@@ -1283,3 +1283,24 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `5fd8ff3 Clarify formula derivation coverage semantics`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-05 - Define workspace topology contract
+
+- Target: clarify how the system repo, workspace skeleton, workspace kernel
+  bundle, and live knowledge workspace repo relate to each other.
+- Changed areas: added
+  `docs/top-level-design/workspace-topology-contract.md` and
+  `templates/workspace-kernel/KERNEL-MANIFEST.md`; updated README, AGENTS,
+  top-level design guidance, workspace skeleton docs, distill skill preflight,
+  `llm_wiki_tools` command guidance, kernel validation, and the target plan
+  under `plan/users/chenzc24/2026-06-05-workspace-topology-contract/`.
+- Design review: the system now distinguishes `templates/workspace-kernel/` as
+  the workspace skeleton, not the complete runtime bundle. A complete kernel
+  bundle is skeleton plus copied or synchronized `skills/`, `rules/`,
+  `contracts/schemas/`, and checker access. Live `raw/`, `wiki/`, and
+  `reports/` belong to independent knowledge workspace repos.
+- Validation: `git diff --check` passed with only Windows line-ending warnings;
+  `python -m llm_wiki_tools validate-kernel` passed; targeted `rg` confirmed
+  `workspace skeleton`, `kernel bundle`, `knowledge workspace repo`,
+  `development tool mode`, `portable tool mode`, and boundary language.
+- Commit: pending.

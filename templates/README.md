@@ -1,12 +1,18 @@
 # Templates
 
-This directory is reserved for reusable workflow templates. Phase 1 introduces
-`workspace-kernel/`, a copy-first substrate for new knowledge workspace
-repositories.
+This directory is reserved for reusable workflow templates. Phase 1 introduced
+`workspace-kernel/`, the copy-first workspace skeleton for new knowledge
+workspace repositories.
+
+The skeleton is not the complete runtime bundle by itself. A complete workspace
+kernel bundle also includes copied or synchronized `skills/`, `rules/`,
+`contracts/schemas/`, and checker access from the system repo. See
+`templates/workspace-kernel/KERNEL-MANIFEST.md`.
 
 ## Planned Template Families
 
-- workspace kernels for new distilled knowledge bases
+- workspace skeletons and kernel bundle manifests for new distilled knowledge
+  bases
 - Agent prompt and instruction templates
 - distillation round plan templates
 - compare gate report templates

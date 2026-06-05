@@ -1,16 +1,21 @@
 # Workspace Agent Rules
 
 This repository is a knowledge workspace generated from the LLM Awesome Wiki
-workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
+workspace skeleton plus a kernel bundle. It is VSCode-native, Git-first, and
+agent-maintained.
 
 ## Before Work
 
 1. Run `git status --short --branch`.
 2. Confirm unrelated changes are not mixed into the current target.
 3. Read `purpose.md`, `schema.md`, and `wiki/index.md` when they exist.
-4. If workspace rules are copied into this repo, start from `rules/README.md`
-   and follow its default golden path before opening specialized rule modules.
-5. Create or update `plan/<date-goal-slug>/plan.md` before editing tracked
+4. Start runtime work from `skills/llm-wiki-distill/SKILL.md` when workspace
+   skills are present.
+5. Use `rules/README.md` as a detailed reference index only when an active
+   skill asks for extra rule detail.
+6. Confirm whether checker access is development tool mode or portable tool
+   mode as described in `KERNEL-MANIFEST.md`.
+7. Create or update `plan/<date-goal-slug>/plan.md` before editing tracked
    files.
 
 ## During Work
@@ -58,3 +63,5 @@ workspace kernel. It is VSCode-native, Git-first, and agent-maintained.
   readability as the default wiki surface.
 - Do not generate downstream skills or tools until the knowledge release is
   stable and explicitly planned.
+- Do not mix system repo asset edits with live workspace artifact edits in one
+  commit.

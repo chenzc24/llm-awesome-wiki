@@ -1,8 +1,12 @@
-# Workspace Kernel
+# Workspace Skeleton
 
-This directory is a copyable kernel for a new knowledge workspace repository.
-Copy its contents into a new repo, open that repo in VSCode, and run the first
-manual document/PPT distillation round from inside the workspace.
+This directory is the copyable skeleton for a new knowledge workspace
+repository. It creates the workspace artifact layout.
+
+It is not the complete kernel bundle by itself. A complete knowledge workspace
+kernel also needs vendored or synchronized `skills/`, `rules/`,
+`contracts/schemas/`, and checker access from the system repo. See
+`KERNEL-MANIFEST.md`.
 
 The default profile is a document/PPT corpus workflow. Preserve source
 structure, keep chapter order readable, and make source coverage auditable.
@@ -18,28 +22,34 @@ items.
 ## First Ten Minutes
 
 1. Read `AGENTS.md`.
-2. If `rules/` has been copied into the workspace, read `rules/README.md` and
-   use the default golden path as the first entrypoint.
-3. Edit `purpose.md` so the workspace has a concrete corpus goal.
-4. Edit `schema.md` only enough to name expected source, chapter, and report
+2. Confirm the kernel bundle state:
+   - `skills/` is copied or synchronized
+   - `rules/` is copied or synchronized
+   - `contracts/schemas/` is copied or pinned
+   - checker access is development tool mode or portable tool mode
+3. Start runtime work from `skills/llm-wiki-distill/SKILL.md`.
+4. Use `rules/README.md` only as the detailed reference index when a skill
+   asks for extra rule detail.
+5. Edit `purpose.md` so the workspace has a concrete corpus goal.
+6. Edit `schema.md` only enough to name expected source, chapter, and report
    conventions.
-5. Copy `plan/first-round-plan.template.md` into
+7. Copy `plan/first-round-plan.template.md` into
    `plan/<date-first-round-slug>/plan.md`.
-6. Put original files under `raw/sources/`.
-7. Copy `raw/source-inventory.template.md` into a round-specific inventory
+8. Put original files under `raw/sources/`.
+9. Copy `raw/source-inventory.template.md` into a round-specific inventory
    file under `raw/derived/` or `reports/inventory/`.
-8. Copy `raw/source-packet.template.md` into
+10. Copy `raw/source-packet.template.md` into
    `raw/derived/<source-id>/source.md` for each processed source.
-9. Copy `reports/claim-evidence-map.template.md` into `reports/review/` when
+11. Copy `reports/claim-evidence-map.template.md` into `reports/review/` when
    the round creates important source-backed claims.
-10. Copy `reports/wiki-construction-analysis.template.md` into `reports/`
+12. Copy `reports/wiki-construction-analysis.template.md` into `reports/`
    before creating or updating wiki pages. Use it for semantic drafting and
    grounding.
-11. Use the wiki templates to create `wiki/overview.md`, source pages, and
+13. Use the wiki templates to create `wiki/overview.md`, source pages, and
    chapter pages.
-12. Copy `reports/first-round-validation-note.template.md` into `reports/` and
+14. Copy `reports/first-round-validation-note.template.md` into `reports/` and
    record what was checked.
-13. Update `wiki/index.md`, `wiki/log.md`, and `plan/log.md`, then commit.
+15. Update `wiki/index.md`, `wiki/log.md`, and `plan/log.md`, then commit.
 
 ## Golden Path
 
@@ -80,6 +90,9 @@ configure purpose/schema
 ## Where Things Go
 
 ```text
+skills/            runtime agent entrypoints copied from the system repo
+rules/             detailed reference rules copied from the system repo
+contracts/schemas/ machine contracts copied or pinned from the system repo
 raw/sources/       original source files
 raw/derived/       inventories, source packets, extracted media
 wiki/sources/      source or deck summary pages
@@ -88,3 +101,6 @@ reports/           construction analysis, validation notes, claim/evidence
                    maps, lint, coverage, compare, review
 plan/              target plans and maintenance log
 ```
+
+Do not edit system repo rules, skills, templates, schemas, or tool source in
+the same commit as live workspace `raw/`, `wiki/`, or `reports/` changes.

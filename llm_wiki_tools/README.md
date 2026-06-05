@@ -41,6 +41,19 @@ python -m llm_wiki_tools wiki-lint \
   --report reports/wiki-lint.md
 ```
 
+## Tool Modes
+
+Checker access has two supported topology modes:
+
+- **Development tool mode**: run `python -m llm_wiki_tools ...` from the system
+  repo and pass `--workspace <knowledge-workspace-path>` when checking a real
+  workspace.
+- **Portable tool mode**: install or vendor the checker package so the
+  knowledge workspace can run `python -m llm_wiki_tools ...` locally.
+
+`validate-kernel` is for the system repo. `workspace-check` and the narrower
+artifact checkers are for an instantiated knowledge workspace or a fixture.
+
 ## Reports And Exit Codes
 
 Every checker writes a Markdown report and exits with:
@@ -56,5 +69,5 @@ These tools validate existing workspace artifacts. They do not run extractors,
 parse raw PDF/PPTX/DOCX/image/table content, generate source packets, generate
 wiki pages, decide semantic truth, or resolve human review.
 
-Workflow semantics live in `rules/`. Historical implementation plans live in
-`docs/phase-plans/`.
+Workflow runtime lives in `skills/`. Detailed reference semantics live in
+`rules/`. Historical implementation plans live in `docs/phase-plans/`.

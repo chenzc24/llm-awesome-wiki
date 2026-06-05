@@ -4,9 +4,10 @@ This file defines how the workspace is structured and how agents should write
 source packets, semantic drafts, grounding notes, claim/evidence maps,
 chapter-oriented wiki pages, reports, and review items.
 
-If workflow rules are copied into the workspace, use `rules/README.md` as the
-entrypoint. It exposes the default golden path first and specialized modules
-only when the round needs them.
+Use `KERNEL-MANIFEST.md` to classify this workspace's runtime bundle. Runtime
+work starts from `skills/llm-wiki-distill/SKILL.md` when skills are copied or
+synchronized into the workspace. `rules/README.md` is the detailed reference
+index, not the default runtime entrypoint.
 
 ## Directory Contract
 
@@ -15,10 +16,22 @@ raw/sources/      immutable source files
 raw/derived/      source packets and extracted media
 wiki/             maintained distilled knowledge
 reports/          claim/evidence maps, lint, compare, coverage, and review outputs
-contracts/        copied or referenced machine contracts
+contracts/        copied or pinned machine contracts
 plan/             target plans and maintenance log
 tools/            workspace-local construction tools
+skills/           runtime agent entrypoints copied or synchronized from system repo
+rules/            detailed reference rules copied or synchronized from system repo
 ```
+
+## Kernel Bundle State
+
+Record the workspace's current kernel state here:
+
+- skills source:
+- rules source:
+- contracts source:
+- checker mode: development tool mode or portable tool mode
+- system repo version or commit:
 
 ## Wiki Page Types
 
