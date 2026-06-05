@@ -1388,4 +1388,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   document-heavy, process-heavy, and indirect for its intended use.
 - Validation: `git diff --check` passed with only Windows line-ending
   warnings; targeted `rg` confirmed README failure notice language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `6201861 Mark repository as failed artifact`; finalized by the follow-up
+  maintenance-status commit.

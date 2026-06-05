@@ -1462,4 +1462,6 @@
   warning readers not to adopt it as an active workflow or product foundation.
 - Validation: `git diff --check` passed with only Windows line-ending
   warnings; targeted `rg` confirmed README failure notice language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `6201861 Mark repository as failed artifact`; finalized by the follow-up
+  maintenance-status commit.
