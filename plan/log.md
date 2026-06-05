@@ -1479,4 +1479,6 @@
 - Validation: `git diff --check` passed with only Windows line-ending
   warnings; targeted `rg` confirmed README status, Agent workflow value, and
   failure-boundary language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `3ec03e4 Clarify README agent workflow value`; finalized by the follow-up
+  maintenance-status commit.
