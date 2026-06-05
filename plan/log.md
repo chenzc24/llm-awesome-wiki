@@ -1451,3 +1451,15 @@
 - Commit: completed on `main` as
   `2d56981 Complete Person A contract validation closure`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-05 - Mark repository as failed artifact
+
+- Target: mark the repository as a failed project in the README.
+- Changed areas: updated the README failure notice and current-status language;
+  added the target plan under
+  `plan/users/chenzc24/2026-06-05-mark-repository-failed/`.
+- Design review: the edit keeps the repository as historical evidence while
+  warning readers not to adopt it as an active workflow or product foundation.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; targeted `rg` confirmed README failure notice language.
+- Commit: pending.

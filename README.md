@@ -1,5 +1,22 @@
 # LLM Awesome Wiki
 
+## Status: Failed Artifact
+
+This repository is marked as a failed project.
+
+Do not adopt it as a recommended workflow, production system, or foundation for
+new knowledge-base work. The repository remains available as an engineering
+record of an attempted VSCode-native, Git-first LLM wiki distillation workflow:
+what was tried, how the boundaries were drawn, what tooling was built, and
+where the design became too heavy for its intended use.
+
+The main failure is product-level, not that every individual idea is useless.
+The system achieved a coherent internal loop, but the resulting repository is
+too document-heavy, process-heavy, and indirect to serve as a clean default
+workflow for real users.
+
+The content below is historical context.
+
 LLM Awesome Wiki is a VSCode-native, Git-first knowledge distillation system
 for humans and agents.
 
@@ -41,7 +58,10 @@ Do not collapse these into one pass.
 
 ## Current Status
 
-The repository has completed the first major system pass:
+This repository is no longer considered an active success path. It is retained
+as a failed system-design record.
+
+Before being marked failed, the repository completed a first major system pass:
 
 - Phase 1 defined a copyable workspace skeleton and the surrounding kernel
   bundle assets.
@@ -56,8 +76,9 @@ The old root `llm-wiki.md` concept note has been archived at
 `docs/archive/llm-wiki.md`. It is background material, not the current runtime
 entrypoint.
 
-Phase 7, downstream knowledge-to-`skill + tool`, is not active until the
-knowledge-construction loop is proven on real workspace fixtures.
+Phase 7, downstream knowledge-to-`skill + tool`, was not started. The project
+should not be extended in its current form without a redesign that removes
+process weight and proves a simpler real-user path first.
 
 ## Repository Layout
 

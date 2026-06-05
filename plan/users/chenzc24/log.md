@@ -1376,3 +1376,16 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `2d56981 Complete Person A contract validation closure`; finalized by the
   follow-up maintenance-status commit.
+
+## 2026-06-05 - Mark repository as failed artifact
+
+- Target: update the top-level README so future readers treat this repository
+  as a failed project record rather than an active recommended workflow.
+- Changed areas: updated `README.md`; added the target plan under
+  `plan/users/chenzc24/2026-06-05-mark-repository-failed/`.
+- Design review: this is a minimal status change. Existing design history is
+  preserved, but the README now states that the repository is too
+  document-heavy, process-heavy, and indirect for its intended use.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; targeted `rg` confirmed README failure notice language.
+- Commit: pending.
