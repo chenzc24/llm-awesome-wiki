@@ -1330,4 +1330,6 @@ Repository-wide merged or integration-level maintenance history belongs in
   tests/fixtures/phase6` passed; `python -m llm_wiki_tools workspace-check
   --workspace . --mode fixtures` passed; targeted `rg` confirmed Person A
   closure and no-harness boundary language.
-- Commit: pending.
+- Commit: completed on `main` as
+  `2d56981 Complete Person A contract validation closure`; finalized by the
+  follow-up maintenance-status commit.

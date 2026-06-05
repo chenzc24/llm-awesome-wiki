@@ -1411,4 +1411,6 @@
 - Validation: `git diff --check`, `validate-kernel`, `schema-check`,
   `fixture-runner`, `workspace-check --mode fixtures`, and targeted `rg`
   passed. Generated smoke reports and Python caches were removed.
-- Commit: pending.
+- Commit: completed on `main` as
+  `2d56981 Complete Person A contract validation closure`; finalized by the
+  follow-up maintenance-status commit.
