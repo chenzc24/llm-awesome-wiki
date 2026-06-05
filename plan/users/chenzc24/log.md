@@ -5,6 +5,27 @@ This log records personal task outcomes for `chenzc24`.
 Repository-wide merged or integration-level maintenance history belongs in
 `plan/log.md`.
 
+## 2026-06-05 - ADCtoolbox ch1-ch10 density remediation
+
+- Target: fix the shallow-summary failure in the first ch1-ch10 local
+  workspace distillation after user review reported that most information was
+  omitted.
+- Changed areas: regenerated ignored local workspace chapter pages as
+  high-density slide-level notes covering 547 page anchors; updated local
+  overview, construction analysis, compare report, review queue, validation
+  note, wiki log, workspace log, checker reports, and the target plan under
+  `plan/users/chenzc24/2026-06-05-adctoolbox-ch1-ch10-density-remediation/`.
+- Design review: the wiki layer now preserves extracted lesson text directly
+  on each chapter page instead of relying on source packets plus compressed
+  summaries. Closure remains `close-with-review` because visual/equation,
+  circuit, layout, and measured-plot authority is still unresolved.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill --mode all --report
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill/.checks/workspace-check-all.md`
+  passed.
+- Commit: planned as local-workspace maintenance; local workspace artifacts are
+  ignored, so only tracked planning/log files are commit candidates.
+
 ## 2026-06-05 - ADCtoolbox ch1-ch10 local workspace distillation
 
 - Target: create a fresh ignored local knowledge workspace for ADCtoolbox ADC

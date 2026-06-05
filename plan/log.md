@@ -1,5 +1,24 @@
 # Maintenance Log
 
+## 2026-06-05 - ADCtoolbox ch1-ch10 density remediation
+
+- Target: remediate the first ch1-ch10 local workspace distillation after user
+  review found that the wiki layer omitted most slide-level information.
+- Changed areas: regenerated ignored local workspace chapter pages under
+  `workspace/local/adctoolbox-adc-basic-ch1-ch10-distill/wiki/chapters/` as
+  high-density slide-level notes; updated local overview, construction
+  analysis, compare report, review queue, validation note, wiki log, workspace
+  log, and checker reports; added the remediation target plan under
+  `plan/users/chenzc24/2026-06-05-adctoolbox-ch1-ch10-density-remediation/`;
+  updated `plan/users/chenzc24/log.md`.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill --mode all --report
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill/.checks/workspace-check-all.md`
+  passed. Schema, source inventory, source packet, wiki lint, report, closure,
+  and fixture checks passed.
+- Commit status: ready to commit tracked maintenance files; regenerated
+  workspace artifacts remain intentionally ignored local output.
+
 ## 2026-06-05 - ADCtoolbox ch1-ch10 local workspace distillation
 
 - Target: create a fresh ignored local knowledge workspace for ADCtoolbox ADC
