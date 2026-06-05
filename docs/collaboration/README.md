@@ -17,6 +17,9 @@ Current guides:
 - `person-b-workflow-closure-review.md`: closure review confirming that Person
   B source packet profile and wiki construction workflow surfaces are ready for
   Person A fixture and validator hardening.
+- `person-a-implementation-closure-review.md`: closure review confirming that
+  Person A contracts, checkers, and representative fixtures are complete as the
+  current validation substrate before Phase 7.
 - `skill-runtime-vs-workflow-rules-review.md`: parity review confirming that
   workflow runtime moved from `rules/workflow/**` into `skills/**`, with old
   workflow-rule entrypoints removed after review.

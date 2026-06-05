@@ -1393,3 +1393,22 @@
 - Commit: completed on `main` as
   `43b83da Define workspace topology contract`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-05 - Complete Person A contract validation closure
+
+- Target: close the current Person A contract, validator, and fixture surface
+  as the compact validation substrate before Phase 7.
+- Changed areas: added the Person A implementation closure review; hardened
+  source packet profile checks and round closure construction-evidence checks;
+  extended the fixture runner to execute source validators; added representative
+  PPTX/PDF packet fixtures and a missing construction-analysis closure fixture;
+  updated testing/tool documentation.
+- Design review: this keeps the layer count small. No new schema family was
+  added; existing source packet metadata, validation notes, compare/review
+  reports, index, log, and fixture-runner evidence are enough for the current
+  Person A closure. The tooling validates artifacts rather than becoming an
+  extractor harness or wiki generator.
+- Validation: `git diff --check`, `validate-kernel`, `schema-check`,
+  `fixture-runner`, `workspace-check --mode fixtures`, and targeted `rg`
+  passed. Generated smoke reports and Python caches were removed.
+- Commit: pending.

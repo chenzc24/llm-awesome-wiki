@@ -1306,3 +1306,28 @@ Repository-wide merged or integration-level maintenance history belongs in
 - Commit: completed on `main` as
   `43b83da Define workspace topology contract`; finalized by the follow-up
   maintenance-status commit.
+
+## 2026-06-05 - Complete Person A contract validation closure
+
+- Target: close the current Person A workstream for concise machine-checkable
+  contracts, validators, and representative fixtures before Phase 7.
+- Changed areas: added
+  `docs/collaboration/person-a-implementation-closure-review.md`; hardened
+  `llm_wiki_tools` source packet and round closure checks; extended
+  `fixture-runner` to run source validators; added PPTX/PDF source packet
+  profile fixtures and a construction-analysis closure failure fixture; updated
+  testing and tool README notes; added the target plan under
+  `plan/users/chenzc24/2026-06-05-person-a-contract-validation-closure/`.
+- Design review: no new schema family was added. Person A closure reuses the
+  existing compact contract set, source packet metadata, validation-note
+  fields, reports, index, and log surfaces. The tools remain checker-only:
+  they validate external packet/wiki/report outputs and do not run extractors
+  or generate wiki prose.
+- Validation: `git diff --check` passed with only Windows line-ending
+  warnings; `python -m llm_wiki_tools validate-kernel` passed;
+  `python -m llm_wiki_tools schema-check --workspace .` passed;
+  `python -m llm_wiki_tools fixture-runner --fixture-root
+  tests/fixtures/phase6` passed; `python -m llm_wiki_tools workspace-check
+  --workspace . --mode fixtures` passed; targeted `rg` confirmed Person A
+  closure and no-harness boundary language.
+- Commit: pending.

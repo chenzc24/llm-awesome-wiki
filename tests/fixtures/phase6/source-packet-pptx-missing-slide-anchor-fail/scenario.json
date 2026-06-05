@@ -1,0 +1,7 @@
+{
+  "name": "source-packet-pptx-missing-slide-anchor-fail",
+  "description": "source-packet-lint should fail a PPTX packet that lacks slide-level anchors such as s001.",
+  "tool": "source-packet-lint",
+  "expected_exit_code": 1,
+  "expected_status": "fail"
+}

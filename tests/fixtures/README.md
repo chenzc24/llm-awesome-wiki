@@ -25,3 +25,13 @@ Each scenario contains:
 The fixture runner copies `workspace/` to a temporary directory, runs the
 configured checker, and compares actual exit code and report status against the
 scenario expectations.
+
+Current fixture scenarios cover:
+
+- `source-packet-lint` profile validation for PDF/PPTX packets
+- `wiki-lint` navigation failure behavior
+- `report-check` pass, fail, and needs-review report surfaces
+- `round-closure-check` close-pass and construction-analysis failure behavior
+
+Fixture workspaces should remain small and inspectable. Use them to prove
+checker behavior, not to store active knowledge bases or raw binary corpora.

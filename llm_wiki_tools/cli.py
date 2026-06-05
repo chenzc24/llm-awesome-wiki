@@ -801,6 +801,21 @@ def cmd_source_packet_lint(args: argparse.Namespace) -> int:
     next_actions: list[str] = []
     valid_statuses = {"complete", "partial", "failed", "manual-review"}
     valid_hash_states = {"pending", "not-hashable", "manifest"}
+    pdf_kinds = {"pdf", "document-pdf"}
+    pptx_kinds = {"ppt", "pptx", "powerpoint", "slide-deck", "deck"}
+    generated_content_kinds = {
+        "ocr_text",
+        "image_caption",
+        "chart_summary",
+        "table_repair",
+        "formula_recognition",
+        "inferred_reading_order",
+        "visual_description",
+        "agent_extraction_note",
+        "normalized_value",
+        "inferred_heading",
+        "cross_file_summary",
+    }
     required_metadata = [
         "type",
         "source_id",
@@ -890,6 +905,8 @@ def cmd_source_packet_lint(args: argparse.Namespace) -> int:
         generated_fields = to_list(metadata.get("generated_fields"))
         derived_artifacts = to_list(metadata.get("derived_artifacts"))
         modalities = to_list(metadata.get("modalities"))
+        source_kind_norm = normalize_enum(source_kind).replace(" ", "-")
+        generated_fields_norm = {normalize_enum(field).replace("-", "_") for field in generated_fields}
 
         if empty_value(source_id):
             failures.append(f"{packet_label}: source_id is blank or placeholder.")
@@ -920,6 +937,7 @@ def cmd_source_packet_lint(args: argparse.Namespace) -> int:
 
         lines = source_path.read_text(encoding="utf-8").splitlines()
         anchor_table = next((table for table in read_markdown_tables(lines) if "anchor_id" in table["headers"]), None)
+        anchor_ids: list[str] = []
         if anchor_table is None:
             if extraction_status in {"complete", "partial"}:
                 failures.append(f"{packet_label}: complete or partial packet must contain an anchor table.")
@@ -939,16 +957,34 @@ def cmd_source_packet_lint(args: argparse.Namespace) -> int:
                     failures.append(f"{packet_label}: duplicate anchor_id '{anchor_id}' on line {line}; first seen on line {seen_anchors[anchor_id]}.")
                 else:
                     seen_anchors[anchor_id] = line
+                    anchor_ids.append(anchor_id)
                 if re.search(r"\s|#|\\", anchor_id):
                     review_findings.append(f"{packet_label}: anchor_id '{anchor_id}' should be citation-safe.")
+                content_kind = normalize_enum(get_cell(anchor, "content_kind")).replace("-", "_")
                 generated = review_flag(get_cell(anchor, "generated")) if "generated" in anchor else False
                 anchor_review = review_flag(get_cell(anchor, "review_required")) if "review_required" in anchor else False
+                if content_kind in generated_content_kinds and generated is not True:
+                    failures.append(
+                        f"{packet_label}: generated content kind '{content_kind}' on anchor '{anchor_id}' must set generated true."
+                    )
+                if content_kind in generated_content_kinds and content_kind not in generated_fields_norm:
+                    failures.append(
+                        f"{packet_label}: generated content kind '{content_kind}' on anchor '{anchor_id}' must be listed in generated_fields."
+                    )
                 if generated is True and not generated_fields:
-                    review_findings.append(f"{packet_label}: generated anchor '{anchor_id}' exists but generated_fields is empty.")
+                    failures.append(f"{packet_label}: generated anchor '{anchor_id}' exists but generated_fields is empty.")
                 if generated is True and anchor_review is not True:
                     review_findings.append(f"{packet_label}: generated anchor '{anchor_id}' should require review unless already justified elsewhere.")
             if not anchor_table["rows"] and extraction_status in {"complete", "partial"}:
                 failures.append(f"{packet_label}: complete or partial packet has no anchors.")
+
+            if source_kind_norm in pptx_kinds and extraction_status in {"complete", "partial"}:
+                if not any(re.fullmatch(r"s\d{3,}", anchor_id) for anchor_id in anchor_ids):
+                    failures.append(f"{packet_label}: PPTX packets must include slide-level anchors such as s001.")
+            if source_kind_norm in pdf_kinds and extraction_status in {"complete", "partial"}:
+                has_page_anchor = any(re.fullmatch(r"p\d{3,}", anchor_id) for anchor_id in anchor_ids)
+                if not has_page_anchor and not known_gaps:
+                    failures.append(f"{packet_label}: PDF packets must include page-level anchors such as p001 or explicit known_gaps.")
 
         if extraction_status in {"partial", "failed", "manual-review"}:
             if not known_gaps:
@@ -1828,6 +1864,11 @@ def cmd_round_closure_check(args: argparse.Namespace) -> int:
             index_supports = get_field_value(content, "Index status supports closure")
             overview_supports = get_field_value(content, "Overview status supports closure")
             log_supports = get_field_value(content, "Wiki log status supports closure")
+            semantic_draft_reviewed = get_field_value(content, "Semantic draft reviewed")
+            grounding_pass_reviewed = get_field_value(content, "Grounding pass reviewed")
+            construction_analysis_reviewed = get_field_value(content, "Wiki construction analysis reviewed")
+            routing_recorded = get_field_value(content, "Page routing decisions recorded")
+            page_decisions_recorded = get_field_value(content, "Page create/update/merge decisions recorded")
             blocking_review = get_field_value(content, "Blocking review items")
             blocking_carried = get_field_value(content, "Blocking carried-forward review")
             nonblocking_carried = get_field_value(content, "Nonblocking carried-forward review")
@@ -1852,6 +1893,16 @@ def cmd_round_closure_check(args: argparse.Namespace) -> int:
                 failures.append(f"{label}: referenced compare report does not exist: {compare_report}")
             if not recorded_path_exists(workspace, review_queue):
                 failures.append(f"{label}: referenced review queue does not exist: {review_queue}")
+            if closure in {"close-pass", "close-with-review"}:
+                for field, value in [
+                    ("Semantic draft reviewed", semantic_draft_reviewed),
+                    ("Grounding pass reviewed", grounding_pass_reviewed),
+                    ("Wiki construction analysis reviewed", construction_analysis_reviewed),
+                    ("Page routing decisions recorded", routing_recorded),
+                    ("Page create/update/merge decisions recorded", page_decisions_recorded),
+                ]:
+                    if not is_yes(value):
+                        failures.append(f"{label}: {closure} requires '{field}' to be yes.")
 
             if closure == "close-pass":
                 if status != "pass":
@@ -1988,6 +2039,8 @@ def cmd_fixture_runner(args: argparse.Namespace) -> int:
     temp_root.mkdir(parents=True, exist_ok=True)
     scenarios_run = 0
     tool_commands = {
+        "source-inventory-check": cmd_source_inventory_check,
+        "source-packet-lint": cmd_source_packet_lint,
         "wiki-lint": cmd_wiki_lint,
         "report-check": cmd_report_check,
         "round-closure-check": cmd_round_closure_check,
@@ -2026,6 +2079,20 @@ def cmd_fixture_runner(args: argparse.Namespace) -> int:
                         failures.append(f"{name}: workspace-check scenarios must set mode.")
                         continue
                     child_args = argparse.Namespace(workspace=str(scenario_temp), mode=mode, report=str(scenario_report))
+                elif tool == "source-inventory-check":
+                    child_args = argparse.Namespace(
+                        workspace=str(scenario_temp),
+                        inventory=str(scenario.get("inventory", "raw/source-inventory.md")),
+                        raw_dir=str(scenario.get("raw_dir", "raw/sources")),
+                        report=str(scenario_report),
+                    )
+                elif tool == "source-packet-lint":
+                    child_args = argparse.Namespace(
+                        workspace=str(scenario_temp),
+                        inventory=str(scenario.get("inventory", "raw/source-inventory.md")),
+                        packet=str(scenario.get("packet", "")),
+                        report=str(scenario_report),
+                    )
                 elif tool == "wiki-lint":
                     child_args = argparse.Namespace(workspace=str(scenario_temp), wiki_dir="wiki", report=str(scenario_report))
                 elif tool == "report-check":

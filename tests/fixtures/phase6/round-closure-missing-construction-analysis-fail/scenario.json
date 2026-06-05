@@ -1,0 +1,7 @@
+{
+  "name": "round-closure-missing-construction-analysis-fail",
+  "description": "round-closure-check should fail close-pass when semantic draft, grounding, and wiki construction analysis checks are missing.",
+  "tool": "round-closure-check",
+  "expected_exit_code": 1,
+  "expected_status": "fail"
+}

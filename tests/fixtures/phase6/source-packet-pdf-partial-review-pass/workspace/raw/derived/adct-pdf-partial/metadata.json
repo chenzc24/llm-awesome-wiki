@@ -1,0 +1,19 @@
+{
+  "type": "source-packet",
+  "source_id": "adct-pdf-partial",
+  "raw_path": "raw/sources/adct-ch1.pdf",
+  "raw_sha256": "pending",
+  "source_kind": "pdf",
+  "inventory_status_at_extraction": "processed",
+  "extraction_backend": "fixture",
+  "extraction_method": "manual-packet-fixture",
+  "extraction_version": "2026-06-05",
+  "extraction_status": "partial",
+  "modalities": ["text", "image"],
+  "generated_fields": [],
+  "known_gaps": ["p002 scanned chart requires visual review before claim use"],
+  "review_required": true,
+  "review_reason": "Page p002 contains visual material that the packet did not interpret.",
+  "derived_artifacts": ["media/page-001-render.txt"],
+  "anchors": []
+}

@@ -1,0 +1,19 @@
+{
+  "type": "source-packet",
+  "source_id": "adct-pptx-valid",
+  "raw_path": "raw/sources/adct-ch1.pptx",
+  "raw_sha256": "pending",
+  "source_kind": "pptx",
+  "inventory_status_at_extraction": "processed",
+  "extraction_backend": "fixture",
+  "extraction_method": "manual-packet-fixture",
+  "extraction_version": "2026-06-05",
+  "extraction_status": "complete",
+  "modalities": ["text", "image"],
+  "generated_fields": ["chart_summary"],
+  "known_gaps": [],
+  "review_required": true,
+  "review_reason": "Chart interpretation is generated and must remain visible to review before claim use.",
+  "derived_artifacts": ["media/slide-001-render.txt"],
+  "anchors": []
+}

@@ -1,0 +1,7 @@
+{
+  "name": "source-packet-pptx-valid-pass",
+  "description": "source-packet-lint should pass a PPTX packet with slide anchors and marked generated chart interpretation.",
+  "tool": "source-packet-lint",
+  "expected_exit_code": 0,
+  "expected_status": "pass"
+}

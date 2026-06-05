@@ -1,0 +1,7 @@
+{
+  "name": "source-packet-pdf-partial-review-pass",
+  "description": "source-packet-lint should pass a partial PDF packet when page anchors, known gaps, and review routing are explicit.",
+  "tool": "source-packet-lint",
+  "expected_exit_code": 0,
+  "expected_status": "pass"
+}

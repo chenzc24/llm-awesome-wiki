@@ -1,0 +1,19 @@
+{
+  "type": "source-packet",
+  "source_id": "adct-pptx-no-slide-anchor",
+  "raw_path": "raw/sources/adct-ch1.pptx",
+  "raw_sha256": "pending",
+  "source_kind": "pptx",
+  "inventory_status_at_extraction": "processed",
+  "extraction_backend": "fixture",
+  "extraction_method": "manual-packet-fixture",
+  "extraction_version": "2026-06-05",
+  "extraction_status": "complete",
+  "modalities": ["text"],
+  "generated_fields": [],
+  "known_gaps": [],
+  "review_required": false,
+  "review_reason": "",
+  "derived_artifacts": [],
+  "anchors": []
+}

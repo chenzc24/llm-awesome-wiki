@@ -69,5 +69,9 @@ These tools validate existing workspace artifacts. They do not run extractors,
 parse raw PDF/PPTX/DOCX/image/table content, generate source packets, generate
 wiki pages, decide semantic truth, or resolve human review.
 
+The fixture runner may execute source, wiki, report, closure, or workspace
+checkers against small copied workspaces. Fixture scenarios represent already
+produced artifacts; they are not extractor tests.
+
 Workflow runtime lives in `skills/`. Detailed reference semantics live in
 `rules/`. Historical implementation plans live in `docs/phase-plans/`.

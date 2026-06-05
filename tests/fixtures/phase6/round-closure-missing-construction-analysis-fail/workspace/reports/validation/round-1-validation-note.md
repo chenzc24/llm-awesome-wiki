@@ -3,17 +3,12 @@
 ## Round
 
 - Plan: plan/round-1.md
-- Date: 2026-06-04
+- Date: 2026-06-05
 - Status: pass
 - Closure decision: close-pass
 
 ## Checks Performed
 
-- Semantic draft reviewed: yes
-- Grounding pass reviewed: yes
-- Wiki construction analysis reviewed: yes
-- Page routing decisions recorded: yes
-- Page create/update/merge decisions recorded: yes
 - Compare report reviewed: yes
 - Review queue reviewed: yes
 - Closure packet recorded: yes
@@ -25,15 +20,15 @@
 
 ## Round Closure
 
-- Review queue: reports/review/review-queue.md
+- Review queue: none
 - Closure decision: close-pass
-- Closure packet: validation note plus compare and review reports
+- Closure packet: validation note plus compare report
 - Round can close: yes
 - Round can advance normally: yes
 - Round can advance with review: no
-- Reason: all closure checks passed
+- Reason: intentionally missing construction-analysis checks
 - Required fixes before closure: none
-- Next round or next action: proceed to closure review
+- Next round or next action: should fail validation
 - Compare report status supports closure: yes
 - Review queue status supports closure: yes
 - Index status supports closure: yes
@@ -49,4 +44,4 @@
 
 ## Result
 
-Round can close with close-pass.
+This intentionally invalid fixture should not close.

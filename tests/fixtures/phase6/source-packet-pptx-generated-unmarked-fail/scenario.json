@@ -1,0 +1,7 @@
+{
+  "name": "source-packet-pptx-generated-unmarked-fail",
+  "description": "source-packet-lint should fail generated visual interpretation that is not marked in generated_fields and anchor flags.",
+  "tool": "source-packet-lint",
+  "expected_exit_code": 1,
+  "expected_status": "fail"
+}

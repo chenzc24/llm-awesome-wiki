@@ -53,3 +53,13 @@ python -m llm_wiki_tools fixture-runner \
   --fixture-root tests/fixtures/phase6 \
   --report fixture-runner-report.md
 ```
+
+Current Phase 6 fixtures include:
+
+- source packet profile checks for PPTX and PDF packet outputs
+- wiki lint navigation failures
+- compare/report pass, fail, and needs-review surfaces
+- round closure pass and construction-analysis failure surfaces
+
+These fixtures intentionally validate already-produced artifacts. They do not
+run extractors, parse raw documents, or generate wiki pages.
