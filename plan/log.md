@@ -1,5 +1,23 @@
 # Maintenance Log
 
+## 2026-06-05 - ADCtoolbox ch1-ch10 local workspace distillation
+
+- Target: create a fresh ignored local knowledge workspace for ADCtoolbox ADC
+  basic course PDFs ch1 through ch10 using the current skill-driven
+  source-packet, wiki-round, and quality-gate workflow.
+- Changed areas: generated local workspace outputs under
+  `workspace/local/adctoolbox-adc-basic-ch1-ch10-distill/`; added the target
+  plan under
+  `plan/users/chenzc24/2026-06-05-adctoolbox-ch1-ch10-workspace-distill/`;
+  updated `plan/users/chenzc24/log.md`.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill --mode all --report
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill/.checks/workspace-check-all.md`
+  passed. Schema, source inventory, source packet, wiki lint, report, closure,
+  and fixture checks passed.
+- Commit status: ready to commit tracked maintenance files; generated
+  workspace artifacts are intentionally ignored local output.
+
 ## 2026-06-05 - ADCtoolbox ch4 local PDF redistill
 
 - Target: redistill the local ADCtoolbox ch4 PDF workspace using the current

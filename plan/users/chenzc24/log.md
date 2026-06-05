@@ -5,6 +5,28 @@ This log records personal task outcomes for `chenzc24`.
 Repository-wide merged or integration-level maintenance history belongs in
 `plan/log.md`.
 
+## 2026-06-05 - ADCtoolbox ch1-ch10 local workspace distillation
+
+- Target: create a fresh ignored local knowledge workspace for ADCtoolbox ADC
+  basic course PDFs ch1 through ch10 and run an overview-first first
+  distillation round.
+- Changed areas: local workspace outputs under
+  `workspace/local/adctoolbox-adc-basic-ch1-ch10-distill/`, including raw
+  source copies, source inventory, source packets, source/chapter wiki pages,
+  construction analysis, compare report, review queue, validation note, and
+  checker reports; target plan under
+  `plan/users/chenzc24/2026-06-05-adctoolbox-ch1-ch10-workspace-distill/`.
+- Design review: the round covers 547 PDF page anchors across ch1-ch10 and
+  closes as text-derived `close-with-review`; visual/equation/circuit/layout
+  authority is carried forward as nonblocking review before final engineering
+  or executable-spec use.
+- Validation: `python -m llm_wiki_tools workspace-check --workspace
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill --mode all --report
+  workspace/local/adctoolbox-adc-basic-ch1-ch10-distill/.checks/workspace-check-all.md`
+  passed.
+- Commit: planned as local-workspace maintenance; local workspace artifacts are
+  ignored, so only tracked planning/log files are commit candidates.
+
 ## 2026-06-05 - ADCtoolbox ch4 local PDF redistill
 
 - Target: redistill
